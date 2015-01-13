@@ -49,4 +49,16 @@ switch($opcao){
         
         $objUsuarioDao->delUsuario($objUsuario);
     break;
+
+    case 'logar':
+        $usuario = $_POST['usuario'];
+        $senha = $_POST['senha'];
+        
+        $objUsuario->setUsuario($usuario);
+        $objUsuario->setSenha($senha);
+        
+        $retorno = $objUsuarioDao->verificaLogin($objUsuario);
+        
+        print_r($retorno['idUsuario']);
+    break;
 }

@@ -56,7 +56,7 @@ class UsuariosDAO extends Banco {
     public function altUsuario($objUsuario) {
         $conexao = $this->abreConexao();
 
-        echo $sql = "UPDATE " . TBL_USUARIOS . " SET
+        $sql = "UPDATE " . TBL_USUARIOS . " SET
                nome = '" . $objUsuario->getNome() . "',
                email = '" . $objUsuario->getEmail() . "',
                usuario = '" . $objUsuario->getUsuario() . "',
@@ -74,11 +74,37 @@ class UsuariosDAO extends Banco {
     public function delUsuario($objUsuario) {
         $conexao = $this->abreConexao();
 
-        echo $sql = "DELETE FROM " . TBL_USUARIOS . " WHERE idUsuario = " . $objUsuario->getIdUsuario();
+        $sql = "DELETE FROM " . TBL_USUARIOS . " WHERE idUsuario = " . $objUsuario->getIdUsuario();
 
         $conexao->query($sql);
 
         $this->fechaConexao();
+    }
+    
+    public function verificaLogin($objUsuario){
+        
+        $conexao = $this->abreConexao();
+
+        $sql = "SELECT idUsuario
+                FROM " . TBL_USUARIOS . "
+                    WHERE usuario = '" .$objUsuario->getUsuario()."'
+                    AND senha = '".$objUsuario->getSenha()."'";
+
+        $banco = $conexao->query($sql);
+        
+        $numLinha = $banco->num_rows;
+        
+        if($numLinha == 0){
+            $resposta = 0;
+        }else{
+            $linha = $banco->fetch_assoc();
+            $resposta = $linha;
+        }
+        
+        return $resposta;
+
+        $this->fechaConexao();
+        
     }
 
 }

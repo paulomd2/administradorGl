@@ -6,11 +6,16 @@ $.validaEmail = function (email) {
         return false;
 }
 
-function delUsuario(id){
-    if(confirm('Você tem certeza que deseja excluir esse usuário?')){
-        $.post('control/controleUsuario.php',{opcao:'deletar', idUsuario:id});
+function delUsuario(id) {
+    if (confirm('Você tem certeza que deseja excluir esse usuário?')) {
+        $.post('control/controleUsuario.php', {opcao: 'deletar', idUsuario: id});
         $("#listaUsuarios").load("listaUsuariosAjax.php");
     }
+}
+
+
+function deslogar() {
+    localStorage.idUsuario = '';
 }
 
 $(document).ready(function () {
@@ -55,10 +60,10 @@ $(document).ready(function () {
         var usuario = $("#usuario").val().trim();
         var nivel = $("#nivel").val();
         var idUsuario = $("#idUsuario").val();
-        
-        if(senhaDigitada == ''){
+
+        if (senhaDigitada == '') {
             senha = senhaAntiga;
-        }else{
+        } else {
             senha = senhaDigitada;
         }
 
@@ -79,8 +84,33 @@ $(document).ready(function () {
             $("#nivel").focus();
             $("#spanNivel").html('Você deve preencher o Nível!');
         } else {
-            $.post('control/controleUsuario.php', {opcao: 'alterar', idUsuario:idUsuario, usuario:usuario, nome: nome, email: email, senha: senha, nivel: nivel});
+            $.post('control/controleUsuario.php', {opcao: 'alterar', idUsuario: idUsuario, usuario: usuario, nome: nome, email: email, senha: senha, nivel: nivel});
             window.location = 'verUsuarios.php';
         }
-    });    
+    });
+
+    $("#btnLogar").click(function () {
+        var usuario = $("#usuario").val().trim();
+        var senha = $("#senha").val().trim();
+
+        $(".erro").html('');
+        if (usuario == '') {
+            $("#usuario").focus();
+            $("#spanUsuario").html('Você deve preencher o Usuário!');
+        } else if (senha == '') {
+            $("#senha").focus();
+            $("#spanSenha").html('Você deve preencher a Senha!');
+        } else {
+            $.post('usuarios/control/controleUsuario.php', {opcao: 'logar', usuario: usuario, senha: senha},
+            function (retorno) {
+                if (retorno == 0) {
+                    $("#senha").val('');
+                    $("#senha").focus();
+                    $("#spanSenha").html('Usuário ou senha incorretos, tente novamente!');
+                } else {
+                    localStorage.idUsuario = retorno;
+                }
+            });
+        }
+    });
 });
