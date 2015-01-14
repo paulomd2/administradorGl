@@ -13,3 +13,4 @@ define("TBL_ADMIN","");
 //Constantes de Tabela
 //Tabelas ADMIN
 define("TBL_USUARIOS",DB_ADMIN.TBL_ADMIN."usuarios ");
+define("TBL_NOTICIAS",DB_ADMIN.TBL_ADMIN."noticias ");

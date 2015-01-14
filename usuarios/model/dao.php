@@ -27,7 +27,8 @@ class UsuariosDAO extends Banco {
         $sql = "SELECT idUsuario, nome, nivel, DATE_FORMAT(dataCriacao, '%d/%m/%Y %H:%I:%s') as dataCriacao, email, usuario,
                 CASE nivel WHEN 1 THEN 'Administrador' ELSE 'Editor' END AS nivel,
                 CASE status WHEN 0 THEN 'Inativo' ELSE 'Ativo' END AS status
-                    FROM " . TBL_USUARIOS;
+                    FROM " . TBL_USUARIOS."
+                        WHERE status = 1";
 
         $banco = $conexao->query($sql);
 

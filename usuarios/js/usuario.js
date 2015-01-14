@@ -13,7 +13,6 @@ function delUsuario(id) {
     }
 }
 
-
 function deslogar() {
     localStorage.idUsuario = '';
 }
