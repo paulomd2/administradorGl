@@ -43,7 +43,9 @@ class NoticiasDAO extends Banco {
     public function delNoticia($objNoticia) {
         $conexao = $this->abreConexao();
 
-        $sql = "DELETE FROM " . TBL_NOTICIAS . " WHERE idNoticia = " . $objNoticia->getIdNoticia();
+        $sql = "UPDATE " . TBL_NOTICIAS . " 
+                SET status = 0
+                WHERE idNoticia = " . $objNoticia->getIdNoticia();
 
         $conexao->query($sql);
 

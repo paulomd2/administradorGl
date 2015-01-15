@@ -75,7 +75,9 @@ class UsuariosDAO extends Banco {
     public function delUsuario($objUsuario) {
         $conexao = $this->abreConexao();
 
-        $sql = "DELETE FROM " . TBL_USUARIOS . " WHERE idUsuario = " . $objUsuario->getIdUsuario();
+        $sql = "UPDATE " . TBL_USUARIOS . "
+                SET status = 0
+                WHERE idUsuario = " . $objUsuario->getIdUsuario();
 
         $conexao->query($sql);
 
