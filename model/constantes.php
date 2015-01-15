@@ -14,3 +14,4 @@ define("TBL_ADMIN","");
 //Tabelas ADMIN
 define("TBL_USUARIOS",DB_ADMIN.TBL_ADMIN."usuarios ");
 define("TBL_NOTICIAS",DB_ADMIN.TBL_ADMIN."noticias ");
+define("TBL_EVENTOS",DB_ADMIN.TBL_ADMIN."eventos ");
