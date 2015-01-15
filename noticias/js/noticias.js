@@ -23,7 +23,7 @@ $(document).ready(function () {
         var texto = $("#texto").val().trim();
         var mercado = $("#mercado").val();
 
-        $(".erro").val('');
+        $(".erro").html('');
         if (titulo == '') {
             $("#titulo").focus();
             $("#spanTitulo").html('Você deve preencher o Título!');
@@ -53,7 +53,7 @@ $(document).ready(function () {
         var texto = $("#texto").val().trim();
         var idNoticia = $("#idNoticia").val();
 
-        $(".erro").val('');
+        $(".erro").html('');
         if (titulo == '') {
             $("#titulo").focus();
             $("#spanTitulo").html('Você deve preencher o Título!');

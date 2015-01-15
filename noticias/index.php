@@ -12,7 +12,6 @@ setcookie("ck_authorized", "true", 0, "/");
         <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
         <script type="text/javascript" src="js/noticias.js"></script>
         <script src="../plugin/ckeditor/ckeditor.js"></script>
-        <script type="text/javascript" src="tinymce/jscripts/tiny_mce/plugins/tinybrowser/tb_tinymce.js.php"></script>
     </head>
     <body>
         <div>
@@ -68,7 +67,6 @@ setcookie("ck_authorized", "true", 0, "/");
         <script>
             CKEDITOR.replace('texto', {
                 uiColor: '#999999',
-                filebrowserUploadUrl: 'upload.php',
                 filebrowserImageBrowseUrl: '../plugin/ckfinder/ckfinder.html?Type=Images',
             });
         </script>
