@@ -36,12 +36,9 @@ $(document).ready(function () {
         } else if (dataPublicacao == '') {
             $("#publicacao").focus();
             $("#spanPublicacao").html('Você deve preencher a Data de Publicação!');
-        } else if (texto == '') {
-            $("#texto").focus();
-            $("#spanTexto").html('Você deve preencher o Texto!');
         } else {
             $.post('control/controleNoticias.php', {opcao: 'cadastrar', titulo: titulo, subtitulo: subtitulo, fonte: fonte, dataPublicacao: dataPublicacao, texto: texto});
-            window.location = 'index.php';
+            window.location = 'verNoticias.php';
         }
     });
 
