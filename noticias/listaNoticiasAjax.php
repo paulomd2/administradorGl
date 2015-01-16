@@ -13,7 +13,7 @@ for ($i = 1; $i < count($noticias); $i++) {
             <td>' . $noticias[$i]["dataPublicacao"] . '</td>
             <td>' . $noticias[$i]["texto"] . '</td>
             <td><a href="altNoticia.php?id=' . $noticias[$i]['idNoticia'] . '">Alterar</a></td>
-            <td><a href="javascript:void(0)" onclick="javasacript:delNoticia(' . $noticias[$i]["idNoticia"] . ')">Excluir</a></td>
+            <td><a href="javascript:delNoticia(' . $noticias[$i]["idNoticia"] . ')">Excluir</a></td>
           </tr>';
 }
 ?>
