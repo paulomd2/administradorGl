@@ -14,7 +14,7 @@ for ($i = 1; $i < count($usuarios); $i++) {
             <td>' . $usuarios[$i]["status"] . '</td>
             <td>' . $usuarios[$i]["dataCriacao"] . '</td>
             <td><a href="altUsuario.php?id=' . $usuarios[$i]['idUsuario'] . '">Alterar</a></td>
-            <td><a href="javascript:void(0)" onclick="javasacript:delUsuario(' . $usuarios[$i]["idUsuario"] . ')">Excluir</a></td>
+            <td><a href="javascript:delUsuario(' . $usuarios[$i]["idUsuario"] . ')">Excluir</a></td>
           </tr>';
 }
 ?>
