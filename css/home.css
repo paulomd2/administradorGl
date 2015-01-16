@@ -1,0 +1,84 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,800,700,600,300);
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+    background: #f1f2f2;
+}
+div.login{
+    width: 379px;
+    height: 101px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -220.5px;
+    margin-top: -81.5px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    padding: 30px;
+    overflow: hidden;
+}
+div.login .avatar{
+    width: 89px;
+    height: 89px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    display: block;
+    float: left;
+}
+div.login .avatar img{
+    max-width: 100%;
+    width: 100%;
+}
+div.login .form-home{
+    float: right;
+    width: 265px;
+    height: auto;
+}
+div.login fieldset{
+    border:0;
+    width: 262px;
+    height: 28px;
+    border: 1px solid #d7d7d8;
+    border-radius: 3px;
+    margin-bottom: 11px;
+}
+div.login .form-home input{
+    border:0;
+}
+div.login .form-home input[type="submit"]{
+    color: white;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 3px;
+    background: #999999;
+    float: right;
+}
+div.login .form-home input.login{
+    background: url(../imagens/login.png) no-repeat;
+    height: 28px;
+    padding-left: 40px;
+    width: 222px;
+}
+div.login .form-home input.senha{
+    background: url(../imagens/senha.png) no-repeat;
+    height: 28px;
+    padding-left: 40px;
+    width: 222px;
+}
+div.login .form-home .recSenha{
+    display: block;
+    float: left;
+}
+div.login .form-home .recSenha a{
+    font-size: 13px;
+    color: #999999;
+    text-decoration: none;
+}
+div.login .form-home .recSenha a:hover{
+    text-decoration: underline;
+}
+
