@@ -1,28 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
     <head>
+        <title>TODO supply a title</title>
         <meta charset="UTF-8">
-        <title>Administrador | Fagga</title>
-        <link rel="stylesheet" type="text/css" href="css/home.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="js/jquery-2.1.3.js"></script>
+        <script type="text/javascript" src="usuarios/js/usuario.js"></script>
     </head>
     <body>
-        <div class="login">
-            <figure class="avatar">
-                <img src="http://www.portalgl.com.br/imagens/logo_glevents.png" alt="Nome avatar" />
-            </figure>
-            <form action="#" method="post" class="form-home" name="login">
-                <fieldset>
-                    <input type="text" name="usuario" id="usuario" class="login"/><br />
-                    <span id="spanUsuario" class="erro"></span>
-                </fieldset>
-                <fieldset>
-                    <input type="password" name="senha" id="senha" class="senha" /><br />
-                </fieldset>
-                <label class="recSenha">
-                    <a href="painel.php">Esqueci minha senha</a>
-                </label>
-                <input type="submit" value="LOGAR" id="btnLogar"/>
+        <div>
+            <form name="login"> <!-- oi -->
+                <table>
+                    <tr>
+                        <td>Login:</td>
+                        <td>
+                            <input type="text" name="usuario" id="usuario" /><br />
+                            <span id="spanUsuario" class="erro"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Senha:</td>
+                        <td>
+                            <input type="password" name="senha" id="senha" /><br />
+                            <span id="spanSenha" class="erro"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="button" id="btnLogar" value="Logar" /></td>
+                    </tr>
+                </table>
             </form>
-        </div>        
+        </div>
     </body>
 </html>
