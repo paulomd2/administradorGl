@@ -1,9 +1,6 @@
 function delEvento(id){
-    if(confirm("Você tem certeza que deseja remover esse evento?") == true){
-        $.post('control/controleEventos.php',{opcao:'excluir', idEvento:id},
-        function(r){
-            console.log(r);
-        });
+    if(confirm("Você tem certeza que deseja remover esse evento?")){
+        $.post('control/controleEventos.php',{opcao:'excluir', idEvento:id});
         $("#listaEventos").load('listaEventosAjax.php');
     }
 }

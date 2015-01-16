@@ -90,6 +90,9 @@ function uploadImagem() {
             $valid_file = false;
         }
         if ($valid_file) {
+            if(!file_exists('../../images/')){
+                mkdir('../../images');
+            }
             move_uploaded_file($_FILES['imagem']['tmp_name'], '../../images/' . $new_file_name);
 
             return $new_file_name;
