@@ -21,7 +21,7 @@
                         require_once '../model/banco.php';
                         require_once 'model/dao.php';
 
-                        $menus = $objMenuDao->listaMenus();
+                        $menus = $objConteudoDao->listaMenus();
                         for ($i = 1; $i < count($menus); $i++) {
                         echo '<tr>
                                 <td>' . $menus[$i]["titulo"] . '</td>

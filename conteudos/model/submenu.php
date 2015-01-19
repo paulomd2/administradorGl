@@ -2,6 +2,7 @@
 
 class Submenu {
 
+    private $idMenu;
     private $idSubmenu;
     private $tituloMenu;
     private $TituloPagina;
@@ -12,6 +13,14 @@ class Submenu {
     private $tituloMetaTag;
     private $keywordMetaTag;
     private $descricaoMetaTag;
+
+    function getIdMenu() {
+        return $this->idMenu;
+    }
+
+    function setIdMenu($idMenu) {
+        $this->idMenu = $idMenu;
+    }
 
     function getIdSubmenu() {
         return $this->idSubmenu;
@@ -94,4 +103,5 @@ class Submenu {
     }
 
 }
+
 $objSubMenu = new Submenu();

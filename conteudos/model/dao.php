@@ -8,7 +8,7 @@ class ConteudoDAO extends Banco {
     public function cadMenu($objMenu) {
         $conexao = $this->abreConexao();
 
-       echo $sql = "
+        $sql = "
                 INSERT INTO " . TBL_MENU . " SET
                 titulo = '" . $objMenu->getTitulo() . "',
                 link = '" . $objMenu->getLink() . "'
@@ -27,6 +27,122 @@ class ConteudoDAO extends Banco {
                ";
 
         $banco = $conexao->query($sql);
+
+        $linhas[] = array();
+        while ($linha = $banco->fetch_assoc()) {
+            $linhas[] = $linha;
+        }
+
+        return $linhas;
+
+        $this->fechaConexao();
+    }
+
+    public function listaMenu1($objMenu) {
+        $conexao = $this->abreConexao();
+
+        $sql = "
+                SELECT * FROM " . TBL_MENU . " WHERE idMenu =" . $objMenu->getIdMenu();
+
+        $banco = $conexao->query($sql);
+
+        $linha = $banco->fetch_assoc();
+
+        return $linha;
+
+        $this->fechaConexao();
+    }
+
+    public function altMenu($objMenu) {
+        $conexao = $this->abreConexao();
+
+        echo $sql = " 
+                UPDATE " . TBL_MENU . " SET
+                titulo = '" . $objMenu->getTitulo() . "',
+                link = '" . $objMenu->getLink() . "'
+                   WHERE idMenu = " . $objMenu->getIdMenu() . "
+               ";
+
+        $conexao->query($sql);
+
+        $this->fechaConexao();
+    }
+
+    public function delMenu($objMenu) {
+        $conexao = $this->abreConexao();
+
+        $sql = " 
+                UPDATE " . TBL_MENU . " SET
+                status = 0
+                   WHERE idMenu = " . $objMenu->getIdMenu() . "
+               ";
+
+        $conexao->query($sql);
+
+        $this->fechaConexao();
+    }
+
+    public function cadSubmenu($objSubMenu) {
+        $conexao = $this->abreConexao();
+        
+        $sql = "INSERT INTO " . TBL_SUBMENU . " SET
+                idMenu = ".$objSubMenu->getIdMenu().",
+                tituloMenu = '" . $objSubMenu->getTituloMenu() . "',
+                tituloPagina = '" . $objSubMenu->getTituloPagina() . "',
+                texto = '" . $objSubMenu->getTexto() . "',
+                link = '" . $objSubMenu->getLink() . "',
+                target = '" . $objSubMenu->getTarget() . "',
+                status = " . $objSubMenu->getStatus() . ",
+                tituloMetaTag = '" . $objSubMenu->getTituloMetaTag() . "',
+                keywordMetaTag = '" . $objSubMenu->getKeywordMetaTag() . "',
+                descricaoMetaTag = '" . $objSubMenu->getDescricaoMetaTag() . "'
+               ";
+        
+        $conexao->query($sql);
+        
+        $this->fechaConexao();
+    }
+    
+    
+    public function altSubmenu($objSubMenu) {
+        $conexao = $this->abreConexao();
+        
+       echo $sql = "UPDATE " . TBL_SUBMENU . " SET
+                idMenu = ".$objSubMenu->getIdMenu().",
+                tituloMenu = '" . $objSubMenu->getTituloMenu() . "',
+                tituloPagina = '" . $objSubMenu->getTituloPagina() . "',
+                texto = '" . $objSubMenu->getTexto() . "',
+                link = '" . $objSubMenu->getLink() . "',
+                target = '" . $objSubMenu->getTarget() . "',
+                status = " . $objSubMenu->getStatus() . ",
+                tituloMetaTag = '" . $objSubMenu->getTituloMetaTag() . "',
+                keywordMetaTag = '" . $objSubMenu->getKeywordMetaTag() . "',
+                descricaoMetaTag = '" . $objSubMenu->getDescricaoMetaTag() . "'
+                    WHERE idSubmenu = ".$objSubMenu->getIdSubmenu()."
+               ";
+        
+        $conexao->query($sql);
+        
+        $this->fechaConexao();
+    }
+    
+    
+    public function listaSubMenus(){
+        $conexao = $this->abreConexao();
+        
+        $sql = "
+                SELECT
+                s.*,
+                CASE s.status WHEN 1 THEN 'Publicado' WHEN 2 THEN 'Em Aprovação' ELSE 'Desabilitado' END AS status,
+                CASE s.target WHEN '_blank' THEN 'Nova Página' ELSE 'Mesma Página' END AS target,
+                m.titulo AS menu
+                    FROM ".TBL_SUBMENU." s
+                        JOIN ".TBL_MENU." m ON
+                            m.idMenu = s.idMenu
+                    WHERE s.status != 0
+              ";
+        
+        $banco = $conexao->query($sql);
         
         $linhas[] = array();
         while($linha = $banco->fetch_assoc()){
@@ -34,17 +150,28 @@ class ConteudoDAO extends Banco {
         }
         
         return $linhas;
-
+        
         $this->fechaConexao();
     }
     
     
-    public function listaMenu1($objMenu){
+    public function delSubmenu($objSubmenu){
         $conexao = $this->abreConexao();
         
-        $sql = "
-                SELECT * FROM " . TBL_MENU . " WHERE idMenu =".$objMenu->getIdMenu();
+        $sql = "UPDATE ".TBL_SUBMENU." SET status = 0 WHERE idSubmenu = ".$objSubmenu->getIdSubmenu();
+        
+        $conexao->query($sql);
+        
+        $this->fechaConexao();
+    }
 
+    
+    
+    public function listaSubmenu1($objSubmenu){
+        $conexao = $this->abreConexao();
+        
+        $sql = "SELECT * FROM ".TBL_SUBMENU." WHERE idSubmenu = ".$objSubmenu->getIdSubmenu();
+        
         $banco = $conexao->query($sql);
         
         $linha = $banco->fetch_assoc();
@@ -53,38 +180,6 @@ class ConteudoDAO extends Banco {
         
         $this->fechaConexao();
     }
-    
-    
-    public function altMenu($objMenu){
-        $conexao = $this->abreConexao();
-        
-        echo $sql = " 
-                UPDATE ".TBL_MENU." SET
-                titulo = '".$objMenu->getTitulo()."',
-                link = '".$objMenu->getLink()."'
-                   WHERE idMenu = ".$objMenu->getIdMenu()."
-               ";
-        
-        $conexao->query($sql);
-        
-        $this->fechaConexao();
-    }
-    
-    
-    public function delMenu($objMenu){
-        $conexao = $this->abreConexao();
-        
-        $sql = " 
-                UPDATE ".TBL_MENU." SET
-                status = 0
-                   WHERE idMenu = ".$objMenu->getIdMenu()."
-               ";
-        
-        $conexao->query($sql);
-        
-        $this->fechaConexao();
-    }
-
 }
 
-$objMenuDao = new ConteudoDAO();
+$objConteudoDao = new ConteudoDAO();

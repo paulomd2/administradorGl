@@ -14,7 +14,7 @@ switch ($opcao) {
             $objMenu->setTitulo($titulo);
             $objMenu->setLink($link);
 
-            $objMenuDao->cadMenu($objMenu);
+            $objConteudoDao->cadMenu($objMenu);
 
             break;
         }
@@ -27,7 +27,7 @@ switch ($opcao) {
             $objMenu->setTitulo($titulo);
             $objMenu->setLink($link);
 
-            $objMenuDao->altMenu($objMenu);
+            $objConteudoDao->altMenu($objMenu);
 
             break;
         }
@@ -36,8 +36,75 @@ switch ($opcao) {
 
             $objMenu->setIdMenu($idMenu);
 
-            $objMenuDao->delMenu($objMenu);
+            $objConteudoDao->delMenu($objMenu);
 
+            break;
+        }
+
+    case 'cadastrarSubmenu': {
+            $idMenu = $_POST['idMenu'];
+            $tituloMenu = $_POST['tituloMenu'];
+            $tituloPagina = $_POST['tituloPagina'];
+            $link = $_POST['link'];
+            $target = $_POST['target'];
+            $status = $_POST['status'];
+            $texto = $_POST['texto'];
+            $tituloMetaTag = $_POST['tituloMetaTag'];
+            $keywordsMetaTag = $_POST['keywordsMetaTag'];
+            $descricaoMetaTag = $_POST['descricaoMetaTag'];
+
+            $objSubMenu->setIdMenu($idMenu);
+            $objSubMenu->setTituloMenu($tituloMenu);
+            $objSubMenu->setTituloPagina($tituloPagina);
+            $objSubMenu->setLink($link);
+            $objSubMenu->setTarget($target);
+            $objSubMenu->setStatus($status);
+            $objSubMenu->setTexto($texto);
+            $objSubMenu->setTituloMetaTag($tituloMetaTag);
+            $objSubMenu->setKeywordMetaTag($keywordsMetaTag);
+            $objSubMenu->setDescricaoMetaTag($descricaoMetaTag);
+
+            $objConteudoDao->cadSubmenu($objSubMenu);
+            break;
+        }
+
+    case 'excluirSubmenu': {
+
+            $idSubmenu = $_POST['idSubmenu'];
+
+            $objSubMenu->setIdSubmenu($idSubmenu);
+
+            $objConteudoDao->delSubmenu($objSubMenu);
+            break;
+        }
+
+
+    case 'AlterarSubmenu': {
+            $idSubmenu = $_POST['idSubmenu'];
+            $idMenu = $_POST['idMenu'];
+            $tituloMenu = $_POST['tituloMenu'];
+            $tituloPagina = $_POST['tituloPagina'];
+            $link = $_POST['link'];
+            $target = $_POST['target'];
+            $status = $_POST['status'];
+            $texto = $_POST['texto'];
+            $tituloMetaTag = $_POST['tituloMetaTag'];
+            $keywordsMetaTag = $_POST['keywordsMetaTag'];
+            $descricaoMetaTag = $_POST['descricaoMetaTag'];
+
+            $objSubMenu->setIdSubmenu($idSubmenu);
+            $objSubMenu->setIdMenu($idMenu);
+            $objSubMenu->setTituloMenu($tituloMenu);
+            $objSubMenu->setTituloPagina($tituloPagina);
+            $objSubMenu->setLink($link);
+            $objSubMenu->setTarget($target);
+            $objSubMenu->setStatus($status);
+            $objSubMenu->setTexto($texto);
+            $objSubMenu->setTituloMetaTag($tituloMetaTag);
+            $objSubMenu->setKeywordMetaTag($keywordsMetaTag);
+            $objSubMenu->setDescricaoMetaTag($descricaoMetaTag);
+
+            $objConteudoDao->altSubmenu($objSubMenu);
             break;
         }
 }

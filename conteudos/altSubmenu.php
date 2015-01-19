@@ -11,6 +11,7 @@
     <body>
         <div>
             <form name="cadMenu">
+                <input type="hidden" value ="<?php echo $_GET['id']; ?>" id="idSubmenu" name="idSubmenu" />
                 <table>
                     <tr>
                         <td>Menu:</td>
@@ -20,10 +21,20 @@
                                 <?php
                                 require_once '../model/banco.php';
                                 require_once 'model/dao.php';
+                                
+                                $idSubmenu = $_GET['id'];
+                                
+                                $objSubMenu->setIdSubmenu($idSubmenu);
+                                
+                                $submenu = $objConteudoDao->listaSubmenu1($objSubMenu);
+                                
                                 $menus = $objConteudoDao->listaMenus();
-
+                                
                                 for ($i = 1; $i < count($menus); $i++) {
-                                    echo '<option value="' . $menus[$i]["idMenu"] . '">' . $menus[$i]["titulo"] . '</option>';
+                                    $selected = '';
+                                    if($menus[$i]["idMenu"] == $submenu['idMenu']){ $selected = 'selected'; }
+                                    
+                                    echo '<option value="' . $menus[$i]["idMenu"] . '" '.$selected.'>' . $menus[$i]["titulo"] . '</option>';
                                 }
                                 ?>
                             </select><br />
@@ -33,21 +44,21 @@
                     <tr>
                         <td>Título do Menu:</td>
                         <td>
-                            <input type="text" name="tituloMenu" id="tituloMenu" /><br />
+                            <input type="text" name="tituloMenu" id="tituloMenu" value="<?php echo $submenu['tituloMenu']; ?>" /><br />
                             <span id="spanTituloMenu" class="erro"></span>
                         </td>
                     </tr>
                     <tr>
                         <td>Título da Página:</td>
                         <td>
-                            <input type="text" name="tituloPagina" id="tituloPagina" /><br />
+                            <input type="text" name="tituloPagina" id="tituloPagina" value="<?php echo $submenu['tituloPagina']; ?>" /><br />
                             <span id="spanTituloPagina" class="erro"></span>
                         </td>
                     </tr>
                     <tr>
                         <td>Link Externo:</td>
                         <td>
-                            <input type="text" name="link" id="link" /><br />
+                            <input type="text" name="link" id="link" value="<?php echo $submenu['link']; ?>" /><br />
                             <span id="spanLink" class="erro"></span>
                         </td>
                     </tr>
@@ -56,8 +67,8 @@
                         <td>
                             <select name="target" id="target">
                                 <option value="">Selecione um target...</option>
-                                <option value="_self">Abrir na mesma janela</option>
-                                <option value="_blank">Abrir em uma nova janela</option>
+                                <option value="_self" <?php if($submenu['target'] == '_self'){ echo 'selected'; } ?>>Abrir na mesma janela</option>
+                                <option value="_blank" <?php if($submenu['target'] == '_blank'){ echo 'selected'; } ?>>Abrir em uma nova janela</option>
                             </select><br />
                             <span id="spanTarget" class="erro"></span>
                         </td>
@@ -67,9 +78,9 @@
                         <td>
                             <select name="status" id="status">
                                 <option value="">Selecione um status...</option>
-                                <option value="1">Publicado</option>
-                                <option value="2">Em revisão</option>
-                                <option value="0">Desabilitado</option>
+                                <option value="1" <?php if($submenu['status'] == '1'){ echo 'selected'; } ?>>Publicado</option>
+                                <option value="2" <?php if($submenu['status'] == '2'){ echo 'selected'; } ?>>Em revisão</option>
+                                <option value="0" <?php if($submenu['status'] == '0'){ echo 'selected'; } ?>>Desabilitado</option>
                             </select><br />
                             <span id="spanStatus" class="erro"></span>
                         </td>
@@ -77,7 +88,7 @@
                     <tr>
                         <td>Texto:</td>
                         <td>
-                            <textarea name="texto" id="texto"></textarea><br />
+                            <textarea name="texto" id="texto"><?php echo $submenu['texto']; ?></textarea><br />
                             <span id="spanTexto" class="erro"></span>
                         </td>
                     </tr>
@@ -87,27 +98,27 @@
                     <tr>
                         <td>Título:</td>
                         <td>
-                            <input type="text" name="tituloMetaTag" id="tituloMetaTag" /><br />
+                            <input type="text" name="tituloMetaTag" id="tituloMetaTag" value="<?php echo $submenu['tituloMetaTag']; ?>" /><br />
                             <span id="spanTituloMetaTag" class="erro"></span>
                         </td>
                     </tr>
                     <tr>
                         <td>Keywords:</td>
                         <td>
-                            <input type="text" name="keywordsMetaTag" id="keywordsMetaTag" /><br />
+                            <input type="text" name="keywordsMetaTag" id="keywordsMetaTag" value="<?php echo $submenu['keywordMetaTag']; ?>" /><br />
                             <span id="spanKeywordsMetaTag" class="erro"></span>
                         </td>
                     </tr>
                     <tr>
                         <td>Descrição:</td>
                         <td>
-                            <input type="text" name="descricaoMetaTag" id="descricaoMetaTag" /><br />
+                            <input type="text" name="descricaoMetaTag" id="descricaoMetaTag" value="<?php echo $submenu['descricaoMetaTag']; ?>" /><br />
                             <span id="spanDescricaoMetaTag" class="erro"></span>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <input type="button" id="btnCadastrarSubmenu" value="Enviar" /><br />
+                            <input type="button" id="btnAlterarSubmenu" value="Enviar" /><br />
                             <span id="spanBtn" class="erro"></span>
                         </td>
                     </tr>
