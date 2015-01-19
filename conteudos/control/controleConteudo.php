@@ -21,20 +21,22 @@ switch ($opcao) {
     case "alterarMenu": {
             $titulo = $_POST['titulo'];
             $link = $_POST['link'];
+            $idMenu = $_POST['idMenu'];
 
+            $objMenu->setIdMenu($idMenu);
             $objMenu->setTitulo($titulo);
             $objMenu->setLink($link);
 
-            $obj_menudao->atualizaMenu($objMenu);
+            $objMenuDao->altMenu($objMenu);
 
             break;
         }
     case "excluirMenu": {
-            $idMenu = $_POST['id_menu'];
+            $idMenu = $_POST['idMenu'];
 
             $objMenu->setIdMenu($idMenu);
 
-            $obj_menudao->deletaMenu($objMenu);
+            $objMenuDao->delMenu($objMenu);
 
             break;
         }

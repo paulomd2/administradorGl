@@ -7,6 +7,8 @@ $idMenu = $_GET['id'];
 $objMenu->setIdMenu($idMenu);
 
 $menu = $objMenuDao->listaMenu1($objMenu);
+
+var_dump($menu);
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,6 +22,7 @@ $menu = $objMenuDao->listaMenu1($objMenu);
     <body>
         <div>
             <form name="altMenu">
+                <input type="hidden" name="idMenu" id="idMenu" value="<?php echo $idMenu ?>" />
                 <table>
                     <tr>
                         <td>Título:</td>

@@ -16,7 +16,7 @@
                     <td>Editar</td>
                     <td>Excluir</td>
                 </tr>
-                <tbody class="listaMenus">
+                <tbody id="listaMenus">
                     <?php
                         require_once '../model/banco.php';
                         require_once 'model/dao.php';

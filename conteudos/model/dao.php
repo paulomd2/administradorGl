@@ -43,8 +43,7 @@ class ConteudoDAO extends Banco {
         $conexao = $this->abreConexao();
         
         $sql = "
-                SELECT * FROM " . TBL_MENU . " WHERE status = 1
-               ";
+                SELECT * FROM " . TBL_MENU . " WHERE idMenu =".$objMenu->getIdMenu();
 
         $banco = $conexao->query($sql);
         
@@ -59,7 +58,7 @@ class ConteudoDAO extends Banco {
     public function altMenu($objMenu){
         $conexao = $this->abreConexao();
         
-        $sql = " 
+        echo $sql = " 
                 UPDATE ".TBL_MENU." SET
                 titulo = '".$objMenu->getTitulo()."',
                 link = '".$objMenu->getLink()."'
