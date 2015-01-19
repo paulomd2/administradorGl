@@ -1,6 +1,6 @@
-function delNoticia(id){
-    if(confirm("Você tem certeza que deseja excluir essa notícia?") == true){
-        $.post('control/controleNoticias.php',{opcao:'excluir',idNoticia:id});
+function delNoticia(id) {
+    if (confirm("Você tem certeza que deseja excluir essa notícia?") == true) {
+        $.post('control/controleNoticias.php', {opcao: 'excluir', idNoticia: id});
         $("#listaNoticias").load('listaNoticiasAjax.php');
     }
 }
@@ -12,7 +12,7 @@ $(document).ready(function () {
     if ($("#publicacao").val() == '') {
         $("#publicacao").val(dia + '/' + mes + '/' + ano);
     }
-    
+
     $("#publicacao").mask('99/99/9999');
 
     $("#btnCadastrar").click(function () {
@@ -22,6 +22,9 @@ $(document).ready(function () {
         var dataPublicacao = $("#publicacao").val().trim();
         var texto = $("#texto").val().trim();
         var mercado = $("#mercado").val();
+        CKEDITOR.instances.descnotificacao.updateElement();
+        var CKeditor = CKEDITOR.instances.descnotificacao;
+        //CKeditor.focus()
 
         $(".erro").html('');
         if (titulo == '') {

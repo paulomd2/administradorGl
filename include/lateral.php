@@ -15,7 +15,7 @@
                 <li><a href="#" onclick="javascript:void(0);">Item</a></li>
             </ul>
         </li>
-        <li><a href="http://localhost/githubpaulo/administradorGl/noticias"><i class="icon icon-newspaper"></i> Notícias</a></li>
+        <li><a href="../noticias"><i class="icon icon-newspaper"></i> Notícias</a></li>
         <li><a href="#"><i class="icon icon-newspaper"></i> Releases</a></li>
         <li><a href="#"><i class="icon icon-tv"></i> Destaques</a></li>
         <li><a href="#"><i class="icon icon-image"></i> Banners</a></li>

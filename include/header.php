@@ -1,7 +1,7 @@
 <div class="center-user">
     <div class="detail-user">
         <figure class="avatar fl">
-            <a href="http://localhost/githubpaulo/administradorGl/painel.php"><img src="http://www.portalgl.com.br/imagens/logo_glevents.png" alt="Nome avatar" /></a>
+            <a href="../home"><img src="http://www.portalgl.com.br/imagens/logo_glevents.png" alt="Nome avatar" /></a>
         </figure>
         <div class="fr"></div>
         <span><em>Seja Bem vindo</em></span>
