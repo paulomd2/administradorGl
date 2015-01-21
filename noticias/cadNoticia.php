@@ -7,45 +7,22 @@ setcookie("ck_authorized", "true", 0, "/");
     <head>
         <meta charset="UTF-8">
         <title>Painel | Fagga</title>
-        <?php include_once '../include/head.php'; ?>
+        <?php include_once 'http://localhost/githubpaulo/administradorGl/include/head.php'; ?>
         <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
         <script type="text/javascript" src="js/noticias.js"></script>
         <script src="../plugin/ckeditor/ckeditor.js"></script>
     </head>
     <body>
-        <?php include_once '../include/header.php'; ?>
-        <?php include_once '../include/lateral.php'; ?>
+        <?php include_once 'http://localhost/githubpaulo/administradorGl/include/header.php'; ?>
+        <?php include_once 'http://localhost/githubpaulo/administradorGl/include/lateral.php'; ?>
 
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../painel.php"><i class="icon icon-home"></i> Home</a>
-                <a href="#">Notícias</a>
+                <a href="index.php">Notícias</a>
+                <a href="#">Cadastrar notícia</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
-                <h1>Últimas notícias</h1>
-                <!--<table style="font-size: 14px; width: 760px;">-->
-                <table class="tableAll">
-                    <thead>
-                        <tr>
-                            <td style="width: 60%;">Título</td>
-                            <td style="width: 20%;">Data de Publicação</td>
-                            <!--<td>Sub-título</td>-->
-                            <!--<td>Fonte</td>-->
-                            <!--<td>Texto</td>-->
-                            <td style="width: 10%;">Alterar</td>
-                            <td style="width: 10%;">Excluir</td>
-                        </tr>
-                    </thead>
-
-                    <tbody id="listaNoticias">
-                        <?php
-                        require_once 'listaNoticiasAjax.php';
-                        ?>
-                    </tbody>
-                </table>
-                <a href="verNoticias.php" class="proPage">Ver todas as notícias</a>
-
-                <hr/>
                 <h1>Cadastrar notícia</h1>
                 <form name="cadNoticia">
                     <input type="hidden" value="<?php echo $_GET['mercado']; ?>" id="mercado"/>

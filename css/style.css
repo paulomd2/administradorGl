@@ -51,7 +51,7 @@ aside.barra-lateral{
     /*background: url(../imagens/setbottom-menu.png) no-repeat center right 10px;*/
 }
 .barra-lateral ul li a:hover{
-	background: #888;
+    background: #888;
 }
 .barra-lateral li ul{
     display: none;
@@ -283,5 +283,93 @@ aside.barra-lateral{
 .main-admin .tenor h1{
     font-size: 24px;
     color: #545454;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+.main-admin .tenor h2{
+    font-size: 14px;
+    padding: 5px;
+    font-weight: normal;
+    color: #fff;
+    background: #545454;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.tableform{
+    width: 760px;
+    height: auto;
+    /*border: 1px solid red;*/
+}
+.tableform tr{
+    margin-bottom: 10px;
+    display: block;
+}
+.tableform td:first-child{
+    font-size: 14px; width: 150px;
+}
+input[type="submit"],input[type="button"]{
+    color: white;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 3px;
+    background: #999999;
+    border: 0;
+}
+.tableform input[type="text"]{
+    height: 25px;
+}
+.erro{
+    font-size: 12px;
+    color: red;
+}
+h2{
+    font-size: 16px;
+}
+hr{
+    border: 1px solid #999;
+    margin: 10px 0;
+}
+.tableAll{
+    font-size: 14px; 
+    width: 760px;
+}
+.tableAll thead{
+    background: #7d7c7c;
+    /*color: white;*/
+    /*padding: 3px;*/
+}
+.tableAll thead td{
+    padding: 3px;
+    color: white;
+}
+.tableAll tbody{
+    background: white;
+}
+.tableAll tbody td{
+    padding: 3px;
+    color: #1e1e1e!important;
+}
+.tableAll tbody td a{
+    text-decoration: none;
+    color: #1e1e1e!important;
+}
+.tableAll tbody td a:hover{
+    text-decoration: underline;
+}
+.proPage{
+    background: #888;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 4px 6px;
+    display: inline-block;
+    margin: 10px 0;
+    margin-left: 2px;
+    border-radius: 3px;
+    /*
+    color: white;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 3px;
+    background: #999999;
+    border: 0;*/
 }

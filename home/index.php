@@ -15,7 +15,6 @@
         <div class="main-admin">
             <div class="guia-site">
                 <a href="#"><i class="icon icon-home"></i> Home</a>
-                <a href="#">Conteúdo</a>
             </div>
             <div class="box noticias">
                 <div class="tit-box">

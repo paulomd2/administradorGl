@@ -17,24 +17,25 @@ setcookie("ck_authorized", "true", 0, "/");
 
         <div class="main-admin">
             <div class="guia-site">
-                <a href="#"><i class="icon icon-home"></i> Home</a>
-                <a href="#">Notícias</a>
+                <a href="../painel.php"><i class="icon icon-home"></i> Home</a>
+                <a href="index.php">Notícias</a>
+                <a href="#">Todas as notícias</a>
             </div>
             <div class="tenor">
-                <h1>Ver notícias</h1>
+                <h1>Todas as notícias</h1>
 
                 <form name="cadNoticia">
                     <input type="hidden" value="<?php echo $_GET['mercado']; ?>" id="mercado"/>
-                    <table>
+                    <table class="tableAll">
                         <thead>
                             <tr>
-                                <td>Título</td>
-                                <td>Sub-título</td>
-                                <td>Fonte</td>
-                                <td>Data de Publicação</td>
-                                <td>Texto</td>
-                                <td>Alterar</td>
-                                <td>Excluir</td>
+                                <td style="width: 60%;">Título</td>
+                                <td style="width: 20%;">Data de Publicação</td>
+                                <!--<td>Sub-título</td>-->
+                                <!--<td>Fonte</td>-->
+                                <!--<td>Texto</td>-->
+                                <td style="width: 10%;">Alterar</td>
+                                <td style="width: 10%;">Excluir</td>
                             </tr>
                         </thead>
 
@@ -45,6 +46,8 @@ setcookie("ck_authorized", "true", 0, "/");
                         </tbody>
                     </table>
                 </form>
+                <a href="index.php" class="proPage">Voltar</a>
+                <a href="cadNoticia.php" class="proPage">Cadastrar nova notícia</a>
 
             </div>
         </div>

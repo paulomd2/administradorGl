@@ -19,11 +19,12 @@ setcookie("ck_authorized", "true", 0, "/");
 
         <div class="main-admin">
             <div class="guia-site">
-                <a href="#"><i class="icon icon-home"></i> Home</a>
-                <a href="#">Notícias</a>
+                <a href="../painel.php"><i class="icon icon-home"></i> Home</a>
+                <a href="index.php">Notícias</a>
+                <a href="#">Alterar notícia</a>
             </div>
             <div class="tenor">
-                <h1>Alterar notícias</h1>
+                <h1>Alterar notícia</h1>
 
                 <?php
                 require '../model/banco.php';
@@ -38,7 +39,7 @@ setcookie("ck_authorized", "true", 0, "/");
                 <div>
                     <form name="cadNoticia">
                         <input type="hidden" value="<?php echo $noticia['idNoticia']; ?>" id="idNoticia" />
-                        <table>
+                        <table class="tableform">
                             <tr>
                                 <td>Título:</td>
                                 <td>
@@ -81,7 +82,7 @@ setcookie("ck_authorized", "true", 0, "/");
                 } ?> /></td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="button" id="btnAlterar" value="Enviar" /></td>
+                                <td colspan="2"><input type="button" id="btnAlterar" value="Alterar" /></td>
                             </tr>
                         </table>
                     </form>
