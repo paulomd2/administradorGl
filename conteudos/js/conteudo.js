@@ -5,7 +5,7 @@ function delMenu(id) {
     }
 }
 
-function delSubmenu(id){
+function delSubmenu(id) {
     if (confirm("Você tem certeza que deseja excluir esse Submenu?") == true) {
         $.post('control/controleConteudo.php', {opcao: 'excluirSubmenu', idSubmenu: id},
         function (r) {
@@ -16,6 +16,10 @@ function delSubmenu(id){
 }
 
 $(document).ready(function () {
+
+    $("#dataPublicacao").mask('99/99/9999');
+    $("#dataSaida").mask('99/99/9999');
+    
     $("#btnCadastrarSubmenu").click(function () {
         CKEDITOR.instances.texto.updateElement();
 
@@ -29,12 +33,14 @@ $(document).ready(function () {
         var tituloMetaTag = $("#tituloMetaTag").val().trim();
         var keywordsMetaTag = $("#keywordsMetaTag").val().trim();
         var descricaoMetaTag = $("#descricaoMetaTag").val().trim();
-        
+        var dataEntrada = $("#dataPublicacao").val();
+        var dataSaida = $("#dataSaida").val();
+
         $(".erro").html('');
-        if(idMenu == ''){
+        if (idMenu == '') {
             $("#idMenu").focus();
             $("#spanIdMenu").html('Você precisa selecionar o Menu');
-        }else if (tituloMenu == '') {
+        } else if (tituloMenu == '') {
             $("#tituloMenu").focus();
             $("#spanTituloMenu").html('Você precisa preencher o Título do Menu');
         } else if (tituloPagina == '') {
@@ -60,15 +66,11 @@ $(document).ready(function () {
         } else if (link !== '' && texto !== '') {
             $("#spanBtn").html('Você preencheu o Link e o texto, por favor preencha apenas um');
         } else {
-            $.post('control/controleConteudo.php',
-            {opcao: 'cadastrarSubmenu',tituloMenu:tituloMenu, idMenu:idMenu, tituloPagina:tituloPagina, link:link, target:target, status:status, texto:texto, tituloMetaTag:tituloMetaTag, keywordsMetaTag:keywordsMetaTag, descricaoMetaTag:descricaoMetaTag},
-            function (r) {
-                console.log(r);
-            })
+            $.post('control/controleConteudo.php',{opcao: 'cadastrarSubmenu', tituloMenu: tituloMenu, idMenu: idMenu, tituloPagina: tituloPagina, link: link, target: target, status: status, texto: texto, tituloMetaTag: tituloMetaTag, keywordsMetaTag: keywordsMetaTag, descricaoMetaTag: descricaoMetaTag, dataEntrada:dataEntrada, dataSaida:dataSaida});
         }
     });
-    
-    
+
+
     $("#btnAlterarSubmenu").click(function () {
         CKEDITOR.instances.texto.updateElement();
 
@@ -83,12 +85,14 @@ $(document).ready(function () {
         var tituloMetaTag = $("#tituloMetaTag").val().trim();
         var keywordsMetaTag = $("#keywordsMetaTag").val().trim();
         var descricaoMetaTag = $("#descricaoMetaTag").val().trim();
-        
+        var dataEntrada = $("#dataPublicacao").val();
+        var dataSaida = $("#dataSaida").val();
+
         $(".erro").html('');
-        if(idMenu == ''){
+        if (idMenu == '') {
             $("#idMenu").focus();
             $("#spanIdMenu").html('Você precisa selecionar o Menu');
-        }else if (tituloMenu == '') {
+        } else if (tituloMenu == '') {
             $("#tituloMenu").focus();
             $("#spanTituloMenu").html('Você precisa preencher o Título do Menu');
         } else if (tituloPagina == '') {
@@ -114,8 +118,11 @@ $(document).ready(function () {
         } else if (link !== '' && texto !== '') {
             $("#spanBtn").html('Você preencheu o Link e o texto, por favor preencha apenas um');
         } else {
-            $.post('control/controleConteudo.php',{opcao: 'AlterarSubmenu',idSubmenu: idSubmenu,tituloMenu:tituloMenu, idMenu:idMenu, tituloPagina:tituloPagina, link:link, target:target, status:status, texto:texto, tituloMetaTag:tituloMetaTag, keywordsMetaTag:keywordsMetaTag, descricaoMetaTag:descricaoMetaTag});
-            window.location = 'verSubmenus.php';
+            $.post('control/controleConteudo.php', {opcao: 'AlterarSubmenu', idSubmenu: idSubmenu, tituloMenu: tituloMenu, idMenu: idMenu, tituloPagina: tituloPagina, link: link, target: target, status: status, texto: texto, tituloMetaTag: tituloMetaTag, keywordsMetaTag: keywordsMetaTag, descricaoMetaTag: descricaoMetaTag, dataEntrada: dataEntrada, dataSaida: dataSaida},
+            function(r){
+                console.log(r);
+            });
+            //window.location = 'verSubmenus.php';
         }
     });
 
@@ -144,6 +151,18 @@ $(document).ready(function () {
         } else {
             $.post('control/controleConteudo.php', {opcao: 'alterarMenu', titulo: titulo, link: link, idMenu: idMenu});
             window.location = 'verMenus.php';
+        }
+    });
+
+    $("#dataSaida").blur(function () {
+        if ($("#dataSaida").val() == '') {
+            $("#dataSaida").val('00/00/0000');
+        }
+    });
+    
+    $("#dataPublicacao").blur(function () {
+        if ($("#dataPublicacao").val() == '') {
+            $("#dataPublicacao").val('00/00/0000');
         }
     });
 });

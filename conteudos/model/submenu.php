@@ -13,6 +13,8 @@ class Submenu {
     private $tituloMetaTag;
     private $keywordMetaTag;
     private $descricaoMetaTag;
+    private $dataEntrada;
+    private $dataSaida;
 
     function getIdMenu() {
         return $this->idMenu;
@@ -100,6 +102,24 @@ class Submenu {
 
     function setDescricaoMetaTag($descricaoMetaTag) {
         $this->descricaoMetaTag = $descricaoMetaTag;
+    }
+    
+    
+    function getDataEntrada() {
+        return $this->dataEntrada;
+    }
+
+    function setDataEntrada($dataEntrada) {
+        $this->dataEntrada = $dataEntrada;
+    }
+    
+    
+    function getDataSaida() {
+        return $this->dataSaida;
+    }
+
+    function setDataSaida($dataSaida) {
+        $this->dataSaida = $dataSaida;
     }
 
 }

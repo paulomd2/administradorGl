@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript" src="../js/jquery-2.1.3.js"></script>
+        <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
         <script type="text/javascript" src="js/conteudo.js"></script>
         <script src="../plugin/ckeditor/ckeditor.js"></script>
     </head>
@@ -91,6 +92,14 @@
                             <textarea name="texto" id="texto"><?php echo $submenu['texto']; ?></textarea><br />
                             <span id="spanTexto" class="erro"></span>
                         </td>
+                    </tr>
+                    <tr>
+                        <td>Data de Publicação:</td>
+                        <td><input type="text" id="dataPublicacao" name="dataPublicacao" value="<?php echo implode('/', array_reverse(explode('-', $submenu['dataEntrada']))); ?>" /></td>
+                    </tr>
+                    <tr>
+                        <td>Data de Saída:</td>
+                        <td><input type="text" id="dataSaida" name="dataSaida" value="<?php echo implode('/', array_reverse(explode('-', $submenu['dataSaida']))); ?>" /></td>
                     </tr>
                     <tr>
                         <td colspan="2">SEO</td>

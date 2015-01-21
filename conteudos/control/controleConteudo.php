@@ -52,6 +52,8 @@ switch ($opcao) {
             $tituloMetaTag = $_POST['tituloMetaTag'];
             $keywordsMetaTag = $_POST['keywordsMetaTag'];
             $descricaoMetaTag = $_POST['descricaoMetaTag'];
+            $dataEntrada = implode('-', array_reverse(explode('/', $_POST['dataEntrada'])));
+            $dataSaida = implode('-', array_reverse(explode('/', $_POST['dataSaida'])));
 
             $objSubMenu->setIdMenu($idMenu);
             $objSubMenu->setTituloMenu($tituloMenu);
@@ -63,6 +65,8 @@ switch ($opcao) {
             $objSubMenu->setTituloMetaTag($tituloMetaTag);
             $objSubMenu->setKeywordMetaTag($keywordsMetaTag);
             $objSubMenu->setDescricaoMetaTag($descricaoMetaTag);
+            $objSubMenu->setDataEntrada($dataEntrada);
+            $objSubMenu->setDataSaida($dataSaida);
 
             $objConteudoDao->cadSubmenu($objSubMenu);
             break;
@@ -91,6 +95,8 @@ switch ($opcao) {
             $tituloMetaTag = $_POST['tituloMetaTag'];
             $keywordsMetaTag = $_POST['keywordsMetaTag'];
             $descricaoMetaTag = $_POST['descricaoMetaTag'];
+            $dataEntrada = implode('-', array_reverse(explode('/', $_POST['dataEntrada'])));
+            $dataSaida = implode('-', array_reverse(explode('/', $_POST['dataSaida'])));
 
             $objSubMenu->setIdSubmenu($idSubmenu);
             $objSubMenu->setIdMenu($idMenu);
@@ -103,6 +109,8 @@ switch ($opcao) {
             $objSubMenu->setTituloMetaTag($tituloMetaTag);
             $objSubMenu->setKeywordMetaTag($keywordsMetaTag);
             $objSubMenu->setDescricaoMetaTag($descricaoMetaTag);
+            $objSubMenu->setDataEntrada($dataEntrada);
+            $objSubMenu->setDataSaida($dataSaida);
 
             $objConteudoDao->altSubmenu($objSubMenu);
             break;

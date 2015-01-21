@@ -28,7 +28,7 @@
                         require_once '../model/banco.php';
                         require_once 'model/dao.php';
                         
-                        $submenus = $objConteudoDao->listaSubmenus();
+                        $submenus = $objConteudoDao->listaSubmenus($_GET['id']);
                         for ($i = 1; $i < count($submenus); $i++) {
                         echo '<tr>
                                 <td>' . $submenus[$i]["tituloMenu"] . '</td>
