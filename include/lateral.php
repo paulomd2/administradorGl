@@ -1,8 +1,19 @@
+<?php
+require_once '../model/banco.php';
+require_once '../conteudos/model/dao.php';
+?>
 <aside class="barra-lateral">
     <ul>
         <li class="hasub"><a href="#1"><i class="icon icon-file-text2"></i> Conteúdo </a>
-            <ul id="1" class="exemplo">
-                <li><a href="#" onclick="javascript:void(0);">Item</a></li>
+            <ul id="1">
+                <?php
+                    $menu = $objConteudoDao->listaMenus();
+                    
+                    for($i = 1; $i < count($menu);$i++){
+                        echo '<li><a href="../conteudos/verSubmenus.php?id='.$menu[$i]["idMenu"].'#1" onclick="javascript:void(0);">'.$menu[$i]['titulo'].'</a></li>';
+                    }
+                ?>
+                
             </ul>
         </li>
         <li class="hasub"><a href="#2"><i class="icon icon-cog"></i> Administração</a>
