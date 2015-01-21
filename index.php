@@ -19,7 +19,7 @@
                     <input type="password" name="senha" id="senha" class="senha" /><br />
                 </fieldset>
                 <label class="recSenha">
-                    <a href="painel.php">Esqueci minha senha</a>
+                    <a href="home/">Esqueci minha senha</a>
                 </label>
                 <input type="submit" value="LOGAR" id="btnLogar"/>
             </form>
