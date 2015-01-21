@@ -17,3 +17,4 @@ define("TBL_NOTICIAS",DB_ADMIN.TBL_ADMIN."noticias ");
 define("TBL_EVENTOS",DB_ADMIN.TBL_ADMIN."eventos ");
 define("TBL_MENU",DB_ADMIN.TBL_ADMIN."menus ");
 define("TBL_SUBMENU",DB_ADMIN.TBL_ADMIN."submenus ");
+define("TBL_RELEASE",DB_ADMIN.TBL_ADMIN."releases ");
