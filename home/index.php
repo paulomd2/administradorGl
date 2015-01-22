@@ -5,7 +5,7 @@
         <title>Painel | Fagga</title>
         <?php include_once '../include/head.php'; ?>
         <style>
-            .slidesjs-pagination{margin:0 15px 0 0;list-style:none;position:relative;z-index:999}.slidesjs-pagination li{float:left;margin:0 1px}.slidesjs-pagination li a{display:block;width:13px;height:0;padding-top:13px;background-image:url(imagens/pagination.png);background-position:0 0;float:left;overflow:hidden}.slidesjs-pagination li a.active,.slidesjs-pagination li a:hover.active{background-position:0 -13px}.slidesjs-pagination li a:hover{background-position:0 -26px}#slides{width:90%;height:auto;position:relative}#slides img{width:100%}
+            .slidesjs-pagination{margin:0 15px 0 0;list-style:none;position:relative;z-index:999}.slidesjs-pagination li{float:left;margin:0 1px}.slidesjs-pagination li a{display:block;width:13px;height:0;padding-top:13px;background-image:url(../imagens/pagination.png);background-position:0 0;float:left;overflow:hidden}.slidesjs-pagination li a.active,.slidesjs-pagination li a:hover.active{background-position:0 -13px}.slidesjs-pagination li a:hover{background-position:0 -26px}#slides{width:90%;height:auto;position:relative}#slides img{width:100%}
         </style>
     </head>
     <body>
@@ -88,14 +88,14 @@
                 </div>
                 <div style="width: 373px; height: 230px; margin: 0 auto; padding: 15px 0;">
                     <div id="slides">
-                        <img src="imagens/example-slide-1.jpg" alt="Photo by: Missy S Link: http://www.flickr.com/photos/listenmissy/5087404401/">
-                        <img src="imagens/example-slide-2.jpg" alt="Photo by: Daniel Parks Link: http://www.flickr.com/photos/parksdh/5227623068/">
-                        <img src="imagens/example-slide-3.jpg" alt="Photo by: Mike Ranweiler Link: http://www.flickr.com/photos/27874907@N04/4833059991/">
-                        <img src="imagens/example-slide-4.jpg" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/">
+                        <img src="../imagens/example-slide-1.jpg" alt="Photo by: Missy S Link: http://www.flickr.com/photos/listenmissy/5087404401/">
+                        <img src="../imagens/example-slide-2.jpg" alt="Photo by: Daniel Parks Link: http://www.flickr.com/photos/parksdh/5227623068/">
+                        <img src="../imagens/example-slide-3.jpg" alt="Photo by: Mike Ranweiler Link: http://www.flickr.com/photos/27874907@N04/4833059991/">
+                        <img src="../imagens/example-slide-4.jpg" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/">
                     </div>
 
                     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-                    <script src="js/jquery.slides.min.js"></script>
+                    <script src="../js/jquery.slides.min.js"></script>
                     <script>
                             $(function() {
                                 $('#slides').slidesjs({
