@@ -20,7 +20,7 @@ setcookie("ck_authorized", "true", 0, "/");
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="../releases/verReleases.php">Releases</a>
+                <a href="./">Releases</a>
             </div>
             <div class="tenor">
                 <h1>Alterar Release</h1>
@@ -51,18 +51,18 @@ setcookie("ck_authorized", "true", 0, "/");
                                 <td>
                                     <select id="mes" name="mes">
                                         <option value="">Selecione um Mês...</option>
-                                        <option value="1" <?php if ($release['mes'] == 1) {echo 'selected';}?>>Janeiro</option>
-                                        <option value="2" <?php if ($release['mes'] == 2) {echo 'selected';}?>>Fevereiro</option>
-                                        <option value="3" <?php if ($release['mes'] == 3) {echo 'selected';}?>>Março</option>
-                                        <option value="4" <?php if ($release['mes'] == 4) {echo 'selected';}?>>Abril</option>
-                                        <option value="5" <?php if ($release['mes'] == 5) {echo 'selected';}?>>Maio</option>
-                                        <option value="6" <?php if ($release['mes'] == 6) {echo 'selected';}?>>Junho</option>
-                                        <option value="7" <?php if ($release['mes'] == 7) {echo 'selected';}?>>Julho</option>
-                                        <option value="8" <?php if ($release['mes'] == 8) {echo 'selected';}?>>Agosto</option>
-                                        <option value="9" <?php if ($release['mes'] == 9) {echo 'selected';}?>>Setembro</option>
-                                        <option value="10" <?php if ($release['mes'] == 10) {echo 'selected';}?>>Outubro</option>
-                                        <option value="11" <?php if ($release['mes'] == 11) {echo 'selected';}?>>Novembro</option>
-                                        <option value="12" <?php if ($release['mes'] == 12) {echo 'selected';}?>>Dezembro</option>
+                                        <option value="1" <?php if ($release['mes'] == 1) { echo 'selected'; } ?>>Janeiro</option>
+                                        <option value="2" <?php if ($release['mes'] == 2) { echo 'selected'; } ?>>Fevereiro</option>
+                                        <option value="3" <?php if ($release['mes'] == 3) { echo 'selected'; } ?>>Março</option>
+                                        <option value="4" <?php if ($release['mes'] == 4) { echo 'selected'; } ?>>Abril</option>
+                                        <option value="5" <?php if ($release['mes'] == 5) { echo 'selected'; } ?>>Maio</option>
+                                        <option value="6" <?php if ($release['mes'] == 6) { echo 'selected'; } ?>>Junho</option>
+                                        <option value="7" <?php if ($release['mes'] == 7) { echo 'selected'; } ?>>Julho</option>
+                                        <option value="8" <?php if ($release['mes'] == 8) { echo 'selected'; } ?>>Agosto</option>
+                                        <option value="9" <?php if ($release['mes'] == 9) { echo 'selected'; } ?>>Setembro</option>
+                                        <option value="10" <?php if ($release['mes'] == 10) { echo 'selected'; } ?>>Outubro</option>
+                                        <option value="11" <?php if ($release['mes'] == 11) { echo 'selected'; } ?>>Novembro</option>
+                                        <option value="12" <?php if ($release['mes'] == 12) { echo 'selected'; } ?>>Dezembro</option>
                                     </select>
                                 </td>
                             </tr>
@@ -72,7 +72,7 @@ setcookie("ck_authorized", "true", 0, "/");
 
                                     <select id="status" name="status">
                                         <option value="">Selecione um Status...</option>
-                                        <option value="1" <?php if ($release['status'] == 1) {echo 'selected';}?> >Publicado</option>
+                                        <option value="1" <?php if ($release['status'] == 1) { echo 'selected'; } ?> >Publicado</option>
                                         <option value="2" <?php if ($release['status'] == 2) { echo 'selected'; } ?>>Revisão</option>
                                     </select>
                                 </td>
@@ -84,7 +84,14 @@ setcookie("ck_authorized", "true", 0, "/");
                                     <span id="spanTexto" class="erro"></span>
                                 </td>
                             </tr>
-                            
+                            <tr>
+                                <td>Data de Publicação:</td>
+                                <td><input type="text" id="dataPublicacao" value="<?php echo implode('/', array_reverse(explode('-', $release['dataEntrada']))); ?>" name="dataPublicacao" /></td>
+                            </tr>
+                            <tr>
+                                <td>Data de Saída:</td>
+                                <td><input type="text" id="dataSaida" value="<?php echo implode('/', array_reverse(explode('-', $release['dataSaida']))); ?>" name="dataSaida" /></td>
+                            </tr>
                             <tr>
                                 <td colspan="2"><input type="button" id="btnAlterar" value="Enviar" /></td>
                             </tr>

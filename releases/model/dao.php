@@ -8,11 +8,13 @@ class ReleasesDAO extends Banco {
         $conexao = $this->abreConexao();
 
         $sql = "INSERT INTO " . TBL_RELEASE . " SET
-               titulo = '" . $objRelease->getTitulo() . "',
-               mes = '" . $objRelease->getMes() . "',
-               status = '" . $objRelease->getStatus() . "',
-               texto = '" . $objRelease->getTexto() . "',
-               dataCadastro = '" . $objRelease->getDataCadastro() . "'
+                titulo = '" . $objRelease->getTitulo() . "',
+                mes = '" . $objRelease->getMes() . "',
+                status = '" . $objRelease->getStatus() . "',
+                texto = '" . $objRelease->getTexto() . "',
+                dataCadastro = '" . $objRelease->getDataCadastro() . "',
+                dataEntrada = '" . $objRelease->getDataEntrada() . "',
+                dataSaida = '" . $objRelease->getDataSaida() . "'
                ";
 
         $conexao->query($sql);
@@ -24,11 +26,13 @@ class ReleasesDAO extends Banco {
         $conexao = $this->abreConexao();
 
         echo $sql = "UPDATE " . TBL_RELEASE . " SET
-               titulo = '" . $objRelease->getTitulo() . "',
-               mes = '" . $objRelease->getMes() . "',
-               status = '" . $objRelease->getStatus() . "',
-               texto = '" . $objRelease->getTexto() . "'
-                   WHERE idRelease = " . $objRelease->getIdRelease() . "
+                    titulo = '" . $objRelease->getTitulo() . "',
+                    mes = '" . $objRelease->getMes() . "',
+                    status = '" . $objRelease->getStatus() . "',
+                    texto = '" . $objRelease->getTexto() . "',
+                    dataEntrada = '" . $objRelease->getDataEntrada() . "',
+                    dataSaida = '" . $objRelease->getDataSaida() . "'
+                        WHERE idRelease = " . $objRelease->getIdRelease() . "
                ";
 
         $conexao->query($sql);
@@ -39,7 +43,7 @@ class ReleasesDAO extends Banco {
     public function delRelease($objRelease) {
         $conexao = $this->abreConexao();
 
-      echo  $sql = "UPDATE " . TBL_RELEASE . " 
+        echo $sql = "UPDATE " . TBL_RELEASE . " 
                 SET status = 0
                 WHERE idRelease = " . $objRelease->getIdRelease();
 
@@ -68,7 +72,7 @@ class ReleasesDAO extends Banco {
                         FROM " . TBL_RELEASE . "
                             WHERE status != 0
                             ORDER BY mes DESC
-                            LIMIT ".$count."
+                            LIMIT " . $count . "
                 ";
 
         $banco = $conexao->query($sql);

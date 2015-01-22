@@ -8,6 +8,8 @@ class Release {
     private $texto;
     private $dataCadastro;
     private $status;
+    private $dataEntrada;
+    private $dataSaida;
 
     public function getIdRelease() {
         return $this->idRelease;
@@ -41,22 +43,39 @@ class Release {
         $this->status = $status;
     }
 
-    function getTexto() {
+    public function getTexto() {
         return $this->texto;
     }
 
-    function setTexto($texto) {
+    public function setTexto($texto) {
         $this->texto = $texto;
     }
 
-    function getDataCadastro() {
+    public function getDataCadastro() {
         return $this->dataCadastro;
     }
 
-    function setDataCadastro($dataCadastro) {
+    public function setDataCadastro($dataCadastro) {
         $this->dataCadastro = $dataCadastro;
     }
-
+    
+    
+    public function getDataEntrada(){
+        return $this->dataEntrada;
+    }
+    
+    public function setDataEntrada($dataEntrada){
+        $this->dataEntrada = $dataEntrada;
+    }
+    
+    
+    public function getDataSaida(){
+        return $this->dataSaida;
+    }
+    
+    public function setDataSaida($dataSaida){
+        $this->dataSaida = $dataSaida;
+    }
 }
 
 $objRelease = new Release();

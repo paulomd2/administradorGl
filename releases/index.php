@@ -88,7 +88,14 @@ setcookie("ck_authorized", "true", 0, "/");
                                 <span id="spanTexto" class="erro"></span>
                             </td>
                         </tr>
-
+                        <tr>
+                            <td>Data de Publicação:</td>
+                            <td><input type="text" id="dataPublicacao" value="00/00/0000" name="dataPublicacao" /></td>
+                        </tr>
+                        <tr>
+                            <td>Data de Saída:</td>
+                            <td><input type="text" id="dataSaida" value="00/00/0000" name="dataSaida" /></td>
+                        </tr>
                         <tr>
                             <td colspan="2"><input type="button" id="btnCadastrar" value="Enviar" /></td>
                         </tr>
