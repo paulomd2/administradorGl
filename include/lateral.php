@@ -9,6 +9,7 @@ $diretorio = explode('/', $diretorio);
     <ul>
         <li class="hasub"><a href="#1"><i class="icon icon-file-text2"></i> Conteúdo </a>
             <ul id="1">
+                <li><a href="../conteudos/cadMenu.php">Cadastrar menu</a></li>
                 <?php
                     $menu = $objConteudoDao->listaMenus();
                     
@@ -16,6 +17,7 @@ $diretorio = explode('/', $diretorio);
                         echo '<li><a href="../conteudos/verSubmenus.php?id='.$menu[$i]["idMenu"].'#1" onclick="javascript:void(0);">'.$menu[$i]['titulo'].'</a></li>';
                     }
                 ?>
+                
                 
             </ul>
         </li>
