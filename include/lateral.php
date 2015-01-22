@@ -1,6 +1,9 @@
 <?php
 require_once '../model/banco.php';
 require_once '../conteudos/model/dao.php';
+
+$diretorio = $_SERVER['REQUEST_URI'];
+$diretorio = explode('/', $diretorio);
 ?>
 <aside class="barra-lateral">
     <ul>
@@ -23,12 +26,12 @@ require_once '../conteudos/model/dao.php';
         </li>
         <li class="hasub"><a href="#3"><i class="icon icon-user"></i> Usuários</a>
             <ul id="3">
-                <li><a href="http://localhost/githubpaulo/administradorGl/usuarios/">Cadastrar usuário</a></li>
-                <li><a href="http://localhost/githubpaulo/administradorGl/usuarios/verUsuarios.php">Usuários Cadastrados</a></li>
+                <li><a href="../usuarios/">Cadastrar usuário</a></li>
+                <li><a href="../usuarios/verUsuarios.php">Usuários Cadastrados</a></li>
             </ul>
         </li>
-        <li><a href="../noticias"><i class="icon icon-newspaper"></i> Notícias</a></li>
-        <li><a href="#"><i class="icon icon-newspaper"></i> Releases</a></li>
+        <li><a href="../noticias" <?php if(array_search('noticias',$diretorio) == true){  echo 'class="ativo"'; } ?>><i class="icon icon-newspaper"></i> Notícias</a></li>
+        <li><a href="../releases/" <?php if(array_search('releases',$diretorio) == true){ echo 'class="ativo"'; } ?>><i class="icon icon-newspaper"></i> Releases</a></li>
         <li><a href="#"><i class="icon icon-tv"></i> Destaques</a></li>
         <li><a href="http://localhost/githubpaulo/administradorGl/eventos"><i class="icon icon-calendar"></i> Eventos</a></li>
         <li><a href="#"><i class="icon icon-image"></i> Banners</a></li>

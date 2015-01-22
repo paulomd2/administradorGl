@@ -50,8 +50,8 @@ aside.barra-lateral{
     text-transform: uppercase;
     /*background: url(../imagens/setbottom-menu.png) no-repeat center right 10px;*/
 }
-.barra-lateral ul li a:hover{
-    background: #888;
+.barra-lateral ul li a:hover, .ativo{
+    background: #888 !important;
 }
 .barra-lateral li ul{
     display: none;
