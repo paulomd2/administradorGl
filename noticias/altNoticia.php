@@ -27,8 +27,8 @@ setcookie("ck_authorized", "true", 0, "/");
                 <h1>Alterar notícia</h1>
 
                 <?php
-                require '../model/banco.php';
-                require 'model/dao.php';
+                require_once '../model/banco.php';
+                require_once 'model/dao.php';
 
                 $idNoticia = $_GET['id'];
 

@@ -1,7 +1,7 @@
 function delNoticia(id) {
     if (confirm("Você tem certeza que deseja excluir essa notícia?") == true) {
         $.post('control/controleNoticias.php', {opcao: 'excluir', idNoticia: id});
-        $("#listaNoticias").load('listaNoticiasAjax.php');
+        $("#listaNoticias").load('listaNoticiasAjax.php?count=5');
     }
 }
 $(document).ready(function () {
@@ -14,6 +14,8 @@ $(document).ready(function () {
     }
 
     $("#publicacao").mask('99/99/9999');
+
+    $("#listaNoticias").load('listaNoticiasAjax.php?count=5');
 
     $("#btnCadastrar").click(function () {
         var titulo = $("#titulo").val().trim();

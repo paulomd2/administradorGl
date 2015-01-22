@@ -1,20 +1,32 @@
 <?php
 session_start();
 setcookie("ck_authorized", "true", 0, "/");
+
+echo $diretorio = $_SERVER['REQUEST_URI']. '<br />';
+
+$teste = explode('/', $diretorio);
+
+if(array_search('releases',$teste) >= 0){
+    echo 'achou!';
+    
+}
+
+
+//substr($string, -1)
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
         <title>Painel | Fagga</title>
-        <?php include_once 'http://localhost/githubpaulo/administradorGl/include/head.php'; ?>
+        <?php include_once '../include/head.php'; ?>
         <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
         <script type="text/javascript" src="js/noticias.js"></script>
         <script src="../plugin/ckeditor/ckeditor.js"></script>
     </head>
     <body>
-        <?php include_once 'http://localhost/githubpaulo/administradorGl/include/header.php'; ?>
-        <?php include_once 'http://localhost/githubpaulo/administradorGl/include/lateral.php'; ?>
+        <?php include_once '../include/header.php'; ?>
+        <?php include_once '../include/lateral.php'; ?>
 
         <div class="main-admin">
             <div class="guia-site">

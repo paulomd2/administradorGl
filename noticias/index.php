@@ -37,11 +37,7 @@ setcookie("ck_authorized", "true", 0, "/");
                         </tr>
                     </thead>
 
-                    <tbody id="listaNoticias">
-                        <?php
-                        require_once 'listaNoticiasAjax.php';
-                        ?>
-                    </tbody>
+                    <tbody id="listaNoticias"></tbody>
                 </table>
                 <a href="verNoticias.php" class="proPage">Ver todas as notícias</a>
 
