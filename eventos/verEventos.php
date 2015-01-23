@@ -26,16 +26,10 @@
                         <thead>
                             <tr>
                                 <td>Nome</td>
-                                <td>Título</td>
                                 <td>Data de Início</td>
                                 <td>Data de Fim</td>
                                 <td>Imagem</td>
-                                <td>Texto</td>
-                                <td>Metatag título</td>
-                                <td>Keywords título</td>
-                                <td>Descricao título</td>
-                                <td>Data de Cadastro</td>
-                                <td>Eduitar</td>
+                                <td>Editar</td>
                                 <td>Excluir</td>
                             </tr>
                         </thead>
@@ -44,20 +38,14 @@
                             require_once '../model/banco.php';
                             require_once 'model/dao.php';
 
-                            $eventos = $objEventoDao->verEventos();
+                            $eventos = $objEventoDao->verEventos(100);
 
                             for ($i = 1; $i < count($eventos); $i++) {
                                 echo '<tr>
                                         <td>' . $eventos[$i]["nome"] . '</td>
-                                        <td>' . $eventos[$i]["titulo"] . '</td>
                                         <td>' . $eventos[$i]["dataInicio"] . '</td>
                                         <td>' . $eventos[$i]["dataFim"] . '</td>
-                                        <td><img src="../images/' . $eventos[$i]["imagem"] . '" width="10" /></td>
-                                        <td>' . $eventos[$i]["texto"] . '</td>
-                                        <td>' . $eventos[$i]["tituloMetaTag"] . '</td>
-                                        <td>' . $eventos[$i]["keywordsMetaTag"] . '</td>
-                                        <td>' . $eventos[$i]["descricaoMetaTag"] . '</td>
-                                        <td>' . $eventos[$i]["dataCadastro"] . '</td>
+                                        <td><img src="../images/' . $eventos[$i]["imagem"] . '" width="100" /></td>
                                         <td><a href = "altEvento.php?id=' . $eventos[$i]['idEvento'] . '">Alterar</a></td>
                                         <td><a href = "javascript:delEvento(' . $eventos[$i]["idEvento"] . ')">Excluir</a></td>
                                     </tr>';

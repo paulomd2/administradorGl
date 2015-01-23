@@ -61,7 +61,7 @@ class EventosDAO extends Banco {
         $this->fechaConexao();
     }
 
-    public function verEventos() {
+    public function verEventos($count) {
         $conexao = $this->abreConexao();
 
         $sql = "
@@ -72,6 +72,7 @@ class EventosDAO extends Banco {
                     FROM ".TBL_EVENTOS."
                         WHERE status = 1
                         ORDER BY dataInicio DESC, dataFim DESC
+                        LIMIT ".$count."
                ";
 
         
