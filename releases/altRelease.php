@@ -20,24 +20,24 @@ setcookie("ck_authorized", "true", 0, "/");
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="./">Releases</a>
+                <a href="./">Banners</a>
             </div>
             <div class="tenor">
-                <h1>Alterar Release</h1>
+                <h1>Alterar Banners</h1>
 
                 <?php
                 require_once '../model/banco.php';
                 require_once 'model/dao.php';
 
-                $idRelease = $_GET['id'];
+                $idBanner = $_GET['id'];
 
-                $objRelease->setIdRelease($idRelease);
+                $objBanner->setIdRelease($idBanner);
 
-                $release = $objReleasesDao->verRelease1($objRelease);
+                $banner = $objBannersDao->verRelease1($objBanner);
                 ?>
                 <div>
-                    <form name="cadRelease">
-                        <input type="hidden" value="<?php echo $release['idRelease']; ?>" id="idRelease" />
+                    <form name="cadBanner">
+                        <input type="hidden" value="<?php echo $release['idBanner']; ?>" id="idBanner" />
                         <table>
                             <tr>
                                 <td>Título:</td>

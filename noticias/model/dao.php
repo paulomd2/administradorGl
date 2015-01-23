@@ -6,7 +6,7 @@ class NoticiasDAO extends Banco {
     public function cadNoticia($objNoticia) {
         $conexao = $this->abreConexao();
 
-        $sql = "INSERT INTO " . TBL_NOTICIAS . " SET
+        $sql = "INSERT INTO " . TBL_NOTICIA . " SET
                titulo = '" . $objNoticia->getTitulo() . "',
                subtitulo = '" . $objNoticia->getSubTitulo() . "',
                fonte = '" . $objNoticia->getFonte() . "',
@@ -24,7 +24,7 @@ class NoticiasDAO extends Banco {
     public function altNoticia($objNoticia) {
         $conexao = $this->abreConexao();
 
-        $sql = "UPDATE " . TBL_NOTICIAS . " SET
+        $sql = "UPDATE " . TBL_NOTICIA . " SET
                titulo = '" . $objNoticia->getTitulo() . "',
                subtitulo = '" . $objNoticia->getSubTitulo() . "',
                fonte = '" . $objNoticia->getFonte() . "',
@@ -43,7 +43,7 @@ class NoticiasDAO extends Banco {
     public function delNoticia($objNoticia) {
         $conexao = $this->abreConexao();
 
-        $sql = "UPDATE " . TBL_NOTICIAS . " 
+        $sql = "UPDATE " . TBL_NOTICIA . " 
                 SET status = 0
                 WHERE idNoticia = " . $objNoticia->getIdNoticia();
 
@@ -56,7 +56,7 @@ class NoticiasDAO extends Banco {
         $conexao = $this->abreConexao();
 
         $sql = "SELECT idNoticia, titulo, subTitulo, fonte, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao, texto
-                FROM " . TBL_NOTICIAS . "
+                FROM " . TBL_NOTICIA . "
                     WHERE status = 1
                         ORDER BY dataPublicacao DESC
                         LIMIT ".$count."
@@ -78,7 +78,7 @@ class NoticiasDAO extends Banco {
         $conexao = $this->abreConexao();
 
         $sql = "SELECT idNoticia, titulo, subTitulo, fonte, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao, texto, mercado
-                FROM " . TBL_NOTICIAS . "
+                FROM " . TBL_NOTICIA . "
                     WHERE idNoticia = ".$objNoticia->getIdNoticia()."
                         ORDER BY dataPublicacao DESC
                 ";
