@@ -12,9 +12,10 @@ define("TBL_ADMIN","");
 
 //Constantes de Tabela
 //Tabelas ADMIN
-define("TBL_USUARIOS",DB_ADMIN.TBL_ADMIN."usuarios ");
-define("TBL_NOTICIAS",DB_ADMIN.TBL_ADMIN."noticias ");
-define("TBL_EVENTOS",DB_ADMIN.TBL_ADMIN."eventos ");
+define("TBL_USUARIO",DB_ADMIN.TBL_ADMIN."usuarios ");
+define("TBL_NOTICIA",DB_ADMIN.TBL_ADMIN."noticias ");
+define("TBL_EVENTO",DB_ADMIN.TBL_ADMIN."eventos ");
 define("TBL_MENU",DB_ADMIN.TBL_ADMIN."menus ");
 define("TBL_SUBMENU",DB_ADMIN.TBL_ADMIN."submenus ");
 define("TBL_RELEASE",DB_ADMIN.TBL_ADMIN."releases ");
+define("TBL_BANNER",DB_ADMIN.TBL_ADMIN."banners ");

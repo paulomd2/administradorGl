@@ -7,7 +7,7 @@ class EventosDAO extends Banco {
     public function cadEvento($objEvento) {
         $conexao = $this->abreConexao();
 
-        $sql = "INSERT INTO " . TBL_EVENTOS . " SET
+        $sql = "INSERT INTO " . TBL_EVENTO . " SET
                 nome = '" . $objEvento->getNome() . "',
                 titulo = '" . $objEvento->getTitulo() . "',
                 dataInicio = '" . $objEvento->getDataInicio() . "',
@@ -29,7 +29,7 @@ class EventosDAO extends Banco {
         $conexao = $this->abreConexao();
 
         $sql = "SELECT *
-                        FROM " . TBL_EVENTOS . "
+                        FROM " . TBL_EVENTO . "
                             WHERE idEvento = " . $objEvento->getIdEvento();
 
         $banco = $conexao->query($sql);
@@ -43,7 +43,7 @@ class EventosDAO extends Banco {
     public function altEvento($objEvento) {
         $conexao = $this->abreConexao();
 
-        $sql = "UPDATE " . TBL_EVENTOS . " SET
+        $sql = "UPDATE " . TBL_EVENTO . " SET
                 nome = '" . $objEvento->getNome() . "',
                 titulo = '" . $objEvento->getTitulo() . "',
                 dataInicio = '" . $objEvento->getDataInicio() . "',
@@ -69,7 +69,7 @@ class EventosDAO extends Banco {
                 DATE_FORMAT(dataInicio, '%d/%m/%Y') as dataInicio,
                 DATE_FORMAT(dataFim, '%d/%m/%Y') as dataFim,
                 DATE_FORMAT(dataCadastro, '%d/%m/%Y') as dataCadastro
-                    FROM ".TBL_EVENTOS."
+                    FROM ".TBL_EVENTO."
                         WHERE status = 1
                         ORDER BY dataInicio DESC, dataFim DESC
                         LIMIT ".$count."
@@ -91,7 +91,7 @@ class EventosDAO extends Banco {
     public function delEvento($objEvento){
         $conexao = $this->abreConexao();
         
-       $sql = "UPDATE ".TBL_EVENTOS." SET status = 0 WHERE idEvento = ".$objEvento->getIdEvento();
+       $sql = "UPDATE ".TBL_EVENTO." SET status = 0 WHERE idEvento = ".$objEvento->getIdEvento();
         
         $conexao->query($sql);
     }

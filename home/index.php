@@ -20,65 +20,53 @@
                 <div class="tit-box">
                     <strong>ÚLTIMAS</strong> NOTÍCIAS
                     <!--<div class="plus"><a href="#"><i class="icon icon-pencil"></i></a></div>-->
-                    <div class="plus"><a href="#">+</a></div>
+                    <div class="plus"><a href="../noticias/verNoticias.php">+</a></div>
                 </div>
                 <table>
-                    <tr>
-                        <td>29/09</td>
-                        <td><a href="#">O cuidado em identificar pontos críticos na necessidade de renovação processual prepara-nos para enfrentar situações atípicas decorrentes do sistema de participação geral. O cuidado em identificar...</a></td>
-                    </tr>
-                    <tr>
-                        <td>29/09</td>
-                        <td><a href="#">O cuidado em identificar pontos críticos na necessidade de renovação processual prepara-nos para enfrentar situações atípicas decorrentes do sistema de participação geral. O cuidado em identificar...</a></td>
-                    </tr>
-                    <tr>
-                        <td>29/09</td>
-                        <td><a href="#">O cuidado em identificar pontos críticos na necessidade de renovação processual prepara-nos para enfrentar situações atípicas decorrentes do sistema de participação geral. O cuidado em identificar...</a></td>
-                    </tr>
-                    <tr>
-                        <td>29/09</td>
-                        <td><a href="#">O cuidado em identificar pontos críticos na necessidade de renovação processual prepara-nos para enfrentar situações atípicas decorrentes do sistema de participação geral. O cuidado em identificar...</a></td>
-                    </tr>
+                    <?php
+                        require_once '../model/banco.php';
+                        require_once '../noticias/model/dao.php';
+                        
+                        $noticias = $objNoticiasDao->verNoticias(4);
+                        
+                        for($i = 1; $i < count($noticias); $i++){
+                            $explode = explode('/',$noticias[$i]["dataPublicacao"]);
+                            $data = $explode[0].'/'.$explode[1];
+                            
+                            echo '
+                                    <tr>
+                                        <td>'.$data.'</td>
+                                        <td><a href="../noticias/altNoticia.php?id='.$noticias[$i]["idNoticia"].'">'.$noticias[$i]["titulo"].'</a></td>
+                                    </tr>
+                                 ';
+                        }
+                    ?>
                 </table>
             </div>
             <div class="box eventos">
                 <div class="tit-box">
                     <strong>ÚLTIMOS</strong> EVENTOS
-                    <div class="plus"><a href="#">+</a></div>
+                    <div class="plus"><a href="../eventos/verEventos.php">+</a></div>
                 </div>
                 <table>
-                    <tr>
-                        <td>29/09</td>
-                        <td><a href="#">FLAMENGO X BAURU NA NBB 07</a></td>
-                    </tr>
-                    <tr>
-                        <td>29/09</td>
-                        <td><a href="#">LANÇAMENTO DO DVD - PAULO GUSTAVO</a></td>
-                    </tr>
-                    <tr>
-                        <td>29/09</td>
-                        <td><a href="#">ED SHEERAN</a></td>
-                    </tr>
-                    <tr>
-                        <td>29/09</td>
-                        <td><a href="#">Lançamento do DVD de Martin</a></td>
-                    </tr>
-                    <tr>
-                        <td>29/09</td>
-                        <td><a href="#">Lançamento do DVD de Martin</a></td>
-                    </tr>
-                    <tr>
-                        <td>29/09</td>
-                        <td><a href="#">Lançamento do DVD de Martin</a></td>
-                    </tr>
-                    <tr>
-                        <td>29/09</td>
-                        <td><a href="#">Lançamento do DVD de Martin</a></td>
-                    </tr>
-                    <tr>
-                        <td>29/09</td>
-                        <td><a href="#">Lançamento do DVD de Martin</a></td>
-                    </tr>
+                    <?php
+                        require_once '../model/banco.php';
+                        require_once '../eventos/model/dao.php';
+                        
+                        $eventos = $objEventoDao->verEventos(8);
+                        
+                        for($i = 1; $i < count($eventos); $i++){
+                            $explode = explode('/',$eventos[$i]["dataInicio"]);
+                            $data = $explode[0].'/'.$explode[1];
+                            
+                            echo '
+                                    <tr>
+                                        <td>'.$data.'</td>
+                                        <td><a href="../eventos/altEvento.php?id='.$eventos[$i]["idEvento"].'">'.$eventos[$i]["nome"].'</a></td>
+                                    </tr>
+                                 ';
+                        }
+                    ?>
                 </table>
             </div>
             <div class="box banners" style="background: #fff;">
