@@ -44,12 +44,17 @@ $diretorio = explode('/', $diretorio);
             }
             ?>><i class="icon icon-newspaper"></i> Releases</a></li>
         <li><a href="#"><i class="icon icon-tv"></i> Destaques</a></li>
+<<<<<<< HEAD
         <li><a href="../eventos" <?php
             if (array_search('eventos', $diretorio) == true) {
                 echo 'class="ativo"';
             }
             ?>><i class="icon icon-calendar"></i> Eventos</a></li>
         <li><a href="#"><i class="icon icon-image"></i> Banners</a></li>
+=======
+        <li><a href="../eventos" <?php if(array_search('eventos',$diretorio) == true){ echo 'class="ativo"'; } ?>><i class="icon icon-calendar"></i> Eventos</a></li>
+        <li><a href="../banners/" <?php if(array_search('banners',$diretorio) == true){ echo 'class="ativo"'; } ?>><i class="icon icon-image"></i> Banners</a></li>
+>>>>>>> origin/master
         <li><a href="#"><i class="icon icon-upload2"></i> Uploads</a></li>
     </ul>
     <section id="scrollbar-track">
