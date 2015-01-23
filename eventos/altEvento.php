@@ -65,7 +65,8 @@ $evento = $objEventoDao->listaEvento1($objEvento);
                         <td>Imagem:</td>
                         <td>
                             <input type="file" name="imagem" id="imagem" /><br />
-                            <span id="spanImagem" class="erro"></span>
+                            <span id="spanImagem" class="erro"></span><br />
+                            <img src="../images/<?php echo $evento['imagem'] ?>" width="100" />
                         </td>
                     </tr>
                     <tr>
