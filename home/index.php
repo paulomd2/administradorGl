@@ -72,7 +72,7 @@
             <div class="box banners" style="background: #fff;">
                 <div class="tit-box">
                     <strong>ÚLTIMOS</strong> BANNERS
-                    <div class="plus"><a href="#">+</a></div>
+                    <div class="plus"><a href="../banners/verBanners.php">+</a></div>
                 </div>
                 <div style="width: 373px; height: 230px; margin: 0 auto; padding: 15px 0;">
                     <div id="slides">
@@ -99,7 +99,7 @@
             <div class="box destaques">
                 <div class="tit-box">
                     <strong>ÚLTIMOS</strong> DESTAQUES
-                    <div class="plus"><a href="#">+</a></div>
+                    <div class="plus"><a href="../destaques/verDestaques.php">+</a></div>
                 </div>
                 <table>
                     <tr>

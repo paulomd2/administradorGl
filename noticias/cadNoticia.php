@@ -2,17 +2,6 @@
 session_start();
 setcookie("ck_authorized", "true", 0, "/");
 
-echo $diretorio = $_SERVER['REQUEST_URI']. '<br />';
-
-$teste = explode('/', $diretorio);
-
-if(array_search('releases',$teste) >= 0){
-    echo 'achou!';
-    
-}
-
-
-//substr($string, -1)
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -30,7 +19,7 @@ if(array_search('releases',$teste) >= 0){
 
         <div class="main-admin">
             <div class="guia-site">
-                <a href="../painel.php"><i class="icon icon-home"></i> Home</a>
+                <a href="../home/"><i class="icon icon-home"></i> Home</a>
                 <a href="index.php">Notícias</a>
                 <a href="#">Cadastrar notícia</a>
             </div>

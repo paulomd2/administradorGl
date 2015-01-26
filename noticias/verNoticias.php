@@ -17,7 +17,7 @@ setcookie("ck_authorized", "true", 0, "/");
 
         <div class="main-admin">
             <div class="guia-site">
-                <a href="../painel.php"><i class="icon icon-home"></i> Home</a>
+                <a href="../home/"><i class="icon icon-home"></i> Home</a>
                 <a href="index.php">Notícias</a>
                 <a href="#">Todas as notícias</a>
             </div>
