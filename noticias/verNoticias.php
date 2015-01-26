@@ -24,28 +24,22 @@ setcookie("ck_authorized", "true", 0, "/");
             <div class="tenor">
                 <h1>Todas as notícias</h1>
 
-                <form name="cadNoticia">
-                    <input type="hidden" value="<?php echo $_GET['mercado']; ?>" id="mercado"/>
-                    <table class="tableAll">
-                        <thead>
-                            <tr>
-                                <td style="width: 60%;">Título</td>
-                                <td style="width: 20%;">Data de Publicação</td>
-                                <!--<td>Sub-título</td>-->
-                                <!--<td>Fonte</td>-->
-                                <!--<td>Texto</td>-->
-                                <td style="width: 10%;">Alterar</td>
-                                <td style="width: 10%;">Excluir</td>
-                            </tr>
-                        </thead>
+                <table class="tableAll">
+                    <thead>
+                        <tr>
+                            <td style="width: 60%;">Título</td>
+                            <td style="width: 20%;">Data de Publicação</td>
+                            <!--<td>Sub-título</td>-->
+                            <!--<td>Fonte</td>-->
+                            <!--<td>Texto</td>-->
+                            <td style="width: 10%;">Alterar</td>
+                            <td style="width: 10%;">Excluir</td>
+                        </tr>
+                    </thead>
 
-                        <tbody id="listaNoticias">
-                            <?php
-                            require_once 'listaNoticiasAjax.php';
-                            ?>
-                        </tbody>
-                    </table>
-                </form>
+                    <tbody id="listaNoticias">
+                    </tbody>
+                </table>
                 <a href="index.php" class="proPage">Voltar</a>
                 <a href="cadNoticia.php" class="proPage">Cadastrar nova notícia</a>
 

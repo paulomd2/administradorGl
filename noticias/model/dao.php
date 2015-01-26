@@ -55,7 +55,7 @@ class NoticiasDAO extends Banco {
     public function verNoticias($count) {
         $conexao = $this->abreConexao();
 
-        $sql = "SELECT idNoticia, titulo, subTitulo, fonte, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao, texto
+        echo $sql = "SELECT idNoticia, titulo, subTitulo, fonte, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao, texto
                 FROM " . TBL_NOTICIA . "
                     WHERE status = 1
                         ORDER BY dataPublicacao DESC
