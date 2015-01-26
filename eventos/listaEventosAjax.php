@@ -3,7 +3,13 @@
 require_once '../model/banco.php';
 require_once 'model/dao.php';
 
-$eventos = $objEventoDao->verEventos();
+if(isset($_GET['count'])){
+    $count = $_GET['count'];
+}else{
+    $count = 100;
+}
+
+$eventos = $objEventoDao->verEventos($count);
 
 for ($i = 1; $i < count($eventos); $i++) {
     echo '<tr>

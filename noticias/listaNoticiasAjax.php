@@ -8,8 +8,6 @@ if(isset($_GET['count'])){
     $count = 100;
 }
 
-echo $count;
-
 $noticias = $objNoticiasDao->verNoticias($count);
 
 for ($i = 1; $i < count($noticias); $i++) {
