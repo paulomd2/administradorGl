@@ -6,6 +6,25 @@
         <?php include_once '../include/head.php'; ?>
         <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
         <script type="text/javascript" src="js/banners.js"></script>
+        <script type="text/javascript" src="../js/jquery-2.1.3.js"></script>
+        <script type="text/javascript" src="../js/jquery-ui.js"></script>
+        <script>
+
+            $(document).ready(function () {
+
+                $("#contentLeft ul").sortable({
+                    opacity: 0.6,
+                    cursor: 'move',
+                    update: function () {
+                        var order = $(this).sortable("serialize") + '&action=updateRecordsListings';
+                        $.post("updateDB.php", order, function (theResponse) {
+                            console.log(theResponse);
+                        });
+                    }
+                });
+
+            });
+        </script>
     </head>
     <body>
         <?php include_once '../include/header.php'; ?>

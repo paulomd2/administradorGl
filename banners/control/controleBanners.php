@@ -12,22 +12,37 @@ switch ($opcao) {
         $target = $_POST['target'];
         $dataCadastro = date('Y-m-d H:i:s');
         $dataEntrada = implode('-', array_reverse(explode('/', $_POST['dataPublicacao'])));
-        $dataEntrada = str_replace('T', ' ', $dataEntrada);
+        $horaEntrada = $_POST['horaPublicacao'] . ':' . $_POST['minutoPublicacao'] . ':00';
         $dataSaida = implode('-', array_reverse(explode('/', $_POST['dataSaida'])));
-        $dataSaida = str_replace('T', ' ', $dataSaida);
+        $horaSaida = $_POST['horaSaida'] . ':' . $_POST['minutoSaida'] . ':00';
         $imagem = uploadImagem();
 
-        $objBanner->setNome($nome);
-        $objBanner->setLink($link);
-        $objBanner->setStatus($status);
-        $objBanner->setTarget($target);
-        $objBanner->setDataCadastro($dataCadastro);
-        $objBanner->setDataPublicacao($dataEntrada);
-        $objBanner->setDataSaida($dataSaida);
-        $objBanner->setImagem($imagem);
+        if ($imagem == false) {
+            unset($_POST['idBanner']);
+            unset($_POST['opcao']);
+            $post = implode('|', $_POST);
 
-        $objBannersDao->cadBanner($objBanner);
-        
+            echo "
+                <script>
+                    var teste = '" . $_SERVER['HTTP_REFERER'] . "+&errorId=50&data=" . $post . "';
+                    window.location = teste;
+                </script>";
+        } else {
+            $objBanner->setImagem($imagem);
+            $objBanner->setNome($nome);
+            $objBanner->setLink($link);
+            $objBanner->setStatus($status);
+            $objBanner->setTarget($target);
+            $objBanner->setDataCadastro($dataCadastro);
+            $objBanner->setDataPublicacao($dataEntrada);
+            $objBanner->setDataSaida($dataSaida);
+            $objBanner->setHoraPublicacao($horaEntrada);
+            $objBanner->setHoraSaida($horaSaida);
+            $objBanner->setOrdem(0);
+
+
+            $objBannersDao->cadBanner($objBanner);
+        }
         echo '<script>window.location = "../";</script>';
         break;
 
@@ -38,27 +53,46 @@ switch ($opcao) {
         $target = $_POST['target'];
         $dataCadastro = date('Y-m-d H:i:s');
         $dataEntrada = implode('-', array_reverse(explode('/', $_POST['dataPublicacao'])));
+        $horaEntrada = $_POST['horaPublicacao'] . ':' . $_POST['minutoPublicacao'] . ':00';
         $dataSaida = implode('-', array_reverse(explode('/', $_POST['dataSaida'])));
-        $idBanner = $_POST['idBanner']; 
+        $horaSaida = $_POST['horaSaida'] . ':' . $_POST['minutoSaida'] . ':00';
+        $idBanner = $_POST['idBanner'];
 
         if ($_FILES['imagem']['name'] != '') {
             $imagem = uploadImagem();
-        }else{
+        } else {
             $imagem = $_POST['imagemAntiga'];
         }
-        
-        $objBanner->setImagem($imagem);
-        $objBanner->setNome($nome);
-        $objBanner->setLink($link);
-        $objBanner->setStatus($status);
-        $objBanner->setTarget($target);
-        $objBanner->setDataCadastro($dataCadastro);
-        $objBanner->setDataPublicacao($dataEntrada);
-        $objBanner->setDataSaida($dataSaida);
-        $objBanner->setIdBanner($idBanner);
 
-        //$objBannersDao->altBanner($objBanner);
-        //echo '<script>window.location = "../";</script>';
+
+        if ($imagem == false) {
+            unset($_POST['idBanner']);
+            unset($_POST['opcao']);
+            $post = implode('|', $_POST);
+
+            echo "
+                <script>
+                    var teste = '" . $_SERVER['HTTP_REFERER'] . "+&errorId=50&data=" . $post . "';
+                    window.location = teste;
+                </script>";
+        } else {
+            $objBanner->setImagem($imagem);
+            $objBanner->setNome($nome);
+            $objBanner->setLink($link);
+            $objBanner->setStatus($status);
+            $objBanner->setTarget($target);
+            $objBanner->setDataCadastro($dataCadastro);
+            $objBanner->setDataPublicacao($dataEntrada);
+            $objBanner->setDataSaida($dataSaida);
+            $objBanner->setIdBanner($idBanner);
+            $objBanner->setHoraPublicacao($horaEntrada);
+            $objBanner->setHoraSaida($horaSaida);
+            $objBanner->setOrdem(0);
+
+            $objBannersDao->altBanner($objBanner);
+
+            //echo "<script>window.location = '../';</script>";
+        }
         break;
 
     case 'excluir':
@@ -68,40 +102,48 @@ switch ($opcao) {
 
         $objBannersDao->delRelease($objBanner);
         break;
+
+    case 'ordena':
+        $action = mysql_real_escape_string($_POST['action']);
+        $updateRecordsArray = $_POST['recordsArray'];
+
+        if ($action == "updateRecordsListings") {
+
+            $listingCounter = 1;
+            foreach ($updateRecordsArray as $recordIDValue) {
+
+
+
+                /* $query = "UPDATE records SET recordListingID = " . $listingCounter . " WHERE recordID = " . $recordIDValue;
+                  mysql_query($query) or die('Error, insert query failed');
+                  $listingCounter = $listingCounter + 1; */
+
+                $objBannersDao->testaOrdem($listingCounter, $recordIDValue);
+                $listingCounter++;
+            }
+        }
+
+
+        break;
 }
 
 function uploadImagem() {
 
+    $valido = true;
     $tipoArquivo = pathinfo($_FILES['imagem']['name']);
     $tipoArquivo = '.' . $tipoArquivo['extension'];
 
-    
-    
-    var_dump($_POST);
-    
-    echo '<br /><br />';
-    unset($_POST[0]);
-    unset($_POST[1]);
-    unset($_POST[2]);
-    var_dump($_POST);
-    //$post = implode('|',$_POST);
-    //echo $post;
     $new_file_name = strtolower(md5(date('d/m/Y/H:i:s'))) . $tipoArquivo;
     if ($_FILES['imagem']['size'] > (512000)) { //não pode ser maior que 500Kb
-        echo "
-                <script>
-                    console.log('".$_SERVER['HTTP_REFERER']."+&errorId=50');
-                    var teste = '".$_SERVER['HTTP_REFERER']."+&errorId=50&data=';
-                    //console.log(teste);
-                    //window.location = teste;
-
-                </script>";
+        $valido = false;
     } else {
         if (!file_exists('../../images/')) {
             mkdir('../../images');
         }
         move_uploaded_file($_FILES['imagem']['tmp_name'], '../../images/' . $new_file_name);
 
-        return $new_file_name;
+        $valido = $new_file_name;
     }
+
+    return $valido;
 }

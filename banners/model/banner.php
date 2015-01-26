@@ -6,12 +6,14 @@ class Banners {
     private $nome;
     private $imagem;
     private $dataPublicacao;
+    private $horaPublicacao;
     private $link;
     private $target;
     private $dataCadastro;
     private $ordem;
     private $status;
     private $dataSaida;
+    private $horaSaida;
 
     function getIdBanner() {
         return $this->idBanner;
@@ -91,6 +93,22 @@ class Banners {
 
     function setDataSaida($dataSaida) {
         $this->dataSaida = $dataSaida;
+    }
+
+    public function getHoraPublicacao() {
+        return $this->horaPublicacao;
+    }
+
+    public function setHoraPublicacao($horaPublicacao) {
+        $this->horaPublicacao = $horaPublicacao;
+    }
+
+    public function getHoraSaida() {
+        return $this->horaSaida;
+    }
+
+    public function setHoraSaida($horaSaida) {
+        $this->horaSaida = $horaSaida;
     }
 
 }
