@@ -29,8 +29,8 @@ class EventosDAO extends Banco {
         $conexao = $this->abreConexao();
 
         $sql = "SELECT *
-                        FROM " . TBL_EVENTO . "
-                            WHERE idEvento = " . $objEvento->getIdEvento();
+                    FROM " . TBL_EVENTO . "
+                        WHERE idEvento = " . $objEvento->getIdEvento();
 
         $banco = $conexao->query($sql);
 

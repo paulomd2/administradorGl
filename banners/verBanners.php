@@ -1,7 +1,3 @@
-<?php
-session_start();
-setcookie("ck_authorized", "true", 0, "/");
-?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -9,7 +5,7 @@ setcookie("ck_authorized", "true", 0, "/");
         <title>Painel | Fagga</title>
         <?php include_once '../include/head.php'; ?>
         <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
-        <script type="text/javascript" src="js/releases.js"></script>
+        <script type="text/javascript" src="js/banners.js"></script>
     </head>
     <body>
         <?php include_once '../include/header.php'; ?>
@@ -18,10 +14,10 @@ setcookie("ck_authorized", "true", 0, "/");
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="./">releases</a>
+                <a href="./">Banners</a>
             </div>
             <div class="tenor">
-                <h1>Ver releases</h1>
+                <h1>Ver banners</h1>
 
                 <table class="tableAll">
                     <thead>
@@ -33,9 +29,9 @@ setcookie("ck_authorized", "true", 0, "/");
                         </tr>
                     </thead>
 
-                    <tbody id="listaNoticias">
+                    <tbody id="listaReleases">
                         <?php
-                        require_once 'listaReleasesAjax.php';
+                        require_once 'listaBannersAjax.php';
                         ?>
                     </tbody>
                 </table>

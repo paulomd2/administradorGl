@@ -7,78 +7,66 @@ function delRelease(id) {
 $(document).ready(function () {
     $("#listaBanners").load('listaBannersAjax.php?count=5');
 
-    $("#dataPublicacao").mask('99/99/9999');
-    $("#dataSaida").mask('99/99/9999');
-
     $("#btnCadastrar").click(function () {
-        CKEDITOR.instances.texto.updateElement();
-        var titulo = $("#titulo").val().trim();
-        var mes = $("#mes").val().trim();
-        var status = $("#status").val().trim();
-        var texto = CKEDITOR.instances.texto.getData();
+        var nome = $("#nome").val().trim();
+        var link = $("#link").val().trim();
+        var target = $("#target").val();
+        var status = $("#status").val();
         var dataEntrada = $("#dataPublicacao").val();
         var dataSaida = $("#dataSaida").val();
-
+        var imagem = $("#imagem").val();
+        
         $(".erro").html('');
-        if (titulo == '') {
-            $("#titulo").focus();
-            $("#spanTitulo").html('Você deve preencher o Título!');
-        } else if (mes == '') {
-            $("#mes").focus();
-            $("#spanMes").html('Você deve selecionar o Mes!');
-        } else if (status == '') {
+        if (nome == '') {
+            $("#nome").focus();
+            $("#spanNome").html('Você deve preencher o Nome!');
+        } else if (link == '') {
+            $("#link").focus();
+            $("#spanLink").html('Você deve preencher o Link!');
+        } else if(target == ''){
+            $("#target").focus();
+            $("#spanTarget").html('Você deve selecionar o Target!');
+        }else if (status == '') {
             $("#status").focus();
             $("#spanStatus").html('Você deve selecionar o Status!');
-        } else if (texto == '') {
-            $("#texto").focus();
-            $("#spanTexto").html('Você deve preencher o Texto!');
+        } else if(dataEntrada == ''){
+            $("#dataPublicacao").focus();
+            $("#spanDataPublicacao").html('Você deve selecionar a data de Publicação!');
+        } else if (imagem == '') {
+            $("#imagem").focus();
+            $("#spanImagem").html('Você deve selecionsr a Imagem!');
         } else {
-            $.post('control/controleReleases.php', {opcao: 'cadastrar', titulo: titulo, mes: mes, status: status, texto: texto, dataEntrada:dataEntrada, dataSaida:dataSaida});
-            $("#listaReleases").load('listaReleasesAjax.php');
+           $("#cadBanner").submit();
         }
     });
 
     $("#btnAlterar").click(function () {
-        CKEDITOR.instances.texto.updateElement();
-        var titulo = $("#titulo").val().trim();
-        var mes = $("#mes").val().trim();
-        var status = $("#status").val().trim();
-        var texto = CKEDITOR.instances.texto.getData();
+        var nome = $("#nome").val().trim();
+        var link = $("#link").val().trim();
+        var target = $("#target").val();
+        var status = $("#status").val();
         var dataEntrada = $("#dataPublicacao").val();
         var dataSaida = $("#dataSaida").val();
-        var idRelease = $("#idRelease").val();
-
+        var imagem = $("#imagem").val();
+        
         $(".erro").html('');
-        if (titulo == '') {
-            $("#titulo").focus();
-            $("#spanTitulo").html('Você deve preencher o Título!');
-        } else if (mes == '') {
-            $("#mes").focus();
-            $("#spanMes").html('Você deve selecionar o Mes!');
-        } else if (status == '') {
+        if (nome == '') {
+            $("#nome").focus();
+            $("#spanNome").html('Você deve preencher o Nome!');
+        } else if (link == '') {
+            $("#link").focus();
+            $("#spanLink").html('Você deve preencher o Link!');
+        } else if(target == ''){
+            $("#target").focus();
+            $("#spanTarget").html('Você deve selecionar o Target!');
+        }else if (status == '') {
             $("#status").focus();
             $("#spanStatus").html('Você deve selecionar o Status!');
-        } else if (texto == '') {
-            $("#texto").focus();
-            $("#spanTexto").html('Você deve preencher o Texto!');
+        } else if(dataEntrada == ''){
+            $("#dataPublicacao").focus();
+            $("#spanDataPublicacao").html('Você deve selecionar a data de Publicação!');
         } else {
-            $.post('control/controleReleases.php', {opcao: 'alterar', idRelease: idRelease, titulo: titulo, mes: mes, status: status, texto: texto, dataEntrada:dataEntrada, dataSaida:dataSaida},
-            function (r) {
-                console.log(r);
-            });
-            //window.location = 'verNoticias.php';
-        }
-    });
-
-    $("#dataSaida").blur(function () {
-        if ($("#dataSaida").val() == '') {
-            $("#dataSaida").val('00/00/0000');
-        }
-    });
-
-    $("#dataPublicacao").blur(function () {
-        if ($("#dataPublicacao").val() == '') {
-            $("#dataPublicacao").val('00/00/0000');
+           $("#altBanner").submit();
         }
     });
 });

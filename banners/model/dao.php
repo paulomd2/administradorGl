@@ -2,12 +2,12 @@
 
 require_once 'banner.php';
 
-class bannersDAO extends Banco {
+class BannersDAO extends Banco {
 
-    public function cadBanners($obj_banners) {
+    public function cadBanner($obj_banners) {
         $conexao = $this->abreConexao();
 
-        $sql = 'INSERT INTO ' . TBL_BANNERS . ' SET
+        $sql = 'INSERT INTO ' . TBL_BANNER . ' SET
                 nome = "' . $obj_banners->getNome() . '", 
                 imagem = "' . $obj_banners->getImagem() . '", 
                 dataPublicacao = "' . $obj_banners->getDataPublicacao() . '", 
@@ -23,10 +23,10 @@ class bannersDAO extends Banco {
         $this->fechaConexao();
     }
 
-    public function altBanners($obj_banners) {
+    public function altBanner($obj_banners) {
         $conexao = $this->abreConexao();
 
-        $sql = 'UPDATE ' . TB_BANNERS . ' SET
+       echo $sql = 'UPDATE ' . TBL_BANNER . ' SET
                     nome = "' . $obj_banners->getNome() . '", 
                     imagem = "' . $obj_banners->getImagem() . '", 
                     dataPublicacao = "' . $obj_banners->getDataPublicacao() . '", 
@@ -37,7 +37,7 @@ class bannersDAO extends Banco {
                     dataSaida = "' . $obj_banners->getDataSaida() . '"
                     WHERE idBanner = ' . $obj_banners->getIdBanner();
 
-        $conexao->query($sql);
+        //$conexao->query($sql);
 
         $this->fechaConexao();
     }
@@ -45,16 +45,16 @@ class bannersDAO extends Banco {
     public function delBanners(banners $obj_banners) {
         $conexao = $this->abreConexao();
 
-        $sql = 'UPDATE FROM ' . TB_BANNERS . ' SET status = 0 WHERE idBanner = "' . $obj_banners->getIdBanner() . '"';
+        $sql = 'UPDATE FROM ' . TBL_BANNER . ' SET status = 0 WHERE idBanner = "' . $obj_banners->getIdBanner() . '"';
         $conexao->query($sql);
 
         $this->fechaConexao();
     }
 
     public function listaBanners1($objBanner) {
-        $conexao = $this->conecta();
+        $conexao = $this->abreConexao();
 
-        $sql = 'SELECT * FROM' . TB_BANNERS . 'WHERE idBanner = "' . $obj_banners->getIdBanner() . '"';
+        $sql = 'SELECT *  FROM' . TBL_BANNER . 'WHERE idBanner = "' . $objBanner->getIdBanner() . '"';
         $banco = $conexao->query($sql);
 
         $linha = $banco->fetch_assoc();
@@ -63,10 +63,10 @@ class bannersDAO extends Banco {
         $this->fechaConexao();
     }
 
-    public function listaBanners() {
-        $conexao = $this->conecta();
+    public function listaBanners($count) {
+        $conexao = $this->abreConexao();
 
-        $sql = 'SELECT * FROM' . TB_BANNERS . 'WHERE status != 0';
+        $sql = 'SELECT * FROM' . TBL_BANNER . 'WHERE status != 0 LIMIT '.$count;
         $banco = $conexao->query($sql);
 
         $linhas[] = array();
@@ -81,4 +81,6 @@ class bannersDAO extends Banco {
     }
 
 }
+
+$objBannersDao = new BannersDAO();
 ?>
