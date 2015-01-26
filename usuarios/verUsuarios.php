@@ -3,13 +3,13 @@
     <head>
         <meta charset="UTF-8">
         <title>Painel | Fagga</title>
-        <?php include_once 'http://localhost/githubpaulo/administradorGl/include/head.php'; ?>
+        <?php include_once '../include/head.php'; ?>
         <script type="text/javascript" src="../js/jquery-2.1.3.js"></script>
         <script type="text/javascript" src="js/usuario.js"></script>
     </head>
     <body>
-        <?php include_once 'http://localhost/githubpaulo/administradorGl/include/header.php'; ?>
-        <?php include_once 'http://localhost/githubpaulo/administradorGl/include/lateral.php'; ?>
+        <?php include_once '../include/header.php'; ?>
+        <?php include_once '../include/lateral.php'; ?>
 
         <div class="main-admin">
             <div class="guia-site">

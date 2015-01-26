@@ -10,18 +10,17 @@
         <!-- polyfiller file to detect and load polyfills -->
         <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
         <script>
-<<<<<<< HEAD
+
             webshims.setOptions('waitReady', false);
             webshims.setOptions('forms-ext', {types: 'date'});
             webshims.polyfill('forms forms-ext');
-=======
+
             rome(left, {
                 dateValidator: rome.val.beforeEq(right)
             });
             rome(right, {
                 dateValidator: rome.val.afterEq(left)
             });
->>>>>>> origin/master
         </script>
     </head>
     <body>
@@ -52,7 +51,7 @@
                 <h1>Cadastrar Banner</h1>
                 <form enctype="multipart/form-data" action="control/controleBanners.php" method="post" id="cadBanner">
                     <input type="hidden" name="opcao" value="alterar" />
-                    <table>
+                    <table class="tableform">
                         <tr>
                             <td>Nome:</td>
                             <td>
@@ -82,7 +81,7 @@
                             <td>Status</td>
                             <td>
 
-<<<<<<< HEAD
+
                                 <select id="status" name="status">
                                     <option value="">Selecione um Status...</option>
                                     <option value="1">Publicado</option>
@@ -117,35 +116,6 @@
                         </tr>
                     </table>
                 </form>
-=======
-                            <select id="status" name="status">
-                                <option value="">Selecione um Status...</option>
-                                <option value="1">Publicado</option>
-                                <option value="2">Revisão</option>
-                            </select><br />
-                            <span class="erro" id="spanStatus"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Data de Publicação:</td>
-                        <td>
-                            <input id="left" class="input">
-                            <input id="right" class="input">
-
-                            <br /><br />
-                            <input type="text" id="datepicker" name="dataPublicacao" value="00/00/0000" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Data de Saída:</td>
-                        <td><input type="text" id="dataSaida" name="dataSaida" value="00/00/0000" /></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><input type="button" id="btnCadastrar" value="Enviar" /></td>
-                    </tr>
-                </table>
-                <div class="divError">Erro ao subir imagem</div>
->>>>>>> origin/master
             </div>
         </div>
         <!--script src='../plugin/romeDateTimePicker/example/example.js'></script-->
