@@ -20,7 +20,7 @@ $usuario = $objUsuarioDao->verUsuario1($objUsuario)
 
         <div class="main-admin">
             <div class="guia-site">
-                <a href="../painel.php"><i class="icon icon-home"></i> Home</a>
+                <a href="../home/"><i class="icon icon-home"></i> Home</a>
                 <a href="verUsuarios.php">Usuários cadastrados</a>
                 <a href="#">Alterar usuário</a>
             </div>

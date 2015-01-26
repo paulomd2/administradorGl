@@ -4,13 +4,13 @@ function delRelease(id) {
         $("#listaReleases").load('listaReleasesAjax.php?count=5');
     }
 }
-$(document).ready(function () {
+$(document).ready(function() {
     $("#listaReleases").load('listaReleasesAjax.php?count=5');
 
     $("#dataPublicacao").mask('99/99/9999');
     $("#dataSaida").mask('99/99/9999');
 
-    $("#btnCadastrar").click(function () {
+    $("#btnCadastrar").click(function() {
         CKEDITOR.instances.texto.updateElement();
         var titulo = $("#titulo").val().trim();
         var mes = $("#mes").val().trim();
@@ -19,10 +19,11 @@ $(document).ready(function () {
         var dataEntrada = $("#dataPublicacao").val();
         var dataSaida = $("#dataSaida").val();
 
-        $(".erro").html('');
+        $(".erro").html('').css('display','none');
         if (titulo == '') {
             $("#titulo").focus();
             $("#spanTitulo").html('Você deve preencher o Título!');
+            $('#spanTitulo').css('display','inline-block');
         } else if (mes == '') {
             $("#mes").focus();
             $("#spanMes").html('Você deve selecionar o Mes!');
@@ -33,12 +34,12 @@ $(document).ready(function () {
             $("#texto").focus();
             $("#spanTexto").html('Você deve preencher o Texto!');
         } else {
-            $.post('control/controleReleases.php', {opcao: 'cadastrar', titulo: titulo, mes: mes, status: status, texto: texto, dataEntrada:dataEntrada, dataSaida:dataSaida});
+            $.post('control/controleReleases.php', {opcao: 'cadastrar', titulo: titulo, mes: mes, status: status, texto: texto, dataEntrada: dataEntrada, dataSaida: dataSaida});
             $("#listaReleases").load('listaReleasesAjax.php');
         }
     });
 
-    $("#btnAlterar").click(function () {
+    $("#btnAlterar").click(function() {
         CKEDITOR.instances.texto.updateElement();
         var titulo = $("#titulo").val().trim();
         var mes = $("#mes").val().trim();
@@ -62,21 +63,21 @@ $(document).ready(function () {
             $("#texto").focus();
             $("#spanTexto").html('Você deve preencher o Texto!');
         } else {
-            $.post('control/controleReleases.php', {opcao: 'alterar', idRelease: idRelease, titulo: titulo, mes: mes, status: status, texto: texto, dataEntrada:dataEntrada, dataSaida:dataSaida},
-            function (r) {
+            $.post('control/controleReleases.php', {opcao: 'alterar', idRelease: idRelease, titulo: titulo, mes: mes, status: status, texto: texto, dataEntrada: dataEntrada, dataSaida: dataSaida},
+            function(r) {
                 console.log(r);
             });
             //window.location = 'verNoticias.php';
         }
     });
 
-    $("#dataSaida").blur(function () {
+    $("#dataSaida").blur(function() {
         if ($("#dataSaida").val() == '') {
             $("#dataSaida").val('00/00/0000');
         }
     });
 
-    $("#dataPublicacao").blur(function () {
+    $("#dataPublicacao").blur(function() {
         if ($("#dataPublicacao").val() == '') {
             $("#dataPublicacao").val('00/00/0000');
         }

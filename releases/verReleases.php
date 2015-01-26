@@ -32,14 +32,14 @@ setcookie("ck_authorized", "true", 0, "/");
                             <td style="width: 10%;">Excluir</td>
                         </tr>
                     </thead>
-
                     <tbody id="listaNoticias">
                         <?php
                         require_once 'listaReleasesAjax.php';
                         ?>
                     </tbody>
                 </table>
-
+                <a href="index.php" class="proPage">Voltar</a>
+                <a href="cadRelease.php" class="proPage">Cadastrar novo release</a>
             </div>
         </div>
     </body>

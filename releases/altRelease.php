@@ -38,7 +38,7 @@ setcookie("ck_authorized", "true", 0, "/");
                 <div>
                     <form name="cadRelease">
                         <input type="hidden" value="<?php echo $release['idRelease']; ?>" id="idRelease" />
-                        <table>
+                        <table class="tableform">
                             <tr>
                                 <td>Título:</td>
                                 <td>
@@ -93,7 +93,7 @@ setcookie("ck_authorized", "true", 0, "/");
                                 <td><input type="text" id="dataSaida" value="<?php echo implode('/', array_reverse(explode('-', $release['dataSaida']))); ?>" name="dataSaida" /></td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="button" id="btnAlterar" value="Enviar" /></td>
+                                <td colspan="2"><input type="button" id="btnAlterar" value="Alterar" /></td>
                             </tr>
                         </table>
                     </form>

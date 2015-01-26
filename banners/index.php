@@ -12,7 +12,6 @@
             rome(left, {
                 dateValidator: rome.val.beforeEq(right)
             });
-
             rome(right, {
                 dateValidator: rome.val.afterEq(left)
             });
@@ -88,7 +87,7 @@
                         <td>
                             <input id="left" class="input">
                             <input id="right" class="input">
-                            
+
                             <br /><br />
                             <input type="text" id="datepicker" name="dataPublicacao" value="00/00/0000" />
                         </td>
@@ -101,6 +100,7 @@
                         <td colspan="2"><input type="button" id="btnCadastrar" value="Enviar" /></td>
                     </tr>
                 </table>
+                <div class="divError">Erro ao subir imagem</div>
             </div>
         </div>
         <!--script src='../plugin/romeDateTimePicker/example/example.js'></script-->

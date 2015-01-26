@@ -18,8 +18,6 @@ $diretorio = explode('/', $diretorio);
                     echo '<li><a href="../conteudos/verSubmenus.php?id=' . $menu[$i]["idMenu"] . '#1" onclick="javascript:void(0);">' . $menu[$i]['titulo'] . '</a></li>';
                 }
                 ?>
-
-
             </ul>
         </li>
         <li class="hasub"><a href="#2"><i class="icon icon-cog"></i> Administração</a>
@@ -49,12 +47,11 @@ $diretorio = explode('/', $diretorio);
                 echo 'class="ativo"';
             }
             ?>><i class="icon icon-calendar"></i> Eventos</a></li>
-        <li><a href="#"><i class="icon icon-image"></i> Banners</a></li>
-        <li><a href="../eventos" <?php if(array_search('eventos',$diretorio) == true){ echo 'class="ativo"'; } ?>><i class="icon icon-calendar"></i> Eventos</a></li>
-        <li><a href="../banners/" <?php if(array_search('banners',$diretorio) == true){ echo 'class="ativo"'; } ?>><i class="icon icon-image"></i> Banners</a></li>
+        <li><a href="../banners/" <?php
+            if (array_search('banners', $diretorio) == true) {
+                echo 'class="ativo"';
+            }
+            ?>><i class="icon icon-image"></i> Banners</a></li>
         <li><a href="#"><i class="icon icon-upload2"></i> Uploads</a></li>
     </ul>
-    <section id="scrollbar-track">
-        <div id="scrollbar"></div>
-    </section>
 </aside>

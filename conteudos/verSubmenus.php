@@ -1,36 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
     <head>
-        <title>TODO supply a title</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Painel | Fagga</title>
+        <?php include_once '../include/head.php'; ?>
         <script type="text/javascript" src="../js/jquery-2.1.3.js"></script>
         <script type="text/javascript" src="js/conteudo.js"></script>
     </head>
     <body>
-        <div>
-            <table>
-                <tr>
-                    <td>Título do Menu</td>
-                    <td>Título da Página</td>
-                    <td>Link Externo</td>
-                    <td>Target</td>
-                    <td>Status</td>
-                    <td>Texto</td>
-                    <td>Título da Metatag</td>
-                    <td>Keywords da Metatag</td>
-                    <td>Descrição da Metatag</td>
-                    <td>Editar</td>
-                    <td>Excluir</td>
-                </tr>
-                <tbody id="listaSubmenus">
-                    <?php
+        <?php include_once '../include/header.php'; ?>
+        <?php include_once '../include/lateral.php'; ?>
+
+        <div class="main-admin">
+            <div class="guia-site">
+                <a href="../home/"><i class="icon icon-home"></i> Home</a>
+                <a href="#">Notícias</a>
+            </div>
+            <div class="tenor" style="overflow: hidden!important;">
+                <h1>Ver submenus</h1>
+                <table class="tableAll">
+                    <thead>
+                        <tr>
+                            <td>Título do Menu</td>
+                            <td>Título da Página</td>
+                            <td>Link Externo</td>
+                            <td>Target</td>
+                            <td>Status</td>
+                            <td>Texto</td>
+                            <td>Título da Metatag</td>
+                            <td>Keywords da Metatag</td>
+                            <td>Descrição da Metatag</td>
+                            <td>Editar</td>
+                            <td>Excluir</td>
+                        </tr>
+                    </thead>
+                    <tbody id="listaSubmenus">
+                        <?php
                         require_once '../model/banco.php';
                         require_once 'model/dao.php';
-                        
+
                         $submenus = $objConteudoDao->listaSubmenus($_GET['id']);
                         for ($i = 1; $i < count($submenus); $i++) {
-                        echo '<tr>
+                            echo '<tr>
                                 <td>' . $submenus[$i]["tituloMenu"] . '</td>
                                 <td>' . $submenus[$i]["tituloPagina"] . '</td>
                                 <td>' . $submenus[$i]["link"] . '</td>
@@ -45,8 +56,9 @@
                             </tr>';
                         }
                         ?>
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </body>
 </html>
