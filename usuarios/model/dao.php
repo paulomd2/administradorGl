@@ -7,7 +7,7 @@ class UsuariosDAO extends Banco {
     public function cadUsuario($objUsuario) {
         $conexao = $this->abreConexao();
 
-        $sql = "INSERT INTO " . TBL_USUARIOS . " SET
+        $sql = "INSERT INTO " . TBL_USUARIO . " SET
                nome = '" . $objUsuario->getNome() . "',
                email = '" . $objUsuario->getEmail() . "',
                usuario = '" . $objUsuario->getUsuario() . "',
@@ -27,7 +27,7 @@ class UsuariosDAO extends Banco {
         $sql = "SELECT idUsuario, nome, nivel, DATE_FORMAT(dataCriacao, '%d/%m/%Y %H:%I:%s') as dataCriacao, email, usuario,
                 CASE nivel WHEN 1 THEN 'Administrador' ELSE 'Editor' END AS nivel,
                 CASE status WHEN 0 THEN 'Inativo' ELSE 'Ativo' END AS status
-                    FROM " . TBL_USUARIOS."
+                    FROM " . TBL_USUARIO."
                         WHERE status = 1";
 
         $banco = $conexao->query($sql);
@@ -44,7 +44,7 @@ class UsuariosDAO extends Banco {
         $conexao = $this->abreConexao();
 
         $sql = "SELECT nome, nivel, email, usuario, senha, nivel
-                    FROM " . TBL_USUARIOS . "
+                    FROM " . TBL_USUARIO . "
                         WHERE idUsuario = " . $objUsuario->getIdUsuario();
 
         $banco = $conexao->query($sql);
@@ -57,7 +57,7 @@ class UsuariosDAO extends Banco {
     public function altUsuario($objUsuario) {
         $conexao = $this->abreConexao();
 
-        $sql = "UPDATE " . TBL_USUARIOS . " SET
+        $sql = "UPDATE " . TBL_USUARIO . " SET
                nome = '" . $objUsuario->getNome() . "',
                email = '" . $objUsuario->getEmail() . "',
                usuario = '" . $objUsuario->getUsuario() . "',
@@ -75,7 +75,7 @@ class UsuariosDAO extends Banco {
     public function delUsuario($objUsuario) {
         $conexao = $this->abreConexao();
 
-        $sql = "UPDATE " . TBL_USUARIOS . "
+        $sql = "UPDATE " . TBL_USUARIO . "
                 SET status = 0
                 WHERE idUsuario = " . $objUsuario->getIdUsuario();
 
@@ -89,7 +89,7 @@ class UsuariosDAO extends Banco {
         $conexao = $this->abreConexao();
 
         $sql = "SELECT idUsuario
-                FROM " . TBL_USUARIOS . "
+                FROM " . TBL_USUARIO . "
                     WHERE usuario = '" .$objUsuario->getUsuario()."'
                     AND senha = '".$objUsuario->getSenha()."'";
 
