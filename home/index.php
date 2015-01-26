@@ -11,7 +11,7 @@
     <body>
         <?php include_once '../include/header.php'; ?>
         <?php include_once '../include/lateral.php'; ?>
-        
+
         <div class="main-admin">
             <div class="guia-site">
                 <a href="#"><i class="icon icon-home"></i> Home</a>
@@ -24,22 +24,22 @@
                 </div>
                 <table>
                     <?php
-                        require_once '../model/banco.php';
-                        require_once '../noticias/model/dao.php';
-                        
-                        $noticias = $objNoticiasDao->verNoticias(4);
-                        
-                        for($i = 1; $i < count($noticias); $i++){
-                            $explode = explode('/',$noticias[$i]["dataPublicacao"]);
-                            $data = $explode[0].'/'.$explode[1];
-                            
-                            echo '
+                    require_once '../model/banco.php';
+                    require_once '../noticias/model/dao.php';
+
+                    $noticias = $objNoticiasDao->verNoticias(4);
+
+                    for ($i = 1; $i < count($noticias); $i++) {
+                        $explode = explode('/', $noticias[$i]["dataPublicacao"]);
+                        $data = $explode[0] . '/' . $explode[1];
+
+                        echo '
                                     <tr>
-                                        <td>'.$data.'</td>
-                                        <td><a href="../noticias/altNoticia.php?id='.$noticias[$i]["idNoticia"].'">'.$noticias[$i]["titulo"].'</a></td>
+                                        <td>' . $data . '</td>
+                                        <td><a href="../noticias/altNoticia.php?id=' . $noticias[$i]["idNoticia"] . '">' . $noticias[$i]["titulo"] . '</a></td>
                                     </tr>
                                  ';
-                        }
+                    }
                     ?>
                 </table>
             </div>
@@ -50,22 +50,22 @@
                 </div>
                 <table>
                     <?php
-                        require_once '../model/banco.php';
-                        require_once '../eventos/model/dao.php';
-                        
-                        $eventos = $objEventoDao->verEventos(8);
-                        
-                        for($i = 1; $i < count($eventos); $i++){
-                            $explode = explode('/',$eventos[$i]["dataInicio"]);
-                            $data = $explode[0].'/'.$explode[1];
-                            
-                            echo '
+                    require_once '../model/banco.php';
+                    require_once '../eventos/model/dao.php';
+
+                    $eventos = $objEventoDao->verEventos(8);
+
+                    for ($i = 1; $i < count($eventos); $i++) {
+                        $explode = explode('/', $eventos[$i]["dataInicio"]);
+                        $data = $explode[0] . '/' . $explode[1];
+
+                        echo '
                                     <tr>
-                                        <td>'.$data.'</td>
-                                        <td><a href="../eventos/altEvento.php?id='.$eventos[$i]["idEvento"].'">'.$eventos[$i]["nome"].'</a></td>
+                                        <td>' . $data . '</td>
+                                        <td><a href="../eventos/altEvento.php?id=' . $eventos[$i]["idEvento"] . '">' . $eventos[$i]["nome"] . '</a></td>
                                     </tr>
                                  ';
-                        }
+                    }
                     ?>
                 </table>
             </div>
@@ -85,13 +85,13 @@
                     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
                     <script src="../js/jquery.slides.min.js"></script>
                     <script>
-                            $(function() {
-                                $('#slides').slidesjs({
-                                    width: 373,
-                                    height: 220,
-                                    navigation: false
-                                });
+                        $(function() {
+                            $('#slides').slidesjs({
+                                width: 373,
+                                height: 220,
+                                navigation: false
                             });
+                        });
                     </script>
                 </div>
 

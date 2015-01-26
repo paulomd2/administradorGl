@@ -19,8 +19,8 @@
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Usuários cadastrados</h1>
-                <form name="cadUsuario" class="tableAll">
-                    <table>
+                <form name="cadUsuario" >
+                    <table class="tableAll">
                         <thead>
                             <tr>
                                 <td>Nome</td>
@@ -56,7 +56,7 @@
                         </tbody>
                     </table>
                 </form>
-                <a href="index.php" class="proPage">Cadastrar usuário</a>
+                <a href="cadUsuario.php" class="proPage">Cadastrar usuário</a>
             </div>
         </div>
     </body>

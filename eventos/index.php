@@ -16,9 +16,31 @@
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="#">Cadastrar evento</a>
+                <!--<a href="#">Cadastrar evento</a>-->
             </div>
             <div class="tenor" style="overflow: hidden!important;">
+                <h1>Últimos eventos</h1>
+                <form name="cadNoticia">
+                    <input type="hidden" value="<?php echo $_GET['mercado']; ?>" id="mercado"/>
+                    <table class="tableAll">
+                        <thead>
+                            <tr>
+                                <td>Nome</td>
+                                <td>Título</td>
+                                <td>Imagem</td>
+                                <td>Editar</td>
+                                <td>Excluir</td>
+                            </tr>
+                        </thead>
+                        <tbody id="listaEventos">
+                            <?php
+                            require_once 'listaEventosAjax.php'
+                            ?>
+                        </tbody>
+                    </table>
+                </form>
+                <a href="verEventos.php" class="proPage">Todos os eventos</a>
+                <hr/>
                 <h1>Cadastrar evento</h1>
                 <form name="cadEvento" id="cadEvento" action="control/controleEventos.php" enctype="multipart/form-data" method="post" class="tableform">
                     <input type="hidden" value="cadastrar" name="opcao" id="opcao" />

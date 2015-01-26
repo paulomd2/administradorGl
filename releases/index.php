@@ -19,7 +19,7 @@ setcookie("ck_authorized", "true", 0, "/");
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home"><i class="icon icon-home"></i> Home</a>
-                <a href="../releases/">Releases</a>
+                <a href="#">Releases</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Últimos releases</h1>
@@ -97,7 +97,7 @@ setcookie("ck_authorized", "true", 0, "/");
                             <td><input type="text" id="dataSaida" value="00/00/0000" name="dataSaida" /></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><input type="button" id="btnCadastrar" value="Enviar" /></td>
+                            <td colspan="2"><input type="button" id="btnCadastrar" value="Cadastrar" /></td>
                         </tr>
                     </table>
                 </form>                

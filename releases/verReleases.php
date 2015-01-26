@@ -18,10 +18,11 @@ setcookie("ck_authorized", "true", 0, "/");
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="./">releases</a>
+                <a href="/">Releases</a>
+                <a href="#">Releases cadastrados</a>
             </div>
             <div class="tenor">
-                <h1>Ver releases</h1>
+                <h1>Releases cadastrados</h1>
 
                 <table class="tableAll">
                     <thead>

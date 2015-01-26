@@ -16,18 +16,18 @@
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="#">Ver evento</a>
+                <a href="/">Eventos</a>
+                <a href="#">Todos os evento</a>
             </div>
             <div class="tenor">
-                <h1>Ver evento</h1>
+                <h1>Todos os eventos</h1>
                 <form name="cadNoticia">
                     <input type="hidden" value="<?php echo $_GET['mercado']; ?>" id="mercado"/>
                     <table class="tableAll">
                         <thead>
                             <tr>
                                 <td>Nome</td>
-                                <td>Data de Início</td>
-                                <td>Data de Fim</td>
+                                <td>Título</td>
                                 <td>Imagem</td>
                                 <td>Editar</td>
                                 <td>Excluir</td>
@@ -35,21 +35,7 @@
                         </thead>
                         <tbody id="listaEventos">
                             <?php
-                            require_once '../model/banco.php';
-                            require_once 'model/dao.php';
-
-                            $eventos = $objEventoDao->verEventos(100);
-
-                            for ($i = 1; $i < count($eventos); $i++) {
-                                echo '<tr>
-                                        <td>' . $eventos[$i]["nome"] . '</td>
-                                        <td>' . $eventos[$i]["dataInicio"] . '</td>
-                                        <td>' . $eventos[$i]["dataFim"] . '</td>
-                                        <td><img src="../images/' . $eventos[$i]["imagem"] . '" width="100" /></td>
-                                        <td><a href = "altEvento.php?id=' . $eventos[$i]['idEvento'] . '">Alterar</a></td>
-                                        <td><a href = "javascript:delEvento(' . $eventos[$i]["idEvento"] . ')">Excluir</a></td>
-                                    </tr>';
-                            }
+                            require_once 'listaEventosAjax.php'
                             ?>
                         </tbody>
                     </table>

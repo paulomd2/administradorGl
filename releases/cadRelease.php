@@ -19,7 +19,8 @@ setcookie("ck_authorized", "true", 0, "/");
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home"><i class="icon icon-home"></i> Home</a>
-                <a href="../releases/">Releases</a>
+                <a href="/">Releases</a>
+                <a href="#">Cadastrar Release</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Cadastrar release</h1>
