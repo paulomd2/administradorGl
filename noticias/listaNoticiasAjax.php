@@ -2,11 +2,7 @@
 require_once '../model/banco.php';
 require_once 'model/dao.php';
 
-if(isset($_GET['count'])){
-    $count = $_GET['count'];
-}else{
-    $count = 100;
-}
+$count = $_GET['count'];
 
 $noticias = $objNoticiasDao->verNoticias($count);
 

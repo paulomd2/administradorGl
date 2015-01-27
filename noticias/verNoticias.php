@@ -37,8 +37,7 @@ setcookie("ck_authorized", "true", 0, "/");
                         </tr>
                     </thead>
 
-                    <tbody id="listaNoticias">
-                    </tbody>
+                    <tbody id="listaNoticias"></tbody>
                 </table>
                 <a href="index.php" class="proPage">Voltar</a>
                 <a href="cadNoticia.php" class="proPage">Cadastrar nova notícia</a>
