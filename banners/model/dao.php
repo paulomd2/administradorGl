@@ -27,7 +27,7 @@ class BannersDAO extends Banco {
     public function altBanner($objBanner) {
         $conexao = $this->abreConexao();
 
-        echo $sql = 'UPDATE ' . TBL_BANNER . ' SET
+        $sql = 'UPDATE ' . TBL_BANNER . ' SET
                     nome = "' . $objBanner->getNome() . '", 
                     imagem = "' . $objBanner->getImagem() . '", 
                     dataPublicacao = "' . $objBanner->getDataPublicacao() . '", 
@@ -87,7 +87,7 @@ class BannersDAO extends Banco {
     public function OdernaBanner($listingCounter, $recordIDValue){
         $conexao = $this->abreConexao();
         
-        echo $query = "
+        $query = "
                     UPDATE ".TBL_BANNER."
                     SET ordem = " . $listingCounter . "
                     WHERE idBanner = " . $recordIDValue;

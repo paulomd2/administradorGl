@@ -53,9 +53,9 @@ switch ($opcao) {
         $target = $_POST['target'];
         $dataCadastro = date('Y-m-d H:i:s');
         $dataEntrada = implode('-', array_reverse(explode('/', $_POST['dataPublicacao'])));
-        echo $horaEntrada = $_POST['horaPublicacao'] . ':' . $_POST['minutoPublicacao'] . ':00';
+        $horaEntrada = $_POST['horaPublicacao'] . ':' . $_POST['minutoPublicacao'] . ':00';
         $dataSaida = implode('-', array_reverse(explode('/', $_POST['dataSaida'])));
-        echo $horaSaida = $_POST['horaSaida'] . ':' . $_POST['minutoSaida'] . ':00';
+        $horaSaida = $_POST['horaSaida'] . ':' . $_POST['minutoSaida'] . ':00';
         $idBanner = $_POST['idBanner'];
 
         if ($_FILES['imagem']['name'] != '') {
@@ -91,7 +91,7 @@ switch ($opcao) {
 
             $objBannersDao->altBanner($objBanner);
 
-            //echo "<script>window.location = '../';</script>";
+            echo "<script>window.location = '../';</script>";
         }
         break;
 
@@ -107,11 +107,11 @@ switch ($opcao) {
         $action = mysql_real_escape_string($_POST['action']);
         $updateRecordsArray = $_POST['recordsArray'];
 
-            $listingCounter = 1;
-            foreach ($updateRecordsArray as $recordIDValue) {
-                $objBannersDao->testaOrdem($listingCounter, $recordIDValue);
-                $listingCounter++;
-            }
+        $listingCounter = 1;
+        foreach ($updateRecordsArray as $recordIDValue) {
+            $objBannersDao->testaOrdem($listingCounter, $recordIDValue);
+            $listingCounter++;
+        }
 
         break;
 }
@@ -126,8 +126,12 @@ function uploadImagem() {
     if ($_FILES['imagem']['size'] > (512000)) { //não pode ser maior que 500Kb
         $valido = false;
     } else {
+        $imagemAntiga = '../../images/'.$_POST["imagemAntiga"];
+        
         if (!file_exists('../../images/')) {
             mkdir('../../images');
+        }elseif(file_exists($imagemAntiga)){
+            unlink($imagemAntiga);
         }
         move_uploaded_file($_FILES['imagem']['tmp_name'], '../../images/' . $new_file_name);
 
