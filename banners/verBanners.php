@@ -16,8 +16,8 @@
                     opacity: 0.6,
                     cursor: 'move',
                     update: function () {
-                        var order = $(this).sortable("serialize") + '&action=updateRecordsListings';
-                        $.post("updateDB.php", order, function (theResponse) {
+                        var order = $(this).sortable("serialize") + '&opcao=ordena';
+                        $.post("control/controleBanners.php", order, function (theResponse) {
                             console.log(theResponse);
                         });
                     }

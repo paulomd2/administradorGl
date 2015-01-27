@@ -107,22 +107,11 @@ switch ($opcao) {
         $action = mysql_real_escape_string($_POST['action']);
         $updateRecordsArray = $_POST['recordsArray'];
 
-        if ($action == "updateRecordsListings") {
-
             $listingCounter = 1;
             foreach ($updateRecordsArray as $recordIDValue) {
-
-
-
-                /* $query = "UPDATE records SET recordListingID = " . $listingCounter . " WHERE recordID = " . $recordIDValue;
-                  mysql_query($query) or die('Error, insert query failed');
-                  $listingCounter = $listingCounter + 1; */
-
                 $objBannersDao->testaOrdem($listingCounter, $recordIDValue);
                 $listingCounter++;
             }
-        }
-
 
         break;
 }
