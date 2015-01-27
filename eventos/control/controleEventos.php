@@ -70,32 +70,35 @@ switch ($opcao) {
 
     case 'excluir':
         $idEvento = $_POST['idEvento'];
-        
+
         $objEvento->setIdEvento($idEvento);
-        
+
         $objEventoDao->delEvento($objEvento);
         break;
 }
 
 function uploadImagem() {
 
-    if (!$_FILES['imagem']['error']) {
-        $valid_file = true;
+    $valido = true;
+    $tipoArquivo = pathinfo($_FILES['imagem']['name']);
+    $tipoArquivo = '.' . $tipoArquivo['extension'];
 
-        $tipoArquivo = pathinfo($_FILES['imagem']['name']);
-        $tipoArquivo = '.' . $tipoArquivo['extension'];
-
-        $new_file_name = strtolower(md5(date('d/m/Y/H:i:s'))) . $tipoArquivo;
-        if ($_FILES['imagem']['size'] > (1024000)) { //can't be larger than 1 MB
-            $valid_file = false;
+    $new_file_name = strtolower(md5(date('d/m/Y/H:i:s'))) . $tipoArquivo;
+    if ($_FILES['imagem']['size'] > (1024)) { //não pode ser maior que 1Mb
+        $valido = false;
+    } else {
+        $imagemAntiga = '../../images/'.$_POST["imagemAntiga"];
+        
+        if (!file_exists('../../images/')) {
+            mkdir('../../images');
+        }elseif(file_exists($imagemAntiga)){
+            unlink($imagemAntiga);
         }
-        if ($valid_file) {
-            if(!file_exists('../../images/')){
-                mkdir('../../images');
-            }
-            move_uploaded_file($_FILES['imagem']['tmp_name'], '../../images/' . $new_file_name);
+        move_uploaded_file($_FILES['imagem']['tmp_name'], '../../images/' . $new_file_name);
 
-            return $new_file_name;
-        }
+        $valido = $new_file_name;
     }
+
+    return $valido;
+    
 }
