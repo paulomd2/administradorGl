@@ -13,7 +13,7 @@ function delNoticia(id) {
     if (confirm("Você tem certeza que deseja excluir essa notícia?") == true) {
         $.post('control/controleNoticias.php', {opcao: 'excluir', idNoticia: id});
 
-        $("#listaNoticias").load('listaNoticiasAjax.php?count=count');
+        $("#listaNoticias").load('listaNoticiasAjax.php?count='+count);
     }
 }
 $(document).ready(function () {

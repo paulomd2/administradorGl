@@ -13,7 +13,7 @@
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home"><i class="icon icon-home"></i> Home</a>
-                <a href="#">Cadastrar usuário</a>
+                <a href="#">Usuário</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Últimos usuários registrados</h1>

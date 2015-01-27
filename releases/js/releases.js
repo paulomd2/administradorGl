@@ -34,6 +34,7 @@ $(document).ready(function() {
             $("#texto").focus();
             $("#spanTexto").html('Você deve preencher o Texto!');
         } else {
+            $("#cadRelease")[0].reset();
             $.post('control/controleReleases.php', {opcao: 'cadastrar', titulo: titulo, mes: mes, status: status, texto: texto, dataEntrada: dataEntrada, dataSaida: dataSaida});
             $("#listaReleases").load('listaReleasesAjax.php');
         }
@@ -63,11 +64,8 @@ $(document).ready(function() {
             $("#texto").focus();
             $("#spanTexto").html('Você deve preencher o Texto!');
         } else {
-            $.post('control/controleReleases.php', {opcao: 'alterar', idRelease: idRelease, titulo: titulo, mes: mes, status: status, texto: texto, dataEntrada: dataEntrada, dataSaida: dataSaida},
-            function(r) {
-                console.log(r);
-            });
-            //window.location = 'verNoticias.php';
+            $.post('control/controleReleases.php', {opcao: 'alterar', idRelease: idRelease, titulo: titulo, mes: mes, status: status, texto: texto, dataEntrada: dataEntrada, dataSaida: dataSaida});
+            window.location = 'verReleases.php';
         }
     });
 

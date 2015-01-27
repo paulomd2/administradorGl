@@ -19,11 +19,11 @@ setcookie("ck_authorized", "true", 0, "/");
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
                 <a href="/">Releases</a>
-                <a href="#">Releases cadastrados</a>
+                <a href="#">Todos os releases</a>
             </div>
             <div class="tenor">
-                <h1>Releases cadastrados</h1>
-
+                <h1>Todos os releases</h1>
+                <a href="cadRelease.php" class="proPage">Cadastrar release</a>
                 <table class="tableAll">
                     <thead>
                         <tr>
@@ -39,8 +39,7 @@ setcookie("ck_authorized", "true", 0, "/");
                         ?>
                     </tbody>
                 </table>
-                <a href="index.php" class="proPage">Voltar</a>
-                <a href="cadRelease.php" class="proPage">Cadastrar novo release</a>
+
             </div>
         </div>
     </body>

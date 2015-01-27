@@ -22,25 +22,13 @@
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home"><i class="icon icon-home"></i> Home</a>
-                <a href="./">Banner</a>
+                <a href="./">Banners</a>
+                <a href="#">Cadastrar banner</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
-                <h1>Últimos Banners</h1>
-                <table class="tableAll">
-                    <thead>
-                        <tr>
-                            <td style="width: 50%;">Nome</td>
-                            <td style="width: 30%;">Banner</td>
-                            <td style="width: 10%;">Alterar</td>
-                            <td style="width: 10%;">Excluir</td>
-                        </tr>
-                    </thead>
-
-                    <tbody id="listaBanners"></tbody>
-                </table>
-                <a href="verBanners.php" class="proPage">Ver todos os banners</a>
-                <hr/>
                 <h1>Cadastrar Banner</h1>
+                <a href="verBanners.php" class="proPage">Todos os banners</a>
+                
                 <form enctype="multipart/form-data" action="control/controleBanners.php" method="post" id="cadBanner">
                     <input type="hidden" name="opcao" value="cadastrar" />
                     <table class="tableform">

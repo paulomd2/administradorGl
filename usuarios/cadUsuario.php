@@ -18,6 +18,7 @@
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Cadastrar usuário</h1>
+                <a href="verUsuarios.php" class="proPage">Todos os usuários</a>
                 <form name="cadUsuario" class="tableform">
                     <table>
                         <tr>
@@ -64,9 +65,6 @@
                         </tr>
                     </table>
                 </form>
-                <hr/>
-                <a href="verUsuarios.php" class="proPage">Usuários registrados</a>
-
             </div>
         </div>
     </body>

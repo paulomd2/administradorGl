@@ -23,7 +23,7 @@ setcookie("ck_authorized", "true", 0, "/");
             </div>
             <div class="tenor">
                 <h1>Todas as notícias</h1>
-
+                <a href="cadNoticia.php" class="proPage">Cadastrar nova notícia</a>
                 <table class="tableAll">
                     <thead>
                         <tr>
@@ -39,9 +39,6 @@ setcookie("ck_authorized", "true", 0, "/");
 
                     <tbody id="listaNoticias"></tbody>
                 </table>
-                <a href="index.php" class="proPage">Voltar</a>
-                <a href="cadNoticia.php" class="proPage">Cadastrar nova notícia</a>
-
             </div>
         </div>
     </body>

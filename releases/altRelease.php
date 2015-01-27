@@ -30,11 +30,11 @@ setcookie("ck_authorized", "true", 0, "/");
                 require_once '../model/banco.php';
                 require_once 'model/dao.php';
 
-                $idBanner = $_GET['id'];
+                $idRelease = $_GET['id'];
 
-                $objBanner->setIdRelease($idBanner);
+                $objRelease->setIdRelease($idRelease);
 
-                $banner = $objBannersDao->verRelease1($objBanner);
+                $release = $objReleasesDao->verRelease1($objRelease);
                 ?>
                 <div>
                     <form name="cadRelease">

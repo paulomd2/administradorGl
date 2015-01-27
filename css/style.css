@@ -305,6 +305,7 @@ aside.barra-lateral{
     font-size: 24px;
     color: #545454;
     margin-bottom: 10px;
+    display: inline;
 }
 .main-admin .tenor h2{
     font-size: 14px;

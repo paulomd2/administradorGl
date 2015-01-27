@@ -25,7 +25,7 @@ class ReleasesDAO extends Banco {
     public function altRelease($objRelease) {
         $conexao = $this->abreConexao();
 
-        echo $sql = "UPDATE " . TBL_RELEASE . " SET
+        $sql = "UPDATE " . TBL_RELEASE . " SET
                     titulo = '" . $objRelease->getTitulo() . "',
                     mes = '" . $objRelease->getMes() . "',
                     status = '" . $objRelease->getStatus() . "',

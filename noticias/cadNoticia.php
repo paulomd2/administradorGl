@@ -25,6 +25,7 @@ setcookie("ck_authorized", "true", 0, "/");
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Cadastrar notícia</h1>
+                <a href="verNoticias.php" class="proPage">Todas as notícias</a>
                 <form name="cadNoticia">
                     <input type="hidden" value="<?php echo $_GET['mercado']; ?>" id="mercado"/>
                     <table class="tableform">

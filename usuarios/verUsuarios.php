@@ -15,10 +15,11 @@
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
                 <a href="#">Usuários</a>
-                <a href="#">Usuários cadastrados</a>
+                <a href="#">Todos os usuários</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
-                <h1>Usuários cadastrados</h1>
+                <h1>Todos os usuários</h1>
+                <a href="cadUsuario.php" class="proPage">Cadastrar usuário</a>
                 <form name="cadUsuario" >
                     <table class="tableAll">
                         <thead>
@@ -29,7 +30,7 @@
                                 <td>Nível</td>
                                 <td>Status</td>
                                 <td>Criado em</td>
-                                <td>Editar</td>
+                                <td>Alterar</td>
                                 <td>Excluir</td>
                             </tr>
                         </thead>
@@ -56,8 +57,7 @@
                         </tbody>
                     </table>
                 </form>
-                <a href="index.php" class="proPage">Voltar</a>
-                <a href="cadUsuario.php" class="proPage">Cadastrar usuário</a>
+                
             </div>
         </div>
     </body>
