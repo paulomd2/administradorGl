@@ -21,11 +21,12 @@ $usuario = $objUsuarioDao->verUsuario1($objUsuario)
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
+                <a href="/">Usuários</a>
                 <a href="verUsuarios.php">Usuários cadastrados</a>
                 <a href="#">Alterar usuário</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
-                <h1>Cadastrar usuário</h1>
+                <h1>Alterar usuário</h1>
                 <form name="cadUsuario" class="tableform">
                     <input type="hidden" id="idUsuario" value="<?php echo $_GET['id']; ?>" />
                     <table>

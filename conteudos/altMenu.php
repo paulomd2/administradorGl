@@ -6,9 +6,9 @@ $idMenu = $_GET['id'];
 
 $objMenu->setIdMenu($idMenu);
 
-$menu = $objMenuDao->listaMenu1($objMenu);
+$menus = $objConteudoDao->listaMenu1($objMenu);
 
-var_dump($menu);
+//var_dump($menu);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -36,18 +36,18 @@ var_dump($menu);
                         <tr>
                             <td>Título:</td>
                             <td>
-                                <input type="text" name="titulo" id="titulo" value="<?php echo $menu['titulo']; ?>" /><br />
+                                <input type="text" name="titulo" id="titulo" value="<?php echo $menus['titulo']; ?>" /><br />
                                 <span id="spanTitulo" class="erro"></span>
                             </td>
                         </tr>
                         <tr>
                             <td>Link:</td>
                             <td>
-                                <input type="text" name="link" id="link" value="<?php echo $menu['link']; ?>"  />
+                                <input type="text" name="link" id="link" value="<?php echo $menus['link']; ?>"  />
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2"><input type="button" id="btnAlterarMenu" value="Enviar" /></td>
+                            <td colspan="2"><input type="button" id="btnAlterarMenu" value="Alterar" /></td>
                         </tr>
                     </table>
                 </form>

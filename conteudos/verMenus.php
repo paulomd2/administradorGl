@@ -21,26 +21,15 @@
                 <table class="tableAll">
                     <thead>
                         <tr>
-                            <td>Título</td>
-                            <td>Link</td>
-                            <td>Editar</td>
-                            <td>Excluir</td>
+                            <td style="width: 80%;">Título</td>
+                            <!--<td>Link</td>-->
+                            <td style="width: 10%;">Editar</td>
+                            <td style="width: 10%;">Excluir</td>
                         </tr>
                     </thead>
                     <tbody id="listaMenus">
                         <?php
-                        require_once '../model/banco.php';
-                        require_once 'model/dao.php';
-
-                        $menus = $objConteudoDao->listaMenus();
-                        for ($i = 1; $i < count($menus); $i++) {
-                            echo '<tr>
-                                <td>' . $menus[$i]["titulo"] . '</td>
-                                <td>' . $menus[$i]["link"] . '</td>
-                                <td><a href="altMenu.php?id=' . $menus[$i]['idMenu'] . '">Alterar</a></td>
-                                <td><a href="javascript:delMenu(' . $menus[$i]["idMenu"] . ')">Excluir</a></td>
-                            </tr>';
-                        }
+                        require_once './listaMenuAjax.php';
                         ?>
                     </tbody>
                 </table>

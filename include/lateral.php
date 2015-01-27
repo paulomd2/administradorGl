@@ -33,7 +33,7 @@ if (array_search('usuarios', $diretorio) == true) {
             <!--<ul id="1">-->
             <ul class="tgl1">
 
-                <li><a href="../conteudos/cadMenu.php">Gerenciar conteúdo</a></li>
+                <li><a href="../conteudos/index.php">Gerenciar conteúdo</a></li>
                 <?php
                 $menu = $objConteudoDao->listaMenus();
 
@@ -49,7 +49,11 @@ if (array_search('usuarios', $diretorio) == true) {
                 <li><a href="#">Item</a></li>
             </ul>
         </li>
-        <li><a href="#"><i class="icon icon-user"></i> Usuários</a></li>
+        <li><a href="../usuarios" <?php
+            if (array_search('usuarios', $diretorio) == true) {
+                echo 'class="ativo"';
+            }
+            ?>><i class="icon icon-user"></i> Usuários</a></li>
         <li><a href="../noticias" <?php
             if (array_search('noticias', $diretorio) == true) {
                 echo 'class="ativo"';

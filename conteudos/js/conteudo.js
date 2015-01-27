@@ -137,7 +137,7 @@ $(document).ready(function() {
             $("#spanTitulo").html('Você deve preencher o Título!');
         } else {
             $.post('control/controleConteudo.php', {opcao: 'cadastrarMenu', titulo: titulo, link: link});
-            window.location = 'verMenus.php';
+            window.location = 'index.php';
         }
     });
 

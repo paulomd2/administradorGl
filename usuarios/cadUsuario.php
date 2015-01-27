@@ -13,6 +13,7 @@
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home"><i class="icon icon-home"></i> Home</a>
+                <a href="index.php">Usuários</a>
                 <a href="#">Cadastrar usuário</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
@@ -64,7 +65,7 @@
                     </table>
                 </form>
                 <hr/>
-                <a href="index.php" class="proPage">Usuários</a> <a href="verUsuarios.php" class="proPage">Usuários registrados</a>
+                <a href="verUsuarios.php" class="proPage">Usuários registrados</a>
 
             </div>
         </div>

@@ -409,3 +409,6 @@ hr{
     display: inline-block;
     margin: 10px 0;
 }
+.dib{
+    display: inline;
+}

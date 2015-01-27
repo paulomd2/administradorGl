@@ -56,6 +56,7 @@
                         </tbody>
                     </table>
                 </form>
+                <a href="index.php" class="proPage">Voltar</a>
                 <a href="cadUsuario.php" class="proPage">Cadastrar usuário</a>
             </div>
         </div>

@@ -5,47 +5,7 @@
         <title>Painel | Fagga</title>
         <?php include_once '../include/head.php'; ?>
         <script type="text/javascript" src="../js/jquery-2.1.3.js"></script>
-        <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
         <script type="text/javascript" src="js/conteudo.js"></script>
-        <script src="../plugin/ckeditor/ckeditor.js"></script>
-        <style>
-            .menu-conteudo{
-                width: 600px;
-                height: auto;
-                /*padding: 8px;*/
-                /*background: white;*/
-                background: none;
-                border: 1px solid #a2a5a6;
-                /*box-shadow: 3px 3px #a2a5a6;*/
-                border-radius: 5px;
-                margin-bottom: 10px;
-                background: white;
-                padding: 5px;
-            }
-            .menu-conteudo span.titMenu{
-                font-size: 16px;
-                /*font-weight: bold;*/
-                color: black;
-                display: block;
-                /*margin-bottom: 5px;*/
-                /*border-bottom: 1px solid #a2a5a6;*/
-                /*padding: 5px;*/
-            }
-            .menu-conteudo a{
-                display: inline-block;
-                font-size: 14px;
-                color: #3366ff;
-                text-decoration: none;
-                /*padding: 5px;*/
-            }
-            .menu-conteudo a:hover{
-                text-decoration: underline;
-            }
-            a.linkIcon{
-                color: #333;
-                text-decoration: none;
-            }
-        </style>
     </head>
     <body>
         <?php include_once '../include/header.php'; ?>
@@ -54,34 +14,51 @@
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="#">Notícias</a>
+                <a href="#">Conteúdos</a>
+                <a href="#">Gerenciar conteúdo</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
-                <h1 style="display: inline;">Quem somos</h1> &nbsp;
-                <a href="#" class="linkIcon"><i class="icon icon-pencil2"></i> Editar</a> |
-                <a href="#" class="linkIcon"><i class="icon icon-bin"></i> Excluir</a>
-                <br/>
-                <a href="cadMenu.php" class="proPage">Cadastrar menu</a>
+                <h1>Gerenciar conteúdo</h1>
+                <h2>Cadastrar novo menu</h2>
+                <form name="cadMenu">
+                    <table class="tableform">
+                        <tr>
+                            <td>Título:</td>
+                            <td>
+                                <input type="text" name="titulo" id="titulo" /><br />
+                                <span id="spanTitulo" class="erro"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Link:</td>
+                            <td>
+                                <input type="text" name="link" id="link" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><input type="button" id="btnCadastrarMenu" value="Cadastrar" /></td>
+                        </tr>
+                    </table>
+                </form>
                 <hr/>
-                <h1>Sub conteúdos</h1>
-                <div class="menu-conteudo">
-                    <span class="titMenu">Nome do submenu</span>
-                    <a href="#">Editar</a> | <a href="#">Excluir</a>
-                </div>
-                <div class="menu-conteudo">
-                    <span class="titMenu">Nome do submenu</span>
-                    <a href="#">Editar</a> | <a href="#">Excluir</a>
-                </div>
-                <div class="menu-conteudo">
-                    <span class="titMenu">Nome do submenu</span>
-                    <a href="#">Editar</a> | <a href="#">Excluir</a>
-                </div>
-                <div class="menu-conteudo">
-                    <span class="titMenu">Nome do submenu</span>
-                    <a href="#">Editar</a> | <a href="#">Excluir</a>
-                </div>
-            </div>
+                <h2>Menus cadastrados</h2>
+                <table class="tableAll">
+                    <thead>
+                        <tr>
+                            <td style="width: 80%;">Título</td>
+                            <td style="width: 10%;">Editar</td>
+                            <td style="width: 10%;">Excluir</td>
+                        </tr>
+                    </thead>
+                    <tbody id="listaMenus">
+                        <?php
+                        require_once 'listaMenuAjax.php';
+                        
+                        ?>
+                    </tbody>
+                </table>
 
+            </div>
         </div>
     </body>
 </html>

@@ -16,7 +16,7 @@
                 <a href="#">Cadastrar usuário</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
-                <h1>Últimos usuários</h1>
+                <h1>Últimos usuários registrados</h1>
                 <table class="tableAll">
                     <thead>
                         <tr>
