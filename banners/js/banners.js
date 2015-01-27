@@ -1,4 +1,4 @@
-function delRelease(id) {
+function delBanner(id) {
     if (confirm("Você tem certeza que deseja excluir esse banner?") == true) {
         $.post('control/controleBanners.php', {opcao: 'excluir', idBanner: id});
         $("#listaBanners").load('listaBannersAjax.php?count=5');

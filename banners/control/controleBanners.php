@@ -96,11 +96,11 @@ switch ($opcao) {
         break;
 
     case 'excluir':
-        $idRelease = $_POST['idRelease'];
+        $idBanner = $_POST['idBanner'];
 
-        $objBanner->setIdRelease($idRelease);
+        $objBanner->setIdBanner($idBanner);
 
-        $objBannersDao->delRelease($objBanner);
+        $objBannersDao->delBanner($objBanner);
         break;
 
     case 'ordena':

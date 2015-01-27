@@ -93,10 +93,18 @@ class BannersDAO extends Banco {
                     WHERE idBanner = " . $recordIDValue;
         
         
-        $conexao->query($query);
+        $conexao->query($query);        
+        $this->fechaConexao();
+    }
+    
+    
+    public function delBanner($objBanner){
+        $conexao = $this->abreConexao();
         
+        $sql = "UPDATE ".TBL_BANNER." SET status = 0 WHERE idBanner = ".$objBanner->getIdBanner();
         
-        $listingCounter = $listingCounter + 1;
+        $conexao->query($sql);
+        
         $this->fechaConexao();
     }
 

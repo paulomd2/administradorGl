@@ -10,17 +10,9 @@
         <!-- polyfiller file to detect and load polyfills -->
         <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
         <script>
-
             webshims.setOptions('waitReady', false);
             webshims.setOptions('forms-ext', {types: 'date'});
             webshims.polyfill('forms forms-ext');
-
-            rome(left, {
-                dateValidator: rome.val.beforeEq(right)
-            });
-            rome(right, {
-                dateValidator: rome.val.afterEq(left)
-            });
         </script>
     </head>
     <body>
@@ -50,7 +42,7 @@
                 <hr/>
                 <h1>Cadastrar Banner</h1>
                 <form enctype="multipart/form-data" action="control/controleBanners.php" method="post" id="cadBanner">
-                    <input type="hidden" name="opcao" value="alterar" />
+                    <input type="hidden" name="opcao" value="cadastrar" />
                     <table class="tableform">
                         <tr>
                             <td>Nome:</td>
@@ -93,7 +85,8 @@
                         <tr>
                             <td>Data de Publicação:</td>
                             <td>
-                                <input type="date" name="dataPublicacao" id="dataPublicacao" /><select id="horaPublicacao">
+                                <input type="date" name="dataPublicacao" id="dataPublicacao" />
+                                <select id="horaPublicacao" name="horaPublicacao">
                                         <option value="00">00</option>
                                         <option value="01">01</option>
                                         <option value="02">02</option>
@@ -120,7 +113,7 @@
                                         <option value="23">23</option>
                                         <option value="24">24</option>
                                     </select>:
-                                    <select id="minutoPublicacao">
+                                    <select id="minutoPublicacao" name="minutoPublicacao">
                                         <option value="00">00</option>
                                         <option value="22">15</option>
                                         <option value="23">30</option>
@@ -133,7 +126,7 @@
                             <td>Data de Saída:</td>
                             <td>
                                 <input type="date" name="dataSaida" id="dataSaida" />
-                                <select id="horaSaida">
+                                <select id="horaSaida" name="horaSaida">
                                         <option value="00">00</option>
                                         <option value="01">01</option>
                                         <option value="02">02</option>
@@ -160,7 +153,7 @@
                                         <option value="23">23</option>
                                         <option value="24">24</option>
                                     </select>:
-                                    <select id="minutoSaida">
+                                    <select id="minutoSaida" name="minutoSaida">
                                         <option value="00">00</option>
                                         <option value="22">15</option>
                                         <option value="23">30</option>
