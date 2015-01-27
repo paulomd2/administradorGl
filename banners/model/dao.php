@@ -36,7 +36,7 @@ class BannersDAO extends Banco {
                     ordem = ' . $objBanner->getOrdem() . ', 
                     status = "' . $objBanner->getStatus() . '", 
                     dataSaida = "' . $objBanner->getDataSaida() . '",
-                    horaSaida = "' . $objBanner->getDataSaida() . '",
+                    horaSaida = "' . $objBanner->getHoraSaida() . '",
                     horaPublicacao = "' . $objBanner->getHoraPublicacao() . '"
                     WHERE idBanner = ' . $objBanner->getIdBanner();
 

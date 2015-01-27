@@ -53,9 +53,9 @@ switch ($opcao) {
         $target = $_POST['target'];
         $dataCadastro = date('Y-m-d H:i:s');
         $dataEntrada = implode('-', array_reverse(explode('/', $_POST['dataPublicacao'])));
-        $horaEntrada = $_POST['horaPublicacao'] . ':' . $_POST['minutoPublicacao'] . ':00';
+        echo $horaEntrada = $_POST['horaPublicacao'] . ':' . $_POST['minutoPublicacao'] . ':00';
         $dataSaida = implode('-', array_reverse(explode('/', $_POST['dataSaida'])));
-        $horaSaida = $_POST['horaSaida'] . ':' . $_POST['minutoSaida'] . ':00';
+        echo $horaSaida = $_POST['horaSaida'] . ':' . $_POST['minutoSaida'] . ':00';
         $idBanner = $_POST['idBanner'];
 
         if ($_FILES['imagem']['name'] != '') {
