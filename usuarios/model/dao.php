@@ -62,8 +62,7 @@ class UsuariosDAO extends Banco {
                email = '" . $objUsuario->getEmail() . "',
                usuario = '" . $objUsuario->getUsuario() . "',
                senha = '" . $objUsuario->getSenha() . "',
-               nivel = " . $objUsuario->getNivel() . ",
-               dataCriacao = '" . $objUsuario->getDataCriacao() . "'
+               nivel = " . $objUsuario->getNivel() . "
                    WHERE idUsuario = " . $objUsuario->getIdUsuario() . "
                ";
 
