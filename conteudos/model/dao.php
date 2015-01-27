@@ -108,7 +108,7 @@ class ConteudoDAO extends Banco {
     public function altSubmenu($objSubMenu) {
         $conexao = $this->abreConexao();
 
-        echo $sql = "UPDATE " . TBL_SUBMENU . " SET
+        $sql = "UPDATE " . TBL_SUBMENU . " SET
                 idMenu = " . $objSubMenu->getIdMenu() . ",
                 tituloMenu = '" . $objSubMenu->getTituloMenu() . "',
                 tituloPagina = '" . $objSubMenu->getTituloPagina() . "',
@@ -136,10 +136,12 @@ class ConteudoDAO extends Banco {
                 SELECT
                 s.*,
                 CASE s.status WHEN 1 THEN 'Publicado' WHEN 2 THEN 'Em Aprovação' ELSE 'Desabilitado' END AS status,
-                CASE s.target WHEN '_blank' THEN 'Nova Página' ELSE 'Mesma Página' END AS target
+                CASE s.target WHEN '_blank' THEN 'Nova Página' ELSE 'Mesma Página' END AS target,
+                m.titulo AS tituloMenu
                     FROM " . TBL_SUBMENU . " s
+                        JOIN " . TBL_MENU . " m ON m.idMenu = s.idMenu
                         WHERE s.status != 0
-                        AND idMenu = ABS(".$idMenu.")
+                        AND s.idMenu = ABS(" . $idMenu . ")
               ";
 
         $banco = $conexao->query($sql);

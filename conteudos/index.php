@@ -14,11 +14,11 @@
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="#">Conteúdos</a>
+                <a href="index.php">Conteúdo</a>
                 <a href="#">Gerenciar conteúdo</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
-                <h1>Gerenciar conteúdo</h1>
+                <h1>Gerenciar conteúdo</h1><br/><br/>
                 <h2>Cadastrar novo menu</h2>
                 <form name="cadMenu">
                     <table class="tableform">
