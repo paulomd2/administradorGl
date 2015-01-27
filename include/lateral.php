@@ -64,7 +64,11 @@ if (array_search('usuarios', $diretorio) == true) {
                 echo 'class="ativo"';
             }
             ?>><i class="icon icon-newspaper"></i> Releases</a></li>
-        <li><a href="#"><i class="icon icon-tv"></i> Destaques</a></li>
+        <li><a href="../destaques" <?php
+            if (array_search('destaques', $diretorio) == true) {
+                echo 'class="ativo"';
+            }
+            ?>><i class="icon icon-tv"></i> Destaques</a></li>
         <li><a href="../eventos" <?php
             if (array_search('eventos', $diretorio) == true) {
                 echo 'class="ativo"';
