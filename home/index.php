@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -76,16 +77,19 @@
                 </div>
                 <div style="width: 373px; height: 230px; margin: 0 auto; padding: 15px 0;">
                     <div id="slides">
-                        <img src="../imagens/example-slide-1.jpg" alt="Photo by: Missy S Link: http://www.flickr.com/photos/listenmissy/5087404401/">
-                        <img src="../imagens/example-slide-2.jpg" alt="Photo by: Daniel Parks Link: http://www.flickr.com/photos/parksdh/5227623068/">
-                        <img src="../imagens/example-slide-3.jpg" alt="Photo by: Mike Ranweiler Link: http://www.flickr.com/photos/27874907@N04/4833059991/">
-                        <img src="../imagens/example-slide-4.jpg" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/">
-                    </div>
+                        <?php
+                        require_once '../banners/model/dao.php';
+                        $banners = $objBannersDao->listaBanners(5);
 
+                        for ($i = 1; $i < 5; $i++) {
+                            echo '<img src="../images/' . $banners[$i]["imagem"] . '" alt="" title="' . $banners[$i]["nome"] . '">';
+                        }
+                        ?>
+                    </div>
                     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
                     <script src="../js/jquery.slides.min.js"></script>
                     <script>
-                        $(function() {
+                        $(function () {
                             $('#slides').slidesjs({
                                 width: 373,
                                 height: 220,
