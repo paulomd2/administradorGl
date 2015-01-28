@@ -25,6 +25,7 @@
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
                 <a href="./">Banners</a>
+                <a href="./">Alterar banner</a>
             </div>
             <div class="tenor">
                 <h1>Alterar Banner</h1>
@@ -67,7 +68,7 @@
                         <input type="hidden" name="idBanner" value="<?php echo $banner['idBanner']; ?>" />
                         <input type="hidden" name="opcao" value="alterar" />
                         <input type="hidden" name="imagemAntiga" value="<?php echo $banner['imagem']; ?>" />
-                        <table>
+                        <table class="tableform">
                             <tr>
                                 <td>Nome:</td>
                                 <td>
@@ -209,7 +210,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="button" id="btnAlterar" value="Enviar" /></td>
+                                <td colspan="2"><input type="button" id="btnAlterar" value="Alterar" /></td>
                             </tr>
                         </table>
                     </form>

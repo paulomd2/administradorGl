@@ -20,11 +20,12 @@ setcookie("ck_authorized", "true", 0, "/");
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="index.php">Notícias</a>
-                <a href="#">Cadastrar notícia</a>
+                <a href="index.php">Destaques</a>
+                <a href="#">Cadastrar destaque</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
-                <h1>Cadastrar notícia</h1>
+                <h1>Cadastrar destaque</h1>
+                <a href="verDestaques.php" class="proPage">Todos os destaques</a>
                 <form name="cadNoticia">
                     <input type="hidden" value="<?php echo $_GET['mercado']; ?>" id="mercado"/>
                     <table class="tableform">
