@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `destaques` (
   `link` varchar(45) NOT NULL DEFAULT '',
   `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `dataCadastro` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
