@@ -4,13 +4,14 @@ class Destaque {
 
     private $idDestaque;
     private $titulo;
-    private $subitulo;
+    private $subtitulo;
     private $conteudo;
     private $imagem;
     private $DataPublicacao;
     private $dataSaida;
     private $link;
     private $dataCadastro;
+    private $status;
     
 
     function getIdDestaque() {
@@ -29,12 +30,12 @@ class Destaque {
         $this->titulo = $titulo;
     }
 
-    function getSubitulo() {
-        return $this->subitulo;
+    function getSubtitulo() {
+        return $this->subtitulo;
     }
 
-    function setSubitulo($subitulo) {
-        $this->subitulo = $subitulo;
+    function setSubtitulo($subitulo) {
+        $this->subtitulo = $subitulo;
     }
 
     function getConteudo() {
@@ -84,6 +85,15 @@ class Destaque {
 
     function setLink($link) {
         $this->link = $link;
+    }
+    
+    
+    function getStatus(){
+        return $this->status;
+    }
+    
+    function setStatus($status){
+        $this->status = $status;
     }
 
 }

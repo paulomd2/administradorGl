@@ -7,15 +7,16 @@ class DestaquesDAO extends Banco {
     public function cadDestaque($objDestaque) {
         $conexao = $this->abreConexao();
 
-        $sql = "INSERT INTO " . TBL_DESTAQUE . " SET
+      echo  $sql = "INSERT INTO " . TBL_DESTAQUE . " SET
                titulo = '" . $objDestaque->getTitulo() . "',
                subtitulo = '" . $objDestaque->getSubtitulo() . "',
+               link = '".$objDestaque->getLink()."',
                conteudo = '" . $objDestaque->getConteudo() . "',
                dataPublicacao = '" . $objDestaque->getDataPublicacao() . "',
                dataCadastro = '" . $objDestaque->getDataCadastro() . "',
                dataSaida = '" . $objDestaque->getDataSaida() . "',
-               imagem = '" . $objDestaque->getImagem() . "',
-               mercado = " . $objDestaque->getMercado() . "
+               status = ".$objDestaque->getStatus().",
+               imagem = '" . $objDestaque->getImagem() . "'
                ";
 
         $conexao->query($sql);
@@ -29,11 +30,11 @@ class DestaquesDAO extends Banco {
         $sql = "UPDATE " . TBL_DESTAQUE . " SET
                titulo = '" . $objDestaque->getTitulo() . "',
                subtitulo = '" . $objDestaque->getSubtitulo() . "',
-               fonte = '" . $objDestaque->getFonte() . "',
+               link = '".$objDestaque->getLink()."',
+               conteudo = '" . $objDestaque->getConteudo() . "',
                dataPublicacao = '" . $objDestaque->getDataPublicacao() . "',
-               texto = '" . $objDestaque->getTexto() . "',
-               dataCadastro = '" . $objDestaque->getDataCadastro() . "',
-               mercado = " . $objDestaque->getMercado() . "
+               dataSaida = '" . $objDestaque->getDataSaida() . "',
+               imagem = '" . $objDestaque->getImagem() . "'
                    WHERE idDestaque = " . $objDestaque->getIdDestaque() . "
                ";
 
@@ -57,7 +58,7 @@ class DestaquesDAO extends Banco {
     public function verDestaques($count) {
         $conexao = $this->abreConexao();
 
-        $sql = "SELECT idDestaque, titulo, subTitulo, fonte, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao, texto
+        $sql = "SELECT *, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao
                 FROM " . TBL_DESTAQUE . "
                     WHERE status = 1
                         ORDER BY dataPublicacao DESC
@@ -79,7 +80,7 @@ class DestaquesDAO extends Banco {
     public function verDestaque1($objDestaque) {
         $conexao = $this->abreConexao();
 
-        $sql = "SELECT idDestaque, titulo, subTitulo, fonte, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao, texto, mercado
+        $sql = "SELECT *
                 FROM " . TBL_DESTAQUE . "
                     WHERE idDestaque = " . $objDestaque->getIdDestaque() . "
                         ORDER BY dataPublicacao DESC
@@ -96,4 +97,4 @@ class DestaquesDAO extends Banco {
 
 }
 
-$objDestaquesDao = new DestaquesDAO();
+$objDestaqueDao = new DestaquesDAO();
