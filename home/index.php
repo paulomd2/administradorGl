@@ -100,27 +100,30 @@
 
             </div>
             <div class="box destaques">
+                <?php
+                    require_once '../destaques/model/dao.php';
+                    
+                    $destaques = $objDestaqueDao->verDestaques(4);
+                ?>
                 <div class="tit-box">
                     <strong>ÚLTIMOS</strong> DESTAQUES
                     <div class="plus"><a href="../destaques/verDestaques.php">+</a></div>
                 </div>
                 <table>
-                    <tr>
-                        <td>29/09</td>
-                        <td><a href="#">FLAMENGO X BAURU NA NBB 07</a></td>
-                    </tr>
-                    <tr>
-                        <td>29/09</td>
-                        <td><a href="#">LANÇAMENTO DO DVD - PAULO GUSTAVO</a></td>
-                    </tr>
-                    <tr>
-                        <td>29/09</td>
-                        <td><a href="#">ED SHEERAN</a></td>
-                    </tr>
-                    <tr>
-                        <td>29/09</td>
-                        <td><a href="#">Lançamento do DVD de Martin</a></td>
-                    </tr>
+                    <?php
+                        for($i = 1; $i < count($destaques); $i++){
+                            $explodeCadastro = explode(' ', $destaques[$i]['dataCadastro']);
+                            $dataCadastro = implode('/',  array_reverse(explode('-', $explodeCadastro[0])));
+                            $explodeCadastro = explode('/',$dataCadastro);
+                            $dataCadastro = $explodeCadastro[0].'/'.$explodeCadastro[1];
+                            echo    '
+                                    <tr>
+                                        <td>'.$dataCadastro.'</td>
+                                        <td><a href="../destaques/altDestaque.php?id='.$destaques[$i]["idDestaque"].'">'.$destaques[$i]["titulo"].'</td>
+                                    </tr>
+                                    ';
+                        }
+                    ?>
                 </table>
             </div>
         </div>
