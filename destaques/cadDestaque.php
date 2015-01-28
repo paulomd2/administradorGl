@@ -10,7 +10,7 @@ setcookie("ck_authorized", "true", 0, "/");
         <title>Painel | Fagga</title>
         <?php include_once '../include/head.php'; ?>
         <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
-        <script type="text/javascript" src="js/noticias.js"></script>
+        <script type="text/javascript" src="js/destaque.js"></script>
         <script src="../plugin/ckeditor/ckeditor.js"></script>
     </head>
     <body>
