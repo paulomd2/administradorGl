@@ -20,6 +20,13 @@ if (array_search('usuarios', $diretorio) == true) {
     echo "$('.tgl1').css('display', 'none');";
     echo "$('.tgl2').css('display', 'none');";
 }
+
+
+if (array_search('newsletter', $diretorio) || array_search('contatos', $diretorio)) {
+    echo "$('.tgl2').css('display', 'block');";
+    echo "$('.tgl1').css('display', 'none');";
+    echo "$('.tgl3').css('display', 'none');";
+}
 ?>
         $('span', '.hasub').click(function() {
             $(this).next().slideToggle('slow').siblings('.tgl:visible').slideToggle('fast');
@@ -29,11 +36,14 @@ if (array_search('usuarios', $diretorio) == true) {
 
 <aside class="barra-lateral" id="barra-lateral">
     <ul>
-        <li class="hasub"><span><a href="#"><i class="icon icon-file-text2"></i> Conteúdo </a></span>
-            <!--<ul id="1">-->
+        <li class="hasub">
+            <span>
+                <a href="#">
+                    <i class="icon icon-file-text2"></i> Conteúdo
+                </a>
+            </span>
             <ul class="tgl1">
-
-                <li><a href="../conteudos/index.php">Gerenciar conteúdo</a></li>
+                <li><a href="../conteudos/">Gerenciar conteúdo</a></li>
                 <?php
                 $menu = $objConteudoDao->listaMenus();
 
@@ -43,14 +53,23 @@ if (array_search('usuarios', $diretorio) == true) {
                 ?>
             </ul>
         </li>
-        <li class="hasub"><span><a href="#"><i class="icon icon-cog"></i> Administração</a></span>
-            <!--<ul id="2">-->
+        <li class="hasub">
+            <span>
+                <a href="#">
+                    <i class="icon icon-cog"></i> Administração
+                </a>
+            </span>
             <ul class="tgl2">
                 <li><a href="../newsletter" <?php
             if (array_search('newsletter', $diretorio) == true) {
                 echo 'class="ativo"';
             }
             ?>>Newsletter</a></li>
+                <li><a href="../contatos" <?php
+            if (array_search('contatos', $diretorio) == true) {
+                echo 'class="ativo"';
+            }
+            ?>>Contato</a></li>
             </ul>
         </li>
         <li><a href="../usuarios" <?php
