@@ -46,7 +46,11 @@ if (array_search('usuarios', $diretorio) == true) {
         <li class="hasub"><span><a href="#"><i class="icon icon-cog"></i> Administração</a></span>
             <!--<ul id="2">-->
             <ul class="tgl2">
-                <li><a href="#">Item</a></li>
+                <li><a href="../newsletter" <?php
+            if (array_search('newsletter', $diretorio) == true) {
+                echo 'class="ativo"';
+            }
+            ?>>Newsletter</a></li>
             </ul>
         </li>
         <li><a href="../usuarios" <?php
