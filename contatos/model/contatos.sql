@@ -9,7 +9,7 @@ CREATE TABLE  `admingl`.`emailscontato` (
   PRIMARY KEY (`idEmail`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
-insert into `admingl`.`emails` SET email = 'contato@contato.com', nome='contato', indPrincipal = 1, dataCadastro = NOW(), status = 1;
+insert into `admingl`.`emailscontato` SET email = 'contato@contato.com', nome='contato', indPrincipal = 1, dataCadastro = NOW(), status = 1;
 
 
 DROP TABLE IF EXISTS `admingl`.`emailrecebido`;
