@@ -11,7 +11,7 @@ if(isset($_GET['count'])){
 
 $banners = $objBannersDao->listaBanners($count);
 
-for ($i = 1; $i < count($banners); $i++) {
+for ($i = 0; $i < count($banners); $i++) {
 
     echo '<tr>
             <td>' . utf8_encode($banners[$i]["nome"]). '</td>
