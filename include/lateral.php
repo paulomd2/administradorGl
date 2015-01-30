@@ -48,7 +48,7 @@ if (array_search('newsletter', $diretorio) || array_search('contatos', $diretori
                 $menu = $objConteudoDao->listaMenus();
 
                 for ($i = 1; $i < count($menu); $i++) {
-                    echo '<li><a href="../conteudos/verSubmenus.php?id=' . $menu[$i]["idMenu"] . '" onclick="javascript:void(0);">' . $menu[$i]['titulo'] . '</a></li>';
+                    echo '<li><a href="../conteudos/verSubmenus.php?id=' . $menu[$i]["idMenu"] . '#1" onclick="javascript:void(0);">' . $menu[$i]['titulo'] . '</a></li>';
                 }
                 ?>
             </ul>

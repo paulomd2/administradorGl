@@ -81,21 +81,22 @@
                         require_once '../banners/model/dao.php';
                         $banners = $objBannersDao->listaBanners(5);
 
-                        for ($i = 1; $i < count($banners); $i++) {
-                            echo '<img src="../images/' . $banners[$i]["imagem"] . '" alt="" title="' . $banners[$i]["nome"] . '" />';
+                        for ($i = 1; $i < 5; $i++) {
+                            echo '<img src="../images/' . $banners[$i]["imagem"] . '" alt="" title="' . $banners[$i]["nome"] . '">';
                         }
                         ?>
                     </div>
-                        <script src="../js/jquery.slides.min.js"></script>
-                        <script>
-                            $(function() {
-                                $('#slides').slidesjs({
-                                    width: 373,
-                                    height: 220,
-                                    navigation: false
-                                });
+                    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+                    <script src="../js/jquery.slides.min.js"></script>
+                    <script>
+                        $(function () {
+                            $('#slides').slidesjs({
+                                width: 373,
+                                height: 220,
+                                navigation: false
                             });
-                        </script>
+                        });
+                    </script>
                 </div>
 
             </div>

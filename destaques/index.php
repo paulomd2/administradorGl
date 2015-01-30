@@ -7,6 +7,9 @@
         <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
         <script type="text/javascript" src="js/destaque.js"></script>
         <script src="../plugin/ckeditor/ckeditor.js"></script>
+        <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+        <!-- polyfiller file to detect and load polyfills -->
+        <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
         <script>
             webshims.setOptions('waitReady', false);
             webshims.setOptions('forms-ext', {types: 'date'});
@@ -40,11 +43,12 @@
 
                     <tbody id="listaDestaques"></tbody>
                 </table>
-                <a href="verDestaques.php" class="proPage">Ver todos os destaques</a>
+                <a href="verDestaques.php" class="proPage">Ver todas os Destaques</a>
 
                 <hr/>
                 <h1>Cadastrar destaque</h1>
-                <form name="cadDestaque">
+                <form name="cadDestaque" id="cadDestaque" action="control/controleDestaque.php" enctype="multipart/form-data" method="post">
+                    <input type="hidden" value="cadastrar" name="opcao" />
                     <table class="tableform">
                         <tr>
                             <td>Título:</td>
@@ -56,7 +60,7 @@
                         <tr>
                             <td>Sub-título:</td>
                             <td>
-                                <input type="text" name="sub" id="sub" /><br />
+                                <input type="text" name="subtitulo" id="subtitulo" /><br />
                                 <span id="spanSub" class="erro"></span>
                             </td>
                         </tr>
@@ -155,15 +159,17 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="mercado">Imagem de Capa:</label></td>
-                            <td><input type="file" id="imagem" name="imagem" /></td>
+                            <td>Imagem de Capa:</td>
+                            <td>
+                                <input type="file" id="imagem" name="imagem" /><br />
+                                <span id="spanImagem" class="erro"></span>
+                            </td>
                         </tr>
                         <tr>
                             <td colspan="2"><input type="button" id="btnCadastrar" value="Cadastrar" /></td>
                         </tr>
                     </table>
-                </form>                
-
+                </form>
                 <script>
                     CKEDITOR.replace('conteudo', {
                         uiColor: '#dfdfdf',

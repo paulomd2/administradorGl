@@ -19,11 +19,11 @@ setcookie("ck_authorized", "true", 0, "/");
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
                 <a href="index.php">Destaques</a>
-                <a href="#">Todos os destaques</a>
+                <a href="#">Todas os destaques</a>
             </div>
             <div class="tenor">
-                <h1>Todos os destaques</h1>
-                <a href="cadDestaque.php" class="proPage">Cadastrar destaque</a>
+                <h1>Todas os destaques</h1>
+
                 <table class="tableAll">
                     <thead>
                         <tr>
@@ -39,6 +39,9 @@ setcookie("ck_authorized", "true", 0, "/");
 
                     <tbody id="listaDestaques"></tbody>
                 </table>
+                <a href="index.php" class="proPage">Voltar</a>
+                <a href="cadDestaque.php" class="proPage">Cadastrar novo destaque</a>
+
             </div>
         </div>
     </body>

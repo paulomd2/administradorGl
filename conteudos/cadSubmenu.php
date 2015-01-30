@@ -5,7 +5,6 @@
         <title>Painel | Fagga</title>
         <?php include_once '../include/head.php'; ?>
         <script type="text/javascript" src="../js/jquery-2.1.3.js"></script>
-        <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
         <script type="text/javascript" src="js/conteudo.js"></script>
         <script src="../plugin/ckeditor/ckeditor.js"></script>
     </head>
@@ -135,7 +134,7 @@
 
                 <script>
                     CKEDITOR.replace('texto', {
-                        uiColor: '#cfcfcf',
+                        uiColor: '#999999',
                         filebrowserImageBrowseUrl: '../plugin/ckfinder/ckfinder.html?Type=Images',
                     });
                 </script>
