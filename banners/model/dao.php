@@ -72,9 +72,9 @@ class BannersDAO extends Banco {
         $sql = 'SELECT * FROM' . TBL_BANNER . 'WHERE status != 0 ORDER BY ordem DESC LIMIT ' . $count;
         $banco = $conexao->query($sql);
 
-        $linhas[] = array();
+        $linhas = array();
 
-        while ($linha = $banco->fetch_assoc()) {
+        while ($linha = $banco->fetch_array()) {
             $linhas[] = $linha;
         }
 

@@ -6,7 +6,40 @@
         <title>Painel | Fagga</title>
         <?php include_once '../include/head.php'; ?>
         <style>
-            .slidesjs-pagination{margin:0 15px 0 0;list-style:none;position:relative;z-index:999}.slidesjs-pagination li{float:left;margin:0 1px}.slidesjs-pagination li a{display:block;width:13px;height:0;padding-top:13px;background-image:url(../imagens/pagination.png);background-position:0 0;float:left;overflow:hidden}.slidesjs-pagination li a.active,.slidesjs-pagination li a:hover.active{background-position:0 -13px}.slidesjs-pagination li a:hover{background-position:0 -26px}#slides{width:90%;height:auto;position:relative}#slides img{width:100%}
+            .slidesjs-pagination{
+                margin:0 15px 0 0;
+                list-style:none;
+                position:relative;
+                z-index:999
+            }
+            .slidesjs-pagination li{
+                float:left;
+                margin:0 1px;
+            }
+            .slidesjs-pagination li a{
+                display:block;
+                width:13px;
+                height:0;
+                padding-top:13px;
+                background-image:url(../imagens/pagination.png);
+                background-position:0 0;
+                float:left;
+                /*overflow:hidden;*/
+            }
+            .slidesjs-pagination li a.active,.slidesjs-pagination li a:hover.active{
+                background-position:0 -13px
+            }
+            .slidesjs-pagination li a:hover{
+                background-position:0 -26px
+            }
+            #slides{
+                width:90%;
+                height:auto;
+                position:relative;
+            }
+            #slides img{
+                width:100%
+            }
         </style>
     </head>
     <body>
@@ -76,20 +109,28 @@
                     <div class="plus"><a href="../banners/verBanners.php">+</a></div>
                 </div>
                 <div style="width: 373px; height: 230px; margin: 0 auto; padding: 15px 0;">
-                    <div id="slides">
+                    <?php
+                    require_once '../banners/model/dao.php';
+                    $banners = $objBannersDao->listaBanners(5);
+                    
+//                    echo var_dump($banners);
+                    
+                    if(count($banners) > 1) {
+                        echo "<div id='slides'>";
+                    }else{
+                        echo "<div id='sumiu'>";
+                    }
+                    ?>
+                    <!--<div id="slides">-->
                         <?php
-                        require_once '../banners/model/dao.php';
-                        $banners = $objBannersDao->listaBanners(5);
-
-                        for ($i = 1; $i < 5; $i++) {
-                            echo '<img src="../images/' . $banners[$i]["imagem"] . '" alt="" title="' . $banners[$i]["nome"] . '">';
+                        for ($i = 0; $i < count($banners); $i++) {
+                            echo '<img src="../images/' . $banners[$i]["imagem"] . '" alt="" title="' . $banners[$i]["nome"] . '" style="width:100%!important;" />';
                         }
                         ?>
-                    </div>
-                    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+                    <?php echo "</div>"; ?>
                     <script src="../js/jquery.slides.min.js"></script>
                     <script>
-                        $(function () {
+                        $(function() {
                             $('#slides').slidesjs({
                                 width: 373,
                                 height: 220,
@@ -102,9 +143,9 @@
             </div>
             <div class="box destaques">
                 <?php
-                    require_once '../destaques/model/dao.php';
-                    
-                    $destaques = $objDestaqueDao->verDestaques(4);
+                require_once '../destaques/model/dao.php';
+
+                $destaques = $objDestaqueDao->verDestaques(4);
                 ?>
                 <div class="tit-box">
                     <strong>ÚLTIMOS</strong> DESTAQUES
@@ -112,18 +153,18 @@
                 </div>
                 <table>
                     <?php
-                        for($i = 1; $i < count($destaques); $i++){
-                            $explodeCadastro = explode(' ', $destaques[$i]['dataCadastro']);
-                            $dataCadastro = implode('/',  array_reverse(explode('-', $explodeCadastro[0])));
-                            $explodeCadastro = explode('/',$dataCadastro);
-                            $dataCadastro = $explodeCadastro[0].'/'.$explodeCadastro[1];
-                            echo    '
+                    for ($i = 1; $i < count($destaques); $i++) {
+                        $explodeCadastro = explode(' ', $destaques[$i]['dataCadastro']);
+                        $dataCadastro = implode('/', array_reverse(explode('-', $explodeCadastro[0])));
+                        $explodeCadastro = explode('/', $dataCadastro);
+                        $dataCadastro = $explodeCadastro[0] . '/' . $explodeCadastro[1];
+                        echo '
                                     <tr>
-                                        <td>'.$dataCadastro.'</td>
-                                        <td><a href="../destaques/altDestaque.php?id='.$destaques[$i]["idDestaque"].'">'.$destaques[$i]["titulo"].'</td>
+                                        <td>' . $dataCadastro . '</td>
+                                        <td><a href="../destaques/altDestaque.php?id=' . $destaques[$i]["idDestaque"] . '">' . $destaques[$i]["titulo"] . '</td>
                                     </tr>
                                     ';
-                        }
+                    }
                     ?>
                 </table>
             </div>
