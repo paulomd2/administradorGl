@@ -67,7 +67,7 @@
                         <input type="hidden" name="idBanner" value="<?php echo $banner['idBanner']; ?>" />
                         <input type="hidden" name="opcao" value="alterar" />
                         <input type="hidden" name="imagemAntiga" value="<?php echo $banner['imagem']; ?>" />
-                        <table>
+                        <table class="tableform">
                             <tr>
                                 <td>Nome:</td>
                                 <td>
@@ -205,11 +205,11 @@
                                 <td>
                                     <input type="file" name="imagem" id="imagem" /><br />
                                     <span class="erro" id="spanImagem"></span><br />
-                                    <img src="../images/<?php echo $banner['imagem']; ?>" width="100" />
+                                    <img src="../images/<?php echo $banner['imagem']; ?>" width="180" />
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="button" id="btnAlterar" value="Enviar" /></td>
+                                <td colspan="2"><input type="button" id="btnAlterar" value="Alterar" /></td>
                             </tr>
                         </table>
                     </form>
