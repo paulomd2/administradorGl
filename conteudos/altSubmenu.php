@@ -133,7 +133,7 @@
                             <td><input type="text" id="dataSaida" name="dataSaida" value="<?php echo implode('/', array_reverse(explode('-', $submenu['dataSaida']))); ?>" /></td>
                         </tr>
                         <tr>
-                            <td colspan="2">SEO</td>
+                            <td colspan="2"><h2>SEO</h2></td>
                         </tr>
                         <tr>
                             <td>Título:</td>
@@ -158,7 +158,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <input type="button" id="btnAlterarSubmenu" value="Enviar" /><br />
+                                <input type="button" id="btnAlterarSubmenu" value="Alterar" /><br />
                                 <span id="spanBtn" class="erro"></span>
                             </td>
                         </tr>
@@ -168,7 +168,7 @@
 
             <script>
                 CKEDITOR.replace('texto', {
-                    uiColor: '#999999',
+                    uiColor: '#cfcfcf',
                     filebrowserImageBrowseUrl: '../plugin/ckfinder/ckfinder.html?Type=Images',
                 });
             </script>

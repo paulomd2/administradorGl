@@ -100,7 +100,7 @@
                             <td><input type="text" id="dataSaida" name="dataSaida" /></td>
                         </tr>
                         <tr>
-                            <td colspan="2">SEO</td>
+                            <td colspan="2"><h2>SEO</h2></td>
                         </tr>
                         <tr>
                             <td>Título:</td>
@@ -125,7 +125,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <input type="button" id="btnCadastrarSubmenu" value="Enviar" /><br />
+                                <input type="button" id="btnCadastrarSubmenu" value="Cadastrar" /><br />
                                 <span id="spanBtn" class="erro"></span>
                             </td>
                         </tr>
