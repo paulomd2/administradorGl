@@ -36,7 +36,8 @@ $(document).ready(function() {
         } else {
             $("#cadRelease")[0].reset();
             $.post('control/controleReleases.php', {opcao: 'cadastrar', titulo: titulo, mes: mes, status: status, texto: texto, dataEntrada: dataEntrada, dataSaida: dataSaida});
-            $("#listaReleases").load('listaReleasesAjax.php');
+//            $("#listaReleases").load('listaReleasesAjax.php');
+              window.location = 'verReleases.php';
         }
     });
 

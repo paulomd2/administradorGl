@@ -25,7 +25,7 @@ setcookie("ck_authorized", "true", 0, "/");
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Cadastrar release</h1>
                 <a href="verReleases.php" class="proPage">Todos os releases</a>
-                <form name="cadRelease">
+                <form name="cadRelease" id="cadRelease">
                     <table class="tableform">
                         <tr>
                             <td>Título:</td>

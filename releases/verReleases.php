@@ -27,8 +27,8 @@ setcookie("ck_authorized", "true", 0, "/");
                 <table class="tableAll">
                     <thead>
                         <tr>
-                            <td style="width: 60%;">titulo</td>
-                            <td style="width: 20%;">mes</td>
+                            <td style="width: 60%;">Título</td>
+                            <td style="width: 20%;">Mês</td>
                             <td style="width: 10%;">Alterar</td>
                             <td style="width: 10%;">Excluir</td>
                         </tr>
