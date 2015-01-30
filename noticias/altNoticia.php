@@ -34,7 +34,7 @@ setcookie("ck_authorized", "true", 0, "/");
 
                 $objNoticia->setIdNoticia($idNoticia);
 
-                $noticia = $objNoticiasDao->verNoticia1($objNoticia);
+                $noticia = $objNoticiaDao->verNoticia1($objNoticia);
                 ?>
                 <div>
                     <form name="cadNoticia">

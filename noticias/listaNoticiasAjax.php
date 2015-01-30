@@ -4,7 +4,7 @@ require_once 'model/dao.php';
 
 $count = $_GET['count'];
 
-$noticias = $objNoticiasDao->verNoticias($count);
+$noticias = $objNoticiaDao->verNoticias($count);
 
 for ($i = 1; $i < count($noticias); $i++) {
 

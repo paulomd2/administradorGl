@@ -24,13 +24,12 @@ class NoticiasDAO extends Banco {
     public function altNoticia($objNoticia) {
         $conexao = $this->abreConexao();
 
-        $sql = "UPDATE " . TBL_NOTICIA . " SET
+     echo   $sql = "UPDATE " . TBL_NOTICIA . " SET
                titulo = '" . $objNoticia->getTitulo() . "',
                subtitulo = '" . $objNoticia->getSubTitulo() . "',
                fonte = '" . $objNoticia->getFonte() . "',
                dataPublicacao = '" . $objNoticia->getDataPublicacao() . "',
                texto = '" . $objNoticia->getTexto() . "',
-               dataCadastro = '" . $objNoticia->getDataCadastro() . "',
                mercado = " . $objNoticia->getMercado() . "
                    WHERE idNoticia = " . $objNoticia->getIdNoticia() . "
                ";
@@ -94,4 +93,4 @@ class NoticiasDAO extends Banco {
 
 }
 
-$objNoticiasDao = new NoticiasDAO();
+$objNoticiaDao = new NoticiasDAO();

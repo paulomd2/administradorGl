@@ -8,51 +8,43 @@ switch ($opcao) {
     case "cadastrar": {
 
             $titulo = $_POST['titulo'];
-            $subitulo = $_POST['subitulo'];
-            $conteudo = $_POST['conteudo'];
-            $imagem = $_POST['imagem'];
-            $DataPublicacao = $_POST['DataPublicacao'];
-            $dataSaida = $_POST['dataSaida'];
-            $link = $_POST['link'];
+            $subtitulo = $_POST['subtitulo'];
+            $texto = $_POST['texto'];
+            $DataPublicacao = $_POST['dataPublicacao'];
+            $mercado = $_POST['mercado'];
+            $fonte = $_POST['fonte'];
 
-            $objDestaques->setTitulo($titulo);
-            $objDestaques->setSubitulo($subitulo);
-            $objDestaques->setConteudo($conteudo);
-            $objDestaques->setImagem($imagem);
-            $objDestaques->setDataPublicacao($DataPublicacao);
-            $objDestaques->setDataSaida($dataSaida);
-            $objDestaques->setLink($link);
+            $objNoticia->setTitulo($titulo);
+            $objNoticia->setSubtitulo($subtitulo);
+            $objNoticia->setTexto($texto);
+            $objNoticia->setDataPublicacao($DataPublicacao);
+            $objNoticia->setFonte($fonte);
+            $objNoticia->setMercado($mercado);
 
-            $objDestaquesDao->cadDestaques($objDestaques);
+            $objNoticiaDao->cadNoticia($objNoticia);
 
             break;
         }
 
     case "alterar": {
-
+            $idNoticia = $_POST['idNoticia'];
             $titulo = $_POST['titulo'];
-            $subitulo = $_POST['subitulo'];
-            $conteudo = $_POST['conteudo'];
-            $imagem = $_POST['imagem'];
-            $DataPublicacao = $_POST['DataPublicacao'];
-            $dataSaida = $_POST['dataSaida'];
-            $link = $_POST['link'];
+            $subtitulo = $_POST['subtitulo'];
+            $texto = $_POST['texto'];
+            $DataPublicacao = $_POST['dataPublicacao'];
+            $mercado = $_POST['mercado'];
+            $fonte = $_POST['fonte'];
 
-            //setando dados recebidos
-            $objDestaques->setTitulo($titulo);
-            $objDestaques->setSubitulo($subitulo);
-            $objDestaques->setConteudo($conteudo);
-            $objDestaques->setImagem($imagem);
-            $objDestaques->setDataPublicacao($DataPublicacao);
-            $objDestaques->setDataSaida($dataSaida);
-            $objDestaques->setLink($link);
+            $objNoticia->setTitulo($titulo);
+            $objNoticia->setSubtitulo($subtitulo);
+            $objNoticia->setTexto($texto);
+            $objNoticia->setDataPublicacao($DataPublicacao);
+            $objNoticia->setFonte($fonte);
+            $objNoticia->setIdNoticia($idNoticia);
+            $objNoticia->setMercado($mercado);
 
-            //inserindo dados
-            $objDestaquesDao->atualizaDestaques($objDestaques);
 
-            //redirecionando
-            echo "<script>window.location='../view/manter_destaques.php';</script>";
-
+            $objNoticiaDao->altNoticia($objNoticia);
             break;
         }
 
@@ -62,10 +54,10 @@ switch ($opcao) {
             $idDestaque = $_POST['id_destaques'];
 
             //setando identifica��o recebida
-            $objDestaques->setIdDestaque($idDestaque);
+            $objNoticia->setIdDestaque($idDestaque);
 
             //apagando registro
-            $objDestaquesDao->deletaDestaques($objDestaques);
+            $objNoticiaDao->deletaDestaques($objNoticia);
 
             //redirecionando
             echo "<script>window.location='../view/manter_destaques.php';</script>";
