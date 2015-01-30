@@ -16,8 +16,7 @@ $(document).ready(function () {
         var tituloMetaTag = $("#tituloMetaTag").val().trim();
         var keywordsMetatag = $("#keywordsMetaTag").val().trim();
         var descricaoMetaTag = $("#descricaoMetaTag").val().trim();
-        var imagem = $("#imagem").val().trim();
-        
+        var imagem = $("#imagem").val().trim();        
         
         $(".erro").html('');
         if (nome == '') {
@@ -49,8 +48,7 @@ $(document).ready(function () {
         }
 
     });
-    
-    
+        
     $("#btnAlterar").click(function () {
         var titulo = $("#titulo").val().trim();
         var nome = $("#nome").val().trim();
@@ -60,7 +58,6 @@ $(document).ready(function () {
         var keywordsMetatag = $("#keywordsMetaTag").val().trim();
         var descricaoMetaTag = $("#descricaoMetaTag").val().trim();
         var imagem = $("#imagem").val().trim();
-        
         
         $(".erro").html('');
         if (nome == '') {

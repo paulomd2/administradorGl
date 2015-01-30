@@ -35,7 +35,7 @@ $evento = $objEventoDao->listaEvento1($objEvento);
                     <input type="hidden" value="alterar" name="opcao" id="opcao" />
                     <input type="hidden" value="<?php echo $evento['idEvento']; ?>" name="idEvento" id="idEvento" />
                     <input type="hidden" value="<?php echo $evento['imagem']; ?>" name="imagemAntiga" id="imagemAntiga" />
-                    <table>
+                    <table class="tableform">
                         <tr>
                             <td>Nome:</td>
                             <td>

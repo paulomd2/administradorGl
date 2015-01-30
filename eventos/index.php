@@ -26,7 +26,6 @@
                         <thead>
                             <tr>
                                 <td>Nome</td>
-                                <td>Título</td>
                                 <td>Imagem</td>
                                 <td>Editar</td>
                                 <td>Excluir</td>
