@@ -26,7 +26,7 @@
                 <a href="./">Destaques</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
-                <h1>Últimos Destaques</h1>
+                <h1>Últimos destaques</h1>
                 <!--<table style="font-size: 14px; width: 760px;">-->
                 <table class="tableAll">
                     <thead>
@@ -43,7 +43,7 @@
 
                     <tbody id="listaDestaques"></tbody>
                 </table>
-                <a href="verDestaques.php" class="proPage">Ver todas os Destaques</a>
+                <a href="verDestaques.php" class="proPage">Ver todos os destaques</a>
 
                 <hr/>
                 <h1>Cadastrar destaque</h1>
