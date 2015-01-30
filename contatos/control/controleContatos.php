@@ -10,7 +10,7 @@ switch ($opcao) {
             $email = $_POST['email'];
             $nome = $_POST['nome'];
             $dataCadastro = date('Y-m-d H:i:s');
-
+            
             var_dump($_POST);
 
             $objEmail->setNome($nome);
@@ -23,7 +23,7 @@ switch ($opcao) {
             break;
         }
 
-    case "alterarEmail": {
+    case "alterarEmail": {     
             $email = $_POST['email'];
             $nome = $_POST['nome'];
             $idEmail = $_POST['idEmail'];
@@ -38,24 +38,20 @@ switch ($opcao) {
             break;
         }
 
-    case "excluirEmail": {
+    case "deletar": {
 
-            $idEmail = $_POST['idEmail'];
+            //recebendo identifica��o
+            $idDestaque = $_POST['id_destaques'];
 
-            $objEmail->setIdEmail($idEmail);
+            //setando identifica��o recebida
+            $objDestaques->setIdDestaque($idDestaque);
 
-            $objContatoDao->delEmail($objEmail);
+            //apagando registro
+            $objDestaquesDao->deletaDestaques($objDestaques);
 
-            break;
-        }
+            //redirecionando
+            echo "<script>window.location='../view/manter_destaques.php';</script>";
 
-
-    case 'attPrincipal': {
-            $id  = $_POST['id'];
-            
-            $objEmail->setIdEmail($id);
-                    
-            $objContatoDao->setaPrincipal($objEmail);
             break;
         }
 }

@@ -35,9 +35,9 @@ class ContatoDAO extends Banco {
     public function delEmail($objEmail) {
         $conexao = $this->abreConexao();
 
-       echo $sql = "UPDATE " . TBL_EMAIL . " 
+        $sql = "UPDATE " . TBL_EMAIL . " 
                 SET status = 0
-                WHERE idEmail = " . $objEmail->getIdEmail();
+                WHERE idEmail = " . $objEmail->getIdNoticia();
 
         $conexao->query($sql);
 
@@ -99,25 +99,9 @@ class ContatoDAO extends Banco {
                     WHERE idEmail != ".$objEmail->getIdEmail()."
                ";
         
-        $conexao->query($sql2);
+        $conexao->query($sql);
         
         $this->fechaConexao();
-    }
-    
-    
-    public function verContatos(){
-        $conexao = $this->abreConexao();
-        
-        $sql = "SELECT * FROM ".TBL_CONTATO;
-        
-        $banco = $conexao->query($sql);
-        
-        $linhas = array();
-        while($linha = $banco->fetch_assoc()){
-            $linhas[] = $linha;
-        }
-        
-        return $linhas;
     }
 
 }

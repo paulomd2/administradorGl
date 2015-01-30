@@ -36,27 +36,63 @@ setcookie("ck_authorized", "true", 0, "/");
                     </thead>
                     <tbody id="listaEmails"></tbody>
                 </table>
-
+                
                 <hr/>
-                <h1>Listar Contatos</h1>
-                <table class="tableAll">
-                    <thead>
+                <h1>Cadastrar notícia</h1>
+                <form name="cadEmail">
+                    <input type="hidden" value="<?php echo $_GET['mercado']; ?>" id="mercado"/>
+                    <table class="tableform">
                         <tr>
-                            <td>Nome</td>
-                            <td>Email</td>
-                            <td>Assunto</td>
-                            <td>Data de Envio</td>
-                            <td>Responder</td>
+                            <td>Título:</td>
+                            <td>
+                                <input type="text" name="titulo" id="titulo" /><br />
+                                <span id="spanTitulo" class="erro"></span>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody id="listaContatos"></tbody>
-                </table>
-                <!--script>
+                        <tr>
+                            <td>Sub-título:</td>
+                            <td>
+                                <input type="text" name="sub" id="sub" /><br />
+                                <span id="spanSub" class="erro"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Fonte:</td>
+                            <td>
+                                <input type="text" name="fonte" id="fonte" /><br />
+                                <span id="spanFonte" class="erro"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Data de Publicação:</td>
+                            <td>
+                                <input type="text" name="publicacao" id="publicacao" /><br />
+                                <span id="spanPublicacao" class="erro"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Texto:</td>
+                            <td>
+                                <textarea name="texto" id="texto" rows="10" cols="40"></textarea>
+                                <span id="spanTexto" class="erro"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="mercado">Notícia de Mercado?</label></td>
+                            <td><input type="checkbox" value="1" id="mercado" name="mercado" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><input type="button" id="btnCadastrar" value="Cadastrar" /></td>
+                        </tr>
+                    </table>
+                </form>                
+
+                <script>
                     CKEDITOR.replace('texto', {
                         uiColor: '#dfdfdf',
                         filebrowserImageBrowseUrl: '../plugin/ckfinder/ckfinder.html?Type=Images',
                     });
-                </script-->
+                </script>
             </div>
         </div>
     </body>

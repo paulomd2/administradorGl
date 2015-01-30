@@ -11,11 +11,6 @@
  count = 5;
  }
  */
-
-function attPrincipal(id){
-    $.post('control/controleContatos.php',{opcao:'attPrincipal',id:id});    
-}
-
 $.validaEmail = function (email) {
     er = /^[a-zA-Z0-9][a-zA-Z0-9\._-]+@([a-zA-Z0-9\._-]+\.)[a-zA-Z-0-9]{2}/;
     if (er.exec(email))
@@ -26,10 +21,7 @@ $.validaEmail = function (email) {
 
 function delEmail(id) {
     if (confirm("Você tem certeza que deseja excluir esse email?") == true) {
-        $.post('control/controleContatos.php', {opcao: 'excluirEmail', idEmail: id},
-        function(r){
-            console.log(r);
-        });
+        $.post('control/controleEmail.php', {opcao: 'excluir', idEmail: id});
 
         //$("#listaEmails").load('listaEmailsAjax.php?count='+count);
         $("#listaEmails").load('listaEmailsAjax.php');
@@ -38,7 +30,6 @@ function delEmail(id) {
 $(document).ready(function () {
     //$("#listaEmails").load('listaEmailsAjax.php?count='+count);
     $("#listaEmails").load('listaEmailsAjax.php');
-    $("#listaContatos").load('listaContatosAjax.php');
 
     $("#btnCadastrar").click(function () {
         var nome = $("#nome").val().trim();
@@ -79,12 +70,5 @@ $(document).ready(function () {
             $.post('control/controleContatos.php', {opcao: 'alterarEmail', nome: nome, email: email, idEmail:idEmail});
             window.location = 'index.php';
         }
-    });
-    
-    $("#radio").change(function(){
-       var id = $( "select option:selected" ).val();
-       
-       
-       alert(id);
     });
 });
