@@ -47,6 +47,17 @@ $menus = $objConteudoDao->listaMenu1($objMenu);
                             </td>
                         </tr>
                         <tr>
+                            <td>Target:</td>
+                            <td>
+                                <select name="target" id="target">
+                                    <option value="">Selecione um target...</option>
+                                    <option value="_self" <?php if($menus['target'] == '_self'){echo 'selected'; } ?>>Abrir na mesma página</option>
+                                    <option value="_blank" <?php if($menus['target'] == '_blank'){echo 'selected'; } ?>>Abrir em outra página</option>
+                                </select><br />
+                                <span id="spanTarget" class="erro"></span>
+                            </td>
+                        </tr>
+                        <tr>
                             <td colspan="2"><input type="button" id="btnAlterarMenu" value="Alterar" /></td>
                         </tr>
                     </table>

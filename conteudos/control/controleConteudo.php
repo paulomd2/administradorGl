@@ -10,9 +10,11 @@ switch ($opcao) {
     case "cadastrarMenu": {
             $titulo = $_POST['titulo'];
             $link = $_POST['link'];
+            $target = $_POST['target'];
 
             $objMenu->setTitulo($titulo);
             $objMenu->setLink($link);
+            $objMenu->setTarget($target);
 
             $objConteudoDao->cadMenu($objMenu);
 
@@ -22,10 +24,12 @@ switch ($opcao) {
             $titulo = $_POST['titulo'];
             $link = $_POST['link'];
             $idMenu = $_POST['idMenu'];
+            $target = $_POST['target'];
 
             $objMenu->setIdMenu($idMenu);
             $objMenu->setTitulo($titulo);
             $objMenu->setLink($link);
+            $objMenu->setTarget($target);
 
             $objConteudoDao->altMenu($objMenu);
 

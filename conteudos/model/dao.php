@@ -11,7 +11,8 @@ class ConteudoDAO extends Banco {
         $sql = "
                 INSERT INTO " . TBL_MENU . " SET
                 titulo = '" . $objMenu->getTitulo() . "',
-                link = '" . $objMenu->getLink() . "'
+                link = '" . $objMenu->getLink() . "',
+                target = '".$objMenu->getTarget()."'
                ";
 
         $conexao->query($sql);
@@ -59,7 +60,8 @@ class ConteudoDAO extends Banco {
         $sql = " 
                 UPDATE " . TBL_MENU . " SET
                 titulo = '" . $objMenu->getTitulo() . "',
-                link = '" . $objMenu->getLink() . "'
+                link = '" . $objMenu->getLink() . "',
+                target = '".$objMenu->getTarget()."'
                    WHERE idMenu = " . $objMenu->getIdMenu() . "
                ";
 

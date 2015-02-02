@@ -33,6 +33,17 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>Target:</td>
+                            <td>
+                                <select name="target" id="target">
+                                    <option value="">Selecione um target...</option>
+                                    <option value="_self">Abrir na mesma página</option>
+                                    <option value="_blank">Abrir em outra página</option>
+                                </select><br />
+                                <span id="spanTarget" class="erro"></span>
+                            </td>
+                        </tr>
+                        <tr>
                             <td colspan="2"><input type="button" id="btnCadastrarMenu" value="Enviar" /></td>
                         </tr>
                     </table>

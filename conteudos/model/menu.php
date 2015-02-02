@@ -5,6 +5,7 @@ class Menu {
     private $idMenu;
     private $titulo;
     private $link;
+    private $target;
 
     function getIdMenu() {
         return $this->idMenu;
@@ -28,6 +29,15 @@ class Menu {
 
     function setLink($link) {
         $this->link = $link;
+    }
+    
+    
+    function getTarget(){
+        return $this->target;
+    }
+    
+    function setTarget($target){
+        $this->target = $target;
     }
 
 }

@@ -139,12 +139,17 @@ $(document).ready(function() {
     $("#btnCadastrarMenu").click(function() {
         var titulo = $("#titulo").val().trim();
         var link = $("#link").val().trim();
+        var target = $("#target").val();
 
+        $(".erro").html('').css('display','none');
         if (titulo == '') {
             $("#titulo").focus();
-            $("#spanTitulo").html('Você deve preencher o Título!');
-        } else {
-            $.post('control/controleConteudo.php', {opcao: 'cadastrarMenu', titulo: titulo, link: link});
+            $("#spanTitulo").html('Você deve preencher o Título!').css('display','inline-block');
+        } else if(target == ''){
+            $("#target").focus();
+            $("#spanTarget").html('Você deve selecionar um Target!').css('display','inline-block');
+        }else {
+            $.post('control/controleConteudo.php', {opcao: 'cadastrarMenu', titulo: titulo, link: link, target:target});
             window.location = 'index.php';
         }
     });
@@ -153,13 +158,17 @@ $(document).ready(function() {
     $("#btnAlterarMenu").click(function() {
         var titulo = $("#titulo").val().trim();
         var link = $("#link").val().trim();
+        var target = $("#target").val();
         var idMenu = $("#idMenu").val();
 
         if (titulo == '') {
             $("#titulo").focus();
             $("#spanTitulo").html('Você deve preencher o Título!');
-        } else {
-            $.post('control/controleConteudo.php', {opcao: 'alterarMenu', titulo: titulo, link: link, idMenu: idMenu});
+        } else if(target == ''){
+            $("#target").focus();
+            $("#spanTarget").html('Você deve selecionar um Target!').css('display','inline-block');
+        }else {
+            $.post('control/controleConteudo.php', {opcao: 'alterarMenu', titulo: titulo, link: link, idMenu: idMenu, target:target});
             window.location = 'verMenus.php';
         }
     });
