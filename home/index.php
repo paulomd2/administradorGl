@@ -61,7 +61,7 @@
                     require_once '../model/banco.php';
                     require_once '../noticias/model/dao.php';
 
-                    $noticias = $objNoticiasDao->verNoticias(4);
+                    $noticias = $objNoticiaDao->verNoticias(4);
 
                     for ($i = 1; $i < count($noticias); $i++) {
                         $explode = explode('/', $noticias[$i]["dataPublicacao"]);

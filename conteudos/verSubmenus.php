@@ -15,6 +15,23 @@ $submenus = $objConteudoDao->listaSubmenus($_GET['id']);
         <?php include_once '../include/head.php'; ?>
         <script type="text/javascript" src="../js/jquery-2.1.3.js"></script>
         <script type="text/javascript" src="js/conteudo.js"></script>
+        <script type="text/javascript" src="../js/jquery-2.1.3.js"></script>
+        <script type="text/javascript" src="../js/jquery-ui.js"></script>        
+        <script>
+            $(document).ready(function() {
+
+                $("#submenusordem ul").sortable({
+                    opacity: 0.6,
+                    cursor: 'move',
+                    update: function() {
+                        var order = $(this).sortable("serialize") + '&opcao=ordena';
+                        $.post("control/controleBanners.php", order, function(theResponse) {
+                            console.log(theResponse);
+                        });
+                    }
+                });
+            });
+        </script>
         <style>
             .menu-conteudo{
                 width: 600px;
@@ -61,18 +78,20 @@ $submenus = $objConteudoDao->listaSubmenus($_GET['id']);
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1><?php echo $menu1['titulo']; ?></h1> <a href="cadSubmenu.php" class="proPage">Adicionar nova página</a>
-                <ul>
-                    <?php
-                    for ($i = 1; $i < count($submenus); $i++) {
-                        ?>
-                        <li>
-                            <div class="menu-conteudo">
-                                <span class="titMenu"><?php echo $submenus[$i]['tituloSubmenu']; ?></span>
-                                <a href="altSubmenu.php?id='<?php echo $submenus[$i]['idSubmenu']; ?>'">Alterar</a> | <a href="javascript:delSubmenu('<?php echo $submenus[$i]['idSubmenu']; ?>')">Excluir</a>
-                            </div>
-                        </li>   
-                    <?php } ?>
-                </ul>
+                <div id="submenusordem">
+                    <ul>
+                        <?php
+                        for ($i = 1; $i < count($submenus); $i++) {
+                            ?>
+                            <li>
+                                <div class="menu-conteudo">
+                                    <span class="titMenu"><?php echo $submenus[$i]['tituloSubmenu']; ?></span>
+                                    <a href="altSubmenu.php?id='<?php echo $submenus[$i]['idSubmenu']; ?>'">Alterar</a> | <a href="javascript:delSubmenu('<?php echo $submenus[$i]['idSubmenu']; ?>')">Excluir</a>
+                                </div>
+                            </li>   
+                        <?php } ?>
+                    </ul>
+                </div>
             </div>
         </div>
     </body>
