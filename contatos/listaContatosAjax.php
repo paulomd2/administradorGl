@@ -6,21 +6,15 @@ $contatos = $objContatoDao->verContatos();
 
 for ($i = 0; $i < count($contatos); $i++) {
 
-//    $principal = '';
-//    if($emails[$i]['indPrincipal'] == 1){
-//        $principal = 'checked';
-//    }
-    
-    
-    //$explodeData = explode(' ',$contatos[$i]["dataEnvio"]);
-    $dataEnvio = implode('/', array_reverse(explode('-',$contatos[$i]["dataEnvio"])));
-    //$horaEnvio = $explodeData[1];
+    $explodeData = explode(' ',$contatos[$i]["dataEnvio"]);
+    $dataEnvio = implode('/', array_reverse(explode('-',$explodeData[0])));
+    $horaEnvio = $explodeData[1];
     echo '<tr>
             <td>' . $contatos[$i]["nome"] . '</td>
             <td>' . $contatos[$i]["email"] . '</td>
             <td>' . $contatos[$i]["assunto"] . '</td>
-            <td>' . $dataEnvio . '</td>
-            <td></td>
+            <td>' . $dataEnvio . ' '.$horaEnvio.'</td>
+            <td><a href="responderContato.php?id='.$contatos[$i]["idEmail"].'">Responder</a></td>
           </tr>';
 }
 ?>

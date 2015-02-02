@@ -80,11 +80,4 @@ $(document).ready(function () {
             window.location = 'index.php';
         }
     });
-    
-    $("#radio").change(function(){
-       var id = $( "select option:selected" ).val();
-       
-       
-       alert(id);
-    });
 });

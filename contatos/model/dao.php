@@ -81,6 +81,20 @@ class ContatoDAO extends Banco {
         $this->fechaConexao();
     }
     
+    
+    public function listaEmailPrincipal(){
+        $conexao = $this->abreConexao();
+        
+        $sql = "SELECT * FROM ".TBL_EMAIL." WHERE indPrincipal = 1 ";
+        
+        $banco = $conexao->query($sql);
+        
+        $linha = $banco->fetch_assoc();
+        
+        return $linha;
+    }
+
+
     public function setaPrincipal($objEmail){
         $conexao = $this->abreConexao();
         
@@ -118,6 +132,36 @@ class ContatoDAO extends Banco {
         }
         
         return $linhas;
+        
+        $this->fechaConexao();
+    }
+    
+    public function verContato1($id) {
+        $conexao = $this->abreConexao();
+        
+        $sql = "SELECT * FROM ".TBL_CONTATO." WHERE idEmail = ".$id;
+        
+        $banco = $conexao->query($sql);
+        
+        $linha = $banco->fetch_assoc();
+        
+        return $linha;
+        
+        $this->fechaConexao();
+    }
+    
+    
+    public function gravaResposta($objEmail){
+        $conexao = $this->abreConexao();
+        
+        $sql = "INSERT INTO ".TBL_RESPOSTAS." SET
+                idContato = ".$objEmail->getIdContato().",
+                idEmail = ".$objEmail->getIdEmail().",
+                mensagem = '".$objEmail->getMensagem()."',
+                dataResposta = '".$objEmail->getDataCadastro()."'
+               ";
+        
+        
     }
 
 }

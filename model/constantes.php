@@ -21,5 +21,6 @@ define("TBL_RELEASE",DB_ADMIN.TBL_ADMIN."releases ");
 define("TBL_BANNER",DB_ADMIN.TBL_ADMIN."banners ");
 define("TBL_DESTAQUE",DB_ADMIN.TBL_ADMIN."destaques ");
 define("TBL_NEWS",DB_ADMIN.TBL_ADMIN."newsletters ");
-define("TBL_EMAIL",DB_ADMIN.TBL_ADMIN."emailscontato ");
-define("TBL_CONTATO",DB_ADMIN.TBL_ADMIN."emailsrecebido ");
+define("TBL_EMAIL",DB_ADMIN.TBL_ADMIN."emailscontatos ");
+define("TBL_CONTATO",DB_ADMIN.TBL_ADMIN."emailsrecebidos ");
+define("TBL_RESPOSTAS", DB_ADMIN . TBL_ADMIN . "emailsrespostas ");

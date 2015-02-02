@@ -51,11 +51,40 @@ switch ($opcao) {
 
 
     case 'attPrincipal': {
-            $id  = $_POST['id'];
-            
+            $id = $_POST['id'];
+
             $objEmail->setIdEmail($id);
-                    
+
             $objContatoDao->setaPrincipal($objEmail);
             break;
+        }
+
+    case 'responderContato': {
+            $idContato = $_POST['idContato']; //id do email recebido
+            $mensagem = $_POST['mensagem']; //mensagem de resposta
+            $dataResposta = date('Y-m-d H:i:s');
+
+            $contato = $objContatoDao->listaContato1($idContato);
+            $email = $objContatoDao->listaEmailPrincipal();
+
+            $de = $email['email']; //fagga
+            $nomeDe = $email['nome'];
+            $para = $contato['email']; //cliente
+            $nomePara = $contato['nome'];
+            $assunto = $contato['assunto']; 
+            $mensagem = wordwrap($contato['mensagem']);
+
+            $headers = 'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+            $headers .= 'To: '.$nomePara.' <'.$para.'>'."\r\n";
+            $headers .= 'From: '.$nomeDe.' <'.$de.'>' . "\r\n";
+            mail($para, $assunto, $mensagem, $headers);
+
+            $objEmail->setIdContato($idContato);
+            $objEmail->setIdEmail($email["idEmail"]);
+            $objEmail->setMensagem($mensagem);
+            $objEmail->setDataCadastro($dataResposta);
+            
+            $objContatoDao->gravaResposta($objEmail);
         }
 }
