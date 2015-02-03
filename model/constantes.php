@@ -24,3 +24,4 @@ define("TBL_NEWS",DB_ADMIN.TBL_ADMIN."newsletters ");
 define("TBL_EMAIL",DB_ADMIN.TBL_ADMIN."emailscontatos ");
 define("TBL_CONTATO",DB_ADMIN.TBL_ADMIN."emailsrecebidos ");
 define("TBL_RESPOSTAS", DB_ADMIN . TBL_ADMIN . "emailsrespostas ");
+define("TBL_REDES", DB_ADMIN . TBL_ADMIN . "redes ");

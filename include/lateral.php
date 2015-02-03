@@ -7,7 +7,7 @@ $diretorio = explode('/', $diretorio);
 ?>
 
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
 <?php
 if (array_search('conteudos', $diretorio) == true) {
     echo "$('.tgl1').css('display', 'block');";
@@ -22,13 +22,13 @@ if (array_search('usuarios', $diretorio) == true) {
 }
 
 
-if (array_search('newsletter', $diretorio) || array_search('contatos', $diretorio)) {
+if (array_search('newsletter', $diretorio) || array_search('contatos', $diretorio) || array_search('redes', $diretorio)) {
     echo "$('.tgl2').css('display', 'block');";
     echo "$('.tgl1').css('display', 'none');";
     echo "$('.tgl3').css('display', 'none');";
 }
 ?>
-        $('span', '.hasub').click(function() {
+        $('span', '.hasub').click(function () {
             $(this).next().slideToggle('slow').siblings('.tgl:visible').slideToggle('fast');
         });
     });
@@ -61,15 +61,21 @@ if (array_search('newsletter', $diretorio) || array_search('contatos', $diretori
             </span>
             <ul class="tgl2">
                 <li><a href="../newsletter" <?php
-            if (array_search('newsletter', $diretorio) == true) {
-                echo 'class="ativo"';
-            }
-            ?>>Newsletter</a></li>
+                    if (array_search('newsletter', $diretorio) == true) {
+                        echo 'class="ativo"';
+                    }
+                    ?>>Newsletter</a></li>
                 <li><a href="../contatos" <?php
-            if (array_search('contatos', $diretorio) == true) {
-                echo 'class="ativo"';
-            }
-            ?>>Contato</a></li>
+                    if (array_search('contatos', $diretorio) == true) {
+                        echo 'class="ativo"';
+                    }
+                    ?>>Contato</a></li>
+
+                <li><a href="../redes" <?php
+                    if (array_search('redes', $diretorio) == true) {
+                        echo 'class="ativo"';
+                    }
+                    ?>>Redes Sociais</a></li>
             </ul>
         </li>
         <li><a href="../usuarios" <?php
