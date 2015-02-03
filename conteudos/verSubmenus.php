@@ -24,8 +24,9 @@ $submenus = $objConteudoDao->listaSubmenus($_GET['id']);
                     opacity: 0.6,
                     cursor: 'move',
                     update: function() {
-                        var order = $(this).sortable("serialize") + '&opcao=ordena';
-                        $.post("control/controleBanners.php", order, function(theResponse) {
+                        var order = $(this).sortable("serialize") + '&opcao=ordenaSubmenu';
+                        
+                        $.post("control/controleConteudo.php", order, function(theResponse) {
                             console.log(theResponse);
                         });
                     }
@@ -83,10 +84,10 @@ $submenus = $objConteudoDao->listaSubmenus($_GET['id']);
                         <?php
                         for ($i = 1; $i < count($submenus); $i++) {
                             ?>
-                            <li>
+                            <li id="recordsArray_<?php echo $submenus[$i]['idSubmenu']; ?>">
                                 <div class="menu-conteudo">
                                     <span class="titMenu"><?php echo $submenus[$i]['tituloSubmenu']; ?></span>
-                                    <a href="altSubmenu.php?id='<?php echo $submenus[$i]['idSubmenu']; ?>'">Alterar</a> | <a href="javascript:delSubmenu('<?php echo $submenus[$i]['idSubmenu']; ?>')">Excluir</a>
+                                    <a href="altSubmenu.php?id=<?php echo $submenus[$i]['idSubmenu']; ?>">Alterar</a> | <a href="javascript:delSubmenu('<?php echo $submenus[$i]['idSubmenu']; ?>')">Excluir</a>
                                 </div>
                             </li>   
                         <?php } ?>

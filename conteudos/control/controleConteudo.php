@@ -119,4 +119,27 @@ switch ($opcao) {
             $objConteudoDao->altSubmenu($objSubMenu);
             break;
         }
+
+    case 'ordenaSubmenu': {
+            //$action = mysql_real_escape_string($_POST['action']);
+            $updateRecordsArray = $_POST['recordsArray'];
+
+            $listingCounter = 1;
+            foreach ($updateRecordsArray as $recordIDValue) {
+                $objConteudoDao->ordenaSubmenu($listingCounter, $recordIDValue);
+                $listingCounter++;
+            }
+        }
+
+
+    case 'ordenaMenu': {
+           //$action = mysql_real_escape_string($_POST['action']);
+            $updateRecordsArray = $_POST['recordsArray'];
+
+            $listingCounter = 1;
+            foreach ($updateRecordsArray as $recordIDValue) {
+                $objConteudoDao->ordenaMenu($listingCounter, $recordIDValue);
+                $listingCounter++;
+            }
+        }
 }

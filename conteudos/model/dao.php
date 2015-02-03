@@ -24,7 +24,7 @@ class ConteudoDAO extends Banco {
         $conexao = $this->abreConexao();
 
         $sql = "
-                SELECT * FROM " . TBL_MENU . " WHERE status = 1
+                SELECT * FROM " . TBL_MENU . " WHERE status = 1 ORDER BY ordem
                ";
 
         $banco = $conexao->query($sql);
@@ -144,6 +144,7 @@ class ConteudoDAO extends Banco {
                         JOIN " . TBL_MENU . " m ON m.idMenu = s.idMenu
                         WHERE s.status != 0
                         AND s.idMenu = ABS(" . $idMenu . ")
+                ORDER BY s.ordem
               ";
 
         $banco = $conexao->query($sql);
@@ -179,6 +180,32 @@ class ConteudoDAO extends Banco {
 
         return $linha;
 
+        $this->fechaConexao();
+    }
+    
+    public function ordenaSubmenu($listingCounter, $recordIDValue){
+        $conexao = $this->abreConexao();
+        
+        $query = "
+                    UPDATE ".TBL_SUBMENU."
+                    SET ordem = " . $listingCounter . "
+                    WHERE idSubmenu = " . $recordIDValue.";";
+        
+        
+        $conexao->query($query) or die($conexao->error());        
+        $this->fechaConexao();
+    }
+    
+    public function ordenaMenu($listingCounter, $recordIDValue){
+        $conexao = $this->abreConexao();
+        
+        $query = "
+                    UPDATE ".TBL_MENU."
+                    SET ordem = " . $listingCounter . "
+                    WHERE idSubmenu = " . $recordIDValue;
+        
+        
+        $conexao->query($query);        
         $this->fechaConexao();
     }
 
