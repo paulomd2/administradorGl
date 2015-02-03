@@ -22,7 +22,7 @@ if (array_search('usuarios', $diretorio) == true) {
 }
 
 
-if (array_search('newsletter', $diretorio) || array_search('contatos', $diretorio) || array_search('redes', $diretorio)) {
+if (array_search('newsletter', $diretorio) || array_search('contatos', $diretorio) || array_search('redes', $diretorio) || array_search('rodapes', $diretorio)) {
     echo "$('.tgl2').css('display', 'block');";
     echo "$('.tgl1').css('display', 'none');";
     echo "$('.tgl3').css('display', 'none');";
@@ -76,6 +76,11 @@ if (array_search('newsletter', $diretorio) || array_search('contatos', $diretori
                         echo 'class="ativo"';
                     }
                     ?>>Redes Sociais</a></li>
+                <li><a href="../rodapes" <?php
+                    if (array_search('rodapes', $diretorio) == true) {
+                        echo 'class="ativo"';
+                    }
+                    ?>>Rodpé</a></li>
             </ul>
         </li>
         <li><a href="../usuarios" <?php
