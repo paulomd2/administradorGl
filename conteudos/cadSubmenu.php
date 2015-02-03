@@ -33,7 +33,12 @@
                                     $menus = $objConteudoDao->listaMenus();
 
                                     for ($i = 1; $i < count($menus); $i++) {
-                                        echo '<option value="' . $menus[$i]["idMenu"] . '">' . $menus[$i]["titulo"] . '</option>';
+                                        $selected = '';
+                                        if($menus[$i]['idMenu'] == $_GET['id']){
+                                            $selected = 'selected';    
+                                        }
+                                        
+                                        echo '<option value="' . $menus[$i]["idMenu"] . '" '.$selected.'>' . $menus[$i]["titulo"] . '</option>';
                                     }
                                     ?>
                                 </select><br />

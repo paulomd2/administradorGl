@@ -78,7 +78,7 @@ $submenus = $objConteudoDao->listaSubmenus($_GET['id']);
                 <a href="#"><?php echo $menu1['titulo']; ?></a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
-                <h1><?php echo $menu1['titulo']; ?></h1> <a href="cadSubmenu.php" class="proPage">Adicionar nova página</a>
+                <h1><?php echo $menu1['titulo']; ?></h1> <a href="cadSubmenu.php?id=<?php echo $_GET['id']; ?>" class="proPage">Adicionar nova página</a>
                 <div id="submenusordem">
                     <ul>
                         <?php
