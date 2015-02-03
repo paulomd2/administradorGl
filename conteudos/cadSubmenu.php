@@ -98,11 +98,11 @@
                         </tr>
                         <tr>
                             <td>Data de Publicação:</td>
-                            <td><input type="text" id="dataPublicacao" name="dataPublicacao" /></td>
+                            <td><input type="date" id="dataPublicacao" name="dataPublicacao" /></td>
                         </tr>
                         <tr>
                             <td>Data de Saída:</td>
-                            <td><input type="text" id="dataSaida" name="dataSaida" /></td>
+                            <td><input type="date" id="dataSaida" name="dataSaida" /></td>
                         </tr>
                         <tr>
                             <td colspan="2"><h2>SEO</h2></td>

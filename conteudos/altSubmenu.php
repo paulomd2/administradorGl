@@ -48,7 +48,7 @@
 
                                         echo '<option value="' . $menus[$i]["idMenu"] . '" ' . $selected . '>' . $menus[$i]["titulo"] . '</option>';
                                     }
-                                    ?>
+                                        ?>
                                 </select><br />
                                 <span id="spanIdMenu" name="spanIdMenu"></span>
                             </td>
@@ -126,11 +126,11 @@
                         </tr>
                         <tr>
                             <td>Data de Publicação:</td>
-                            <td><input type="text" id="dataPublicacao" name="dataPublicacao" value="<?php echo implode('/', array_reverse(explode('-', $submenu['dataEntrada']))); ?>" /></td>
+                            <td><input type="date" id="dataPublicacao" name="dataPublicacao" value="<?php echo $submenu['dataEntrada']; ?>" /></td>
                         </tr>
                         <tr>
                             <td>Data de Saída:</td>
-                            <td><input type="text" id="dataSaida" name="dataSaida" value="<?php echo implode('/', array_reverse(explode('-', $submenu['dataSaida']))); ?>" /></td>
+                            <td><input type="date" id="dataSaida" name="dataSaida" value="<?php echo $submenu['dataSaida']; ?>" /></td>
                         </tr>
                         <tr>
                             <td colspan="2"><h2>SEO</h2></td>

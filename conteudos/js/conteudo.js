@@ -16,12 +16,6 @@ function delSubmenu(id) {
 }
 
 $(document).ready(function() {
-
-    if ($("#dataPublicacao").length) {
-        $("#dataPublicacao").mask('99/99/9999');
-        $("#dataSaida").mask('99/99/9999');
-    }
-
     $("#btnCadastrarSubmenu").click(function() {
         CKEDITOR.instances.texto.updateElement();
 
@@ -170,18 +164,6 @@ $(document).ready(function() {
         }else {
             $.post('control/controleConteudo.php', {opcao: 'alterarMenu', titulo: titulo, link: link, idMenu: idMenu, target:target});
             window.location = 'verMenus.php';
-        }
-    });
-
-    $("#dataSaida").blur(function() {
-        if ($("#dataSaida").val() == '') {
-            $("#dataSaida").val('00/00/0000');
-        }
-    });
-
-    $("#dataPublicacao").blur(function() {
-        if ($("#dataPublicacao").val() == '') {
-            $("#dataPublicacao").val('00/00/0000');
         }
     });
 });
