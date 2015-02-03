@@ -18,6 +18,7 @@ function delSubmenu(id) {
 $(document).ready(function() {
     $("#btnCadastrarSubmenu").click(function() {
         CKEDITOR.instances.texto.updateElement();
+        CKEDITOR.instances.descricaoMetaTag.updateElement();
 
         var idMenu = $("#idMenu").val();
         var tituloMenu = $("#tituloMenu").val().trim();
@@ -27,7 +28,7 @@ $(document).ready(function() {
         var status = $("#status").val();
         var texto = CKEDITOR.instances.texto.getData();
         var tituloMetaTag = $("#tituloMetaTag").val().trim();
-        var keywordsMetaTag = $("#keywordsMetaTag").val().trim();
+        var keywordsMetaTag = CKEDITOR.instances.texto.getData();
         var descricaoMetaTag = $("#descricaoMetaTag").val().trim();
         var dataEntrada = $("#dataPublicacao").val();
         var dataSaida = $("#dataSaida").val();
@@ -58,7 +59,7 @@ $(document).ready(function() {
             $("#spanTituloMetaTag").html('Você precisa preencher o Título da Metatag').css('display', 'inline-block');
             ;
         } else if (keywordsMetaTag == '') {
-            $("#keywordsMetaTag").focus();
+            keywordsMetaTag.focus();
             $("#spanKeywordsMetaTag").html('Você precisa preencher as Keywords da Metatag').css('display', 'inline-block');
             ;
         } else if (descricaoMetaTag == '') {
@@ -80,6 +81,8 @@ $(document).ready(function() {
     
     $("#btnAlterarSubmenu").click(function() {
         CKEDITOR.instances.texto.updateElement();
+        CKEDITOR.instances.descricaoMetaTag.updateElement();
+        
 
         var idSubmenu = $("#idSubmenu").val();
         var idMenu = $("#idMenu").val();
@@ -90,7 +93,7 @@ $(document).ready(function() {
         var status = $("#status").val();
         var texto = CKEDITOR.instances.texto.getData();
         var tituloMetaTag = $("#tituloMetaTag").val().trim();
-        var keywordsMetaTag = $("#keywordsMetaTag").val().trim();
+        var keywordsMetaTag = CKEDITOR.instances.texto.getData();
         var descricaoMetaTag = $("#descricaoMetaTag").val().trim();
         var dataEntrada = $("#dataPublicacao").val();
         var dataSaida = $("#dataSaida").val();
@@ -115,7 +118,7 @@ $(document).ready(function() {
             $("#tituloMetaTag").focus();
             $("#spanTituloMetaTag").html('Você precisa preencher o Título da Metatag').css('display', 'inline-block');
         } else if (keywordsMetaTag == '') {
-            $("#keywordsMetaTag").focus();
+            keywordsMetaTag.focus();
             $("#spanKeywordsMetaTag").html('Você precisa preencher as Keywords da Metatag').css('display', 'inline-block');
         } else if (descricaoMetaTag == '') {
             $("#descricaoMetaTag").focus();
