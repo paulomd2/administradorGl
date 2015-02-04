@@ -23,8 +23,10 @@
         </script>
     </head>
     <body>
-        <?php include_once '../include/header.php'; ?>
-        <?php include_once '../include/lateral.php'; ?>
+        <?php 
+        include_once '../include/header.php';
+        include_once '../include/lateral.php';
+        ?>
 
         <div class="main-admin">
             <div class="guia-site">
@@ -33,13 +35,13 @@
                 <a href="#">Todas as categorias</a>
             </div>
             <div class="tenor">
-                <h1>Todos os banners</h1>
-                <a href="cadBanner.php" class="proPage">Cadastrar categoria</a>
+                <h1>Todos as imagens</h1>
+                <a href="cadImagem.php?id=<?php echo $_GET['id']; ?>" class="proPage">Cadastrar Imagem</a>
                 <table class="tableAll">
                     <thead>
                         <tr>
-                            <td style="width: 50%;">Categoria</td>
-                            <td style="width: 30%;">Identificador</td>
+                            <td style="width: 50%;">Nome</td>
+                            <td style="width: 30%;">Imagem</td>
                             <td style="width: 10%;">Alterar</td>
                             <td style="width: 10%;">Excluir</td>
                         </tr>
@@ -47,7 +49,7 @@
 
                     <tbody id="listaReleases">
                         <?php
-                        require_once 'listaCategoriasAjax.php';
+                        require_once 'listaImagensAjax.php';
                         ?>
                     </tbody>
                 </table>

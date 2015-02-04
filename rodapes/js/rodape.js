@@ -55,4 +55,25 @@ $(document).ready(function () {
            window.location = 'verCategorias.php';
         }
     });
+    
+    
+    $("#btnCadImagem").click(function(){
+        var nome = $("#nome").val().trim();
+        var status = $("#status").val();
+        var imagem = $("#imagem").val();
+        
+        $(".erro").html("").css('display','none');
+        if(nome == ''){
+            $("#nome").focus();
+            $("#spanNome").html('Você deve preencher um nome!').css('display','inline-block');
+        }else if(status == ''){
+            $("#status").focus();
+            $("#spanStatus").html('Você deve selecionar um status!').css('display','inline-block');
+        }else if(imagem == ''){
+            $("#imagem").focus();
+            $("#spanImagem").html('Você deve selecionar uma imagem!').css('display','inline-block');
+        }else{
+            $("#cadImagem").submit();
+        }
+    });
 });
