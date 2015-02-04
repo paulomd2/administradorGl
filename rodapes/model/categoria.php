@@ -6,6 +6,8 @@ class Categoria {
     private $nome;
     private $ordem;
     private $identificador;
+    private $dataCadastro;
+    private $status;
 
     function getIdCategoria() {
         return $this->idCategoria;
@@ -24,7 +26,7 @@ class Categoria {
     function getOrdem() {
         return $this->ordem;
     }
-    function setImagem($ordem) {
+    function setOrdem($ordem) {
         $this->ordem = $ordem;
     }
 
@@ -34,7 +36,21 @@ class Categoria {
     function setIdentificador($identificador) {
         $this->identificador = $identificador;
     }
-
+    
+    function getDataCadastro(){
+        return $this->dataCadastro;
+    }
+    function setDataCadastro($dataCadastro){
+        $this->dataCadastro = $dataCadastro;
+    }
+    
+    
+    function getStatus() {
+        return $this->status;
+    }
+    function setStatus($status) {
+        $this->status = $status;
+    }
 }
 
 $objCategoria = new Categoria();

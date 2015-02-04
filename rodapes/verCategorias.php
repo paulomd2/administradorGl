@@ -41,6 +41,7 @@
                     <thead>
                         <tr>
                             <td style="width: 50%;">Categoria</td>
+                            <td style="width: 30%;">Identificador</td>
                             <td style="width: 10%;">Alterar</td>
                             <td style="width: 10%;">Excluir</td>
                         </tr>

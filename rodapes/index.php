@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <title>Painel | Fagga</title>
         <?php include_once '../include/head.php'; ?>
-        <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
         <script type="text/javascript" src="js/rodape.js"></script>
     </head>
     <body>
@@ -21,7 +20,8 @@
                 <table class="tableAll">
                     <thead>
                         <tr>
-                            <td style="width: 70%;">Nome</td>
+                            <td style="width: 50%;">Categoria</td>
+                            <td style="width: 30%;">Identificador</td>
                             <td style="width: 10%;">Alterar</td>
                             <td style="width: 10%;">Excluir</td>
                         </tr>
@@ -49,11 +49,11 @@
                                     <option value="2">Patrocinador</option>
                                     <option value="0">Sem identificador</option>
                                 </select><br />
-                                <span class="erro" id="spanTarget"></span>
+                                <span class="erro" id="spanIdentificador"></span>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2"><input type="button" id="btnCadastrar" value="Cadastrar" /></td>
+                            <td colspan="2"><input type="button" id="btnCadastrarCategoria" value="Cadastrar" /></td>
                         </tr>
                     </table>
                 </form>

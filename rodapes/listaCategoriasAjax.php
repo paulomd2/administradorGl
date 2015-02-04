@@ -9,13 +9,22 @@ if(isset($_GET['count'])){
     $count = 100;
 }
 
-$categoria = $objBannersDao->listaBanners($count);
+$categorias = $objRodapeDao->listaCategoria($count);
 
-for ($i = 0; $i < count($banners); $i++) {
+for ($i = 0; $i < count($categorias); $i++) {
+    if($categorias[$i]["identificador"] == 0){
+        $identificador = 'Sem identificador';
+    }elseif ($categorias[$i]["identificador"] == 1) {
+        $identificador = 'Patrocinador';
+    }else{
+        $identificador = 'Apoio';
+    }
+    
     echo '<tr>
-            <td>' . utf8_encode($banners[$i]["nome"]). '</td>
-            <td><a href="altCategoria.php?id=' . $banners[$i]["idCategoria"] . '">Alterar</a></td>
-            <td><a href="javascript:delBanner(' . $banners[$i]["idCategoria"] . ')">Excluir</a></td>
+            <td>' . utf8_encode($categorias[$i]["nome"]). '</td>
+            <td>' . $identificador. '</td>
+            <td><a href="altCategoria.php?id=' . $categorias[$i]["idCategoria"] . '">Alterar</a></td>
+            <td><a href="javascript:delCategoria(' . $categorias[$i]["idCategoria"] . ')">Excluir</a></td>
           </tr>';
 }
 ?>

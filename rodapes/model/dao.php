@@ -11,7 +11,7 @@ class CategoriasDAO extends Banco {
                     nome = "' . $objCategoria->getNome() . '", 
                     identificador = "' . $objCategoria->getIdentificador() . '", 
                     status = "' . $objCategoria->getStatus() . '",
-                    dataCadastro = "'.$objCategoria->getDataCadastro().'"';
+                    dataCadastro = "' . $objCategoria->getDataCadastro() . '"';
 
         $conexao->query($sql);
 
@@ -23,9 +23,8 @@ class CategoriasDAO extends Banco {
 
         $sql = 'UPDATE ' . TBL_CATEGORIA_RODAPE . ' SET
                     nome = "' . $objCategoria->getNome() . '", 
-                    identificador = ' . $objCategoria->getIdentificador() . ', 
-                    status = ' . $objCategoria->getStatus() . ',
-                        WHERE idCategoria = '.$objCategoria->getIdCategoria();
+                    identificador = ' . $objCategoria->getIdentificador() . '
+                        WHERE idCategoria = ' . $objCategoria->getIdCategoria();
         $conexao->query($sql);
 
         $this->fechaConexao();
@@ -34,7 +33,7 @@ class CategoriasDAO extends Banco {
     public function delCategoria($objCategoria) {
         $conexao = $this->abreConexao();
 
-        $sql = 'UPDATE FROM ' . TBL_CATEGORIA_RODAPE . ' SET status = 0 WHERE idCategoria = ' . $objCategoria->getIdCategoria();
+        echo $sql = 'UPDATE ' . TBL_CATEGORIA_RODAPE . ' SET status = 0 WHERE idCategoria = ' . $objCategoria->getIdCategoria();
         $conexao->query($sql);
 
         $this->fechaConexao();
@@ -43,7 +42,7 @@ class CategoriasDAO extends Banco {
     public function listaCategoria1($objCategoria) {
         $conexao = $this->abreConexao();
 
-        $sql = 'SELECT * FROM' . TBL_CATEGORIA_RODAPE . 'WHERE idCategoria = "' . $objCategoria->getIdCategoria() . '"';
+        $sql = 'SELECT * FROM' . TBL_CATEGORIA_RODAPE . ' WHERE idCategoria = ' . $objCategoria->getIdCategoria();
         $banco = $conexao->query($sql);
 
         $linha = $banco->fetch_assoc();
@@ -55,12 +54,12 @@ class CategoriasDAO extends Banco {
     public function listaCategoria($count) {
         $conexao = $this->abreConexao();
 
-        $sql = 'SELECT * FROM' . TBL_CATEGORIA_RODAPE . 'WHERE status != 0 ORDER BY ordem DESC LIMIT ' . $count;
+        $sql = 'SELECT * FROM' . TBL_CATEGORIA_RODAPE . ' WHERE status != 0 ORDER BY ordem DESC LIMIT ' . $count;
         $banco = $conexao->query($sql);
 
         $linhas = array();
 
-        while ($linha = $banco->fetch_array()) {
+        while ($linha = $banco->fetch_assoc()) {
             $linhas[] = $linha;
         }
 
@@ -84,5 +83,5 @@ class CategoriasDAO extends Banco {
 
 }
 
-$objCategoriasDao = new CategoriasDAO();
+$objRodapeDao = new CategoriasDAO();
 ?>
