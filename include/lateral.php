@@ -118,6 +118,11 @@ if (array_search('newsletter', $diretorio) || array_search('contatos', $diretori
                 echo 'class="ativo"';
             }
             ?>><i class="icon icon-image"></i> Expositores</a></li>
+        <li><a href="../caravanas/" <?php
+            if (array_search('caravanas', $diretorio) == true) {
+                echo 'class="ativo"';
+            }
+            ?>><i class="icon icon-image"></i> Caravanas</a></li>
         <li><a href="#"><i class="icon icon-upload2"></i> Uploads</a></li>
     </ul>
 </aside>
