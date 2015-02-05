@@ -25,5 +25,6 @@ define("TBL_EMAIL",DB_ADMIN.TBL_ADMIN."emailscontatos ");
 define("TBL_CONTATO",DB_ADMIN.TBL_ADMIN."emailsrecebidos ");
 define("TBL_RESPOSTAS", DB_ADMIN . TBL_ADMIN . "emailsrespostas ");
 define("TBL_REDES", DB_ADMIN . TBL_ADMIN . "redes ");
-define("TBL_CATEGORIA_RODAPE", DB_ADMIN . TBL_ADMIN . "rodapecategorias");
-define("TBL_IMAGEM_RODAPE", DB_ADMIN . TBL_ADMIN . "rodapeimagens");
+define("TBL_CATEGORIA_RODAPE", DB_ADMIN . TBL_ADMIN . "rodapecategorias ");
+define("TBL_IMAGEM_RODAPE", DB_ADMIN . TBL_ADMIN . "rodapeimagens ");
+define("TBL_EXPOSITORES", DB_ADMIN . TBL_ADMIN . "expositores ");
