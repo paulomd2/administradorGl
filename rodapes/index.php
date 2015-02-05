@@ -20,10 +20,11 @@
                 <table class="tableAll">
                     <thead>
                         <tr>
-                            <td style="width: 50%;">Categoria</td>
+                            <td style="width: 40%;">Categoria</td>
                             <td style="width: 30%;">Identificador</td>
                             <td style="width: 10%;">Alterar</td>
                             <td style="width: 10%;">Excluir</td>
+                            <td style="width: 10%;">Cadastrar</td>
                         </tr>
                     </thead>
                     <tbody id="listaCategorias"></tbody>
