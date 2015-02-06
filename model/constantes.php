@@ -28,3 +28,5 @@ define("TBL_REDES", DB_ADMIN . TBL_ADMIN . "redes ");
 define("TBL_CATEGORIA_RODAPE", DB_ADMIN . TBL_ADMIN . "rodapecategorias ");
 define("TBL_IMAGEM_RODAPE", DB_ADMIN . TBL_ADMIN . "rodapeimagens ");
 define("TBL_EXPOSITORES", DB_ADMIN . TBL_ADMIN . "expositores ");
+define("TBL_TEXTO_CARAVANA", DB_ADMIN . TBL_ADMIN . "caravanaprincipal ");
+define("TBL_CARAVANA", DB_ADMIN . TBL_ADMIN . "caravanas ");

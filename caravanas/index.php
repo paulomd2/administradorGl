@@ -17,7 +17,7 @@
                 <a href="#">Caravanas</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
-                <!--h1>Últimas caravanas</h1-->
+                <a href="cadCaravana.php" class="proPage">Cadastrar Caravanas</a>
                 <table class="tableAll">
                     <thead>
                         <tr>
@@ -28,21 +28,34 @@
                 </table>
                 <hr/>
                 <h1>Cadastrar texto</h1>
-                <form name="cadTexto" class="tableform">
+                <?php
+                require_once '../model/banco.php';
+                require_once 'model/dao.php';
+
+                $texto = $objCaravanaDao->listaTexto();
+
+                if (count($texto) == 0) {
+                    $opcao = 'cadastrar';
+                } else {
+                    $opcao = 'alterar';
+                }
+                ?>
+                <form id="cadTexto" name="cadTexto" class="tableform">
+                    <input type="hidden" value="<?php echo $opcao; ?>" id="opcao" />
                     <table>
                         <tr>
                             <td>Texto de apresentação:</td>
                             <td>
-                                <textarea id="texto" name="texto"></textarea><br />
+                                <textarea id="texto" name="texto"><?php echo $texto['texto']; ?></textarea><br />
                                 <span id="spanTexto" class="erro"></span>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2"><input type="button" id="btnCadastrarTexto" value="Cadastrar" /></td>
+                            <td colspan="2"><input type="button" id="btnCadastrarTexto" value="Salvar" /></td>
                         </tr>
                     </table>
                 </form>
-                 <script>
+                <script>
                     CKEDITOR.replace('texto', {
                         uiColor: '#dfdfdf',
                         filebrowserImageBrowseUrl: '../plugin/ckfinder/ckfinder.html?Type=Images',
