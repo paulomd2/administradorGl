@@ -7,12 +7,12 @@ $opcao = $_POST['opcao'];
 switch ($opcao) {
     case 'cadastrarCategoria':
         $nome = $_POST['nome'];
-        $identificador = $_POST['identificador'];
+        //$identificador = $_POST['identificador'];
         $dataCadastro = date('Y-m-d H:i:s');
         $status = 1;
 
         $objCategoria->setNome($nome);
-        $objCategoria->setIdentificador($identificador);
+        //$objCategoria->setIdentificador($identificador);
         $objCategoria->setDataCadastro($dataCadastro);
         $objCategoria->setStatus($status);
 
@@ -25,7 +25,7 @@ switch ($opcao) {
         $idCategoria = $_POST['idCategoria'];
 
         $objCategoria->setNome($nome);
-        $objCategoria->setIdentificador($identificador);
+        //$objCategoria->setIdentificador($identificador);
         $objCategoria->setIdCategoria($idCategoria);
 
         $objRodapeDao->altCategoria($objCategoria);
@@ -65,24 +65,26 @@ switch ($opcao) {
             $objImagem->setDataCadastro($dataCadastro);
             $objImagem->setStatus($status);
 
-            $verificaCategoria = $objRodapeDao->listaCategoriasImagens($objImagem);
+            //$verificaCategoria = $objRodapeDao->listaCategoriasImagens($objImagem);
 
             unset($_POST['opcao']);
             $post = implode('|', $_POST);
-
-            if ($verificaCategoria['identificador'] == 1 && $verificaCategoria['quantidade'] >= 1) {
-                echo "
-                <script>
-                    var url = '" . $_SERVER['HTTP_REFERER'] . "&errorId=48';
-                    window.location = url;
-                </script>";
-            } elseif ($verificaCategoria['identificador'] == 2 && $verificaCategoria['quantidade'] >= 20) {
-                echo "
-                <script>
-                    var url = '" . $_SERVER['HTTP_REFERER'] . "&errorId=49';
-                    window.location = url;
-                </script>";
-            } elseif ($imagem == false) {
+            /*
+              if ($verificaCategoria['identificador'] == 1 && $verificaCategoria['quantidade'] >= 1) {
+              echo "
+              <script>
+              var url = '" . $_SERVER['HTTP_REFERER'] . "&errorId=48';
+              window.location = url;
+              </script>";
+              } elseif ($verificaCategoria['identificador'] == 2 && $verificaCategoria['quantidade'] >= 20) {
+              echo "
+              <script>
+              var url = '" . $_SERVER['HTTP_REFERER'] . "&errorId=49';
+              window.location = url;
+              </script>";
+              }
+             */
+            if ($imagem == false) {
                 echo "
                 <script>
                     var url = '" . $_SERVER['HTTP_REFERER'] . "+&errorId=50&data=" . $post . "';
@@ -115,24 +117,26 @@ switch ($opcao) {
             $objImagem->setDataCadastro($dataCadastro);
             $objImagem->setStatus($status);
 
-            $verificaCategoria = $objRodapeDao->listaCategoriasImagens($objImagem);
+            //$verificaCategoria = $objRodapeDao->listaCategoriasImagens($objImagem);
 
             unset($_POST['opcao']);
             $post = implode('|', $_POST);
-
-            if ($verificaCategoria['identificador'] == 1 && $verificaCategoria['quantidade'] >= 1) {
-                echo "
-                <script>
-                    var url = '" . $_SERVER['HTTP_REFERER'] . "&errorId=48';
-                    window.location = url;
-                </script>";
-            } elseif ($verificaCategoria['identificador'] == 2 && $verificaCategoria['quantidade'] >= 20) {
-                echo "
-                <script>
-                    var url = '" . $_SERVER['HTTP_REFERER'] . "&errorId=49';
-                    window.location = url;
-                </script>";
-            } elseif ($imagem == false) {
+            /*
+              if ($verificaCategoria['identificador'] == 1 && $verificaCategoria['quantidade'] >= 1) {
+              echo "
+              <script>
+              var url = '" . $_SERVER['HTTP_REFERER'] . "&errorId=48';
+              window.location = url;
+              </script>";
+              } elseif ($verificaCategoria['identificador'] == 2 && $verificaCategoria['quantidade'] >= 20) {
+              echo "
+              <script>
+              var url = '" . $_SERVER['HTTP_REFERER'] . "&errorId=49';
+              window.location = url;
+              </script>";
+              } else
+             */
+            if ($imagem == false) {
                 echo "
                 <script>
                     var url = '" . $_SERVER['HTTP_REFERER'] . "+&errorId=50';

@@ -37,8 +37,8 @@
                                     <span id="spanNome" class="erro"></span>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Target:</td>
+                            <!--tr>
+                                <td>Identificador:</td>
                                 <td>
                                     <select id="identificador" name="identificador">
                                         <option value="">Selecione um identificador...</option>
@@ -54,7 +54,7 @@
                                     </select><br />
                                     <span class="erro" id="spanIdentificador"></span>
                                 </td>
-                            </tr>
+                            </tr-->
                             <tr>
                                 <td colspan="2"><input type="button" id="btnAlterarCategoria" value="Alterar" /></td>
                             </tr>
