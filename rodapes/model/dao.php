@@ -9,8 +9,7 @@ class CategoriasDAO extends Banco {
         $conexao = $this->abreConexao();
 
         $sql = 'INSERT INTO ' . TBL_CATEGORIA_RODAPE . ' SET
-                    nome = "' . $objCategoria->getNome() . '", 
-                    identificador = "' . $objCategoria->getIdentificador() . '", 
+                    nome = "' . $objCategoria->getNome() . '",
                     status = "' . $objCategoria->getStatus() . '",
                     dataCadastro = "' . $objCategoria->getDataCadastro() . '"';
 
@@ -23,8 +22,8 @@ class CategoriasDAO extends Banco {
         $conexao = $this->abreConexao();
 
         $sql = 'UPDATE ' . TBL_CATEGORIA_RODAPE . ' SET
-                    nome = "' . $objCategoria->getNome() . '", 
-                    identificador = ' . $objCategoria->getIdentificador() . '
+                    nome = "' . $objCategoria->getNome() . '"
+                    /*identificador = ' . $objCategoria->getIdentificador() . '*/
                         WHERE idCategoria = ' . $objCategoria->getIdCategoria();
         $conexao->query($sql);
 

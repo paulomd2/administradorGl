@@ -22,7 +22,7 @@ for ($i = 0; $i < count($categorias); $i++) {
     
     echo '<tr>
             <td>' . utf8_encode($categorias[$i]["nome"]). '</td>
-            <td>' . $identificador. '</td>
+            <!--td>' . $identificador. '</td-->
             <td><a href="altCategoria.php?id=' . $categorias[$i]["idCategoria"] . '">Alterar</a></td>
             <td><a href="javascript:delCategoria(' . $categorias[$i]["idCategoria"] . ')">Excluir</a></td>
             <td><a href="cadImagem.php?id=' . $categorias[$i]["idCategoria"] . '">Cadastrar</a></td>

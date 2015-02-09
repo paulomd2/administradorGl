@@ -21,7 +21,7 @@
                     <thead>
                         <tr>
                             <td style="width: 40%;">Categoria</td>
-                            <td style="width: 30%;">Identificador</td>
+                            <!--td style="width: 30%;">Identificador</td-->
                             <td style="width: 10%;">Alterar</td>
                             <td style="width: 10%;">Excluir</td>
                             <td style="width: 10%;">Cadastrar</td>
@@ -41,7 +41,7 @@
                                 <span id="spanNome" class="erro"></span>
                             </td>
                         </tr>
-                        <tr>
+                        <!--tr>
                             <td>Identificador:</td>
                             <td>
                                 <select id="identificador" name="identificador">
@@ -52,7 +52,7 @@
                                 </select><br />
                                 <span class="erro" id="spanIdentificador"></span>
                             </td>
-                        </tr>
+                        </tr-->
                         <tr>
                             <td colspan="2"><input type="button" id="btnCadastrarCategoria" value="Cadastrar" /></td>
                         </tr>
