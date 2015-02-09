@@ -39,21 +39,21 @@
                         <tr>
                             <td>Email:</td>
                             <td>
-                                <input type="text" name="email" id="email" />
+                                <input type="text" name="email" id="email" /><br />
                                 <span id="spanEmail" class="erro"></span>
                             </td>
                         </tr>
                         <tr>
                             <td>Telefone:</td>
                             <td>
-                                <input type="text" name="telefone" id="telefone" />
+                                <input type="text" name="telefone" id="telefone" /><br />
                                 <span id="spanTelefone" class="erro"></span>
                             </td>
                         </tr>
                         <tr>
                             <td>Celular:</td>
                             <td>
-                                <input type="text" name="celular" id="celular" />
+                                <input type="text" name="celular" id="celular" /><br />
                                 <span id="spanTelefone" class="erro"></span>
                             </td>
                         </tr>

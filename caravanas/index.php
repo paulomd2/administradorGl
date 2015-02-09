@@ -17,14 +17,23 @@
                 <a href="#">Caravanas</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
-                <a href="cadCaravana.php" class="proPage">Cadastrar Caravanas</a>
+                <h1>Últimas Caravanas</h1><a href="cadCaravana.php" class="proPage">Cadastrar Caravanas</a>
                 <table class="tableAll">
                     <thead>
                         <tr>
-                            <td>Texto</td>
+                            <td>nome</td>
+                            <td>responsável</td>
+                            <td>email</td>
+                            <td>telefone</td>
+                            <td>celular</td>
+                            <td>local</td>
+                            <td>cidade</td>
+                            <td>estado</td>
+                            <td>alterar</td>
+                            <td>Excluir</td>
                         </tr>
                     </thead>
-                    <tbody id="listaTexto"></tbody>
+                    <tbody id="listaCaravanas"></tbody>
                 </table>
                 <hr/>
                 <h1>Cadastrar texto</h1>
