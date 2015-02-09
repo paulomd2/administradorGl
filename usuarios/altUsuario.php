@@ -75,6 +75,11 @@ $usuario = $objUsuarioDao->verUsuario1($objUsuario)
                                     }
                                     ?> >Editor</option>
                                 </select><br />
+                                <option value="3"  <?php
+                                    if ($usuario['nivel'] == 3) {
+                                        echo 'selected';
+                                    }
+                                    ?> >Blog</option>
                                 <span id="spanNivel" class="erro"></span>
                             </td>
                         </tr>

@@ -56,6 +56,7 @@
                                     <option value="" selected>Escolha um nível...</option>
                                     <option value="1">Administrador</option>
                                     <option value="2">Editor</option>
+                                    <option value="3">Blog</option>
                                 </select><br />
                                 <span id="spanNivel" class="erro"></span>
                             </td>
