@@ -30,3 +30,4 @@ define("TBL_IMAGEM_RODAPE", DB_ADMIN . TBL_ADMIN . "rodapeimagens ");
 define("TBL_EXPOSITORES", DB_ADMIN . TBL_ADMIN . "expositores ");
 define("TBL_TEXTO_CARAVANA", DB_ADMIN . TBL_ADMIN . "caravanaprincipal ");
 define("TBL_CARAVANA", DB_ADMIN . TBL_ADMIN . "caravanas ");
+define("TBL_BLOG_POSTAGEM", DB_ADMIN . TBL_ADMIN . "blogpostagens ");
