@@ -1,3 +1,6 @@
+<?php
+@session_start();
+?>
 <div class="center-user">
     <div class="detail-user">
         <figure class="avatar fl">
@@ -5,7 +8,18 @@
         </figure>
         <div class="fr"></div>
         <span><em>Seja Bem vindo</em></span>
-        <span>Nome Sobrenome</span>
+        <span>
+            <?php
+            require_once '../model/banco.php';
+            require_once '../usuarios/model/dao.php';
+            
+            $objUsuario->setIdUsuario($_SESSION['id']);
+            
+            $usuario = $objUsuarioDao->verUsuario1($objUsuario);
+            
+            echo $usuario['nome'];
+            ?>
+        </span>
     </div>
     <div class="barra-user">
         <div class="busca">
