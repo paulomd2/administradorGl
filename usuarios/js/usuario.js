@@ -25,28 +25,36 @@ $(document).ready(function () {
         var usuario = $("#usuario").val().trim();
         var nivel = $("#nivel").val();
 
-        $(".erro").html('');
+        $(".erro").html('').css('display', 'none');
         if (nome == '') {
             $("#nome").focus();
-            $("#spanNome").html('Você deve preencher o Nome!');
+            $("#spanNome").html('Você deve preencher o Nome!').css('display', 'inline-block');
         } else if (email == '') {
             $("#email").focus();
-            $("#spanEmail").html('Você deve preencher o Email!');
+            $("#spanEmail").html('Você deve preencher o Email!').css('display', 'inline-block');
         } else if (!$.validaEmail(email)) {
             $("#email").focus();
-            $("#spanEmail").html('Você deve preencher um Email válido!');
+            $("#spanEmail").html('Você deve preencher um Email válido!').css('display', 'inline-block');
         } else if (usuario == '') {
             $("#usuario").focus();
-            $("#spanUsuario").html('Você deve preencher o Usuário!');
+            $("#spanUsuario").html('Você deve preencher o Usuário!').css('display', 'inline-block');
         } else if (senha == '') {
             $("#senha").focus();
-            $("#spanSenha").html('Você deve preencher a Senha!');
+            $("#spanSenha").html('Você deve preencher a Senha!').css('display', 'inline-block');
         } else if (nivel == '') {
             $("#nivel").focus();
-            $("#spanNivel").html('Você deve preencher o Nível!');
+            $("#spanNivel").html('Você deve preencher o Nível!').css('display', 'inline-block');
         } else {
-            $.post('control/controleUsuario.php', {opcao: 'cadastrar', nome: nome, email: email, senha: senha, usuario: usuario, nivel: nivel});
-            window.location = 'verUsuarios.php';
+            $.post('control/controleUsuario.php', {opcao: 'cadastrar', nome: nome, email: email, senha: senha, usuario: usuario, nivel: nivel},
+            function (r) {
+                if (r == 0) {
+                    $("#email").focus();
+                    $("#spanEmail").html('Esse email já está cadastrado, por favor, escolha outro!').css('display', 'inline-block');
+                } else {
+                    window.location = 'verUsuarios.php';
+                }
+            });
+
         }
     });
 
@@ -66,50 +74,25 @@ $(document).ready(function () {
             senha = senhaDigitada;
         }
 
-        $(".erro").html('');
+        $(".erro").html('').css('display', 'none');
         if (nome == '') {
             $("#nome").focus();
-            $("#spanNome").html('Você deve preencher o Nome!');
+            $("#spanNome").html('Você deve preencher o Nome!').css('display', 'inline-block');
         } else if (email == '') {
             $("#email").focus();
-            $("#spanEmail").html('Você deve preencher o Email!');
+            $("#spanEmail").html('Você deve preencher o Email!').css('display', 'inline-block');
         } else if (!$.validaEmail(email)) {
             $("#email").focus();
-            $("#spanEmail").html('Você deve preencher um Email válido!');
+            $("#spanEmail").html('Você deve preencher um Email válido!').css('display', 'inline-block');
         } else if (usuario == '') {
             $("#usuario").focus();
-            $("#spanUsuario").html('Você deve preencher o Usuário!');
+            $("#spanUsuario").html('Você deve preencher o Usuário!').css('display', 'inline-block');
         } else if (nivel == '') {
             $("#nivel").focus();
-            $("#spanNivel").html('Você deve preencher o Nível!');
+            $("#spanNivel").html('Você deve preencher o Nível!').css('display', 'inline-block');
         } else {
             $.post('control/controleUsuario.php', {opcao: 'alterar', idUsuario: idUsuario, usuario: usuario, nome: nome, email: email, senha: senha, nivel: nivel});
             window.location = 'verUsuarios.php';
-        }
-    });
-
-    $("#btnLogar").click(function () {
-        var usuario = $("#usuario").val().trim();
-        var senha = $("#senha").val().trim();
-
-        $(".erro").html('');
-        if (usuario == '') {
-            $("#usuario").focus();
-            $("#spanUsuario").html('Você deve preencher o Usuário!');
-        } else if (senha == '') {
-            $("#senha").focus();
-            $("#spanSenha").html('Você deve preencher a Senha!');
-        } else {
-            $.post('usuarios/control/controleUsuario.php', {opcao: 'logar', usuario: usuario, senha: senha},
-            function (retorno) {
-                if (retorno == 0) {
-                    $("#senha").val('');
-                    $("#senha").focus();
-                    $("#spanSenha").html('Usuário ou senha incorretos, tente novamente!');
-                } else {
-                    localStorage.idUsuario = retorno;
-                }
-            });
         }
     });
 });

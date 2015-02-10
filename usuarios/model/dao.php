@@ -108,6 +108,17 @@ class UsuariosDAO extends Banco {
         $this->fechaConexao();
         
     }
+    
+    public function verificaEmail($objUsuario){
+        $conexao = $this->abreConexao();
+        
+        $sql = "SELECT * FROM ".TBL_USUARIO." WHERE email = '".$objUsuario->getEmail()."'";
+        
+        $banco = $conexao->query($sql);
+        
+        $numLinhas = $banco->num_rows();
+        return $numLinhas;
+    }
 
 }
 
