@@ -21,4 +21,12 @@ switch ($opcao){
         
         print_r($retorno);
         break;
+        
+    case 'esqueciSenha':
+        $email = $_POST['email'];
+        
+        $objUsuario->setEmail($email);
+        
+        $objUsuarioDao->verificaEmail($objUsuario);
+        break;
 }
