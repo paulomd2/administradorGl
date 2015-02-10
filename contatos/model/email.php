@@ -15,7 +15,7 @@ class Email {
         return $this->idContato;
     }
     public function setIdContato($idContato){
-        $this->idContato = $idContato;
+        $this->idContato = seg($idContato);
     }
     
     
@@ -23,7 +23,7 @@ class Email {
         return $this->mensagem;
     }
     public function setMensagem($mensagem){
-        $this->mensagem = $mensagem;
+        $this->mensagem = seg($mensagem);
     }
 
     
@@ -31,7 +31,7 @@ class Email {
         return $this->idEmail;
     }
     public function setIdEmail($idEmail) {
-        $this->idEmail = $idEmail;
+        $this->idEmail = seg($idEmail);
     }
 
     
@@ -39,7 +39,7 @@ class Email {
         return $this->nome;
     }
     public function setNome($nome) {
-        $this->nome = $nome;
+        $this->nome = seg($nome);
     }
 
     
@@ -47,7 +47,7 @@ class Email {
         return $this->email;
     }
     public function setEmail($email) {
-        $this->email = $email;
+        $this->email = seg($email);
     }
 
     
@@ -55,7 +55,7 @@ class Email {
         return $this->dataCadastro;
     }
     function setDataCadastro($dataCadastro) {
-        $this->dataCadastro = $dataCadastro;
+        $this->dataCadastro = seg($dataCadastro);
     }
 
     
@@ -63,7 +63,7 @@ class Email {
         return $this->principal;
     }
     function setPrincipal($principal) {
-        $this->principal = $principal;
+        $this->principal = seg($principal);
     }
 }
 

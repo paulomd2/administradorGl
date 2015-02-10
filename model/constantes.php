@@ -1,14 +1,13 @@
 <?php
-define('CON_ADMIN_HOST','localhost');
-define("CON_ADMIN_USER","root");
-define("CON_ADMIN_PASS","");
-define("CON_ADMIN_BASE","admingl");
+require_once 'constantesBanco.php';
 
-//Constantes de banco
-define("DB_ADMIN"," ".CON_ADMIN_BASE.".");
-
-//Constantes prefixo sistema
-define("TBL_ADMIN","");
+//função para remover expressões comuns de banco de dados
+function seg($var) {
+    $procura = array("insert into", "update", "delete from", "select % from");
+    $retorno = str_ireplace($procura, '', $var);
+    
+    return $retorno;
+}
 
 //Constantes de Tabela
 //Tabelas ADMIN

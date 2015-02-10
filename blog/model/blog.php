@@ -17,98 +17,96 @@ class Blog {
     public function getIdPostagem() {
         return $this->idPostagem;
     }
-
     public function setIdPostagem($idPostagem) {
-        $this->idPostagem = $idPostagem;
+        $this->idPostagem = seg($idPostagem);
     }
 
+    
     public function getTitulo() {
         return $this->titulo;
     }
-
     public function setTitulo($titulo) {
-        $this->titulo = $titulo;
+        $this->titulo = seg($titulo);
     }
 
+    
     public function getTexto() {
         return $this->texto;
     }
-
     public function setTexto($texto) {
-        $this->texto = $texto;
+        $this->texto = seg($texto);
     }
 
+    
     public function getDataPublicacao() {
         return $this->dataPublicacao;
     }
-
     public function setDataPublicacao($dataPublicacao) {
-        $this->dataPublicacao = $dataPublicacao;
+        $this->dataPublicacao = seg($dataPublicacao);
     }
 
+    
     public function getDataSaida() {
         return $this->dataSaida;
     }
-
     public function setDataSaida($dataSaida) {
-        $this->dataSaida = $dataSaida;
+        $this->dataSaida = seg($dataSaida);
     }
 
+    
     public function getDataCadastro() {
         return $this->dataCadastro;
     }
-
     public function setDataCadastro($dataCadastro) {
-        $this->dataCadastro = $dataCadastro;
+        $this->dataCadastro = seg($dataCadastro);
     }
 
+    
     public function getIdUsuario() {
         return $this->idUsuario;
     }
-
     public function setIdUsuario($idUsuario) {
-        $this->idUsuario = $idUsuario;
+        $this->idUsuario = seg($idUsuario);
     }
 
+    
     public function getImagem() {
         return $this->imagem;
     }
-
     public function setImagem($imagem) {
-        $this->imagem = $imagem;
+        $this->imagem = seg($imagem);
     }
 
+    
     public function getTituloSeo() {
         return $this->tituloSeo;
     }
-
     public function setTituloSeo($tituloSeo) {
-        $this->tituloSeo = $tituloSeo;
+        $this->tituloSeo = seg($tituloSeo);
     }
 
+    
     public function getTagSeo() {
         return $this->tagSeo;
     }
-
     public function setTagSeo($tagSeo) {
-        $this->tagSeo = $tagSeo;
+        $this->tagSeo = seg($tagSeo);
     }
 
+    
     public function getDescricaoSeo() {
         return $this->descricaoSeo;
     }
-
     public function setDescricaoSeo($descricaoSeo) {
-        $this->descricaoSeo = $descricaoSeo;
+        $this->descricaoSeo = seg($descricaoSeo);
     }
     
     
     public function getStatus(){
         return $this->status;
-    }
-    
+    }    
     public function setStatus($status){
-        $this->status = $status;
+        $this->status = seg($status);
     }
 
 }

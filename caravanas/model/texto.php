@@ -9,7 +9,7 @@ class Texto{
         return $this->idTexto;
     }
     public function setIdTexto($idTexto){
-        $this->idTexto = $idTexto;
+        $this->idTexto = seg($idTexto);
     }
     
     
@@ -17,7 +17,7 @@ class Texto{
         return $this->texto;
     }
     public function setTexto($texto){
-        $this->texto = $texto;
+        $this->texto = seg($texto);
     }
 }
 

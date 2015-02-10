@@ -17,83 +17,80 @@ class Destaque {
     function getIdDestaque() {
         return $this->idDestaque;
     }
-
     function setIdDestaque($idDestaque) {
-        $this->idDestaque = $idDestaque;
+        $this->idDestaque = seg($idDestaque);
     }
 
+    
     function getTitulo() {
         return $this->titulo;
     }
-
     function setTitulo($titulo) {
-        $this->titulo = $titulo;
+        $this->titulo = seg($titulo);
     }
 
+    
     function getSubtitulo() {
         return $this->subtitulo;
     }
-
     function setSubtitulo($subitulo) {
-        $this->subtitulo = $subitulo;
+        $this->subtitulo = seg($subitulo);
     }
 
+    
     function getConteudo() {
         return $this->conteudo;
     }
-
     function setConteudo($conteudo) {
-        $this->conteudo = $conteudo;
+        $this->conteudo = seg($conteudo);
     }
 
+    
     function getImagem() {
         return $this->imagem;
     }
-
     function setImagem($imagem) {
-        $this->imagem = $imagem;
+        $this->imagem = seg($imagem);
     }
 
+    
     function getDataPublicacao() {
         return $this->DataPublicacao;
     }
-
     function setDataPublicacao($DataPublicacao) {
-        $this->DataPublicacao = $DataPublicacao;
+        $this->DataPublicacao = seg($DataPublicacao);
     }
 
+    
     function getDataSaida() {
         return $this->dataSaida;
-    }
-    
-    
+    }    
     function setDataCadastro($DataCadastro) {
-        $this->dataCadastro = $DataCadastro;
+        $this->dataCadastro = seg($DataCadastro);
     }
 
+    
     function getDataCadastro() {
         return $this->dataCadastro;
     }
-
     function setDataSaida($dataSaida) {
-        $this->dataSaida = $dataSaida;
+        $this->dataSaida = seg($dataSaida);
     }
 
+    
     function getLink() {
         return $this->link;
     }
-
     function setLink($link) {
-        $this->link = $link;
+        $this->link = seg($link);
     }
     
     
     function getStatus(){
         return $this->status;
     }
-    
     function setStatus($status){
-        $this->status = $status;
+        $this->status = seg($status);
     }
 
 }

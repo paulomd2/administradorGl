@@ -19,107 +19,104 @@ class Submenu {
     function getIdMenu() {
         return $this->idMenu;
     }
-
     function setIdMenu($idMenu) {
         $this->idMenu = $idMenu;
     }
+    
 
     function getIdSubmenu() {
         return $this->idSubmenu;
     }
-
     function setIdSubmenu($idSubmenu) {
-        $this->idSubmenu = $idSubmenu;
+        $this->idSubmenu = seg($idSubmenu);
     }
+    
 
     function getTituloMenu() {
         return $this->tituloMenu;
     }
-
     function setTituloMenu($tituloMenu) {
-        $this->tituloMenu = $tituloMenu;
+        $this->tituloMenu = seg($tituloMenu);
     }
+    
 
     function getTituloPagina() {
         return $this->TituloPagina;
     }
-
     function setTituloPagina($TituloPagina) {
-        $this->TituloPagina = $TituloPagina;
+        $this->TituloPagina = seg($TituloPagina);
     }
 
+    
     function getTexto() {
         return $this->texto;
     }
-
     function setTexto($texto) {
-        $this->texto = $texto;
+        $this->texto = seg($texto);
     }
 
+    
     function getLink() {
         return $this->link;
     }
-
     function setLink($link) {
-        $this->link = $link;
+        $this->link = seg($link);
     }
+    
 
     function getTarget() {
         return $this->target;
     }
-
     function setTarget($target) {
-        $this->target = $target;
+        $this->target = seg($target);
     }
 
+    
     function getStatus() {
         return $this->status;
     }
-
     function setStatus($status) {
-        $this->status = $status;
+        $this->status = seg($status);
     }
 
+    
     function getTituloMetaTag() {
         return $this->tituloMetaTag;
     }
-
     function setTituloMetaTag($tituloMetaTag) {
-        $this->tituloMetaTag = $tituloMetaTag;
+        $this->tituloMetaTag = seg($tituloMetaTag);
     }
+    
 
     function getKeywordMetaTag() {
         return $this->keywordMetaTag;
     }
-
     function setKeywordMetaTag($keywordMetaTag) {
-        $this->keywordMetaTag = $keywordMetaTag;
+        $this->keywordMetaTag = seg($keywordMetaTag);
     }
 
+    
     function getDescricaoMetaTag() {
         return $this->descricaoMetaTag;
     }
-
     function setDescricaoMetaTag($descricaoMetaTag) {
-        $this->descricaoMetaTag = $descricaoMetaTag;
+        $this->descricaoMetaTag = seg($descricaoMetaTag);
     }
     
     
     function getDataEntrada() {
         return $this->dataEntrada;
     }
-
     function setDataEntrada($dataEntrada) {
-        $this->dataEntrada = $dataEntrada;
+        $this->dataEntrada = seg($dataEntrada);
     }
     
     
     function getDataSaida() {
         return $this->dataSaida;
     }
-
     function setDataSaida($dataSaida) {
-        $this->dataSaida = $dataSaida;
+        $this->dataSaida = seg($dataSaida);
     }
 
 }

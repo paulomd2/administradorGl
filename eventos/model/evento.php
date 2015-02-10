@@ -17,43 +17,43 @@ class Evento {
     function getIdEvento() {
         return $this->idEvento;
     }
-
     function setIdEvento($idEvento) {
-        $this->idEvento = $idEvento;
+        $this->idEvento = seg($idEvento);
     }
 
+    
     function getTitulo() {
         return $this->titulo;
     }
-
     function setTitulo($titulo) {
-        $this->titulo = $titulo;
+        $this->titulo = seg($titulo);
     }
 
+    
     function getNome() {
         return $this->nome;
     }
-
     function setNome($nome) {
-        $this->nome = $nome;
+        $this->nome = seg($nome);
     }
 
+    
     function getDataInicio() {
         return $this->dataInicio;
     }
-
     function setDataInicio($dataInicio) {
-        $this->dataInicio = $dataInicio;
+        $this->dataInicio = seg($dataInicio);
     }
 
+    
     function getDataFim() {
         return $this->dataFim;
     }
-
     function setDataFim($dataFim) {
         $this->dataFim = $dataFim;
     }
 
+    
     function getDataCadastro() {
         return $this->dataCadastro;
     }
