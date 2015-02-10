@@ -1,96 +1,167 @@
--- phpMyAdmin SQL Dump
--- version 4.2.11
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: 22-Jan-2015 às 19:08
--- Versão do servidor: 5.6.21
--- PHP Version: 5.6.3
+DROP TABLE IF EXISTS `banners`;
+CREATE TABLE  `banners` (
+  `idBanner` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) NOT NULL,
+  `imagem` varchar(100) NOT NULL,
+  `dataPublicacao` date NOT NULL DEFAULT '0000-00-00',
+  `link` varchar(255) NOT NULL,
+  `target` varchar(6) NOT NULL,
+  `dataCadastro` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `ordem` int(10) unsigned NOT NULL,
+  `status` tinyint(1) unsigned NOT NULL,
+  `dataSaida` date NOT NULL DEFAULT '0000-00-00',
+  `horaPublicacao` time NOT NULL DEFAULT '00:00:00',
+  `horaSaida` time NOT NULL DEFAULT '00:00:00',
+  PRIMARY KEY (`idBanner`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+DROP TABLE IF EXISTS `blogpostagens`;
+CREATE TABLE  `blogpostagens` (
+  `idPostagem` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(45) NOT NULL DEFAULT '',
+  `texto` text NOT NULL,
+  `dataPublicacao` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `dataSaida` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `dataCadastro` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `idUsuario` int(10) unsigned NOT NULL DEFAULT '0',
+  `imagem` char(37) NOT NULL DEFAULT '',
+  `tagSeo` varchar(255) NOT NULL DEFAULT '',
+  `descricaoSeo` text NOT NULL,
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`idPostagem`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS `caravanaprincipal`;
+CREATE TABLE  `caravanaprincipal` (
+  `idPrincipal` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `texto` text NOT NULL,
+  PRIMARY KEY (`idPrincipal`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+DROP TABLE IF EXISTS `caravanas`;
+CREATE TABLE  `caravanas` (
+  `idCaravana` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) NOT NULL DEFAULT '',
+  `responsavel` varchar(100) NOT NULL DEFAULT '',
+  `local` varchar(255) NOT NULL DEFAULT '',
+  `cidade` varchar(30) NOT NULL DEFAULT '',
+  `estado` char(2) NOT NULL DEFAULT '',
+  `telefone` varchar(13) NOT NULL DEFAULT '',
+  `email` varchar(155) NOT NULL DEFAULT '',
+  `dataCadastro` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `celular` varchar(14) NOT NULL DEFAULT '',
+  PRIMARY KEY (`idCaravana`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Database: `admingl`
---
+DROP TABLE IF EXISTS `destaques`;
+CREATE TABLE  `destaques` (
+  `idDestaque` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(200) NOT NULL DEFAULT '',
+  `subtitulo` varchar(50) NOT NULL DEFAULT '',
+  `conteudo` text NOT NULL,
+  `imagem` varchar(37) NOT NULL DEFAULT '',
+  `dataPublicacao` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `dataSaida` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `link` varchar(45) NOT NULL DEFAULT '',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `dataCadastro` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`idDestaque`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
+DROP TABLE IF EXISTS `emailrespostas`;
+CREATE TABLE  `emailrespostas` (
+  `idResposta` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `idContato` int(10) unsigned NOT NULL DEFAULT '0',
+  `idEmail` int(10) unsigned NOT NULL DEFAULT '0',
+  `mensagem` text NOT NULL,
+  `dataCadastro` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`idResposta`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Estrutura da tabela `eventos`
---
+DROP TABLE IF EXISTS `emailscontatos`;
+CREATE TABLE  `emailscontatos` (
+  `idEmail` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `email` varchar(100) DEFAULT NULL,
+  `indPrincipal` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `dataCadastro` datetime DEFAULT NULL,
+  `nome` varchar(45) DEFAULT NULL,
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`idEmail`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE IF NOT EXISTS `eventos` (
-`idEvento` int(10) unsigned NOT NULL,
+DROP TABLE IF EXISTS `emailsrecebidos`;
+CREATE TABLE  `emailsrecebidos` (
+  `idEmail` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) DEFAULT NULL,
+  `empresa` varchar(50) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `cidade` varchar(45) DEFAULT NULL,
+  `estado` char(2) DEFAULT NULL,
+  `telefone` char(10) DEFAULT NULL,
+  `celular` varchar(11) DEFAULT NULL,
+  `mensagem` text NOT NULL,
+  `interesses` text NOT NULL,
+  `sabendo` text NOT NULL,
+  `dataEnvio` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `assunto` varchar(50) NOT NULL DEFAULT '',
+  PRIMARY KEY (`idEmail`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `eventos`;
+CREATE TABLE  `eventos` (
+  `idEvento` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nome` varchar(200) NOT NULL,
   `titulo` varchar(200) NOT NULL,
   `dataInicio` date NOT NULL DEFAULT '0000-00-00',
   `dataFim` date NOT NULL DEFAULT '0000-00-00',
   `imagem` varchar(37) NOT NULL DEFAULT '',
   `texto` text NOT NULL,
-  `tituloMetaTag` varchar(150) NOT NULL,
+  `tituloMetaTag` varchar(150) NOT NULL DEFAULT '',
   `keywordsMetaTag` varchar(255) NOT NULL DEFAULT '',
-  `descricaoMetaTag` varchar(150) NOT NULL DEFAULT '',
+  `descricaoMetaTag` text NOT NULL,
   `dataCadastro` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '1 = ativo, 0 = desativado'
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '1 = ativo, 0 = desativado',
+  PRIMARY KEY (`idEvento`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `eventos`
---
+DROP TABLE IF EXISTS `expositores`;
+CREATE TABLE  `expositores` (
+  `idExpositor` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `dataPublicacao` date DEFAULT NULL,
+  `estande` varchar(100) NOT NULL,
+  `link` varchar(100) NOT NULL,
+  `imagem` varchar(100) NOT NULL DEFAULT '',
+  `dataCadastro` datetime NOT NULL,
+  `ordem` int(10) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`idExpositor`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `eventos` (`idEvento`, `nome`, `titulo`, `dataInicio`, `dataFim`, `imagem`, `texto`, `tituloMetaTag`, `keywordsMetaTag`, `descricaoMetaTag`, `dataCadastro`, `status`) VALUES
-(1, 'teste', 'kjn', '2015-02-15', '2015-03-30', 'd991c0f3c7dfb0021404cbe817912500.jpg', '<p>kjn</p>\r\n', 'dasda', 'fsdfs', 'fsdae', '2015-01-15 20:41:01', 1),
-(2, 'dasdasd', 'kjn', '1111-11-11', '1111-11-11', '792b75dede15ba9ee5a6efabb5fd2b5f.png', 'cldksm mvf mcv kl cv l  lkgjadfs ojdjgfo isjdag', 'dasda', 'fsdfs', 'fsdae', '2015-01-15 18:43:29', 1),
-(3, 'dasdasd', 'kjn', '1111-11-11', '1111-11-11', 'a2f11ed311a3b043902ebc7980c90902.png', '<p>cldksm mvf mcv kl cv l &nbsp;lkgjadfs ojdjgfo isjdag</p>\r\n', 'dasda', 'fsdfs', 'fsdae', '2015-01-15 18:48:37', 1),
-(4, 'dasdasd', 'kjn', '2015-01-15', '0000-00-00', 'a2f11ed311a3b043902ebc7980c90902.png', '<p>lalala&ccedil;</p>\r\n', 'dasda', 'fsdfs', 'fsdae', '2015-01-15 19:30:58', 1),
-(5, 'teste', 'teste', '1212-12-11', '1212-12-11', 'eeec050797b4cde2834265ac94b6e210.png', '<p>teste</p>\r\n', 'tÃ­tulo', 'teste, sad, 12', 'descricao', '2015-01-16 12:42:01', 1);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `menus`
---
-
-CREATE TABLE IF NOT EXISTS `menus` (
-`idMenu` int(10) unsigned NOT NULL,
+DROP TABLE IF EXISTS `menus`;
+CREATE TABLE  `menus` (
+  `idMenu` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `titulo` varchar(25) NOT NULL DEFAULT '',
   `link` varchar(255) NOT NULL DEFAULT '',
-  `status` tinyint(1) unsigned NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1',
+  `target` varchar(6) NOT NULL DEFAULT '0',
+  `ordem` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`idMenu`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `menus`
---
+DROP TABLE IF EXISTS `newsletters`;
+CREATE TABLE  `newsletters` (
+  `idNewsletter` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `dataCadastro` datetime DEFAULT NULL,
+  PRIMARY KEY (`idNewsletter`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `menus` (`idMenu`, `titulo`, `link`, `status`) VALUES
-(1, 'dasda', '', 1),
-(2, 'teste', '123', 1),
-(3, 'teste', '123', 1),
-(4, 'ghfd', 'dasda23', 1),
-(5, 'teste1', '', 1),
-(6, 'teste 2', '', 1),
-(7, 'teste 3', '', 1),
-(8, 'teste 4', '', 1),
-(9, 'teste 5', '', 1),
-(10, 'teste 6', '', 1),
-(11, 'teste 7', '', 1),
-(12, 'teste 8', '', 0);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `noticias`
---
-
-CREATE TABLE IF NOT EXISTS `noticias` (
-`idNoticia` int(10) unsigned NOT NULL,
+DROP TABLE IF EXISTS `noticias`;
+CREATE TABLE  `noticias` (
+  `idNoticia` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `titulo` varchar(200) NOT NULL DEFAULT '',
   `subTitulo` varchar(100) NOT NULL DEFAULT '',
   `fonte` varchar(70) NOT NULL DEFAULT '',
@@ -98,57 +169,62 @@ CREATE TABLE IF NOT EXISTS `noticias` (
   `dataCadastro` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `texto` text,
   `mercado` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '0 = inativo, 1 = ativo'
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '0 = inativo, 1 = ativo',
+  PRIMARY KEY (`idNoticia`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `noticias`
---
+DROP TABLE IF EXISTS `redes`;
+CREATE TABLE  `redes` (
+  `idRede` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `facebook` varchar(150) DEFAULT NULL,
+  `twitter` varchar(150) DEFAULT NULL,
+  `google` varchar(150) DEFAULT NULL,
+  `instagram` varchar(150) DEFAULT NULL,
+  `flickr` varchar(150) DEFAULT NULL,
+  `youtube` varchar(150) DEFAULT NULL,
+  PRIMARY KEY (`idRede`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `noticias` (`idNoticia`, `titulo`, `subTitulo`, `fonte`, `dataPublicacao`, `dataCadastro`, `texto`, `mercado`, `status`) VALUES
-(2, 'teste', 'teste', 'tre', '2015-01-13', '2015-01-14 13:54:15', 'lala', 0, 1),
-(3, 'teste', 'teste', 'tre', '2015-01-13', '2015-01-14 13:50:16', 'lala', 0, 0),
-(4, 'teste', 'teste', 'tre', '2015-01-13', '2015-01-14 14:24:46', 'teste 2', 0, 0);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `releases`
---
-
-CREATE TABLE IF NOT EXISTS `releases` (
-`idRelease` int(10) unsigned NOT NULL,
+DROP TABLE IF EXISTS `releases`;
+CREATE TABLE  `releases` (
+  `idRelease` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `mes` tinyint(2) unsigned NOT NULL,
   `texto` text NOT NULL,
   `dataCadastro` datetime NOT NULL,
   `status` tinyint(1) unsigned NOT NULL,
   `titulo` varchar(200) NOT NULL DEFAULT '',
   `dataEntrada` date NOT NULL DEFAULT '0000-00-00',
-  `dataSaida` date NOT NULL DEFAULT '0000-00-00'
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+  `dataSaida` date NOT NULL DEFAULT '0000-00-00',
+  PRIMARY KEY (`idRelease`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `releases`
---
+DROP TABLE IF EXISTS `rodapecategorias`;
+CREATE TABLE  `rodapecategorias` (
+  `idCategoria` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) NOT NULL DEFAULT '',
+  `ordem` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `identificador` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '0= qualquer, 1= patrocinador, 2=apoio',
+  `dataCadastro` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`idCategoria`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `releases` (`idRelease`, `mes`, `texto`, `dataCadastro`, `status`, `titulo`, `dataEntrada`, `dataSaida`) VALUES
-(1, 1, '<p>dasdas da sdad a</p>\n', '2015-01-22 14:44:13', 1, 'dasd', '0000-00-00', '0000-00-00'),
-(2, 1, '<p>dasdas da sdad a</p>\n', '2015-01-22 14:44:15', 1, 'dasd', '2015-01-22', '2015-02-22'),
-(3, 3, '<p>dasdas da sdad a</p>\n', '2015-01-22 14:50:50', 1, 'dasd', '0000-00-00', '0000-00-00'),
-(4, 10, '<p>texto</p>\n', '2015-01-22 15:18:30', 2, 'outro teste', '0000-00-00', '0000-00-00'),
-(5, 10, '<p>texto</p>\n', '2015-01-22 15:18:34', 0, 'outro teste', '0000-00-00', '0000-00-00'),
-(6, 9, '<p>texto lal&aacute;</p>\n', '2015-01-22 17:00:11', 1, 'lala', '0000-00-00', '0000-00-00'),
-(7, 1, '<p>blabl&aacute;</p>\n', '2015-01-22 17:00:37', 2, 'elle', '0000-00-00', '0000-00-00'),
-(8, 1, '<p>blabl&aacute;</p>\n', '2015-01-22 17:00:37', 2, 'elle', '0000-00-00', '0000-00-00');
+DROP TABLE IF EXISTS `rodapeimagens`;
+CREATE TABLE  `rodapeimagens` (
+  `idImagem` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `idCategoria` int(10) unsigned NOT NULL DEFAULT '0',
+  `nome` varchar(45) NOT NULL DEFAULT '',
+  `imagem` varchar(45) NOT NULL DEFAULT '',
+  `link` varchar(45) NOT NULL DEFAULT '',
+  `dataCadastro` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `ordem` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`idImagem`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `submenus`
---
-
-CREATE TABLE IF NOT EXISTS `submenus` (
-`idSubmenu` int(10) unsigned NOT NULL,
+DROP TABLE IF EXISTS `submenus`;
+CREATE TABLE  `submenus` (
+  `idSubmenu` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `tituloMenu` varchar(20) NOT NULL DEFAULT '',
   `tituloPagina` varchar(40) NOT NULL DEFAULT '',
   `texto` text NOT NULL,
@@ -161,123 +237,19 @@ CREATE TABLE IF NOT EXISTS `submenus` (
   `idMenu` int(10) unsigned NOT NULL DEFAULT '0',
   `dataEntrada` date NOT NULL DEFAULT '0000-00-00',
   `dataSaida` date NOT NULL DEFAULT '0000-00-00',
-  `ordem` int(10) unsigned NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+  `ordem` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`idSubmenu`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `submenus`
---
-
-INSERT INTO `submenus` (`idSubmenu`, `tituloMenu`, `tituloPagina`, `texto`, `link`, `target`, `status`, `tituloMetaTag`, `keywordMetaTag`, `descricaoMetaTag`, `idMenu`, `dataEntrada`, `dataSaida`, `ordem`) VALUES
-(1, 'link', 'dsada', '', 'dasdas', '_blank', 1, 'dasad', 'dsadasd', 'sdadasd', 1, '0000-00-00', '0000-00-00', 0),
-(2, 'dasd', 'dsada', '', 'dasdas', '_self', 1, 'dasad', 'dsadasd', 'sdadasd', 2, '1111-11-11', '1111-11-11', 0),
-(3, 'dasda', 'adas', '', 'da sd as ï¿½a', '_self', 1, 'sdasd', 'dasda', 'adas', 1, '0000-00-00', '0000-00-00', 0),
-(4, 'teste 1', 'adas dfasfssd', '<p>dasd ad adasd as&nbsp;</p>\n', '', '_self', 1, 'sdasd', 'dasda', 'adas', 1, '0000-00-00', '0000-00-00', 0),
-(5, 'testre', 'adas', '<p>dasd ad adasd as&nbsp;</p>\n', '', '_self', 1, 'sdasd', 'dasda', 'adas', 1, '0000-00-00', '0000-00-00', 0),
-(6, 'trew', 'adas', '<p>dasd ad adasd as&nbsp;</p>\n', '', '_self', 1, 'sdasd', 'dasda', 'adas', 2, '0000-00-00', '0000-00-00', 0),
-(7, 'trew', 'adas', '<p>dasd ad adasd as&nbsp;</p>\n', '', '_self', 1, 'sdasd', 'dasda', 'adas', 2, '0000-00-00', '0000-00-00', 0),
-(8, 'trew', 'adas', '<p>dasd ad adasd as&nbsp;</p>\n', '', '_self', 1, 'sdasd', 'dasda', 'adas', 2, '0000-00-00', '0000-00-00', 0),
-(9, 'trew', 'adas', '<p>dasd ad adasd as&nbsp;</p>\n', '', '_self', 1, 'sdasd', 'dasda', 'adas', 2, '0000-00-00', '0000-00-00', 0);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `usuarios`
---
-
-CREATE TABLE IF NOT EXISTS `usuarios` (
-`idUsuario` int(10) unsigned NOT NULL,
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE  `usuarios` (
+  `idUsuario` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL DEFAULT '',
   `nivel` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '1 = admin, 2 = editor',
   `dataCriacao` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '0 = inativo, 1 = ativo',
   `email` varchar(100) NOT NULL DEFAULT '',
   `usuario` varchar(20) NOT NULL DEFAULT '',
-  `senha` char(32) NOT NULL DEFAULT ''
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `usuarios`
---
-
-INSERT INTO `usuarios` (`idUsuario`, `nome`, `nivel`, `dataCriacao`, `status`, `email`, `usuario`, `senha`) VALUES
-(1, 'Paulo', 1, '2015-01-12 20:15:00', 1, 'teste@teste.com', 'teste', '202cb962ac59075b964b07152d234b70'),
-(2, 'Paulo Sergio s', 1, '2015-01-19 14:29:16', 1, 'adsda@dasd.com', '14', '33fa66b7904998952daa9dcc05093b24');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `eventos`
---
-ALTER TABLE `eventos`
- ADD PRIMARY KEY (`idEvento`);
-
---
--- Indexes for table `menus`
---
-ALTER TABLE `menus`
- ADD PRIMARY KEY (`idMenu`);
-
---
--- Indexes for table `noticias`
---
-ALTER TABLE `noticias`
- ADD PRIMARY KEY (`idNoticia`);
-
---
--- Indexes for table `releases`
---
-ALTER TABLE `releases`
- ADD PRIMARY KEY (`idRelease`);
-
---
--- Indexes for table `submenus`
---
-ALTER TABLE `submenus`
- ADD PRIMARY KEY (`idSubmenu`);
-
---
--- Indexes for table `usuarios`
---
-ALTER TABLE `usuarios`
- ADD PRIMARY KEY (`idUsuario`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `eventos`
---
-ALTER TABLE `eventos`
-MODIFY `idEvento` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `menus`
---
-ALTER TABLE `menus`
-MODIFY `idMenu` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
---
--- AUTO_INCREMENT for table `noticias`
---
-ALTER TABLE `noticias`
-MODIFY `idNoticia` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `releases`
---
-ALTER TABLE `releases`
-MODIFY `idRelease` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `submenus`
---
-ALTER TABLE `submenus`
-MODIFY `idSubmenu` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT for table `usuarios`
---
-ALTER TABLE `usuarios`
-MODIFY `idUsuario` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+  `senha` char(32) NOT NULL DEFAULT '',
+  PRIMARY KEY (`idUsuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
