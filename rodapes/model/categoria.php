@@ -13,35 +13,39 @@ class Categoria {
         return $this->idCategoria;
     }
     function setIdCategoria($idCategoria) {
-        $this->idCategoria = $idCategoria;
+        $this->idCategoria = seg($idCategoria);
     }
 
+    
     function getNome() {
         return $this->nome;
     }
     function setNome($nome) {
-        $this->nome = $nome;
+        $this->nome = seg($nome);
     }
 
+    
     function getOrdem() {
         return $this->ordem;
     }
     function setOrdem($ordem) {
-        $this->ordem = $ordem;
+        $this->ordem = seg($ordem);
     }
 
+    
     function getIdentificador() {
         return $this->identificador;
     }
     function setIdentificador($identificador) {
-        $this->identificador = $identificador;
+        $this->identificador = seg($identificador);
     }
+    
     
     function getDataCadastro(){
         return $this->dataCadastro;
     }
     function setDataCadastro($dataCadastro){
-        $this->dataCadastro = $dataCadastro;
+        $this->dataCadastro = seg($dataCadastro);
     }
     
     
@@ -49,7 +53,7 @@ class Categoria {
         return $this->status;
     }
     function setStatus($status) {
-        $this->status = $status;
+        $this->status = seg($status);
     }
 }
 

@@ -14,67 +14,65 @@ class Noticia {
     public function getIdNoticia() {
         return $this->idNoticia;
     }
-
     public function setIdNoticia($idNoticia) {
-        $this->idNoticia = $idNoticia;
+        $this->idNoticia = seg($idNoticia);
     }
+    
 
     public function getTitulo() {
         return $this->titulo;
     }
-
     public function setTitulo($titulo) {
-        $this->titulo = $titulo;
+        $this->titulo = seg($titulo);
     }
+    
 
     public function getSubTitulo() {
         return $this->subtitulo;
     }
-
     public function setSubTitulo($subtitulo) {
-        $this->subtitulo = $subtitulo;
+        $this->subtitulo = seg($subtitulo);
     }
 
+    
     public function getFonte() {
         return $this->fonte;
     }
-
     public function setFonte($fonte) {
-        $this->fonte = $fonte;
+        $this->fonte = seg($fonte);
     }
 
+    
     function getTexto() {
         return $this->texto;
     }
-
     function setTexto($texto) {
-        $this->texto = $texto;
+        $this->texto = seg($texto);
     }
 
+    
     function getDataPublicacao() {
         return $this->dataPublicacao;
     }
-
     function setDataPublicacao($dataPublicacao) {
-        $this->dataPublicacao = $dataPublicacao;
+        $this->dataPublicacao = seg($dataPublicacao);
     }
 
+    
     function getDataCadastro() {
         return $this->dataCadastro;
     }
-
     function setDataCadastro($dataCadastro) {
-        $this->dataCadastro = $dataCadastro;
+        $this->dataCadastro = seg($dataCadastro);
     }
 
+    
     function getMercado() {
         return $this->mercado;
     }
-
     function setMercado($mercado) {
-        $this->mercado = $mercado;
+        $this->mercado = seg($mercado);
     }
-
 }
 
 $objNoticia = new Noticia();

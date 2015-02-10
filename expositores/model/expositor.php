@@ -16,63 +16,71 @@ class Expositor {
         return $this->idExpositor;
     }
     function setIdExpositor($idExpositor) {
-        $this->idExpositor = $idExpositor;
+        $this->idExpositor = seg($idExpositor);
     }
 
+    
     function getNome() {
         return $this->nome;
     }
     function setNome($nome) {
-        $this->nome = $nome;
+        $this->nome = seg($nome);
     }
+    
 
     function getImagem() {
         return $this->imagem;
     }
     function setImagem($imagem) {
-        $this->imagem = $imagem;
+        $this->imagem = seg($imagem);
     }
 
+    
     function getDataPublicacao() {
         return $this->dataPublicacao;
     }
     function setDataPublicacao($dataPublicacao) {
-        $this->dataPublicacao = $dataPublicacao;
+        $this->dataPublicacao = seg($dataPublicacao);
     }
+    
 
     function getLink() {
         return $this->link;
     }
     function setLink($link) {
-        $this->link = $link;
+        $this->link = seg($link);
     }
+    
 
     function getEstande() {
         return $this->estande;
     }
     function setEstande($estande) {
-        $this->estande = $estande;
+        $this->estande = seg($estande);
     }
+    
 
     function getDataCadastro() {
         return $this->dataCadastro;
     }
     function setDataCadastro($dataCadastro) {
-        $this->dataCadastro = $dataCadastro;
+        $this->dataCadastro = seg($dataCadastro);
     }
+    
 
     function getOrdem() {
         return $this->ordem;
     }
     function setOrdem($ordem) {
-        $this->ordem = $ordem;
+        $this->ordem = seg($ordem);
     }
+    
 
     function getStatus() {
         return $this->status;
     }
     function setStatus($status) {
-        $this->status = $status;
+        $this->status = seg($status);
     }
 
 }
