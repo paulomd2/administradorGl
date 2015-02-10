@@ -9,7 +9,7 @@ body{
 }
 div.login{
     width: 379px;
-    height: 101px;
+    height: 121px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -49,7 +49,7 @@ div.login fieldset{
 div.login .form-home input{
     border:0;
 }
-div.login .form-home input[type="submit"]{
+div.login .form-home input[type="button"]{
     color: white;
     text-transform: uppercase;
     padding: 3px 10px;
@@ -82,3 +82,12 @@ div.login .form-home .recSenha a:hover{
     text-decoration: underline;
 }
 
+.erro{
+    background: #912626;
+    color: white;
+    padding: 3px;
+    border-radius: 3px;
+    font-size: 13px;
+    margin-top: 5px;
+    display: none;
+}

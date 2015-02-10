@@ -339,15 +339,6 @@ input[type="submit"],input[type="button"]{
 .tableform input[type="text"]{
     height: 25px;
 }
-.erro{
-    background: #912626;
-    color: white;
-    padding: 3px;
-    border-radius: 3px;
-    font-size: 13px;
-    margin-top: 5px;
-    display: none;
-}
 h2{
     font-size: 16px;
 }
