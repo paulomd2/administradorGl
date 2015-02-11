@@ -37,7 +37,7 @@
         </div>
         <div class="logout">
             <a href="#" class="visu-site">Visualizar site</a>
-            <a href="javascript:deslogar()" class="sair">Sair</a>
+            <a href="#" onclick="deslogar()" class="sair">Sair</a>
         </div>
     </div>
     <div class="cb"></div>
