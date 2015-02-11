@@ -8,21 +8,22 @@
         <table style="border:0;padding:20px;margin:0;width:560px;margin:0 auto;border:1px solid #e0e0e0;border-radius:3px;background:#fff;text-align:center;">
             <tr>
                 <td>
-                    <h1 style="font-weight: lighter; text-transform: uppercase;">Sua nova senha é:</h1>
-                </td>
-                <td>
                     <img src="http://www.portalgl.com.br/imagens/logo_glevents.png" alt=""/>
                 </td>
             </tr>
             <tr>
-                <td colspan="2">
-                    <p>
-                        SENHA
-                    </p>
+                <td>
+                    <p> Sua nova senha é:</p>
+                </td>
+                
+            </tr>            
+            <tr>
+                <td>
+                    <p><strong>Senha</strong></p>
                 </td>
             </tr>
             <tr>
-                <td colspan="2">
+                <td>
                     <p>
                         <a href="#" style="text-decoration: none;font-size: 12px; padding: 5px 10px; text-transform: uppercase; color: #fff; background: #999; border-radius: 3px; display: inline-block;">Ir para o site</a>
                     </p>
