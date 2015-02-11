@@ -14,7 +14,7 @@
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="#">Usuários</a>
+                <a href="./">Usuários</a>
                 <a href="#">Todos os usuários</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
