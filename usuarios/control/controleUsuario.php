@@ -1,4 +1,5 @@
 <?php
+@session_start();
 
 require_once '../../model/banco.php';
 require_once '../model/dao.php';
@@ -73,5 +74,9 @@ switch ($opcao) {
         $retorno = $objUsuarioDao->verificaLogin($objUsuario);
 
         print_r($retorno['idUsuario']);
+        break;
+    
+    case 'deslogar':
+        unset($_SESSION);
         break;
 }

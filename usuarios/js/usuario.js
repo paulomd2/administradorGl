@@ -25,7 +25,8 @@ function delUsuario(id) {
 }
 
 function deslogar() {
-    localStorage.idUsuario = '';
+    $.post('control/controleUsuario.php', {opcao: 'deslogar'});
+    window.location='../';  
 }
 
 $(document).ready(function () {
@@ -100,7 +101,7 @@ $(document).ready(function () {
             $("#nivel").focus();
             $("#spanNivel").html('Você deve preencher o Nível!').css('display', 'inline-block');
         } else {
-            $.post('control/controleUsuario.php', {opcao: 'alterar', idUsuario: idUsuario, usuario: usuario, nome: nome, email: email, senha: senha, nivel: nivel});
+            $.post('control/controleUsuario.php', {opcao: 'alterar', idUsuario: idUsuario, usuario: usuario, nome: nome, email: email, senha: senha, senhaAntiga:senhaAntiga, nivel: nivel});
             window.location = 'verUsuarios.php';
         }
     });

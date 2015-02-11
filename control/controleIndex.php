@@ -1,6 +1,6 @@
 <?php
-
 @session_start();
+
 require_once '../model/banco.php';
 require_once '../usuarios/model/dao.php';
 
@@ -8,7 +8,7 @@ $opcao = $_POST['opcao'];
 switch ($opcao) {
     case 'verificaLogin':
         $usuario = $_POST['usuario'];
-        $senha = $_POST['senha'];
+        $senha = md5($_POST['senha']);
 
         $objUsuario->setUsuario($usuario);
         $objUsuario->setSenha($senha);
@@ -18,6 +18,7 @@ switch ($opcao) {
 
         if ($retorno != 0) {
             $_SESSION['id'] = $retorno['idUsuario'];
+            $_SESSION['nivel'] = $retorno['nivel'];
         }
 
         print_r($retorno);

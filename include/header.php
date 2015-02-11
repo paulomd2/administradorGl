@@ -1,6 +1,7 @@
 <?php
 @session_start();
 ?>
+<script src="../usuarios/js/usuario.js"></script>
 <div class="center-user">
     <div class="detail-user">
         <figure class="avatar fl">
@@ -36,7 +37,7 @@
         </div>
         <div class="logout">
             <a href="#" class="visu-site">Visualizar site</a>
-            <a href="#" class="sair">Sair</a>
+            <a href="javascript:deslogar()" class="sair">Sair</a>
         </div>
     </div>
     <div class="cb"></div>

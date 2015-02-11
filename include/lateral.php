@@ -1,4 +1,8 @@
 <?php
+session_start();
+
+var_dump($_SESSION);
+
 require_once '../model/banco.php';
 require_once '../conteudos/model/dao.php';
 
@@ -83,11 +87,17 @@ if (array_search('newsletter', $diretorio) || array_search('contatos', $diretori
                     ?>>Rodpé</a></li>
             </ul>
         </li>
+        <?php
+            if($_SESSION['nivel'] == 1):
+        ?>
         <li><a href="../usuarios" <?php
             if (array_search('usuarios', $diretorio) == true) {
                 echo 'class="ativo"';
             }
             ?>><i class="icon icon-user"></i> Usuários</a></li>
+        <?php
+        endif;
+        ?>
         <li><a href="../noticias" <?php
             if (array_search('noticias', $diretorio) == true) {
                 echo 'class="ativo"';
