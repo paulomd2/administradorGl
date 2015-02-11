@@ -21,18 +21,19 @@ class UsuariosDAO extends Banco {
         $this->fechaConexao();
     }
 
-    public function verUsuarios() {
+    public function verUsuarios($count) {
         $conexao = $this->abreConexao();
 
         $sql = "SELECT idUsuario, nome, nivel, DATE_FORMAT(dataCriacao, '%d/%m/%Y %H:%I:%s') as dataCriacao, email, usuario,
                 CASE nivel WHEN 1 THEN 'Administrador' WHEN 2 THEN 'Editor' WHEN 3 THEN 'Blog' END AS nivel,
                 CASE status WHEN 0 THEN 'Inativo' ELSE 'Ativo' END AS status
                     FROM " . TBL_USUARIO."
-                        WHERE status = 1";
+                        WHERE status = 1
+                        LIMIT ".$count;
 
         $banco = $conexao->query($sql);
 
-        $linhas[] = array();
+        $linhas = array();
         while ($linha = $banco->fetch_assoc()) {
             $linhas[] = $linha;
         }

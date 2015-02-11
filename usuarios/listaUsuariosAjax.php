@@ -3,8 +3,10 @@
 require_once '../model/banco.php';
 require_once 'model/dao.php';
 
-$usuarios = $objUsuarioDao->verUsuarios();
-for ($i = 1; $i < count($usuarios); $i++) {
+$count= $_GET['count'];
+
+$usuarios = $objUsuarioDao->verUsuarios($count);
+for ($i = 0; $i < count($usuarios); $i++) {
 
     echo '<tr>
             <td>' . $usuarios[$i]["nome"] . '</td>

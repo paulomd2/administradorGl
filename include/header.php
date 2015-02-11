@@ -15,9 +15,9 @@
             
             $objUsuario->setIdUsuario($_SESSION['id']);
             
-            $usuario = $objUsuarioDao->verUsuario1($objUsuario);
+            $usuarioLogado = $objUsuarioDao->verUsuario1($objUsuario);
             
-            echo $usuario['nome'];
+            echo $usuarioLogado['nome'];
             ?>
         </span>
     </div>

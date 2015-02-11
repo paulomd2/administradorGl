@@ -45,7 +45,7 @@ switch ($opcao) {
             $headers = 'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
             $headers .= 'To: '.$usuario['nome'].' <'.$usuario['email'].'>';
-            $headers .= 'From: Us <us@example.com>' . "\r\n";
+            $headers .= 'From: Administrador <fale@example.com>' . "\r\n";
 
             mail($usuario['email'], $assunto, $mensagem, $headers);
             $objUsuarioDao->altUsuario($objUsuario);

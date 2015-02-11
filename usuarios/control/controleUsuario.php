@@ -9,7 +9,7 @@ switch ($opcao) {
         $nome = $_POST['nome'];
         $email = $_POST['email'];
         $usuario = $_POST['usuario'];
-        $senha = $_POST['senha'];
+        $senha = md5($_POST['senha']);
         $nivel = $_POST['nivel'];
         $dataCricao = date('Y-m-d H:i:s');
 
@@ -20,22 +20,28 @@ switch ($opcao) {
         $objUsuario->setNivel($nivel);
         $objUsuario->setDataCriacao($dataCricao);
 
-        if ( count($objUsuarioDao->verificaEmail($objUsuario)) != 0) {
+        $contador = count($objUsuarioDao->verificaEmail($objUsuario));
+        if ($contador == 0) {
             $objUsuarioDao->cadUsuario($objUsuario);
-        } else {
-            print_r(0);
         }
 
+        print_r($contador);
         break;
 
     case 'alterar':
         $nome = $_POST['nome'];
         $email = $_POST['email'];
         $usuario = $_POST['usuario'];
-        $senha = $_POST['senha'];
+        $senha = '';
         $nivel = $_POST['nivel'];
         $dataCricao = date('Y-m-d H:i:s');
         $idUsuario = $_POST['idUsuario'];
+
+        if ($_POST['senha'] == '') {
+            $senha = $_POST['senhaAntiga'];
+        } else {
+            $senha = md5($_POST['senha']);
+        }
 
         $objUsuario->setNome($nome);
         $objUsuario->setEmail($email);

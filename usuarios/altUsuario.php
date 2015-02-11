@@ -3,20 +3,20 @@ require_once '../model/banco.php';
 require_once 'model/dao.php';
 
 $objUsuario->setIdUsuario($_GET['id']);
-$usuario = $objUsuarioDao->verUsuario1($objUsuario)
+$usuario = $objUsuarioDao->verUsuario1($objUsuario);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
         <title>Painel | Fagga</title>
-        <?php include_once 'http://localhost/githubpaulo/administradorGl/include/head.php'; ?>
+        <?php include_once '../include/head.php'; ?>
         <script type="text/javascript" src="../js/jquery-2.1.3.js"></script>
         <script type="text/javascript" src="js/usuario.js"></script>
     </head>
     <body>
-        <?php include_once 'http://localhost/githubpaulo/administradorGl/include/header.php'; ?>
-        <?php include_once 'http://localhost/githubpaulo/administradorGl/include/lateral.php'; ?>
+        <?php include_once '../include/header.php'; ?>
+        <?php include_once '../include/lateral.php'; ?>
 
         <div class="main-admin">
             <div class="guia-site">
@@ -64,22 +64,14 @@ $usuario = $objUsuarioDao->verUsuario1($objUsuario)
                             <td>
                                 <select name="nivel" id="nivel">
                                     <option value="">Escolha um nível...</option>
-                                    <option value="1" <?php
-                                    if ($usuario['nivel'] == 1) {
-                                        echo 'selected';
-                                    }
-                                    ?>>Administrador</option>
-                                    <option value="2" <?php
-                                    if ($usuario['nivel'] == 2) {
-                                        echo 'selected';
-                                    }
-                                    ?> >Editor</option>
+                                    <option value="1" <?php if ($usuario['nivel'] == 1) { echo 'selected'; } ?>>
+                                        Administrador
+                                    </option>
+                                    <option value="2" <?php if ($usuario['nivel'] == 2) { echo 'selected'; } ?>>
+                                        Editor
+                                    </option>
+                                    <option value="3"  <?php if ($usuario['nivel'] == 3) { echo 'selected'; } ?> >Blog</option>
                                 </select><br />
-                                <option value="3"  <?php
-                                    if ($usuario['nivel'] == 3) {
-                                        echo 'selected';
-                                    }
-                                    ?> >Blog</option>
                                 <span id="spanNivel" class="erro"></span>
                             </td>
                         </tr>

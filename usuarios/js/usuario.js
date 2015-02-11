@@ -1,3 +1,14 @@
+var url = document.URL;
+var split = url.split('/');
+var pagina = split[split.length];
+
+count = '';
+if (split[split.length] == 'verUsuarios.php' || split[split.length-1] == 'verUsuarios.php') {
+    count = 500;
+} else {
+    count = 5;
+}
+
 $.validaEmail = function (email) {
     er = /^[a-zA-Z0-9][a-zA-Z0-9\._-]+@([a-zA-Z0-9\._-]+\.)[a-zA-Z-0-9]{2}/;
     if (er.exec(email))
@@ -9,7 +20,7 @@ $.validaEmail = function (email) {
 function delUsuario(id) {
     if (confirm('Você tem certeza que deseja excluir esse usuário?')) {
         $.post('control/controleUsuario.php', {opcao: 'deletar', idUsuario: id});
-        $("#listaUsuarios").load("listaUsuariosAjax.php");
+        $("#listaUsuarios").load("listaUsuariosAjax.php?count=" + count);
     }
 }
 
@@ -18,13 +29,14 @@ function deslogar() {
 }
 
 $(document).ready(function () {
+    $("#listaUsuarios").load("listaUsuariosAjax.php?count=" + count);
+    
     $("#btnCadastrar").click(function () {
         var nome = $("#nome").val().trim();
         var email = $("#email").val().trim();
         var senha = $("#senha").val().trim();
         var usuario = $("#usuario").val().trim();
         var nivel = $("#nivel").val();
-
         $(".erro").html('').css('display', 'none');
         if (nome == '') {
             $("#nome").focus();
@@ -47,17 +59,15 @@ $(document).ready(function () {
         } else {
             $.post('control/controleUsuario.php', {opcao: 'cadastrar', nome: nome, email: email, senha: senha, usuario: usuario, nivel: nivel},
             function (r) {
-                if (r == 0) {
+                if (r != 0) {
                     $("#email").focus();
                     $("#spanEmail").html('Esse email já está cadastrado, por favor, escolha outro!').css('display', 'inline-block');
                 } else {
                     window.location = 'verUsuarios.php';
                 }
             });
-
         }
     });
-
     $("#btnAlterar").click(function () {
         var nome = $("#nome").val().trim();
         var email = $("#email").val().trim();
@@ -67,7 +77,6 @@ $(document).ready(function () {
         var usuario = $("#usuario").val().trim();
         var nivel = $("#nivel").val();
         var idUsuario = $("#idUsuario").val();
-
         if (senhaDigitada == '') {
             senha = senhaAntiga;
         } else {

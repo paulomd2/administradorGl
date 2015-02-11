@@ -69,7 +69,7 @@ class Usuario{
         return $this->senha;
     }
     public function setSenha($senha){
-        $this->senha = md5(seg($senha));
+        $this->senha = seg($senha);
     }
 }
 

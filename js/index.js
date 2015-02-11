@@ -36,8 +36,6 @@ $(document).ready(function () {
         } else {
             $.post('control/controleIndex.php', {opcao: 'esqueciSenha', email: email},
             function (r) {
-                
-                console.log(r);
                 if(r == 0){
                     $("#spanEmail").html('este usuário não está cadastrado').css('display', 'inline-block');
                     $("#email").focus();
