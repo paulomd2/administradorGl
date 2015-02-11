@@ -88,7 +88,7 @@ class UsuariosDAO extends Banco {
         
         $conexao = $this->abreConexao();
 
-        $sql = "SELECT idUsuario
+        $sql = "SELECT *
                 FROM " . TBL_USUARIO . "
                     WHERE usuario = '" .$objUsuario->getUsuario()."'
                     AND senha = '".$objUsuario->getSenha()."'";

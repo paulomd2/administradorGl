@@ -40,104 +40,110 @@ if (array_search('newsletter', $diretorio) || array_search('contatos', $diretori
 
 <aside class="barra-lateral" id="barra-lateral">
     <ul>
-        <li class="hasub">
-            <span>
-                <a href="#">
-                    <i class="icon icon-file-text2"></i> Conteúdo
-                </a>
-            </span>
-            <ul class="tgl1">
-                <li><a href="../conteudos/">Gerenciar conteúdo</a></li>
-                <?php
-                $menu = $objConteudoDao->listaMenus();
-
-                for ($i = 1; $i < count($menu); $i++) {
-                    echo '<li><a href="../conteudos/verSubmenus.php?id=' . $menu[$i]["idMenu"] . '#1" onclick="javascript:void(0);">' . $menu[$i]['titulo'] . '</a></li>';
-                }
-                ?>
-            </ul>
-        </li>
-        <li class="hasub">
-            <span>
-                <a href="#">
-                    <i class="icon icon-cog"></i> Administração
-                </a>
-            </span>
-            <ul class="tgl2">
-                <li><a href="../newsletter" <?php
-                    if (array_search('newsletter', $diretorio) == true) {
-                        echo 'class="ativo"';
-                    }
-                    ?>>Newsletter</a></li>
-                <li><a href="../contatos" <?php
-                    if (array_search('contatos', $diretorio) == true) {
-                        echo 'class="ativo"';
-                    }
-                    ?>>Contato</a></li>
-
-                <li><a href="../redes" <?php
-                    if (array_search('redes', $diretorio) == true) {
-                        echo 'class="ativo"';
-                    }
-                    ?>>Redes Sociais</a></li>
-                <li><a href="../rodapes" <?php
-                    if (array_search('rodapes', $diretorio) == true) {
-                        echo 'class="ativo"';
-                    }
-                    ?>>Rodpé</a></li>
-            </ul>
-        </li>
         <?php
-            if($_SESSION['nivel'] == 1):
+        if ($_SESSION['nivel'] == 1 || $_SESSION['nivel'] == 2):
         ?>
-        <li><a href="../usuarios" <?php
-            if (array_search('usuarios', $diretorio) == true) {
-                echo 'class="ativo"';
-            }
-            ?>><i class="icon icon-user"></i> Usuários</a></li>
-        <?php
+            <li class="hasub">
+                <span>
+                    <a href="#">
+                        <i class="icon icon-file-text2"></i> Conteúdo
+                    </a>
+                </span>
+                <ul class="tgl1">
+                    <li><a href="../conteudos/">Gerenciar conteúdo</a></li>
+                    <?php
+                    $menu = $objConteudoDao->listaMenus();
+
+                    for ($i = 1; $i < count($menu); $i++) {
+                        echo '<li><a href="../conteudos/verSubmenus.php?id=' . $menu[$i]["idMenu"] . '#1" onclick="javascript:void(0);">' . $menu[$i]['titulo'] . '</a></li>';
+                    }
+                    ?>
+                </ul>
+            </li>
+            <li class="hasub">
+                <span>
+                    <a href="#">
+                        <i class="icon icon-cog"></i> Administração
+                    </a>
+                </span>
+                <ul class="tgl2">
+                    <li><a href="../newsletter" <?php
+                        if (array_search('newsletter', $diretorio) == true) {
+                            echo 'class="ativo"';
+                        }
+                        ?>>Newsletter</a></li>
+                    <li><a href="../contatos" <?php
+                        if (array_search('contatos', $diretorio) == true) {
+                            echo 'class="ativo"';
+                        }
+                        ?>>Contato</a></li>
+
+                    <li><a href="../redes" <?php
+                        if (array_search('redes', $diretorio) == true) {
+                            echo 'class="ativo"';
+                        }
+                        ?>>Redes Sociais</a></li>
+                    <li><a href="../rodapes" <?php
+                        if (array_search('rodapes', $diretorio) == true) {
+                            echo 'class="ativo"';
+                        }
+                        ?>>Rodpé</a></li>
+                </ul>
+            </li>
+            <?php
+            if ($_SESSION['nivel'] == 1):
+                ?>
+                <li><a href="../usuarios" <?php
+                    if (array_search('usuarios', $diretorio) == true) {
+                        echo 'class="ativo"';
+                    }
+                    ?>><i class="icon icon-user"></i> Usuários</a></li>
+                       <?php
+                   endif;
+                   ?>
+            <li><a href="../noticias" <?php
+                if (array_search('noticias', $diretorio) == true) {
+                    echo 'class="ativo"';
+                }
+                ?>><i class="icon icon-newspaper"></i> Notícias</a></li>
+            <li><a href="../releases/" <?php
+                if (array_search('releases', $diretorio) == true) {
+                    echo 'class="ativo"';
+                }
+                ?>><i class="icon icon-newspaper"></i> Releases</a></li>
+            <li><a href="../destaques" <?php
+                if (array_search('destaques', $diretorio) == true) {
+                    echo 'class="ativo"';
+                }
+                ?>><i class="icon icon-tv"></i> Destaques</a></li>
+            <li><a href="../eventos" <?php
+                if (array_search('eventos', $diretorio) == true) {
+                    echo 'class="ativo"';
+                }
+                ?>><i class="icon icon-calendar"></i> Eventos</a></li>
+            <li><a href="../banners/" <?php
+                if (array_search('banners', $diretorio) == true) {
+                    echo 'class="ativo"';
+                }
+                ?>><i class="icon icon-image"></i> Banners</a></li>
+            <li><a href="../expositores/" <?php
+                if (array_search('expositores', $diretorio) == true) {
+                    echo 'class="ativo"';
+                }
+                ?>><i class="icon icon-image"></i> Expositores</a></li>
+            <li><a href="../caravanas/" <?php
+                if (array_search('caravanas', $diretorio) == true) {
+                    echo 'class="ativo"';
+                }
+                ?>><i class="icon icon-image"></i> Caravanas</a></li>
+            <li><a href="#"><i class="icon icon-upload2"></i> Uploads</a></li>
+            <?php
         endif;
         ?>
-        <li><a href="../noticias" <?php
-            if (array_search('noticias', $diretorio) == true) {
-                echo 'class="ativo"';
-            }
-            ?>><i class="icon icon-newspaper"></i> Notícias</a></li>
-        <li><a href="../releases/" <?php
-            if (array_search('releases', $diretorio) == true) {
-                echo 'class="ativo"';
-            }
-            ?>><i class="icon icon-newspaper"></i> Releases</a></li>
-        <li><a href="../destaques" <?php
-            if (array_search('destaques', $diretorio) == true) {
-                echo 'class="ativo"';
-            }
-            ?>><i class="icon icon-tv"></i> Destaques</a></li>
-        <li><a href="../eventos" <?php
-            if (array_search('eventos', $diretorio) == true) {
-                echo 'class="ativo"';
-            }
-            ?>><i class="icon icon-calendar"></i> Eventos</a></li>
-        <li><a href="../banners/" <?php
-            if (array_search('banners', $diretorio) == true) {
-                echo 'class="ativo"';
-            }
-            ?>><i class="icon icon-image"></i> Banners</a></li>
-        <li><a href="../expositores/" <?php
-            if (array_search('expositores', $diretorio) == true) {
-                echo 'class="ativo"';
-            }
-            ?>><i class="icon icon-image"></i> Expositores</a></li>
-        <li><a href="../caravanas/" <?php
-            if (array_search('caravanas', $diretorio) == true) {
-                echo 'class="ativo"';
-            }
-            ?>><i class="icon icon-image"></i> Caravanas</a></li>
         <li><a href="../blog/" <?php
             if (array_search('blog', $diretorio) == true) {
                 echo 'class="ativo"';
             }
             ?>><i class="icon icon-image"></i> Blog</a></li>
-        <li><a href="#"><i class="icon icon-upload2"></i> Uploads</a></li>
     </ul>
 </aside>
