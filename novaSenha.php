@@ -14,16 +14,10 @@
             </figure>
             <form action="#" method="post" class="form-home" name="login">
                 <fieldset>
-                    <input type="text" name="usuario" id="usuario" class="login"/><br />
+                    <input type="text" name="email" id="email" class="login"/><br />
                 </fieldset>
-                <fieldset>
-                    <input type="password" name="senha" id="senha" class="senha" /><br />
-                </fieldset>
-                <label class="recSenha">
-                    <a href="novaSenha.php">Esqueci minha senha</a>         
-                </label>
-                <input type="button" value="LOGAR" id="btnLogar"/>
-                <span id="spanUsuario" class="erro" style="margin-top: 10px"></span>
+                <input type="button" value="Enviar" id="btnTrocarSenha"/>
+                <span id="spanEmail" class="erro" style="margin-top: 10px"></span>
             </form>
             
             

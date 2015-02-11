@@ -116,8 +116,10 @@ class UsuariosDAO extends Banco {
         
         $banco = $conexao->query($sql);
         
-        $numLinhas = $banco->num_rows();
-        return $numLinhas;
+        $linha = $banco->fetch_assoc();
+        return $linha;
+        
+        $this->fechaConexao();
     }
 
 }

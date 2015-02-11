@@ -13,8 +13,6 @@ switch ($opcao) {
         $nivel = $_POST['nivel'];
         $dataCricao = date('Y-m-d H:i:s');
 
-
-
         $objUsuario->setNome($nome);
         $objUsuario->setEmail($email);
         $objUsuario->setUsuario($usuario);
@@ -22,7 +20,7 @@ switch ($opcao) {
         $objUsuario->setNivel($nivel);
         $objUsuario->setDataCriacao($dataCricao);
 
-        if ($objUsuarioDao->verificaEmail($objUsuario) != 0) {
+        if ( count($objUsuarioDao->verificaEmail($objUsuario)) != 0) {
             $objUsuarioDao->cadUsuario($objUsuario);
         } else {
             print_r(0);
