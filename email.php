@@ -25,7 +25,7 @@
             <tr>
                 <td>
                     <p>
-                        <a href="#" style="text-decoration: none;font-size: 12px; padding: 5px 10px; text-transform: uppercase; color: #fff; background: #999; border-radius: 3px; display: inline-block;">Ir para o site</a>
+                        <a href="http://<?php echo $path; ?>" style="text-decoration: none;font-size: 12px; padding: 5px 10px; text-transform: uppercase; color: #fff; background: #999; border-radius: 3px; display: inline-block;">Ir para o site</a>
                     </p>
                 </td>
             </tr>
