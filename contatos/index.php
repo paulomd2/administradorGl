@@ -39,6 +39,8 @@ setcookie("ck_authorized", "true", 0, "/");
 
                 <hr/>
                 <h1>Listar Contatos</h1>
+                <a href="exportar.php?f=mes" class="proPage">Exportar por mês</a>
+                <a href="exportar.php?f=ano" class="proPage">Exportar por ano</a>
                 <table class="tableAll">
                     <thead>
                         <tr>
@@ -51,12 +53,6 @@ setcookie("ck_authorized", "true", 0, "/");
                     </thead>
                     <tbody id="listaContatos"></tbody>
                 </table>
-                <!--script>
-                    CKEDITOR.replace('texto', {
-                        uiColor: '#dfdfdf',
-                        filebrowserImageBrowseUrl: '../plugin/ckfinder/ckfinder.html?Type=Images',
-                    });
-                </script-->
             </div>
         </div>
     </body>
