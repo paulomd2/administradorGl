@@ -8,8 +8,8 @@ switch ($opcao) {
     case "cadastrar":
         $titulo = $_POST['titulo'];
         $nome = $_POST['nome'];
-        $dataInicio = implode('-', array_reverse(explode('/', $_POST['dataInicio'])));
-        $dataFim = implode('-', array_reverse(explode('/', $_POST['dataFim'])));
+        $dataInicio = $_POST['dataInicio'];
+        $dataFim = $_POST['dataFim'];
         $dataCadastro = date('Y-m-d H:i:s');
         $texto = $_POST['texto'];
         $tituloMetaTag = $_POST['tituloMetaTag'];
@@ -30,16 +30,15 @@ switch ($opcao) {
         $objEvento->setDescricaoMetaTag($descricaoMetaTag);
 
         $objEventoDao->cadEvento($objEvento);
-        echo "<script>window.location='../verEventos.php'</script>";
+        echo "<script>window.location='../verEventos.php?d=proximo'</script>";
         break;
 
     case 'alterar':
         $idEvento = $_POST['idEvento'];
         $titulo = $_POST['titulo'];
         $nome = $_POST['nome'];
-        $dataInicio = implode('-', array_reverse(explode('/', $_POST['dataInicio'])));
-        $dataFim = implode('-', array_reverse(explode('/', $_POST['dataFim'])));
-        $dataCadastro = date('Y-m-d H:i:s');
+        $dataInicio = $_POST['dataInicio'];
+        $dataFim = $_POST['dataFim'];
         $texto = $_POST['texto'];
         $tituloMetaTag = $_POST['tituloMetaTag'];
         $keywordsMetatag = $_POST['keywordsMetaTag'];
@@ -56,7 +55,6 @@ switch ($opcao) {
         $objEvento->setNome($nome);
         $objEvento->setDataInicio($dataInicio);
         $objEvento->setDataFim($dataFim);
-        $objEvento->setDataCadastro($dataCadastro);
         $objEvento->setImagem($imagem);
         $objEvento->setTexto($texto);
         $objEvento->setTituloMetaTag($tituloMetaTag);
@@ -65,7 +63,13 @@ switch ($opcao) {
 
         $objEventoDao->altEvento($objEvento);
 
-        echo "<script>window.location='../verEventos.php'</script>";
+        
+        if($dataFim > date('Y-m-d H:i:s')){
+            echo "<script>window.location='../verEventos.php?d=proximo'</script>";    
+        }else{
+            echo "<script>window.location='../verEventos.php?d=anterior'</script>";
+        }
+        
         break;
 
     case 'excluir':
@@ -84,7 +88,7 @@ function uploadImagem() {
     $tipoArquivo = '.' . $tipoArquivo['extension'];
 
     $new_file_name = strtolower(md5(date('d/m/Y/H:i:s'))) . $tipoArquivo;
-    if ($_FILES['imagem']['size'] > (1024)) { //não pode ser maior que 1Mb
+    if ($_FILES['imagem']['size'] > (1048576)) { //não pode ser maior que 1Mb
         $valido = false;
     } else {
         $imagemAntiga = '../../images/'.$_POST["imagemAntiga"];

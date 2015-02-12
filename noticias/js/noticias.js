@@ -19,27 +19,23 @@ function delNoticia(id) {
 $(document).ready(function () {
     var data = new Date();
     var dia = data.getDate();
-    var mes = '' + data.getMonth() + 1;
+    var mes =  data.getMonth()+1;
+    mes = '0'+mes;
     var ano = data.getFullYear();
     if ($("#publicacao").val() == '') {
-        $("#publicacao").val(dia + '/' + mes + '/' + ano);
+        $("#publicacao").val(ano + '-' + mes + '-' + dia);
     }
 
-    console.log();
     $("#listaNoticias").load('listaNoticiasAjax.php?count=' + count);
 
-    $("#publicacao").mask('99/99/9999');
-
     $("#btnCadastrar").click(function () {
+        CKEDITOR.instances.texto.updateElement();
         var titulo = $("#titulo").val().trim();
         var subtitulo = $("#sub").val().trim();
         var fonte = $("#fonte").val().trim();
         var dataPublicacao = $("#publicacao").val().trim();
-        var texto = $("#texto").val().trim();
         var mercado = '';
-        CKEDITOR.instances.texto.updateElement();
-        var CKeditor = CKEDITOR.instances.descnotificacao;
-        //CKeditor.focus()
+        var texto = CKEDITOR.instances.texto.getData();
         
         if ($("#mercado").is(':checked')) {
             mercado = 1;
@@ -68,15 +64,14 @@ $(document).ready(function () {
     });
 
     $("#btnAlterar").click(function () {
+        CKEDITOR.instances.texto.updateElement();
         var titulo = $("#titulo").val().trim();
         var subtitulo = $("#sub").val().trim();
         var fonte = $("#fonte").val().trim();
         var dataPublicacao = $("#publicacao").val().trim();
-        var texto = $("#texto").val().trim();
         var idNoticia = $("#idNoticia").val();
         var mercado = '';
-        CKEDITOR.instances.texto.updateElement();
-        var CKeditor = CKEDITOR.instances.descnotificacao;
+        var texto = CKEDITOR.instances.texto.getData();
         //CKeditor.focus()
 
         if ($("#mercado").is(':checked')) {

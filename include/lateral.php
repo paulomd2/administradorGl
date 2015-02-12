@@ -1,7 +1,5 @@
 <?php
-session_start();
-
-var_dump($_SESSION);
+@session_start();
 
 require_once '../model/banco.php';
 require_once '../conteudos/model/dao.php';
@@ -15,20 +13,30 @@ $diretorio = explode('/', $diretorio);
 <?php
 if (array_search('conteudos', $diretorio) == true) {
     echo "$('.tgl1').css('display', 'block');";
-    echo "$('.tgl3').css('display', 'none');";
     echo "$('.tgl2').css('display', 'none');";
+    echo "$('.tgl3').css('display', 'none');";
+    echo "$('.tgl4').css('display', 'none');";
 }
 
 if (array_search('usuarios', $diretorio) == true) {
     echo "$('.tgl3').css('display', 'block');";
     echo "$('.tgl1').css('display', 'none');";
     echo "$('.tgl2').css('display', 'none');";
+    echo "$('.tgl4').css('display', 'none');";
 }
 
 
 if (array_search('newsletter', $diretorio) || array_search('contatos', $diretorio) || array_search('redes', $diretorio) || array_search('rodapes', $diretorio)) {
     echo "$('.tgl2').css('display', 'block');";
     echo "$('.tgl1').css('display', 'none');";
+    echo "$('.tgl3').css('display', 'none');";
+    echo "$('.tgl4').css('display', 'none');";
+}
+
+if (array_search('eventos', $diretorio) || array_search('verEventos', $diretorio) || array_search('cadEvento', $diretorio)) {
+    echo "$('.tgl4').css('display', 'block');";
+    echo "$('.tgl1').css('display', 'none');";
+    echo "$('.tgl2').css('display', 'none');";
     echo "$('.tgl3').css('display', 'none');";
 }
 ?>
@@ -116,11 +124,30 @@ if (array_search('newsletter', $diretorio) || array_search('contatos', $diretori
                     echo 'class="ativo"';
                 }
                 ?>><i class="icon icon-tv"></i> Destaques</a></li>
-            <li><a href="../eventos" <?php
-                if (array_search('eventos', $diretorio) == true) {
-                    echo 'class="ativo"';
-                }
-                ?>><i class="icon icon-calendar"></i> Eventos</a></li>
+            <li class="hassub">
+                <span>
+                    <a href="#">
+                        <i class="icon icon-calendar"></i> Eventos
+                    </a>
+                </span>
+                <ul class="tgl4">
+                    <li>
+                        <a href="../eventos/verEventos.php?d=proximo" <?php if (array_search('proximosEventos', $diretorio) == true) { echo 'class="ativo"'; } ?>>
+                            Próximos eventos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../eventos/verEventos.php?d=anterior" <?php if (array_search('eventosAnteriores', $diretorio) == true) { echo 'class="ativo"'; } ?>>
+                            Eventos Anteriores
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../eventos/cadEvento.php" <?php if (array_search('cadEvento', $diretorio) == true) { echo 'class="ativo"'; } ?>>
+                            Cadastrar Evento
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li><a href="../banners/" <?php
                 if (array_search('banners', $diretorio) == true) {
                     echo 'class="ativo"';

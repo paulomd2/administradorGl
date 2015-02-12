@@ -7,14 +7,20 @@ function delRelease(id) {
 $(document).ready(function() {
     $("#listaReleases").load('listaReleasesAjax.php?count=5');
 
-    $("#dataPublicacao").mask('99/99/9999');
-    $("#dataSaida").mask('99/99/9999');
+    var data = new Date();
+    var dia = data.getDate();
+    var mes =  data.getMonth()+1;
+    mes = '0'+mes;
+    var ano = data.getFullYear();
+    if ($("#dataPublicacao").val() == '') {
+        $("#dataPublicacao").val(ano + '-' + mes + '-' + dia);
+    }
 
     $("#btnCadastrar").click(function() {
         CKEDITOR.instances.texto.updateElement();
         var titulo = $("#titulo").val().trim();
         var mes = $("#mes").val().trim();
-        var status = $("#status").val().trim();
+        var status = $("#status").val();
         var texto = CKEDITOR.instances.texto.getData();
         var dataEntrada = $("#dataPublicacao").val();
         var dataSaida = $("#dataSaida").val();
@@ -22,17 +28,16 @@ $(document).ready(function() {
         $(".erro").html('').css('display','none');
         if (titulo == '') {
             $("#titulo").focus();
-            $("#spanTitulo").html('Você deve preencher o Título!');
-            $('#spanTitulo').css('display','inline-block');
+            $("#spanTitulo").html('Você deve preencher o Título!').css('display','inline-block');
         } else if (mes == '') {
             $("#mes").focus();
-            $("#spanMes").html('Você deve selecionar o Mes!');
+            $("#spanMes").html('Você deve selecionar o Mes!').css('display','inline-block');
         } else if (status == '') {
             $("#status").focus();
-            $("#spanStatus").html('Você deve selecionar o Status!');
+            $("#spanStatus").html('Você deve selecionar o Status!').css('display','inline-block');
         } else if (texto == '') {
-            $("#texto").focus();
-            $("#spanTexto").html('Você deve preencher o Texto!');
+            texto.focus;
+            $("#spanTexto").html('Você deve preencher o Texto!').css('display','inline-block');
         } else {
             $("#cadRelease")[0].reset();
             $.post('control/controleReleases.php', {opcao: 'cadastrar', titulo: titulo, mes: mes, status: status, texto: texto, dataEntrada: dataEntrada, dataSaida: dataSaida});

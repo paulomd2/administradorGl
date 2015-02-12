@@ -64,7 +64,7 @@ setcookie("ck_authorized", "true", 0, "/");
                             <tr>
                                 <td>Data de Publicação:</td>
                                 <td>
-                                    <input type="text" name="publicacao" id="publicacao" value="<?php echo $noticia['dataPublicacao']; ?>" /><br />
+                                    <input type="date" name="publicacao" id="publicacao" value="<?php echo $noticia['dataPublicacao']; ?>" /><br />
                                     <span id="spanPublicacao" class="erro"></span>
                                 </td>
                             </tr>

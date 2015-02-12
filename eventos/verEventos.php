@@ -1,3 +1,14 @@
+<?php
+$data = $_GET['d'];
+
+if ($data == 'proximo') {
+    $texto = 'Próximos eventos';
+    $busca = 'Proximo';
+} else {
+    $texto = 'Eventos Anteriores';
+    $busca = 'Anterior';
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -20,26 +31,18 @@
                 <a href="#">Todos os evento</a>
             </div>
             <div class="tenor">
-                <h1>Todos os eventos</h1>
-                <a href="cadEvento.php" class="proPage">Cadastrar evento</a>
-                <form name="cadNoticia">
-                    <input type="hidden" value="<?php echo $_GET['mercado']; ?>" id="mercado"/>
-                    <table class="tableAll">
-                        <thead>
-                            <tr>
-                                <td style="width: 50%;">Nome</td>
-                                <td style="width: 30%;">Capa evento</td>
-                                <td style="width: 10%;">Alterar</td>
-                                <td style="width: 10%;">Excluir</td>
-                            </tr>
-                        </thead>
-                        <tbody id="listaEventos">
-                            <?php
-                            require_once 'listaEventosAjax.php'
-                            ?>
-                        </tbody>
-                    </table>
-                </form>
+                <h1><?php echo $texto; ?></h1>
+                <table class="tableAll">
+                    <thead>
+                        <tr>
+                            <td style="width: 50%;">Nome</td>
+                            <td style="width: 30%;">Capa evento</td>
+                            <td style="width: 10%;">Alterar</td>
+                            <td style="width: 10%;">Excluir</td>
+                        </tr>
+                    </thead>
+                    <tbody id="listaEventos<?php echo $busca; ?>"></tbody>
+                </table>
             </div>
         </div>
     </body>

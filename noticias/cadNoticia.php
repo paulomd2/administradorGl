@@ -12,6 +12,14 @@ setcookie("ck_authorized", "true", 0, "/");
         <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
         <script type="text/javascript" src="js/noticias.js"></script>
         <script src="../plugin/ckeditor/ckeditor.js"></script>
+        <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+        <!-- polyfiller file to detect and load polyfills -->
+        <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+        <script>
+            webshims.setOptions('waitReady', false);
+            webshims.setOptions('forms-ext', {types: 'date'});
+            webshims.polyfill('forms forms-ext');
+        </script>
     </head>
     <body>
         <?php include_once '../include/header.php'; ?>
@@ -53,7 +61,7 @@ setcookie("ck_authorized", "true", 0, "/");
                         <tr>
                             <td>Data de Publicação:</td>
                             <td>
-                                <input type="text" name="publicacao" id="publicacao" /><br />
+                                <input type="date" name="publicacao" id="publicacao" /><br />
                                 <span id="spanPublicacao" class="erro"></span>
                             </td>
                         </tr>

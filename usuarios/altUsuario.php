@@ -76,7 +76,7 @@ $usuario = $objUsuarioDao->verUsuario1($objUsuario);
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2"><input type="button" id="btnAlterar" value="Alterar" /></td>
+                            <td colspan="2"><input type="button" id="btnAlterarUsuario" value="Alterar" /></td>
                         </tr>
                     </table>
                 </form>

@@ -1,12 +1,26 @@
+var url = document.URL;
+var split = url.split('/');
+var pagina = split[split.length - 1];
+
+count = '';
+if (pagina == 'verEventos.php') {
+    count = 500;
+} else {
+    count = 5;
+}
+
 function delEvento(id){
     if(confirm("Você tem certeza que deseja remover esse evento?")){
         $.post('control/controleEventos.php',{opcao:'excluir', idEvento:id});
-        $("#listaEventos").load('listaEventosAjax.php');
+        $("#listaEventos").load('listaEventosAjax.php?count='+count);
     }
 }
 $(document).ready(function () {
-    $("#dataInicio").mask('99/99/9999');
-    $("#dataFim").mask('99/99/9999');
+    if($("#listaEventosProximo").length){
+        $("#listaEventosProximo").load('listaEventosAjax.php?count='+count+'&d=proximo');
+    }else{
+        $("#listaEventosAnterior").load('listaEventosAjax.php?count='+count+'&d=anterior');
+    }
     
     $("#btnCadastrar").click(function () {
         var titulo = $("#titulo").val().trim();
@@ -18,31 +32,31 @@ $(document).ready(function () {
         var descricaoMetaTag = $("#descricaoMetaTag").val().trim();
         var imagem = $("#imagem").val().trim();        
         
-        $(".erro").html('');
+        $(".erro").html('').css('display','none');;
         if (nome == '') {
             $("#nome").focus();
-            $("#spanNome").html('Você deve preencher o Nome!');
+            $("#spanNome").html('Você deve preencher o Nome!').css('display','inline-block');
         }else if(titulo == ''){
             $("#titulo").focus();
-            $("#spanTitulo").html('Você deve preencher o Titulo!');
+            $("#spanTitulo").html('Você deve preencher o Titulo!').css('display','inline-block');;
         }else if(dataInicio == ''){
             $("#dataInicio").focus();
-            $("#spanDataInicio").html('Você deve preencher a Data de Início!');
+            $("#spanDataInicio").html('Você deve preencher a Data de Início!').css('display','inline-block');;
         }else if(dataFim == ''){
             $("#dataFim").focus();
-            $("#spanDataFim").html('Você deve preencher a Data de Fim!');
+            $("#spanDataFim").html('Você deve preencher a Data de Fim!').css('display','inline-block');;
         }else if(imagem == ''){
             $("#imagem").focus();
-            $("#spanImagem").html('Você deve selecionar uma imagem!');
+            $("#spanImagem").html('Você deve selecionar uma imagem!').css('display','inline-block');;
         }else if(tituloMetaTag == ''){
             $("#tituloMetaTag").focus();
-            $("#spanTituloMetaTag").html('Você deve preencher o Título da Metatag!');
+            $("#spanTituloMetaTag").html('Você deve preencher o Título da Metatag!').css('display','inline-block');;
         }else if(keywordsMetatag == ''){
             $("#keywordsMetaTag").focus();
-            $("#spanKeywordsMetaTag").html('Você deve preencher as Keywords da Metatag!');
+            $("#spanKeywordsMetaTag").html('Você deve preencher as Keywords da Metatag!').css('display','inline-block');;
         }else if(descricaoMetaTag == ''){
             $("#descricaoMetaTag").focus();
-            $("#spanDescricaoMetaTag").html('Você deve preencher a Descrição da Metatag!');
+            $("#spanDescricaoMetaTag").html('Você deve preencher a Descrição da Metatag!').css('display','inline-block');;
         }else{
             $("#cadEvento").submit();
         }

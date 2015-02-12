@@ -8,6 +8,14 @@
         <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
         <script type="text/javascript" src="js/eventos.js"></script>
         <script src="../plugin/ckeditor/ckeditor.js"></script>
+        <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+        <!-- polyfiller file to detect and load polyfills -->
+        <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+        <script>
+            webshims.setOptions('waitReady', false);
+            webshims.setOptions('forms-ext', {types: 'date'});
+            webshims.polyfill('forms forms-ext');
+        </script>
     </head>
     <body>
         <?php include_once '../include/header.php'; ?>
@@ -42,14 +50,14 @@
                         <tr>
                             <td>Data de Início:</td>
                             <td>
-                                <input type="text" name="dataInicio" id="dataInicio" /><br />
+                                <input type="date" name="dataInicio" id="dataInicio" /><br />
                                 <span id="spanDataInicio" class="erro"></span>
                             </td>
                         </tr>
                         <tr>
                             <td>Data de Fim:</td>
                             <td>
-                                <input type="text" name="dataFim" id="dataFim" /><br />
+                                <input type="date" name="dataFim" id="dataFim" /><br />
                                 <span id="spanDataFim" class="erro"></span>
                             </td>
                         </tr>

@@ -10,8 +10,8 @@ switch ($opcao){
         $texto= $_POST['texto'];
         $mes = $_POST['mes'];
         $dataCadastro = date('Y-m-d H:i:s');
-        $dataEntrada = implode('-', array_reverse(explode('/', $_POST['dataEntrada'])));
-        $dataSaida = implode('-', array_reverse(explode('/', $_POST['dataSaida'])));
+        $dataEntrada = $_POST['dataEntrada'];
+        $dataSaida = $_POST['dataSaida'];
         
         $objRelease->setTitulo($titulo);
         $objRelease->setMes($mes);

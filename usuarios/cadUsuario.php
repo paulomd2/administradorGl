@@ -62,7 +62,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2"><input type="button" id="btnCadastrar" value="Cadastrar" /></td>
+                            <td colspan="2"><input type="button" id="btnCadastrarUsuario" value="Cadastrar" /></td>
                         </tr>
                     </table>
                 </form>

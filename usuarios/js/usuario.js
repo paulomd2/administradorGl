@@ -32,7 +32,7 @@ function deslogar() {
 $(document).ready(function () {
     $("#listaUsuarios").load("listaUsuariosAjax.php?count=" + count);
     
-    $("#btnCadastrar").click(function () {
+    $("#btnCadastrarUsuario").click(function () {
         var nome = $("#nome").val().trim();
         var email = $("#email").val().trim();
         var senha = $("#senha").val().trim();
@@ -69,7 +69,7 @@ $(document).ready(function () {
             });
         }
     });
-    $("#btnAlterar").click(function () {
+    $("#btnAlterarUsuario").click(function () {
         var nome = $("#nome").val().trim();
         var email = $("#email").val().trim();
         var senhaDigitada = $("#senha").val().trim();

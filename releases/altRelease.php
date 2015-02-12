@@ -12,6 +12,15 @@ setcookie("ck_authorized", "true", 0, "/");
         <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
         <script type="text/javascript" src="js/releases.js"></script>
         <script src="../plugin/ckeditor/ckeditor.js"></script>
+        <script src="../plugin/ckeditor/ckeditor.js"></script>
+        <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+        <!-- polyfiller file to detect and load polyfills -->
+        <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+        <script>
+            webshims.setOptions('waitReady', false);
+            webshims.setOptions('forms-ext', {types: 'date'});
+            webshims.polyfill('forms forms-ext');
+        </script>
     </head>
     <body>
         <?php include_once '../include/header.php'; ?>
@@ -143,11 +152,11 @@ setcookie("ck_authorized", "true", 0, "/");
                             </tr>
                             <tr>
                                 <td>Data de Publicação:</td>
-                                <td><input type="text" id="dataPublicacao" value="<?php echo implode('/', array_reverse(explode('-', $release['dataEntrada']))); ?>" name="dataPublicacao" /></td>
+                                <td><input type="date" id="dataPublicacao" value="<?php echo implode('/', array_reverse(explode('-', $release['dataEntrada']))); ?>" name="dataPublicacao" /></td>
                             </tr>
                             <tr>
                                 <td>Data de Saída:</td>
-                                <td><input type="text" id="dataSaida" value="<?php echo implode('/', array_reverse(explode('-', $release['dataSaida']))); ?>" name="dataSaida" /></td>
+                                <td><input type="date" id="dataSaida" value="<?php echo implode('/', array_reverse(explode('-', $release['dataSaida']))); ?>" name="dataSaida" /></td>
                             </tr>
                             <tr>
                                 <td colspan="2"><input type="button" id="btnAlterar" value="Alterar" /></td>
