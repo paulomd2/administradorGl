@@ -133,7 +133,7 @@ switch ($opcao) {
 
 
     case 'ordenaMenu': {
-           //$action = mysql_real_escape_string($_POST['action']);
+            //$action = mysql_real_escape_string($_POST['action']);
             $updateRecordsArray = $_POST['recordsArray'];
 
             $listingCounter = 1;
@@ -142,4 +142,46 @@ switch ($opcao) {
                 $listingCounter++;
             }
         }
+
+    case 'cadastrarPagina':
+        $titulo= $_POST['titulo'];
+        $link = $_POST['link'];
+        $status = $_POST['status'];
+        $texto = $_POST['texto'];
+        $tituloSeo = $_POST['tituloMetaTag'];
+        $keywordsSeo = $_POST['keywordsMetaTag'];
+        $descricaoSeo = $_POST['descricaoMetaTag'];
+
+        $objPagina->setTitulo($titulo);
+        $objPagina->setLink($link);
+        $objPagina->setStatus($status);
+        $objPagina->setTexto($texto);
+        $objPagina->setTituloSeo($tituloSeo);
+        $objPagina->setKeywordSeo($keywordsSeo);
+        $objPagina->setDescricaoSeo($descricaoSeo);
+
+        $objConteudoDao->cadPagina($objPagina);
+        break;
+    
+    case 'alterarPagina':
+        $idPagina = $_POST['idPagina'];
+        $titulo= $_POST['titulo'];
+        $link = $_POST['link'];
+        $status = $_POST['status'];
+        $texto = $_POST['texto'];
+        $tituloSeo = $_POST['tituloMetaTag'];
+        $keywordsSeo = $_POST['keywordsMetaTag'];
+        $descricaoSeo = $_POST['descricaoMetaTag'];
+
+        $objPagina->setIdPagina($idPagina);
+        $objPagina->setTitulo($titulo);
+        $objPagina->setLink($link);
+        $objPagina->setStatus($status);
+        $objPagina->setTexto($texto);
+        $objPagina->setTituloSeo($tituloSeo);
+        $objPagina->setKeywordSeo($keywordsSeo);
+        $objPagina->setDescricaoSeo($descricaoSeo);
+
+        $objConteudoDao->altPagina($objPagina);
+        break;
 }

@@ -59,6 +59,33 @@ class EventosDAO extends Banco {
 
         $this->fechaConexao();
     }
+    
+    public function verEventos($count) {
+        $conexao = $this->abreConexao();
+
+        $sql = "
+                SELECT *,
+                DATE_FORMAT(dataInicio, '%d/%m/%Y') as dataInicio,
+                DATE_FORMAT(dataFim, '%d/%m/%Y') as dataFim,
+                DATE_FORMAT(dataCadastro, '%d/%m/%Y') as dataCadastro
+                    FROM ".TBL_EVENTO."
+                        WHERE status = 1
+                        ORDER BY idEvento DESC
+                        LIMIT ".$count."
+               ";
+
+        
+        $banco = $conexao->query($sql);
+        
+        $linhas[] = array();
+        while($linha = $banco->fetch_assoc()){
+            $linhas[] = $linha;
+        }
+
+        
+        return $linhas;
+        $this->fechaConexao();
+    }
 
     public function verEventosProximos($count) {
         $conexao = $this->abreConexao();

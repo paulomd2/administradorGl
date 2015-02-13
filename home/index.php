@@ -51,7 +51,7 @@
             </div>
             <div class="box noticias">
                 <div class="tit-box">
-                    <strong>ÚLTIMAS</strong> NOTÍCIAS
+                    <strong>ÚLTIMAS</strong> NOTÍCIAS CADASTRADAS
                     <!--<div class="plus"><a href="#"><i class="icon icon-pencil"></i></a></div>-->
                     <div class="plus"><a href="../noticias/verNoticias.php">+</a></div>
                 </div>
@@ -78,7 +78,7 @@
             </div>
             <div class="box eventos">
                 <div class="tit-box">
-                    <strong>ÚLTIMOS</strong> EVENTOS
+                    <strong>ÚLTIMOS</strong> EVENTOS CADASTRADOS
                     <div class="plus"><a href="../eventos/verEventos.php">+</a></div>
                 </div>
                 <table>
@@ -147,7 +147,7 @@
                 $destaques = $objDestaqueDao->verDestaques(4);
                 ?>
                 <div class="tit-box">
-                    <strong>ÚLTIMOS</strong> DESTAQUES
+                    <strong>ÚLTIMOS</strong> DESTAQUES CADASTRADOS
                     <div class="plus"><a href="../destaques/verDestaques.php">+</a></div>
                 </div>
                 <table>

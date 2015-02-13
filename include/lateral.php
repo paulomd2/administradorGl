@@ -11,6 +11,13 @@ $diretorio = explode('/', $diretorio);
 <script type="text/javascript">
     $(document).ready(function () {
 <?php
+//var_dump($diretorio);
+//die();
+
+if (array_search('conteudos', $diretorio) == true) {
+    //echo 'dasdadasdasdas ';
+}
+
 if (array_search('conteudos', $diretorio) == true) {
     echo "$('.tgl1').css('display', 'block');";
     echo "$('.tgl2').css('display', 'none');";
@@ -58,7 +65,12 @@ if (array_search('eventos', $diretorio) || array_search('verEventos', $diretorio
                     </a>
                 </span>
                 <ul class="tgl1">
-                    <li><a href="../conteudos/">Gerenciar conteúdo</a></li>
+                    <li>
+                        <a href="../conteudos/">Gerenciar conteúdo</a>
+                    </li>
+                    <li>
+                        <a href="../conteudos/verPaginas.php">Gerenciar páginas</a>
+                    </li>
                     <?php
                     $menu = $objConteudoDao->listaMenus();
 
@@ -124,7 +136,7 @@ if (array_search('eventos', $diretorio) || array_search('verEventos', $diretorio
                     echo 'class="ativo"';
                 }
                 ?>><i class="icon icon-tv"></i> Destaques</a></li>
-            <li class="hassub">
+            <li class="hasub">
                 <span>
                     <a href="#">
                         <i class="icon icon-calendar"></i> Eventos

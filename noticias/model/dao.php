@@ -73,6 +73,28 @@ class NoticiasDAO extends Banco {
         $this->fechaConexao();
     }
     
+    public function verNoticiasHome($count) {
+        $conexao = $this->abreConexao();
+
+         $sql = "SELECT idNoticia, titulo, subTitulo, fonte, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao, texto
+                FROM " . TBL_NOTICIA . "
+                    WHERE status = 1
+                        ORDER BY idNoticia DESC
+                        LIMIT ".$count."
+                ";
+
+        $banco = $conexao->query($sql);
+        
+        $linhas[] = array();
+        while ($linha = $banco->fetch_assoc()) {
+            $linhas[] = $linha;
+        }
+
+        return $linhas;
+
+        $this->fechaConexao();
+    }
+    
     public function verNoticia1($objNoticia){
         $conexao = $this->abreConexao();
 

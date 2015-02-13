@@ -159,4 +159,93 @@ $(document).ready(function() {
             window.location = 'verMenus.php';
         }
     });
+    
+    
+    $("#btnCadastrarPagina").click(function() {
+        CKEDITOR.instances.texto.updateElement();
+        CKEDITOR.instances.descricaoMetaTag.updateElement();
+        
+        var titulo = $("#titulo").val().trim();
+        var link = $("#link").val().trim();
+        var texto = CKEDITOR.instances.texto.getData();
+        var dataEntrada = $("#dataPublicacao").val();
+        var dataSaida = $("#dataSaida").val();
+        var status = $("#status").val();
+        var tituloMetaTag = $("#tituloMetaTag").val().trim();
+        var keywordsMetaTag = $("#keywordsMetaTag").val().trim();
+        var descricaoMetaTag = CKEDITOR.instances.descricaoMetaTag.getData();
+        
+
+        $(".erro").html('').css('display', 'none');
+        if (titulo == '') {
+            $("#titulo").focus();
+            $("#spanTitulo").html('Você precisa preencher o Título da Página').css('display', 'inline-block');
+        } else if(link == ''){
+            $("#link").focus();
+            $("#spanLink").html('Você precisa preencher o link').css('display', 'inline-block');
+        }else if(texto == ''){
+            texto.focus;
+            $("#spanTexto").html('Você precisa preencher o texto').css('display', 'inline-block');
+        }else if (status == '') {
+            $("#status").focus();
+            $("#spanStatus").html('Você precisa selecionar um Status').css('display', 'inline-block');
+        } else if (tituloMetaTag == '') {
+            $("#tituloMetaTag").focus();
+            $("#spanTituloMetaTag").html('Você precisa preencher o Título da Metatag').css('display', 'inline-block');
+        } else if (keywordsMetaTag == '') {
+            $("#keywordsMetaTag").focus();
+            $("#spanKeywordsMetaTag").html('Você precisa preencher as Keywords da Metatag').css('display', 'inline-block');
+        } else if (descricaoMetaTag == '') {
+            $("#descricaoMetaTag").focus();
+            $("#spanDescricaoMetaTag").html('Você precisa preencher a Descrição da Metatag').css('display', 'inline-block');
+        } else {
+            $.post('control/controleConteudo.php', {opcao: 'cadastrarPagina', titulo: titulo, link: link, status: status, texto: texto, tituloMetaTag: tituloMetaTag, keywordsMetaTag: keywordsMetaTag, descricaoMetaTag: descricaoMetaTag, dataEntrada: dataEntrada, dataSaida: dataSaida});
+            window.location = 'verPaginas.php';
+        }
+    });
+    
+    
+    $("#btnAlterarPagina").click(function() {
+        CKEDITOR.instances.texto.updateElement();
+        CKEDITOR.instances.descricaoMetaTag.updateElement();
+        
+        var idPagina = $("#idPagina").val();
+        var titulo = $("#titulo").val().trim();
+        var link = $("#link").val().trim();
+        var texto = CKEDITOR.instances.texto.getData();
+        var dataEntrada = $("#dataPublicacao").val();
+        var dataSaida = $("#dataSaida").val();
+        var status = $("#status").val();
+        var tituloMetaTag = $("#tituloMetaTag").val().trim();
+        var keywordsMetaTag = $("#keywordsMetaTag").val().trim();
+        var descricaoMetaTag = CKEDITOR.instances.descricaoMetaTag.getData();
+        
+
+        $(".erro").html('').css('display', 'none');
+        if (titulo == '') {
+            $("#titulo").focus();
+            $("#spanTitulo").html('Você precisa preencher o Título da Página').css('display', 'inline-block');
+        } else if(link == ''){
+            $("#link").focus();
+            $("#spanLink").html('Você precisa preencher o link').css('display', 'inline-block');
+        }else if(texto == ''){
+            texto.focus;
+            $("#spanTexto").html('Você precisa preencher o texto').css('display', 'inline-block');
+        }else if (status == '') {
+            $("#status").focus();
+            $("#spanStatus").html('Você precisa selecionar um Status').css('display', 'inline-block');
+        } else if (tituloMetaTag == '') {
+            $("#tituloMetaTag").focus();
+            $("#spanTituloMetaTag").html('Você precisa preencher o Título da Metatag').css('display', 'inline-block');
+        } else if (keywordsMetaTag == '') {
+            $("#keywordsMetaTag").focus();
+            $("#spanKeywordsMetaTag").html('Você precisa preencher as Keywords da Metatag').css('display', 'inline-block');
+        } else if (descricaoMetaTag == '') {
+            $("#descricaoMetaTag").focus();
+            $("#spanDescricaoMetaTag").html('Você precisa preencher a Descrição da Metatag').css('display', 'inline-block');
+        } else {
+            $.post('control/controleConteudo.php', {opcao: 'alterarPagina', idPagina:idPagina, titulo: titulo, link: link, status: status, texto: texto, tituloMetaTag: tituloMetaTag, keywordsMetaTag: keywordsMetaTag, descricaoMetaTag: descricaoMetaTag, dataEntrada: dataEntrada, dataSaida: dataSaida});
+            window.location = 'verPaginas.php';
+        }
+    });
 });

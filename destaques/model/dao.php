@@ -76,6 +76,28 @@ class DestaquesDAO extends Banco {
 
         $this->fechaConexao();
     }
+    
+    public function verDestaquesHome($count) {
+        $conexao = $this->abreConexao();
+
+        $sql = "SELECT *, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao
+                FROM " . TBL_DESTAQUE . "
+                    WHERE status = 1
+                        ORDER BY idDestaque DESC
+                        LIMIT " . $count . "
+                ";
+
+        $banco = $conexao->query($sql);
+
+        $linhas[] = array();
+        while ($linha = $banco->fetch_assoc()) {
+            $linhas[] = $linha;
+        }
+
+        return $linhas;
+
+        $this->fechaConexao();
+    }
 
     public function verDestaque1($objDestaque) {
         $conexao = $this->abreConexao();

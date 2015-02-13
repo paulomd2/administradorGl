@@ -2,6 +2,7 @@
 
 require_once 'menu.php';
 require_once 'submenu.php';
+require_once 'pagina.php';
 
 class ConteudoDAO extends Banco {
 
@@ -207,6 +208,75 @@ class ConteudoDAO extends Banco {
         
         $conexao->query($query);        
         $this->fechaConexao();
+    }
+    
+    
+    public function listaPaginas(){
+        $conexao = $this->abreConexao();
+        
+        
+//        $sql = "SELECT * FROM ".TBL_PAGINA." WHERE status = 1";
+        $sql = "SELECT * FROM ".TBL_PAGINA." WHERE status in(1,2)";
+        
+        $banco = $conexao->query($sql);
+        
+        $linhas = array();
+        while($linha = $banco->fetch_assoc()){
+            $linhas[] = $linha;
+        }
+        
+        return $linhas;
+    }
+    
+    
+    public function listaPagina1($objPagina){
+        $conexao = $this->abreConexao();
+        
+        
+//        $sql = "SELECT * FROM ".TBL_PAGINA." WHERE status = 1";
+        $sql = "SELECT * FROM ".TBL_PAGINA." WHERE idPagina = ".$objPagina->getIdPagina();
+        
+        $banco = $conexao->query($sql);
+        
+        $linha = $banco->fetch_assoc();
+        
+        return $linha;
+    }
+    
+    
+    public function cadPagina($objPagina){
+        $conexao = $this->abreConexao();
+        
+        $sql = "
+               INSERT INTO ".TBL_PAGINA." SET
+                titulo = '".$objPagina->getTitulo()."',
+                link = '".$objPagina->getLink()."',
+                texto = '".$objPagina->getTexto()."',
+                status = ".$objPagina->getStatus().",
+                tituloSeo = '".$objPagina->getTituloSeo()."',
+                keywordSeo = '".$objPagina->getKeywordSeo()."',
+                descricaoSeo = '".$objPagina->getDescricaoSeo()."'
+               ";
+        
+        $conexao->query($sql);
+    }
+    
+    public function altPagina($objPagina){
+        $conexao = $this->abreConexao();
+        
+        $sql = "
+                UPDATE ".TBL_PAGINA." SET
+                titulo = '".$objPagina->getTitulo()."',
+                link = '".$objPagina->getLink()."',
+                texto = '".$objPagina->getTexto()."',
+                status = ".$objPagina->getStatus().",
+                tituloSeo = '".$objPagina->getTituloSeo()."',
+                keywordSeo = '".$objPagina->getKeywordSeo()."',
+                descricaoSeo = '".$objPagina->getDescricaoSeo()."'
+                    WHERE idPagina = ".$objPagina->getIdPagina()."
+               ";
+        
+        $conexao->query($sql) or die($conexao->error);
     }
 
 }
