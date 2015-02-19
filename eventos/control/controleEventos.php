@@ -79,6 +79,18 @@ switch ($opcao) {
 
         $objEventoDao->delEvento($objEvento);
         break;
+    
+    
+    case 'ordena':
+        $updateRecordsArray = $_POST['recordsArray'];
+
+        $listingCounter = 1;
+        foreach ($updateRecordsArray as $recordIDValue) {
+            $objEventoDao->ordenaEventos($listingCounter, $recordIDValue);
+            $listingCounter++;
+        }
+
+        break;
 }
 
 function uploadImagem() {

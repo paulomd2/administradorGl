@@ -16,12 +16,14 @@ function delEvento(id){
     }
 }
 $(document).ready(function () {
+    
+    /*
     if($("#listaEventosProximo").length){
         $("#listaEventosProximo").load('listaEventosAjax.php?count='+count+'&d=proximo');
     }else{
         $("#listaEventosAnterior").load('listaEventosAjax.php?count='+count+'&d=anterior');
     }
-    
+    */
     $("#btnCadastrar").click(function () {
         var titulo = $("#titulo").val().trim();
         var nome = $("#nome").val().trim();

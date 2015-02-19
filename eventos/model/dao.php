@@ -98,7 +98,7 @@ class EventosDAO extends Banco {
                     FROM ".TBL_EVENTO."
                         WHERE status = 1
                         AND dataFim > NOW()
-                        ORDER BY dataInicio DESC, dataFim DESC
+                        ORDER BY ordem
                         LIMIT ".$count."
                ";
 
@@ -127,7 +127,7 @@ class EventosDAO extends Banco {
                     FROM ".TBL_EVENTO."
                         WHERE status = 1
                         AND dataFim <= NOW()
-                        ORDER BY dataInicio DESC, dataFim DESC
+                        ORDER BY ordem
                         LIMIT ".$count."
                ";
 
@@ -150,6 +150,20 @@ class EventosDAO extends Banco {
        $sql = "UPDATE ".TBL_EVENTO." SET status = 0 WHERE idEvento = ".$objEvento->getIdEvento();
         
         $conexao->query($sql);
+    }
+    
+    
+    public function ordenaEventos($listingCounter, $recordIDValue){
+        $conexao = $this->abreConexao();
+        
+      echo  $query = "
+                    UPDATE ".TBL_EVENTO."
+                    SET ordem = " . $listingCounter . "
+                    WHERE idEvento = " . $recordIDValue;
+        
+        
+        $conexao->query($query)or die($conexao->error);        
+        $this->fechaConexao();
     }
 
 }

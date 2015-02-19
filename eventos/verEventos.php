@@ -15,10 +15,60 @@ if ($data == 'proximo') {
         <meta charset="UTF-8">
         <title>Painel | Fagga</title>
         <?php include_once '../include/head.php'; ?>
-        <script type="text/javascript" src="../js/jquery-2.1.3.js"></script>
-        <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
+        <script type="text/javascript" src="../js/jquery-ui.js"></script>
         <script type="text/javascript" src="js/eventos.js"></script>
         <script src="../plugin/ckeditor/ckeditor.js"></script>
+        <script>
+
+            $(document).ready(function () {
+
+                $("#eventosordem ul").sortable({
+                    opacity: 0.6,
+                    cursor: 'move',
+                    update: function () {
+                        var order = $(this).sortable("serialize") + '&opcao=ordena';
+                        $.post("control/controleEventos.php", order, function (theResponse) {
+                            console.log(theResponse);
+                        });
+                    }
+                });
+
+            });
+        </script>
+        <style>
+            .lista_evento{
+                width: 600px;
+                height: auto;
+                background: none;
+                border: 1px solid #a2a5a6;
+                border-radius: 5px;
+                margin-bottom: 10px;
+                background: white;
+                padding: 5px;
+                overflow: hidden;
+            }
+            .menu-conteudo span.titMenu{
+                font-size: 16px;
+                color: black;
+                display: block;
+            }
+            .menu-conteudo a{
+                display: inline-block;
+                font-size: 14px;
+                color: #3366ff;
+                text-decoration: none;
+            }
+            .menu-conteudo a:hover{
+                text-decoration: underline;
+            }
+            a.linkIcon{
+                color: #333;
+                text-decoration: none;
+            }
+            ul{
+                list-style: none;
+            }
+        </style>
     </head>
     <body>
         <?php include_once '../include/header.php'; ?>
@@ -32,17 +82,36 @@ if ($data == 'proximo') {
             </div>
             <div class="tenor">
                 <h1><?php echo $texto; ?></h1>
-                <table class="tableAll">
-                    <thead>
-                        <tr>
-                            <td style="width: 50%;">Nome</td>
-                            <td style="width: 30%;">Capa evento</td>
-                            <td style="width: 10%;">Alterar</td>
-                            <td style="width: 10%;">Excluir</td>
-                        </tr>
-                    </thead>
-                    <tbody id="listaEventos<?php echo $busca; ?>"></tbody>
-                </table>
+
+                <div id="listaEventos<?php echo $busca; ?>">
+                    <div id="eventosordem">
+                        <ul>
+                            <?php
+                            require_once '../model/banco.php';
+                            require_once 'model/dao.php';
+
+                            $count = 100;
+
+                            if ($busca == 'Proximo') {
+                                $eventos = $objEventoDao->verEventosProximos($count);
+                            } else {
+                                $eventos = $objEventoDao->verEventosAnteriores($count);
+                            }
+                            for ($i = 1; $i < count($eventos); $i++) {
+                                echo '
+                                        <li id="recordsArray_' . $eventos[$i]["idEvento"] . '">
+                                            <div class = "lista_evento">
+                                                <span>' . $eventos[$i]["nome"] . '</span><br/>
+                                                <a href = "altEvento.php?id=' . $eventos[$i]['idEvento'] . '">Alterar</a> | <a href = "javascript:delEvento(' . $eventos[$i]["idEvento"] . ')">Excluir</a>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    ';
+                            }
+                            ?>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
