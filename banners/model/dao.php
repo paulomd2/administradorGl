@@ -87,7 +87,7 @@ class BannersDAO extends Banco {
     public function OdernaBanner($listingCounter, $recordIDValue){
         $conexao = $this->abreConexao();
         
-     echo   $query = "
+        $query = "
                     UPDATE ".TBL_BANNER."
                     SET ordem = " . $listingCounter . "
                     WHERE idBanner = " . $recordIDValue;

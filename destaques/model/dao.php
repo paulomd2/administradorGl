@@ -7,15 +7,15 @@ class DestaquesDAO extends Banco {
     public function cadDestaque($objDestaque) {
         $conexao = $this->abreConexao();
 
-      echo  $sql = "INSERT INTO " . TBL_DESTAQUE . " SET
+        echo $sql = "INSERT INTO " . TBL_DESTAQUE . " SET
                titulo = '" . $objDestaque->getTitulo() . "',
                subtitulo = '" . $objDestaque->getSubtitulo() . "',
-               link = '".$objDestaque->getLink()."',
+               link = '" . $objDestaque->getLink() . "',
                conteudo = '" . $objDestaque->getConteudo() . "',
                dataPublicacao = '" . $objDestaque->getDataPublicacao() . "',
                dataCadastro = '" . $objDestaque->getDataCadastro() . "',
                dataSaida = '" . $objDestaque->getDataSaida() . "',
-               status = ".$objDestaque->getStatus().",
+               status = " . $objDestaque->getStatus() . ",
                imagem = '" . $objDestaque->getImagem() . "'
                ";
 
@@ -30,7 +30,7 @@ class DestaquesDAO extends Banco {
         $sql = "UPDATE " . TBL_DESTAQUE . " SET
                titulo = '" . $objDestaque->getTitulo() . "',
                subtitulo = '" . $objDestaque->getSubtitulo() . "',
-               link = '".$objDestaque->getLink()."',
+               link = '" . $objDestaque->getLink() . "',
                conteudo = '" . $objDestaque->getConteudo() . "',
                dataPublicacao = '" . $objDestaque->getDataPublicacao() . "',
                dataSaida = '" . $objDestaque->getDataSaida() . "',
@@ -61,7 +61,7 @@ class DestaquesDAO extends Banco {
         $sql = "SELECT *, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao
                 FROM " . TBL_DESTAQUE . "
                     WHERE status = 1
-                        ORDER BY dataPublicacao DESC
+                        ORDER BY ordem
                         LIMIT " . $count . "
                 ";
 
@@ -76,7 +76,7 @@ class DestaquesDAO extends Banco {
 
         $this->fechaConexao();
     }
-    
+
     public function verDestaquesHome($count) {
         $conexao = $this->abreConexao();
 
@@ -114,6 +114,19 @@ class DestaquesDAO extends Banco {
 
         return $linha;
 
+        $this->fechaConexao();
+    }
+
+    public function ordenaDestaque($listingCounter, $recordIDValue) {
+        $conexao = $this->abreConexao();
+
+        $query = "
+                    UPDATE " . TBL_DESTAQUE . "
+                    SET ordem = " . $listingCounter . "
+                    WHERE idDestaque = " . $recordIDValue;
+
+
+        $conexao->query($query);
         $this->fechaConexao();
     }
 

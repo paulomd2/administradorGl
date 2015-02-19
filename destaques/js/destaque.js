@@ -17,7 +17,6 @@ function delDestaque(id) {
     }
 }
 $(document).ready(function () {
-    $("#listaDestaques").load('listaDestaqueAjax.php?count='+count);
 
     $("#btnCadastrar").click(function () {
         CKEDITOR.instances.conteudo.updateElement();
@@ -44,13 +43,6 @@ $(document).ready(function () {
             $("#spanImagem").html('Você deve selecionar uma imagem!').css('display', 'inline-block');
         }else {
             $("#cadDestaque").submit();
-            /*
-            $.post('control/controleDestaque.php', {opcao: 'cadastrar', titulo: titulo, subtitulo: subtitulo, link: link, dataPublicacao: dataPublicacao, dataSaida:dataSaida, conteudo: conteudo},
-            function(r){
-                console.log(r);
-            });
-            window.location = 'verDestaques.php';
-            */
         }
     });
 
@@ -76,13 +68,6 @@ $(document).ready(function () {
             $("#spanConteudo").html('Você deve preencher o Conteúdo!').css('display', 'inline-block');
         }else {
             $("#cadDestaque").submit();
-            /*
-            $.post('control/controleDestaque.php', {opcao: 'cadastrar', titulo: titulo, subtitulo: subtitulo, link: link, dataPublicacao: dataPublicacao, dataSaida:dataSaida, conteudo: conteudo},
-            function(r){
-                console.log(r);
-            });
-            window.location = 'verDestaques.php';
-            */
         }
     });
 });

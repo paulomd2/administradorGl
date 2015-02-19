@@ -104,7 +104,6 @@ switch ($opcao) {
         break;
 
     case 'ordena':
-//        $action = mysql_real_escape_string($_POST['action']);
         $updateRecordsArray = $_POST['recordsArray'];
 
         $listingCounter = 1;

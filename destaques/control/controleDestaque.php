@@ -109,6 +109,17 @@ switch ($opcao) {
 
             break;
         }
+        
+        case 'ordena':
+        $updateRecordsArray = $_POST['recordsArray'];
+
+        $listingCounter = 1;
+        foreach ($updateRecordsArray as $recordIDValue) {
+            $objDestaqueDao->ordenaDestaque($listingCounter, $recordIDValue);
+            $listingCounter++;
+        }
+
+        break;
 }
 
 function uploadImagem() {
