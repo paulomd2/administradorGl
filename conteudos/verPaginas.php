@@ -68,7 +68,7 @@ $paginas = $objConteudoDao->listaPaginas();
                             <td style="width: 10%;">Excluir</td>
                         </tr>
                     </thead>
-                    <tbody id="listaMenus">
+                    <tbody id="listaPaginas">
                         <?php
                         require_once './listaPaginasAjax.php';
                         ?>

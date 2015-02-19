@@ -259,6 +259,8 @@ class ConteudoDAO extends Banco {
                ";
         
         $conexao->query($sql);
+        
+        $this->fechaConexao();
     }
     
     public function altPagina($objPagina){
@@ -276,7 +278,24 @@ class ConteudoDAO extends Banco {
                     WHERE idPagina = ".$objPagina->getIdPagina()."
                ";
         
-        $conexao->query($sql) or die($conexao->error);
+        $conexao->query($sql);
+        
+        $this->fechaConexao();
+    }
+    
+    
+    public function delPagina($objPagina){
+        $conexao = $this->abreConexao();
+        
+        $sql = "UPDATE ".TBL_PAGINA."
+                SET
+                status = 0
+                    WHERE idPagina = ".$objPagina->getIdPagina()."
+               ";
+                
+        $conexao->query($sql);
+                
+        $this->fechaConexao();
     }
 
 }

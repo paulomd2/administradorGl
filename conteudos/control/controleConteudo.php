@@ -144,13 +144,14 @@ switch ($opcao) {
         }
 
     case 'cadastrarPagina':
-        $titulo= $_POST['titulo'];
-        $link = $_POST['link'];
+        $titulo = $_POST['titulo'];
+        $link = converteLink($_POST['link']);
         $status = $_POST['status'];
         $texto = $_POST['texto'];
         $tituloSeo = $_POST['tituloMetaTag'];
         $keywordsSeo = $_POST['keywordsMetaTag'];
         $descricaoSeo = $_POST['descricaoMetaTag'];
+
 
         $objPagina->setTitulo($titulo);
         $objPagina->setLink($link);
@@ -162,11 +163,11 @@ switch ($opcao) {
 
         $objConteudoDao->cadPagina($objPagina);
         break;
-    
+
     case 'alterarPagina':
         $idPagina = $_POST['idPagina'];
-        $titulo= $_POST['titulo'];
-        $link = $_POST['link'];
+        $titulo = $_POST['titulo'];
+        $link = converteLink($_POST['link']);
         $status = $_POST['status'];
         $texto = $_POST['texto'];
         $tituloSeo = $_POST['tituloMetaTag'];
@@ -184,4 +185,21 @@ switch ($opcao) {
 
         $objConteudoDao->altPagina($objPagina);
         break;
+
+    case 'excluirPagina':
+        $idPagina = $_POST['idPagina'];
+
+        $objPagina->setIdPagina($idPagina);
+
+        $objConteudoDao->delPagina($objPagina);
+        break;
+}
+
+function converteLink($post) {
+    $link = strtolower($post);
+    $link = str_replace(' ', '-', $link);
+    $link = strtr($link, "áàãâéêíóôõúüç", "aaaaeeiooouuc");
+    
+            
+    return $link;
 }

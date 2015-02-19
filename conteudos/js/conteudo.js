@@ -7,11 +7,15 @@ function delMenu(id) {
 
 function delSubmenu(id) {
     if (confirm("Você tem certeza que deseja excluir esse Submenu?") == true) {
-        $.post('control/controleConteudo.php', {opcao: 'excluirSubmenu', idSubmenu: id},
-        function(r) {
-            console.log(r);
-        });
+        $.post('control/controleConteudo.php', {opcao: 'excluirSubmenu', idSubmenu: id});
         $("#listaSubmenus").load('listaSubmenuAjax.php');
+    }
+}
+
+function delPagina(id){
+    if (confirm("Você tem certeza que deseja excluir essa Página?") == true) {
+        $.post('control/controleConteudo.php', {opcao: 'excluirPagina', idPagina: id});
+        $("#listaPaginas").load('listaPaginasAjax.php');
     }
 }
 

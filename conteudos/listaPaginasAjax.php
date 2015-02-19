@@ -4,7 +4,7 @@ require_once '../model/banco.php';
 require_once 'model/dao.php';
 
 $paginas = $objConteudoDao->listaPaginas();
-for ($i = 1; $i < count($paginas); $i++) {
+for ($i = 0; $i < count($paginas); $i++) {
     echo '
         <tr>
             <td>' . $paginas[$i]["titulo"] . '</td>
