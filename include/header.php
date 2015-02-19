@@ -1,5 +1,9 @@
 <?php
 @session_start();
+
+if(empty($_SESSION)){
+    header('Location: ../');
+}
 ?>
 <script src="../usuarios/js/usuario.js"></script>
 <div class="center-user">

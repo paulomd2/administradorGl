@@ -77,6 +77,6 @@ switch ($opcao) {
         break;
     
     case 'deslogar':
-        unset($_SESSION);
+        session_destroy();
         break;
 }
