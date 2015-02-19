@@ -25,6 +25,41 @@
 
             });
         </script>
+        <style>
+            .lista_banner{
+                width: 600px;
+                height: auto;
+                background: none;
+                border: 1px solid #a2a5a6;
+                border-radius: 5px;
+                margin-bottom: 10px;
+                background: white;
+                padding: 5px;
+                overflow: hidden;
+            }
+            .menu-conteudo span.titMenu{
+                font-size: 16px;
+                color: black;
+                display: block;
+            }
+            .menu-conteudo a{
+                display: inline-block;
+                font-size: 14px;
+                color: #3366ff;
+                text-decoration: none;
+            }
+            .menu-conteudo a:hover{
+                text-decoration: underline;
+            }
+            a.linkIcon{
+                color: #333;
+                text-decoration: none;
+            }
+            ul{
+                list-style: none;
+            }
+        </style>
+
     </head>
     <body>
         <?php include_once '../include/header.php'; ?>
@@ -39,7 +74,7 @@
             <div class="tenor">
                 <h1>Todos os banners</h1>
                 <a href="cadBanner.php" class="proPage">Cadastrar banner</a>
-                <table class="tableAll">
+<!--                <table class="tableAll">
                     <thead>
                         <tr>
                             <td style="width: 50%;">Nome</td>
@@ -50,11 +85,29 @@
                     </thead>
 
                     <tbody id="listaReleases">
-                        <?php
-                        require_once 'listaBannersAjax.php';
-                        ?>
+                <?php
+                require_once 'listaBannersAjax.php';
+                ?>
                     </tbody>
-                </table>
+                </table>-->
+                <div id="submenusordem">
+                    <ul>
+                        <li id="recordsArray_A">
+                            <div class="lista_banner">
+                                <img src="" alt="NOME DO BANNER" title="NOME DO BANNER" width="300" style="float: left; margin-right: 10px;"/>
+                                <span>NOME DO BANNER</span><br/>
+                                <a href="altSubmenu.php?id=<?php echo $submenus[$i]['idSubmenu']; ?>">Alterar</a> | <a href="javascript:delSubmenu('<?php echo $submenus[$i]['idSubmenu']; ?>')">Excluir</a>
+                            </div>
+                        </li>   
+                        <li id="recordsArray_A">
+                            <div class="lista_banner">
+                                <img src="" alt="NOME DO BANNER" title="NOME DO BANNER" width="300" style="float: left; margin-right: 10px;"/>
+                                <span>NOME DO BANNER</span><br/>
+                                <a href="altSubmenu.php?id=<?php echo $submenus[$i]['idSubmenu']; ?>">Alterar</a> | <a href="javascript:delSubmenu('<?php echo $submenus[$i]['idSubmenu']; ?>')">Excluir</a>
+                            </div>
+                        </li>   
+                    </ul>
+                </div>
 
             </div>
         </div>
