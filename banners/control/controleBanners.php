@@ -104,12 +104,12 @@ switch ($opcao) {
         break;
 
     case 'ordena':
-        $action = mysql_real_escape_string($_POST['action']);
+//        $action = mysql_real_escape_string($_POST['action']);
         $updateRecordsArray = $_POST['recordsArray'];
 
         $listingCounter = 1;
         foreach ($updateRecordsArray as $recordIDValue) {
-            $objBannersDao->testaOrdem($listingCounter, $recordIDValue);
+            $objBannersDao->OdernaBanner($listingCounter, $recordIDValue);
             $listingCounter++;
         }
 

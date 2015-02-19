@@ -15,7 +15,6 @@ $submenus = $objConteudoDao->listaSubmenus($_GET['id']);
         <?php include_once '../include/head.php'; ?>
         <script type="text/javascript" src="../js/jquery-2.1.3.js"></script>
         <script type="text/javascript" src="js/conteudo.js"></script>
-        <script type="text/javascript" src="../js/jquery-2.1.3.js"></script>
         <script type="text/javascript" src="../js/jquery-ui.js"></script>        
         <script>
             $(document).ready(function() {

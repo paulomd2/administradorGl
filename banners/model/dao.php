@@ -69,7 +69,7 @@ class BannersDAO extends Banco {
     public function listaBanners($count) {
         $conexao = $this->abreConexao();
 
-        $sql = 'SELECT * FROM' . TBL_BANNER . 'WHERE status != 0 ORDER BY ordem DESC LIMIT ' . $count;
+        $sql = 'SELECT * FROM' . TBL_BANNER . 'WHERE status != 0 ORDER BY ordem LIMIT ' . $count;
         $banco = $conexao->query($sql);
 
         $linhas = array();
@@ -87,7 +87,7 @@ class BannersDAO extends Banco {
     public function OdernaBanner($listingCounter, $recordIDValue){
         $conexao = $this->abreConexao();
         
-        $query = "
+     echo   $query = "
                     UPDATE ".TBL_BANNER."
                     SET ordem = " . $listingCounter . "
                     WHERE idBanner = " . $recordIDValue;
