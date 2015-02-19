@@ -9,21 +9,19 @@ if (pagina == 'verEventos.php') {
     count = 5;
 }
 
-function delEvento(id){
-    if(confirm("Você tem certeza que deseja remover esse evento?")){
-        $.post('control/controleEventos.php',{opcao:'excluir', idEvento:id});
-        $("#listaEventos").load('listaEventosAjax.php?count='+count);
+function delEvento(id) {
+    if (confirm("Você tem certeza que deseja remover esse evento?")) {
+        $.post('control/controleEventos.php', {opcao: 'excluir', idEvento: id});
+        
+        if ($("#listaEventosProximo").length) {
+            $("#listaEventosProximo").load('listaEventosAjax.php?count=' + count + '&d=proximo');
+        } else {
+            $("#listaEventosAnterior").load('listaEventosAjax.php?count=' + count + '&d=anterior');
+        }
     }
 }
 $(document).ready(function () {
-    
-    /*
-    if($("#listaEventosProximo").length){
-        $("#listaEventosProximo").load('listaEventosAjax.php?count='+count+'&d=proximo');
-    }else{
-        $("#listaEventosAnterior").load('listaEventosAjax.php?count='+count+'&d=anterior');
-    }
-    */
+
     $("#btnCadastrar").click(function () {
         var titulo = $("#titulo").val().trim();
         var nome = $("#nome").val().trim();
@@ -32,39 +30,47 @@ $(document).ready(function () {
         var tituloMetaTag = $("#tituloMetaTag").val().trim();
         var keywordsMetatag = $("#keywordsMetaTag").val().trim();
         var descricaoMetaTag = $("#descricaoMetaTag").val().trim();
-        var imagem = $("#imagem").val().trim();        
-        
-        $(".erro").html('').css('display','none');;
+        var imagem = $("#imagem").val().trim();
+
+        $(".erro").html('').css('display', 'none');
+        ;
         if (nome == '') {
             $("#nome").focus();
-            $("#spanNome").html('Você deve preencher o Nome!').css('display','inline-block');
-        }else if(titulo == ''){
+            $("#spanNome").html('Você deve preencher o Nome!').css('display', 'inline-block');
+        } else if (titulo == '') {
             $("#titulo").focus();
-            $("#spanTitulo").html('Você deve preencher o Titulo!').css('display','inline-block');;
-        }else if(dataInicio == ''){
+            $("#spanTitulo").html('Você deve preencher o Titulo!').css('display', 'inline-block');
+            ;
+        } else if (dataInicio == '') {
             $("#dataInicio").focus();
-            $("#spanDataInicio").html('Você deve preencher a Data de Início!').css('display','inline-block');;
-        }else if(dataFim == ''){
+            $("#spanDataInicio").html('Você deve preencher a Data de Início!').css('display', 'inline-block');
+            ;
+        } else if (dataFim == '') {
             $("#dataFim").focus();
-            $("#spanDataFim").html('Você deve preencher a Data de Fim!').css('display','inline-block');;
-        }else if(imagem == ''){
+            $("#spanDataFim").html('Você deve preencher a Data de Fim!').css('display', 'inline-block');
+            ;
+        } else if (imagem == '') {
             $("#imagem").focus();
-            $("#spanImagem").html('Você deve selecionar uma imagem!').css('display','inline-block');;
-        }else if(tituloMetaTag == ''){
+            $("#spanImagem").html('Você deve selecionar uma imagem!').css('display', 'inline-block');
+            ;
+        } else if (tituloMetaTag == '') {
             $("#tituloMetaTag").focus();
-            $("#spanTituloMetaTag").html('Você deve preencher o Título da Metatag!').css('display','inline-block');;
-        }else if(keywordsMetatag == ''){
+            $("#spanTituloMetaTag").html('Você deve preencher o Título da Metatag!').css('display', 'inline-block');
+            ;
+        } else if (keywordsMetatag == '') {
             $("#keywordsMetaTag").focus();
-            $("#spanKeywordsMetaTag").html('Você deve preencher as Keywords da Metatag!').css('display','inline-block');;
-        }else if(descricaoMetaTag == ''){
+            $("#spanKeywordsMetaTag").html('Você deve preencher as Keywords da Metatag!').css('display', 'inline-block');
+            ;
+        } else if (descricaoMetaTag == '') {
             $("#descricaoMetaTag").focus();
-            $("#spanDescricaoMetaTag").html('Você deve preencher a Descrição da Metatag!').css('display','inline-block');;
-        }else{
+            $("#spanDescricaoMetaTag").html('Você deve preencher a Descrição da Metatag!').css('display', 'inline-block');
+            ;
+        } else {
             $("#cadEvento").submit();
         }
 
     });
-        
+
     $("#btnAlterar").click(function () {
         var titulo = $("#titulo").val().trim();
         var nome = $("#nome").val().trim();
@@ -74,30 +80,30 @@ $(document).ready(function () {
         var keywordsMetatag = $("#keywordsMetaTag").val().trim();
         var descricaoMetaTag = $("#descricaoMetaTag").val().trim();
         var imagem = $("#imagem").val().trim();
-        
+
         $(".erro").html('');
         if (nome == '') {
             $("#nome").focus();
             $("#spanNome").html('Você deve preencher o Nome!');
-        }else if(titulo == ''){
+        } else if (titulo == '') {
             $("#titulo").focus();
             $("#spanTitulo").html('Você deve preencher o Titulo!');
-        }else if(dataInicio == ''){
+        } else if (dataInicio == '') {
             $("#dataInicio").focus();
             $("#spanDataInicio").html('Você deve preencher a Data de Início!');
-        }else if(dataFim == ''){
+        } else if (dataFim == '') {
             $("#dataFim").focus();
             $("#spanDataFim").html('Você deve preencher a Data de Fim!');
-        }else if(tituloMetaTag == ''){
+        } else if (tituloMetaTag == '') {
             $("#tituloMetaTag").focus();
             $("#spanTituloMetaTag").html('Você deve preencher o Título da Metatag!');
-        }else if(keywordsMetatag == ''){
+        } else if (keywordsMetatag == '') {
             $("#keywordsMetaTag").focus();
             $("#spanKeywordsMetaTag").html('Você deve preencher as Keywords da Metatag!');
-        }else if(descricaoMetaTag == ''){
+        } else if (descricaoMetaTag == '') {
             $("#descricaoMetaTag").focus();
             $("#spanDescricaoMetaTag").html('Você deve preencher a Descrição da Metatag!');
-        }else{
+        } else {
             $("#altEvento").submit();
         }
 
