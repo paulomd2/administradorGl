@@ -12,7 +12,7 @@
             <figure class="avatar">
                 <img src="http://www.portalgl.com.br/imagens/logo_glevents.png" alt="Nome avatar" />
             </figure>
-            <form action="#" method="post" class="form-home" name="login">
+            <form class="form-home" id="frmLogin">
                 <fieldset>
                     <input type="text" name="usuario" id="usuario" class="login"/><br />
                 </fieldset>
