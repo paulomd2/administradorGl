@@ -34,7 +34,7 @@ class CaravanasDAO extends Banco {
     public function altTexto($objTexto) {
         $conexao = $this->abreConexao();
 
-        echo $sql = "UPDATE " . TBL_TEXTO_CARAVANA . " SET
+        $sql = "UPDATE " . TBL_TEXTO_CARAVANA . " SET
                 texto = '" . $objTexto->getTexto() . "'
                 ";
 
@@ -46,7 +46,7 @@ class CaravanasDAO extends Banco {
     public function listaCaravanas($count) {
         $conexao = $this->abreConexao();
 
-        echo $sql = "
+        $sql = "
                 SELECT * FROM " . TBL_CARAVANA . " WHERE status = 1 LIMIT ".$count."
                ";
         
@@ -64,7 +64,7 @@ class CaravanasDAO extends Banco {
 
     public function cadCaravana($objCaravana) {
         $conexao = $this->abreConexao();
-      echo  $sql = 'INSERT INTO ' . TBL_CARAVANA . ' SET
+        $sql = 'INSERT INTO ' . TBL_CARAVANA . ' SET
                 nome = "' . $objCaravana->getNome() . '", 
                 responsavel = "' . $objCaravana->getResponsavel() . '", 
                 email = "' . $objCaravana->getEmail() . '", 
@@ -83,7 +83,7 @@ class CaravanasDAO extends Banco {
     
     public function altCaravana($objCaravana) {
         $conexao = $this->abreConexao();
-      echo  $sql = 'UPDATE ' . TBL_CARAVANA . ' SET
+        $sql = 'UPDATE ' . TBL_CARAVANA . ' SET
                 nome = "' . $objCaravana->getNome() . '", 
                 responsavel = "' . $objCaravana->getResponsavel() . '", 
                 email = "' . $objCaravana->getEmail() . '", 

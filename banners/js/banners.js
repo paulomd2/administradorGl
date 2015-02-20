@@ -5,8 +5,6 @@ function delBanner(id) {
     }
 }
 $(document).ready(function () {
-    $("#listaBanners").load('listaBannersAjax.php?count=5');
-
     $("#btnCadastrar").click(function () {
         var nome = $("#nome").val().trim();
         var link = $("#link").val().trim();

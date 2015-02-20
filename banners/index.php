@@ -10,14 +10,14 @@
         <script type="text/javascript" src="../js/jquery-ui.js"></script>
         <script>
 
-            $(document).ready(function() {
+            $(document).ready(function () {
 
                 $("#bannersordem ul").sortable({
                     opacity: 0.6,
                     cursor: 'move',
-                    update: function() {
+                    update: function () {
                         var order = $(this).sortable("serialize") + '&opcao=ordena';
-                        $.post("control/controleBanners.php", order, function(theResponse) {
+                        $.post("control/controleBanners.php", order, function (theResponse) {
                             console.log(theResponse);
                         });
                     }
@@ -74,9 +74,11 @@
             <div class="tenor">
                 <h1>Todos os banners</h1>
                 <a href="cadBanner.php" class="proPage">Cadastrar banner</a>
-                <?php
-                require_once 'listaBannersAjax.php';
-                ?>
+                <div id="listaBanners">
+                    <?php
+                    require_once 'listaBannersAjax.php';
+                    ?>
+                </div>
             </div>
         </div>
     </body>

@@ -11,19 +11,18 @@
         }
 
         $banners = $objBannersDao->listaBanners($count);
-        
-        for ($i = 0;$i < count($banners);$i++) {
+
+        for ($i = 0; $i < count($banners); $i++) {
             echo '
-                    <li id="recordsArray_'.$banners[$i]["idBanner"].'">
+                    <li id="recordsArray_' . $banners[$i]["idBanner"] . '">
                         <div class = "lista_banner">
-                            <img src = "../images/'.$banners[$i]["imagem"].'" alt = "'.$banners[$i]["nome"].'" title = "'.$banners[$i]["nome"].'" width = "300" style = "float: left; margin-right: 10px;"/>
-                            <span>'.$banners[$i]["nome"].'</span><br/>
+                            <img src = "../images/' . $banners[$i]["imagem"] . '" alt = "' . $banners[$i]["nome"] . '" title = "' . $banners[$i]["nome"] . '" width = "300" style = "float: left; margin-right: 10px;"/>
+                            <span>' . $banners[$i]["nome"] . '</span><br/>
                             <a href="altBanner.php?id=' . $banners[$i]['idBanner'] . '">Alterar</a> | <a href="javascript:delBanner(' . $banners[$i]["idBanner"] . ')">Excluir</a>
                             </a>
                         </div>
                     </li>';
-        
         }
-    ?>
+        ?>
     </ul>
 </div>
