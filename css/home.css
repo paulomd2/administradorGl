@@ -9,7 +9,7 @@ body{
 }
 div.login{
     width: 379px;
-    height: 121px;
+    height: auto;
     position: absolute;
     top: 50%;
     left: 50%;
