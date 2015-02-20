@@ -103,6 +103,25 @@ class ReleasesDAO extends Banco {
 
         $this->fechaConexao();
     }
+    
+    public function busca($objRelease){
+        $conexao = $this->abreConexao();
+        
+        $sql = "
+                SELECT *
+                    FROM ".TBL_RELEASE."
+                        WHERE titulo like '%".$objRelease->getTitulo()."%'
+               ";
+        
+        $banco = $conexao->query($sql);
+        
+        $linhas = array();
+        while($linha = $banco->fetch_assoc()){
+            $linhas[] = $linha;
+        }
+        
+        return $linhas;
+    }
 
 }
 

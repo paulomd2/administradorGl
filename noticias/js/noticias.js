@@ -16,6 +16,18 @@ function delNoticia(id) {
         $("#listaNoticias").load('listaNoticiasAjax.php?count=' + count);
     }
 }
+
+
+function delNoticiaBusca(id) {
+    if (confirm("Você tem certeza que deseja excluir essa notícia?") == true) {
+        $.post('../noticias/control/controleNoticias.php', {opcao: 'excluir', idNoticia: id},
+        function(r){
+            console.log(r);
+        });
+
+        //$("#listaNoticias").load('../noticias/listaNoticiasAjax.php?count=500');
+    }
+}
 $(document).ready(function () {
     var data = new Date();
     var dia = data.getDate();

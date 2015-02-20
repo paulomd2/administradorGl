@@ -112,6 +112,26 @@ class NoticiasDAO extends Banco {
 
         $this->fechaConexao();
     }
+    
+    public function busca($objNoticia){
+        $conexao = $this->abreConexao();
+        
+        $sql = "
+                SELECT *
+                    FROM ".TBL_NOTICIA."
+                        WHERE titulo like '%".$objNoticia->getTitulo()."%'
+                        AND status in(1,2)
+               ";
+        
+        $banco = $conexao->query($sql);
+        
+        $linhas = array();
+        while($linha = $banco->fetch_assoc()){
+            $linhas[] = $linha;
+        }
+        
+        return $linhas;
+    }
 
 }
 

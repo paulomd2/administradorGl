@@ -6,6 +6,7 @@ if(empty($_SESSION)){
 }
 ?>
 <script src="../usuarios/js/usuario.js"></script>
+<script src="../js/index.js"></script>
 <div class="center-user">
     <div class="detail-user">
         <figure class="avatar fl">
@@ -29,14 +30,15 @@ if(empty($_SESSION)){
     <div class="barra-user">
         <div class="busca">
             <a href="#" onclick="javascript:mostraForm('formbusca');"><i class="icon icon-search"></i></a>
-            <form action="" method="get" class="form-busca-oculta" id="formbusca">
-                <input type="text" name="nome"/>
-                <select>
-                    <option>NOTÍCIA</option>
-                    <option>RELEASES</option>
-                    <option>EVENTOS</option>
+            <form class="form-busca-oculta" id="formbusca">
+                <input type="text" id="busca" name="busca" />
+                <select name="modulo" id="modulo">
+                    <option value="noticias">NOTÍCIA</option>
+                    <option value="releases">RELEASES</option>
+                    <option value="eventos">EVENTOS</option>
                 </select>
-                <input type="submit" value="BUSCAR"/>
+                <input type="button" value="BUSCAR" id="btnBusca"/><br />
+                <span id="erroBusca" class="erro"></span>
             </form>
         </div>
         <div class="logout">

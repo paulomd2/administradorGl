@@ -1,3 +1,22 @@
+function busca(){
+    var modulo = $("#modulo").val();
+    var busca = $("#busca").val();
+    
+    $(".erroBusca").html('').css('display','none');
+    if(busca == ''){
+        $("#erroBusca").html('Você deve preencher o campo de busca').css('display','inline-block');
+        $("#busca").focus();
+    }else{
+        localStorage.modulo = '';
+        localStorage.busca = '';
+        
+        localStorage.modulo = modulo;
+        localStorage.busca = busca;
+        
+        window.location = '../home/busca.php';
+    }
+}
+
 function trocaSenha() {
     var email = $("#email").val();
     var mensagem = '';
@@ -14,7 +33,7 @@ function trocaSenha() {
                 $("#email").focus();
             } else {
                 $("#spanEmail").html('Alteração de senha realizada com sucesso, por favor verifique o seu email!').css('display', 'inline-block');
-                $("#spanEmail").css('background-color','#6a9814');
+                $("#spanEmail").css('background-color', '#6a9814');
                 $("#email").focus();
             }
         })
@@ -41,10 +60,10 @@ function logar() {
                 $("#spanUsuario").html('Usuário ou senha incorretos, tente novamente!').css('display', 'inline-block');
             } else {
                 var array = JSON.parse(decodeURIComponent(r));
-                
+
                 localStorage.id = array["idUsuario"];
                 localStorage.nivel = array["nivel"];
-                
+
                 window.location = './home';
             }
         })
@@ -71,12 +90,23 @@ $(document).ready(function () {
     $('#frmTrocarSenha').keypress(function (e) {
         var tecla = (e.keyCode ? e.keyCode : e.which);
 
-        console.log(tecla);
-
         if (tecla == 13) {
             e.preventDefault();
             trocaSenha();
         }
     });
 
+
+
+    $("#btnBusca").click(function () {
+        busca();
+    });
+    $('#formbusca').keypress(function (e) {
+        var tecla = (e.keyCode ? e.keyCode : e.which);
+
+        if (tecla == 13) {
+            e.preventDefault();
+            busca();
+        }
+    });
 });

@@ -48,19 +48,12 @@ switch ($opcao) {
             break;
         }
 
-    case "deletar": {
+    case "excluir": {
+            $idNoticia = $_POST['idNoticia'];
 
-            //recebendo identifica��o
-            $idDestaque = $_POST['id_destaques'];
+            $objNoticia->setIdNoticia($idNoticia);
 
-            //setando identifica��o recebida
-            $objNoticia->setIdDestaque($idDestaque);
-
-            //apagando registro
-            $objNoticiaDao->deletaDestaques($objNoticia);
-
-            //redirecionando
-            echo "<script>window.location='../view/manter_destaques.php';</script>";
+            $objNoticiaDao->delNoticia($objNoticia);
 
             break;
         }
