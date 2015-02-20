@@ -40,7 +40,12 @@ function logar() {
                 $("#senha").val('');
                 $("#spanUsuario").html('Usuário ou senha incorretos, tente novamente!').css('display', 'inline-block');
             } else {
-                window.location = 'home';
+                var array = JSON.parse(decodeURIComponent(r));
+                
+                localStorage.id = array["idUsuario"];
+                localStorage.nivel = array["nivel"];
+                
+                window.location = './home';
             }
         })
     }
