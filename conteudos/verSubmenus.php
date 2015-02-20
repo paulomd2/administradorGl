@@ -2,10 +2,11 @@
 require_once '../model/banco.php';
 require_once 'model/dao.php';
 
+$idMenu = $_GET['id'];
 
-$objMenu->setIdMenu($_GET['id']);
+$objMenu->setIdMenu($idMenu);
 $menu1 = $objConteudoDao->listaMenu1($objMenu);
-$submenus = $objConteudoDao->listaSubmenus($_GET['id']);
+$submenus = $objConteudoDao->listaSubmenus($idMenu);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -77,20 +78,10 @@ $submenus = $objConteudoDao->listaSubmenus($_GET['id']);
                 <a href="#"><?php echo $menu1['titulo']; ?></a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
+                <input type="hidden" id="idMenu" value="<?php echo $idMenu; ?>"
                 <h1><?php echo $menu1['titulo']; ?></h1> <a href="cadSubmenu.php?id=<?php echo $_GET['id']; ?>" class="proPage">Adicionar nova página</a>
-                <div id="submenusordem">
-                    <ul>
-                        <?php
-                        for ($i = 1; $i < count($submenus); $i++) {
-                            ?>
-                            <li id="recordsArray_<?php echo $submenus[$i]['idSubmenu']; ?>">
-                                <div class="menu-conteudo">
-                                    <span class="titMenu"><?php echo $submenus[$i]['tituloSubmenu']; ?></span>
-                                    <a href="altSubmenu.php?id=<?php echo $submenus[$i]['idSubmenu']; ?>">Alterar</a> | <a href="javascript:delSubmenu('<?php echo $submenus[$i]['idSubmenu']; ?>')">Excluir</a>
-                                </div>
-                            </li>   
-                        <?php } ?>
-                    </ul>
+                <div id="listaSubmenus">
+                    <?php require_once 'listaSubmenuAjax.php'; ?>
                 </div>
             </div>
         </div>

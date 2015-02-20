@@ -198,7 +198,7 @@ switch ($opcao) {
 function converteLink($post) {
     $link = strtolower($post);
     $link = str_replace(' ', '-', $link);
-    $link = strtr($link, "áàãâéêíóôõúüç", "aaaaeeiooouuc");
+    $link = preg_replace( '/[`^~\'"]/', null, iconv( 'UTF-8', 'ASCII//TRANSLIT', $link ) );
     
             
     return $link;

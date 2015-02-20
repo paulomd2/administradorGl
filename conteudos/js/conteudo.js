@@ -8,7 +8,9 @@ function delMenu(id) {
 function delSubmenu(id) {
     if (confirm("Você tem certeza que deseja excluir esse Submenu?") == true) {
         $.post('control/controleConteudo.php', {opcao: 'excluirSubmenu', idSubmenu: id});
-        $("#listaSubmenus").load('listaSubmenuAjax.php');
+        
+        var idMenu = $("#idMenu").val();
+        $("#listaSubmenus").load('listaSubmenuAjax.php?id='+idMenu);
     }
 }
 

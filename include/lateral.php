@@ -66,7 +66,7 @@ if (array_search('eventos', $diretorio) || array_search('verEventos', $diretorio
                 </span>
                 <ul class="tgl1">
                     <li>
-                        <a href="../conteudos/">Gerenciar conteúdo</a>
+                        <a href="../conteudos/">Gerenciar menus</a>
                     </li>
                     <li>
                         <a href="../conteudos/verPaginas.php">Gerenciar páginas</a>
