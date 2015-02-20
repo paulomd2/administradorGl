@@ -37,6 +37,7 @@
             <div class="tenor">
                 <h1>Todos as imagens</h1>
                 <a href="cadImagem.php?id=<?php echo $_GET['id']; ?>" class="proPage">Cadastrar Imagem</a>
+                <input type="hidden" value="<?php echo $_GET['id']; ?>" id="idCategoria" />
                 <table class="tableAll">
                     <thead>
                         <tr>
@@ -47,7 +48,7 @@
                         </tr>
                     </thead>
 
-                    <tbody id="listaReleases">
+                    <tbody id="listaImagens">
                         <?php
                         require_once 'listaImagensAjax.php';
                         ?>

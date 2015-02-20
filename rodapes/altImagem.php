@@ -28,7 +28,9 @@
                     $imagem = $objRodapeDao->listaImagem1($objImagem);
                     ?>
                     <form id="cadImagem" enctype="multipart/form-data" method="post" action="control/controleRodape.php">
-                        <input type="hidden" name="idImagem" id="idCategoria" value="<?php echo $idImagem; ?>" />
+                        <input type="hidden" name="idImagem" id="idImagem" value="<?php echo $idImagem; ?>" />
+                        <input type="hidden" name="idCategoria" id="idCategoria" value="<?php echo $imagem['idCategoria']; ?>" />
+                        <input type="hidden" name="imagemAntiga" id="imagemAntiga" value="<?php echo $imagem['imagem']; ?>" />
                         <input type="hidden" name="opcao" id="opcao" value="alterarImagem" />
                         <table class="tableform">
                             <tr>
@@ -65,7 +67,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="button" id="btnCadImagem" value="Alterar" /></td>
+                                <td colspan="2"><input type="button" id="btnAltImagem" value="Alterar" /></td>
                             </tr>
                         </table>
                     </form>

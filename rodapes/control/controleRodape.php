@@ -105,48 +105,42 @@ switch ($opcao) {
             $imagem = uploadImagem();
             $idImagem = $_POST['idImagem'];
 
-            if ($_FILES['imagem']['name'] != '') {
-                $imagem = uploadImagem();
-            } else {
+            if ($_FILES['imagem']['name'] == '') {
                 $imagem = $_POST['imagemAntiga'];
+            } else {
+                $imagem = uploadImagem();
             }
 
             $objImagem->setIdCategoria($idCategoria);
+            $objImagem->setIdImagem($idImagem);
             $objImagem->setImagem($imagem);
             $objImagem->setNome($nome);
             $objImagem->setDataCadastro($dataCadastro);
             $objImagem->setStatus($status);
 
-            //$verificaCategoria = $objRodapeDao->listaCategoriasImagens($objImagem);
-
-            unset($_POST['opcao']);
-            $post = implode('|', $_POST);
-            /*
-              if ($verificaCategoria['identificador'] == 1 && $verificaCategoria['quantidade'] >= 1) {
-              echo "
-              <script>
-              var url = '" . $_SERVER['HTTP_REFERER'] . "&errorId=48';
-              window.location = url;
-              </script>";
-              } elseif ($verificaCategoria['identificador'] == 2 && $verificaCategoria['quantidade'] >= 20) {
-              echo "
-              <script>
-              var url = '" . $_SERVER['HTTP_REFERER'] . "&errorId=49';
-              window.location = url;
-              </script>";
-              } else
-             */
             if ($imagem == false) {
+                unset($_POST['opcao']);
+                $post = implode('|', $_POST);
+
                 echo "
                 <script>
                     var url = '" . $_SERVER['HTTP_REFERER'] . "+&errorId=50';
                     window.location = url;
                 </script>";
             } else {
-                $objRodapeDao->cadImagem($objImagem);
+                $objRodapeDao->altImagem($objImagem);
                 echo '<script>window.location = "../verImagens.php?id=' . $idCategoria . '";</script>';
             }
         }
+        
+        
+    case 'excluirImagem':
+        $idImagem = $_POST['idImagem'];
+        
+        $objImagem->setIdImagem($idImagem);
+        
+        $objRodapeDao->delImagem($objImagem);
+        break;
 }
 
 function uploadImagem() {
@@ -164,9 +158,9 @@ function uploadImagem() {
         if (!file_exists('../../images/')) {
             mkdir('../../images');
         } elseif (file_exists($imagemAntiga)) {
-            unlink($imagemAntiga);
+            @unlink($imagemAntiga);
         }
-        move_uploaded_file($_FILES['imagem']['tmp_name'], '../../images/' . $new_file_name);
+        @move_uploaded_file($_FILES['imagem']['tmp_name'], '../../images/' . $new_file_name);
 
         $valido = $new_file_name;
     }

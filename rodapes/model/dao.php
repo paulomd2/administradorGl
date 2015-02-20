@@ -92,7 +92,7 @@ class CategoriasDAO extends Banco {
     public function listaImagens($objImagem){
         $conexao = $this->abreConexao();
         
-        $sql = "SELECT * FROM ".TBL_IMAGEM_RODAPE." WHERE idCategoria = ".$objImagem->getIdCategoria();
+        $sql = "SELECT * FROM ".TBL_IMAGEM_RODAPE." WHERE idCategoria = ".$objImagem->getIdCategoria()." AND status = 1";
         
         $banco = $conexao->query($sql);
         
@@ -173,6 +173,23 @@ class CategoriasDAO extends Banco {
         $linha = $banco->fetch_assoc();
         
         return $linha;
+        
+        $this->fechaConexao();
+    }
+    
+    
+    public function delImagem($objImagem){
+        $conexao = $this->abreConexao();
+        
+     echo   $sql = "
+                UPDATE ".TBL_IMAGEM_RODAPE." SET
+                status = 0
+                    WHERE idImagem = ".$objImagem->getIdImagem()."
+               ";
+        
+        $conexao->query($sql);
+        
+        $this->fechaConexao();
     }
 
 }
