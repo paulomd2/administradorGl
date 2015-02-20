@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if ($_SESSION['nivel'] != 1) {
+    header('Location: ../home');
+}
+
 require_once '../model/banco.php';
 require_once 'model/dao.php';
 

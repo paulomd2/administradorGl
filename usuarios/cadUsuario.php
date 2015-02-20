@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+if ($_SESSION['nivel'] != 1) {
+    header('Location: ../home');
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>

@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+if ($_SESSION['nivel'] != 1) {
+    header('../home');
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -28,8 +35,6 @@
                                 <td>Email</td>
                                 <td>Usuário</td>
                                 <td>Nível</td>
-                                <td>Status</td>
-                                <td>Criado em</td>
                                 <td>Alterar</td>
                                 <td>Excluir</td>
                             </tr>
@@ -37,7 +42,7 @@
                         <tbody id="listaUsuarios"></tbody>
                     </table>
                 </form>
-                
+
             </div>
         </div>
     </body>

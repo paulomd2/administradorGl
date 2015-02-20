@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+if ($_SESSION['nivel'] != 1) {
+    header('Location: ../home');
+}
 
 require_once '../model/banco.php';
 require_once 'model/dao.php';
@@ -13,8 +18,6 @@ for ($i = 0; $i < count($usuarios); $i++) {
             <td>' . $usuarios[$i]["email"] . '</td>
             <td>' . $usuarios[$i]["usuario"] . '</td>
             <td>' . $usuarios[$i]["nivel"] . '</td>
-            <td>' . $usuarios[$i]["status"] . '</td>
-            <td>' . $usuarios[$i]["dataCriacao"] . '</td>
             <td><a href="altUsuario.php?id=' . $usuarios[$i]['idUsuario'] . '">Alterar</a></td>
             <td><a href="javascript:delUsuario(' . $usuarios[$i]["idUsuario"] . ')">Excluir</a></td>
           </tr>';
