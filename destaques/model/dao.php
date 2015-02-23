@@ -60,7 +60,7 @@ class DestaquesDAO extends Banco {
 
         $sql = "SELECT *, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao
                 FROM " . TBL_DESTAQUE . "
-                    WHERE status = 1
+                    WHERE status != 0
                         ORDER BY ordem
                         LIMIT " . $count . "
                 ";
@@ -82,7 +82,7 @@ class DestaquesDAO extends Banco {
 
         $sql = "SELECT *, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao
                 FROM " . TBL_DESTAQUE . "
-                    WHERE status = 1
+                    WHERE status != 0
                         ORDER BY idDestaque DESC
                         LIMIT " . $count . "
                 ";
@@ -128,6 +128,27 @@ class DestaquesDAO extends Banco {
 
         $conexao->query($query);
         $this->fechaConexao();
+    }
+
+    public function busca($objDestaque) {
+        $conexao = $this->abreConexao();
+
+        $sql = "
+                SELECT *, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao
+                FROM " . TBL_DESTAQUE . "
+                    WHERE status != 0
+                    AND titulo like '%".$objDestaque->getTitulo()."%'
+                        ORDER BY ordem
+                ";
+
+        $banco = $conexao->query($sql);
+
+        $linhas = array();
+        while ($linha = $banco->fetch_assoc()) {
+            $linhas[] = $linha;
+        }
+
+        return $linhas;
     }
 
 }

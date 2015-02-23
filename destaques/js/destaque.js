@@ -16,6 +16,17 @@ function delDestaque(id) {
         $("#listaDestaques").load('listaDestaqueAjax.php?count='+count);
     }
 }
+
+
+function delDestaqueBusca(id, busca) {
+    if (confirm("Você tem certeza que deseja excluir esse destaque?")) {
+        $.post('../destaques/control/controleDestaque.php', {opcao: 'excluir', idDestaque: id});
+
+        $(".tableAll").load('listaBuscaAjax.php?modulo=destaques&busca='+busca);
+    }
+}
+
+
 $(document).ready(function () {
 
     $("#btnCadastrar").click(function () {

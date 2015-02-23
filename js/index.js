@@ -19,7 +19,6 @@ function busca(){
 
 function trocaSenha() {
     var email = $("#email").val();
-    var mensagem = '';
 
     $(".erro").html('').css('display', 'none');
     if (email == '') {

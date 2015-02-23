@@ -12,7 +12,7 @@ switch ($modulo) {
         $objNoticia->setTitulo($busca);
 
         $conteudo = $objNoticiaDao->busca($objNoticia);
-        
+
         echo '
                 <table class = "tableAll">
                     <thead>
@@ -55,7 +55,7 @@ switch ($modulo) {
                         </tr>
                     </thead>
             ';
-        
+
         for ($i = 0; $i < count($conteudo); $i++) {
             echo '
                     <tbody>
@@ -74,7 +74,7 @@ switch ($modulo) {
         $objEvento->setTitulo($busca);
 
         $conteudo = $objEventoDao->busca($objEvento);
-        
+
         echo '
                 <table class = "tableAll">
                     <thead>
@@ -86,15 +86,47 @@ switch ($modulo) {
                         </tr>
                     </thead>
             ';
-        
+
         for ($i = 0; $i < count($conteudo); $i++) {
             echo '
                     <tbody>
                         <tr>
                             <td>' . $conteudo[$i]["titulo"] . '</td>
-                            <td>de ' . $conteudo[$i]["dataInicio"] . ' até '.$conteudo[$i]["dataFim"].'</td>
+                            <td>de ' . $conteudo[$i]["dataInicio"] . ' até ' . $conteudo[$i]["dataFim"] . '</td>
                             <td><a href="../eventos/altEvento.php?id=' . $conteudo[$i]["idEvento"] . '">Alterar</a></td>
                             <td><a href="javascript:delEventoBusca(' . $conteudo[$i]["idEvento"] . ',\'' . $busca . '\')">Excluir</a></td>
+                        </tr>';
+        }
+        break;
+
+    case 'destaques':
+        require_once '../destaques/model/dao.php';
+        echo '<script src="../destaques/js/destaque.js"></script>';
+
+        $objDestaque->setTitulo($busca);
+
+        $conteudo = $objDestaqueDao->busca($objDestaque);
+
+        echo '
+                <table class = "tableAll">
+                    <thead>
+                        <tr>
+                            <td style = "width: 50%;">Título</td>
+                            <td style = "width: 30%;">Data</td>
+                            <td style = "width: 10%;">Alterar</td>
+                            <td style = "width: 10%;">Excluir</td>
+                        </tr>
+                    </thead>
+            ';
+
+        for ($i = 0; $i < count($conteudo); $i++) {
+            echo '
+                    <tbody>
+                        <tr>
+                            <td>' . $conteudo[$i]["titulo"] . '</td>
+                            <td>' . $conteudo[$i]["dataPublicacao"] . '</td>
+                            <td><a href="../destaques/altDestaque.php?id=' . $conteudo[$i]["idDestaque"] . '">Alterar</a></td>
+                            <td><a href="javascript:delDestaqueBusca(' . $conteudo[$i]["idDestaque"] . ',\'' . $busca . '\')">Excluir</a></td>
                         </tr>';
         }
         break;

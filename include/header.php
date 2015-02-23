@@ -8,6 +8,7 @@ if(empty($_SESSION)){
 <script src="../usuarios/js/usuario.js"></script>
 <script src="../js/index.js"></script>
 <div class="center-user">
+    
     <div class="detail-user">
         <figure class="avatar fl">
             <a href="../home"><img src="http://www.portalgl.com.br/imagens/logo_glevents.png" alt="Nome avatar" /></a>
@@ -35,6 +36,7 @@ if(empty($_SESSION)){
                 <select name="modulo" id="modulo">
                     <option value="noticias">NOTÍCIA</option>
                     <option value="releases">RELEASES</option>
+                    <option value="destaques">DESTAQUES</option>
                     <option value="eventos">EVENTOS</option>
                 </select>
                 <input type="button" value="BUSCAR" id="btnBusca"/><br />
