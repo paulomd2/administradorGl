@@ -14,8 +14,6 @@ $evento = $objEventoDao->listaEvento1($objEvento);
         <meta charset="UTF-8">
         <title>Painel | Fagga</title>
         <?php include_once '../include/head.php'; ?>
-        <script type="text/javascript" src="../js/jquery-2.1.3.js"></script>
-        <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
         <script type="text/javascript" src="js/eventos.js"></script>
         <script src="../plugin/ckeditor/ckeditor.js"></script>
     </head>
@@ -53,14 +51,14 @@ $evento = $objEventoDao->listaEvento1($objEvento);
                         <tr>
                             <td>Data de Início:</td>
                             <td>
-                                <input type="text" name="dataInicio" id="dataInicio" value="<?php echo implode('/', array_reverse(explode('-', $evento['dataInicio']))); ?>" /><br />
+                                <input type="date" name="dataInicio" id="dataInicio" value="<?php echo $evento['dataInicio']; ?>" /><br />
                                 <span id="spanDataInicio" class="erro"></span>
                             </td>
                         </tr>
                         <tr>
                             <td>Data de Fim:</td>
                             <td>
-                                <input type="text" name="dataFim" id="dataFim" value="<?php echo implode('/', array_reverse(explode('-', $evento['dataFim']))); ?>" /><br />
+                                <input type="date" name="dataFim" id="dataFim" value="<?php echo $evento['dataFim']; ?>" /><br />
                                 <span id="spanDataFim" class="erro"></span>
                             </td>
                         </tr>

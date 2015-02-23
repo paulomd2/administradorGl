@@ -63,13 +63,12 @@ switch ($opcao) {
 
         $objEventoDao->altEvento($objEvento);
 
-        
-        if($dataFim > date('Y-m-d H:i:s')){
+        if($dataFim >= date('Y-m-d H:i:s')){
             echo "<script>window.location='../verEventos.php?d=proximo'</script>";    
         }else{
             echo "<script>window.location='../verEventos.php?d=anterior'</script>";
         }
-        
+
         break;
 
     case 'excluir':
