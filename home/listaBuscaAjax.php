@@ -24,12 +24,12 @@
 
             for ($i = 0; $i < count($conteudo); $i++) {
                 echo '
-                    <tbody id="listaNoticias">
+                    <tbody id="listaNoticiasBusca">
                         <tr>
                             <td>' . $conteudo[$i]["titulo"] . '</td>
                             <td>' . $conteudo[$i]["dataPublicacao"] . '</td>
                             <td><a href="../noticias/altNoticia.php?id=' . $conteudo[$i]["idNoticia"] . '">Alterar</a></td>
-                            <td><a href="javascript:delNoticiaBusca(' . $conteudo[$i]["idNoticia"] . ')">Excluir</a></td>
+                            <td><a href="javascript:delNoticiaBusca(' . $conteudo[$i]["idNoticia"] . ',\''.$busca.'\')">Excluir</a></td>
                         </tr>';
             }
             break;

@@ -18,14 +18,11 @@ function delNoticia(id) {
 }
 
 
-function delNoticiaBusca(id) {
+function delNoticiaBusca(id,busca) {
     if (confirm("Você tem certeza que deseja excluir essa notícia?") == true) {
-        $.post('../noticias/control/controleNoticias.php', {opcao: 'excluir', idNoticia: id},
-        function(r){
-            console.log(r);
-        });
+        $.post('../noticias/control/controleNoticias.php', {opcao: 'excluir', idNoticia: id});
 
-        //$("#listaNoticias").load('../noticias/listaNoticiasAjax.php?count=500');
+        $(".tableAll").load('listaBuscaAjax.php?modulo=noticias&busca='+busca);
     }
 }
 $(document).ready(function () {
