@@ -27,7 +27,7 @@
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Últimos destaques</h1>
-                <!--<table style="font-size: 14px; width: 760px;">-->
+                <a href="verDestaques.php" class="proPage">Ver todos os destaques</a>
                 <table class="tableAll">
                     <thead>
                         <tr>
@@ -40,10 +40,8 @@
                             <td style="width: 10%;">Excluir</td>
                         </tr>
                     </thead>
-
                     <tbody id="listaDestaques"></tbody>
                 </table>
-                <a href="verDestaques.php" class="proPage">Ver todos os destaques</a>
 
                 <hr/>
                 <h1>Cadastrar destaque</h1>

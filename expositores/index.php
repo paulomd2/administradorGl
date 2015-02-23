@@ -25,6 +25,7 @@
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Últimos expositores</h1>
+                <a href="verExpositores.php" class="proPage">Ver todos os expositores</a>
                 <table class="tableAll">
                     <thead>
                         <tr>
@@ -36,7 +37,6 @@
                     </thead>
                     <tbody id="listaExpositores"></tbody>
                 </table>
-                <a href="verExpositores.php" class="proPage">Ver todos os expositores</a>
                 <hr/>
                 <h1>Cadastrar Expositores</h1>
                 <?php

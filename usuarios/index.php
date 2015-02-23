@@ -23,7 +23,8 @@ if ($_SESSION['nivel'] != 1) {
                 <a href="#">Usuário</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
-                <h1>Últimos usuários registrados</h1>
+                <h1>Últimos usuários</h1>
+                <a href="verUsuarios.php" class="proPage">Ver todos os usuários</a>
                 <table class="tableAll">
                     <thead>
                         <tr>
@@ -37,7 +38,6 @@ if ($_SESSION['nivel'] != 1) {
                     </thead>
                     <tbody id="listaUsuarios"></tbody>
                 </table>
-                <a href="verUsuarios.php" class="proPage">Ver todos os usuários</a>
                 <hr/>
                 <h1>Cadastrar usuário</h1>
                 <form name="cadUsuario" class="tableform">

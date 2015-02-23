@@ -32,7 +32,7 @@ setcookie("ck_authorized", "true", 0, "/");
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Últimos releases</h1>
-                <!--<table style="font-size: 14px; width: 760px;">-->
+                <a href="verReleases.php" class="proPage">Ver todos os releases</a>
                 <table class="tableAll">
                     <thead>
                         <tr>
@@ -45,7 +45,6 @@ setcookie("ck_authorized", "true", 0, "/");
 
                     <tbody id="listaReleases"></tbody>
                 </table>
-                <a href="verReleases.php" class="proPage">Ver todos os releases</a>
 
                 <hr/>
                 <h1>Cadastrar release</h1>

@@ -23,7 +23,7 @@ setcookie("ck_authorized", "true", 0, "/");
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Últimas notícias</h1>
-                <!--<table style="font-size: 14px; width: 760px;">-->
+                <a href="verNoticias.php" class="proPage">Ver todas as notícias</a>
                 <table class="tableAll">
                     <thead>
                         <tr>
@@ -36,12 +36,8 @@ setcookie("ck_authorized", "true", 0, "/");
                             <td style="width: 10%;">Excluir</td>
                         </tr>
                     </thead>
-
-                    <tbody id="listaNoticias">
-                        
-                    </tbody>
+                    <tbody id="listaNoticias"></tbody>
                 </table>
-                <a href="verNoticias.php" class="proPage">Ver todas as notícias</a>
 
                 <hr/>
                 <h1>Cadastrar notícia</h1>
