@@ -12,7 +12,7 @@ if (pagina == 'verEventos.php') {
 function delEvento(id) {
     if (confirm("Você tem certeza que deseja remover esse evento?")) {
         $.post('control/controleEventos.php', {opcao: 'excluir', idEvento: id});
-        
+
         if ($("#listaEventosProximo").length) {
             $("#listaEventosProximo").load('listaEventosAjax.php?count=' + count + '&d=proximo');
         } else {
@@ -20,7 +20,22 @@ function delEvento(id) {
         }
     }
 }
+
+function delEventoBusca(id, busca) {
+    if (confirm("Você tem certeza que deseja remover esse evento?")) {
+        $.post('../eventos/control/controleEventos.php', {opcao: 'excluir', idEvento: id});
+
+        $(".tableAll").load('listaBuscaAjax.php?modulo=eventos&busca='+busca);
+    }
+}
+
 $(document).ready(function () {
+
+    if ($("#listaEventosProximo").length) {
+        $("#listaEventosProximo").load('listaEventosAjax.php?count=' + count + '&d=Proximo');
+    } else {
+        $("#listaEventosAnterior").load('listaEventosAjax.php?count=' + count + '&d=Anterior');
+    }
 
     $("#btnCadastrar").click(function () {
         var titulo = $("#titulo").val().trim();
@@ -74,12 +89,11 @@ $(document).ready(function () {
     $("#btnAlterar").click(function () {
         var titulo = $("#titulo").val().trim();
         var nome = $("#nome").val().trim();
-        var dataInicio = $("#dataInicio").val().trim();
-        var dataFim = $("#dataFim").val().trim();
+        var dataInicio = $("#dataInicio").val();
+        var dataFim = $("#dataFim").val();
         var tituloMetaTag = $("#tituloMetaTag").val().trim();
         var keywordsMetatag = $("#keywordsMetaTag").val().trim();
         var descricaoMetaTag = $("#descricaoMetaTag").val().trim();
-        var imagem = $("#imagem").val().trim();
 
         $(".erro").html('');
         if (nome == '') {

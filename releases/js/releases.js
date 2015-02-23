@@ -1,3 +1,14 @@
+function delReleaseBusca(id,busca) {
+    if (confirm("Você tem certeza que deseja excluir esse release?") == true) {
+        $.post('../releases/control/controleReleases.php', {opcao: 'excluir', idRelease: id},
+        function(r){
+            console.log(r);
+        });
+
+        $(".tableAll").load('listaBuscaAjax.php?modulo=releases&busca='+busca);
+    }
+}
+
 function delRelease(id) {
     if (confirm("Você tem certeza que deseja excluir esse release?") == true) {
         $.post('control/controleReleases.php', {opcao: 'excluir', idRelease: id});

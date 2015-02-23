@@ -52,7 +52,7 @@ class EventosDAO extends Banco {
                 texto = '" . $objEvento->getTexto() . "',
                 tituloMetaTag = '" . $objEvento->getTituloMetaTag() . "',
                 keywordsMetaTag = '" . $objEvento->getKeywordsMetaTag() . "',
-                descricaoMetaTag = '" . $objEvento->getDescricaoMetaTag() . "',
+                descricaoMetaTag = '" . $objEvento->getDescricaoMetaTag() . "'
                     WHERE idEvento = " . $objEvento->getIdEvento();
 
         $conexao->query($sql);
@@ -119,15 +119,15 @@ class EventosDAO extends Banco {
     public function verEventosAnteriores($count) {
         $conexao = $this->abreConexao();
 
-        $sql = "
+       echo $sql = "
                 SELECT *,
                 DATE_FORMAT(dataInicio, '%d/%m/%Y') as dataInicio,
                 DATE_FORMAT(dataFim, '%d/%m/%Y') as dataFim,
                 DATE_FORMAT(dataCadastro, '%d/%m/%Y') as dataCadastro
                     FROM ".TBL_EVENTO."
-                        WHERE status = 1
+                        WHERE status != 0
                         AND dataFim <= NOW()
-                        ORDER BY ordem
+                        ORDER BY dataInicio
                         LIMIT ".$count."
                ";
 
@@ -163,6 +163,33 @@ class EventosDAO extends Banco {
         
         
         $conexao->query($query)or die($conexao->error);        
+        $this->fechaConexao();
+    }
+    
+    public function busca($objEvento){
+        $conexao = $this->abreConexao();
+
+        $sql = "
+                SELECT *,
+                DATE_FORMAT(dataInicio, '%d/%m/%Y') as dataInicio,
+                DATE_FORMAT(dataFim, '%d/%m/%Y') as dataFim,
+                DATE_FORMAT(dataCadastro, '%d/%m/%Y') as dataCadastro
+                    FROM ".TBL_EVENTO."
+                        WHERE status != 0
+                        AND titulo like '%".$objEvento->getTitulo()."%'
+                            ORDER BY dataInicio
+               ";
+
+        
+        $banco = $conexao->query($sql);
+        
+        $linhas = array();
+        while($linha = $banco->fetch_assoc()){
+            $linhas[] = $linha;
+        }
+
+        
+        return $linhas;
         $this->fechaConexao();
     }
 

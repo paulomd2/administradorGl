@@ -108,9 +108,23 @@ class ReleasesDAO extends Banco {
         $conexao = $this->abreConexao();
         
         $sql = "
-                SELECT *
+                SELECT *,
+                    CASE WHEN mes = 1 THEN 'Janeiro'
+                    WHEN mes = 2 THEN 'Fevereiro'
+                    WHEN mes = 3 THEN 'Março'
+                    WHEN mes = 4 THEN 'Abril'
+                    WHEN mes = 5 THEN 'Maio'
+                    WHEN mes = 6 THEN 'Junho'
+                    WHEN mes = 7 THEN 'Julho'
+                    WHEN mes = 8 THEN 'Agosto'
+                    WHEN mes = 9 THEN 'Setembro'
+                    WHEN mes = 10 THEN 'Outubro'
+                    WHEN mes = 11 THEN 'Novembro'
+                    WHEN mes = 12 THEN 'Dezembro'
+                    END AS mes
                     FROM ".TBL_RELEASE."
                         WHERE titulo like '%".$objRelease->getTitulo()."%'
+                        AND status != 0
                ";
         
         $banco = $conexao->query($sql);
