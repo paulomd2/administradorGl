@@ -17,6 +17,7 @@ $.validaEmail = function (email) {
     else
         return false;
 }
+
 function delCaravana(id) {
     if (confirm("Você tem certeza que deseja excluir essa caravana?") == true) {
         $.post('control/controleCaravanas.php', {opcao: 'excluirCaravana', idCaravana: id});
@@ -24,6 +25,16 @@ function delCaravana(id) {
         $("#listaCaravanas").load('listaCaravanasAjax.php?count=' + count);
     }
 }
+
+
+function delCaravanaBusca(id,busca) {
+    if (confirm("Você tem certeza que deseja excluir essa caravana?") == true) {
+        $.post('../caravanas/control/controleCaravanas.php', {opcao: 'excluirCaravana', idCaravana: id});
+        
+        $(".tableAll").load('listaBuscaAjax.php?modulo=caravanas&busca='+busca);
+    }
+}
+
 $(document).ready(function () {
     $("#listaCaravanas").load('listaCaravanasAjax.php?count=' + count);
 

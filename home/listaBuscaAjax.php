@@ -225,6 +225,40 @@ switch ($modulo) {
                         </tr>';
         }
         break;
+        
+    case 'caravanas':
+        require_once '../caravanas/model/dao.php';
+        echo '<script src="../caravanas/js/caravanas.js"></script>';
+
+        $objCaravana->setNome($busca);
+
+        $conteudo = $objCaravanaDao->busca($objCaravana);
+
+        echo '
+                <table class="tableAll">
+                    <thead>
+                        <tr>
+                            <td style="width: 30%;">nome</td>
+                            <td style="width: 25%;">responsável</td>
+                            <td style="width: 25%;">local</td>
+                            <td style="width: 10%;">alterar</td>
+                            <td style="width: 10%;">Excluir</td>
+                        </tr>
+                    </thead>
+            ';
+
+        for ($i = 0; $i < count($conteudo); $i++) {
+            echo '
+                    <tbody>
+                        <tr>
+                            <td>' . $conteudo[$i]["nome"] . '</td>
+                            <td>'.$conteudo[$i]["responsavel"].'</td>
+                            <td>'.$conteudo[$i]["cidade"].' - '.$conteudo[$i]["estado"].'</td>
+                            <td><a href="../caravanas/altCaravana.php?id=' . $conteudo[$i]["idCaravana"] . '">Alterar</a></td>
+                            <td><a href="javascript:delCaravanaBusca(' . $conteudo[$i]["idCaravana"] . ',\'' . $busca . '\')">Excluir</a></td>
+                        </tr>';
+        }
+        break;
 }
 ?>
 </tbody>

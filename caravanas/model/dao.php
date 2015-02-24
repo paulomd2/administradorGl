@@ -47,7 +47,7 @@ class CaravanasDAO extends Banco {
         $conexao = $this->abreConexao();
 
         $sql = "
-                SELECT * FROM " . TBL_CARAVANA . " WHERE status = 1 LIMIT ".$count."
+                SELECT * FROM " . TBL_CARAVANA . " WHERE status != 0 LIMIT ".$count."
                ";
         
         $banco = $conexao->query($sql);
@@ -121,6 +121,26 @@ class CaravanasDAO extends Banco {
                 UPDATE " . TBL_CARAVANA . " set STATUS = 0 WHERE idCaravana = ".$objCaravana->getIdCaravana();
         
         $banco = $conexao->query($sql);
+        
+        $this->fechaConexao();
+    }
+    
+    
+    public function busca($objCaravana) {
+        $conexao = $this->abreConexao();
+
+        $sql = "
+                SELECT * FROM " . TBL_CARAVANA . " WHERE status != 0 AND nome LIKE '%".$objCaravana->getNome()."%'
+               ";
+        
+        $banco = $conexao->query($sql);
+        
+        $linhas = array();
+        while($linha = $banco->fetch_assoc()){
+            $linhas[] = $linha;
+        }
+        
+        return $linhas;
         
         $this->fechaConexao();
     }
