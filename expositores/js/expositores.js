@@ -16,6 +16,13 @@ function delExpositor(id){
     }
 }
 
+function delExpositorBusca(id, busca){
+    if(confirm("você tem certeza que deseja excluir esse expositor?")== true){
+        $.post('../expositores/control/controleExpositores.php',{opcao:'excluir',idExpositor:id});
+        
+        $(".tableAll").load('listaBuscaAjax.php?modulo=expositores&busca='+busca);
+    }
+}
 $(document).ready(function () {
     $("#listaExpositores").load('listaExpositoresAjax.php?count=' + count);
 

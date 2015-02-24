@@ -4,6 +4,15 @@ function delBanner(id) {
         $("#listaBanners").load('listaBannersAjax.php?count=5');
     }
 }
+
+
+function delBannerBusca(id,busca) {
+    if (confirm("Você tem certeza que deseja excluir esse banner?") == true) {
+        $.post('../banners/control/controleBanners.php', {opcao: 'excluir', idBanner: id});
+        
+        $("#bannersBusca").load('listaBuscaAjax.php?modulo=banners&busca='+busca);
+    }
+}
 $(document).ready(function () {
     $("#btnCadastrar").click(function () {
         var nome = $("#nome").val().trim();

@@ -105,6 +105,27 @@ class ExpositoresDAO extends Banco {
         $conexao->query($query);        
         $this->fechaConexao();
     }
+    
+    
+    public function busca($objExpositor) {
+        $conexao = $this->abreConexao();
+
+       $sql = "SELECT *
+                FROM " . TBL_EXPOSITORES . "
+                    WHERE status != 0
+                    AND nome LIKE '%".$objExpositor->getNome()."%'
+                ";
+
+        $banco = $conexao->query($sql);
+
+        $linhas = array();
+        while ($linha = $banco->fetch_assoc()) {
+            $linhas[] = $linha;
+        }
+
+        return $linhas;
+        $this->fechaConexao();
+    }
 
 }
 

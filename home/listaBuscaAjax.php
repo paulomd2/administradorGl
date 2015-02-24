@@ -130,9 +130,9 @@ switch ($modulo) {
                         </tr>';
         }
         break;
-        
-        
-        case 'banners':
+
+
+    case 'banners':
         require_once '../banners/model/dao.php';
         echo '<script src="../banners/js/banners.js"></script>';
 
@@ -175,6 +175,7 @@ switch ($modulo) {
                         list-style: none;
                     }
                 </style>
+                <div id="bannersBusca">
             ';
 
         for ($i = 0; $i < count($conteudo); $i++) {
@@ -183,10 +184,45 @@ switch ($modulo) {
                         <div class = "lista_banner">
                             <img src = "../images/' . $conteudo[$i]["imagem"] . '" alt = "' . $conteudo[$i]["nome"] . '" title = "' . $conteudo[$i]["nome"] . '" width = "300" style = "float: left; margin-right: 10px;"/>
                             <span>' . $conteudo[$i]["nome"] . '</span><br/>
-                            <a href="altBanner.php?id=' . $conteudo[$i]['idBanner'] . '">Alterar</a> | <a href="javascript:delBanner(' . $conteudo[$i]["idBanner"] . ')">Excluir</a>
+                            <a href="altBanner.php?id=' . $conteudo[$i]['idBanner'] . '">Alterar</a> | <a href="javascript:delBannerBusca(' . $conteudo[$i]["idBanner"] . ',\'' . $busca . '\')">Excluir</a>
                             </a>
                         </div>
                     </li>';
+        }
+        
+        echo '</div>';
+        break;
+
+
+    case 'expositores':
+        require_once '../expositores/model/dao.php';
+        echo '<script src="../expositores/js/expositores.js"></script>';
+
+        $objExpositor->setNome($busca);
+
+        $conteudo = $objExpositorDao->busca($objExpositor);
+
+        echo '
+                <table class = "tableAll">
+                    <thead>
+                        <tr>
+                            <td style = "width: 50%;">Nome</td>
+                            <td style = "width: 30%;">Imagem</td>
+                            <td style = "width: 10%;">Alterar</td>
+                            <td style = "width: 10%;">Excluir</td>
+                        </tr>
+                    </thead>
+            ';
+
+        for ($i = 0; $i < count($conteudo); $i++) {
+            echo '
+                    <tbody>
+                        <tr>
+                            <td>' . $conteudo[$i]["nome"] . '</td>
+                            <td> <img src="../images/'.$conteudo[$i]["imagem"].'" width="100" />  </td>
+                            <td><a href="../expositores/altExpositor.php?id=' . $conteudo[$i]["idExpositor"] . '">Alterar</a></td>
+                            <td><a href="javascript:delExpositorBusca(' . $conteudo[$i]["idExpositor"] . ',\'' . $busca . '\')">Excluir</a></td>
+                        </tr>';
         }
         break;
 }
