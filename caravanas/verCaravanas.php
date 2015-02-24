@@ -25,16 +25,11 @@ setcookie("ck_authorized", "true", 0, "/");
                 <table class="tableAll">
                     <thead>
                         <tr>
-                            <td>nome</td>
-                            <td>responsável</td>
-                            <td>email</td>
-                            <td>telefone</td>
-                            <td>celular</td>
-                            <td>local</td>
-                            <td>cidade</td>
-                            <td>estado</td>
-                            <td>alterar</td>
-                            <td>Excluir</td>
+                            <td style="width: 30%;">nome</td>
+                            <td style="width: 25%;">responsável</td>
+                            <td style="width: 25%;">local</td>
+                            <td style="width: 10%;">alterar</td>
+                            <td style="width: 10%;">Excluir</td>
                         </tr>
                     </thead>
                     <tbody id="listaCaravanas"></tbody>
