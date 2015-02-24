@@ -38,6 +38,7 @@ if(empty($_SESSION)){
                     <option value="releases">RELEASES</option>
                     <option value="destaques">DESTAQUES</option>
                     <option value="eventos">EVENTOS</option>
+                    <option value="banners">BANNERS</option>
                 </select>
                 <input type="button" value="BUSCAR" id="btnBusca"/><br />
                 <span id="erroBusca" class="erro"></span>

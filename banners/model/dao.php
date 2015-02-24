@@ -107,6 +107,28 @@ class BannersDAO extends Banco {
         
         $this->fechaConexao();
     }
+    
+    
+    public function busca($objBanner){
+        $conexao = $this->abreConexao();
+
+        $sql = 'SELECT *
+                    FROM' . TBL_BANNER . '
+                        WHERE status != 0
+                        AND nome LIKE "%'.$objBanner->getNome().'%"
+                            ORDER BY ordem ';
+        $banco = $conexao->query($sql);
+
+        $linhas = array();
+
+        while ($linha = $banco->fetch_array()) {
+            $linhas[] = $linha;
+        }
+
+        return $linhas;
+
+        $this->fechaConexao();
+    }
 
 }
 

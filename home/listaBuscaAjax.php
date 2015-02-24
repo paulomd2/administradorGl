@@ -130,6 +130,65 @@ switch ($modulo) {
                         </tr>';
         }
         break;
+        
+        
+        case 'banners':
+        require_once '../banners/model/dao.php';
+        echo '<script src="../banners/js/banners.js"></script>';
+
+        $objBanner->setNome($busca);
+
+        $conteudo = $objBannersDao->busca($objBanner);
+
+        echo '
+                <style>
+                    .lista_banner{
+                        width: 600px;
+                        height: auto;
+                        background: none;
+                        border: 1px solid #a2a5a6;
+                        border-radius: 5px;
+                        margin-bottom: 10px;
+                        background: white;
+                        padding: 5px;
+                        overflow: hidden;
+                    }
+                    .menu-conteudo span.titMenu{
+                        font-size: 16px;
+                        color: black;
+                        display: block;
+                    }
+                    .menu-conteudo a{
+                        display: inline-block;
+                        font-size: 14px;
+                        color: #3366ff;
+                        text-decoration: none;
+                    }
+                    .menu-conteudo a:hover{
+                        text-decoration: underline;
+                    }
+                    a.linkIcon{
+                        color: #333;
+                        text-decoration: none;
+                    }
+                    ul{
+                        list-style: none;
+                    }
+                </style>
+            ';
+
+        for ($i = 0; $i < count($conteudo); $i++) {
+            echo '
+                    <li id="recordsArray_' . $conteudo[$i]["idBanner"] . '">
+                        <div class = "lista_banner">
+                            <img src = "../images/' . $conteudo[$i]["imagem"] . '" alt = "' . $conteudo[$i]["nome"] . '" title = "' . $conteudo[$i]["nome"] . '" width = "300" style = "float: left; margin-right: 10px;"/>
+                            <span>' . $conteudo[$i]["nome"] . '</span><br/>
+                            <a href="altBanner.php?id=' . $conteudo[$i]['idBanner'] . '">Alterar</a> | <a href="javascript:delBanner(' . $conteudo[$i]["idBanner"] . ')">Excluir</a>
+                            </a>
+                        </div>
+                    </li>';
+        }
+        break;
 }
 ?>
 </tbody>
