@@ -68,9 +68,6 @@ if (array_search('eventos', $diretorio) || array_search('verEventos', $diretorio
                     <li>
                         <a href="../conteudos/">Gerenciar menus</a>
                     </li>
-                    <li>
-                        <a href="../conteudos/verPaginas.php">Gerenciar páginas</a>
-                    </li>
                     <?php
                     $menu = $objConteudoDao->listaMenus();
 
@@ -78,6 +75,9 @@ if (array_search('eventos', $diretorio) || array_search('verEventos', $diretorio
                         echo '<li><a href="../conteudos/verSubmenus.php?id=' . $menu[$i]["idMenu"] . '#1" onclick="javascript:void(0);">' . $menu[$i]['titulo'] . '</a></li>';
                     }
                     ?>
+                    <li>
+                        <a href="../conteudos/verPaginas.php">Página extra</a>
+                    </li>
                 </ul>
             </li>
             <li class="hasub">
@@ -107,7 +107,7 @@ if (array_search('eventos', $diretorio) || array_search('verEventos', $diretorio
                         if (array_search('rodapes', $diretorio) == true) {
                             echo 'class="ativo"';
                         }
-                        ?>>Rodpé</a></li>
+                        ?>>Rodapé</a></li>
                 </ul>
             </li>
             <?php
@@ -175,7 +175,11 @@ if (array_search('eventos', $diretorio) || array_search('verEventos', $diretorio
                     echo 'class="ativo"';
                 }
                 ?>><i class="icon icon-image"></i> Caravanas</a></li>
-            <li><a href="#"><i class="icon icon-upload2"></i> Uploads</a></li>
+            <li><a href="../uploads" <?php
+                if (array_search('uploads', $diretorio) == true) {
+                    echo 'class="ativo"';
+                }
+                ?>><i class="icon icon-upload2"></i> Uploads</a></li>
             <?php
         endif;
         ?>
