@@ -32,7 +32,7 @@ if ($_SESSION['nivel'] != 1) {
                             <td>Email</td>
                             <td>Usuário</td>
                             <td>Nível</td>
-                            <td>Editar</td>
+                            <td>Alterar</td>
                             <td>Excluir</td>
                         </tr>
                     </thead>

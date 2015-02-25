@@ -25,7 +25,7 @@ for ($i = 0; $i < count($categorias); $i++) {
             <!--td>' . $identificador. '</td-->
             <td><a href="altCategoria.php?id=' . $categorias[$i]["idCategoria"] . '">Alterar</a></td>
             <td><a href="javascript:delCategoria(' . $categorias[$i]["idCategoria"] . ')">Excluir</a></td>
-            <td><a href="cadImagem.php?id=' . $categorias[$i]["idCategoria"] . '">Cadastrar</a></td>
+            <td><a href="cadImagem.php?id=' . $categorias[$i]["idCategoria"] . '">Adicionar imagem</a></td>
           </tr>';
 }
 ?>

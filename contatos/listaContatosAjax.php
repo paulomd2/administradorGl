@@ -10,8 +10,10 @@ for ($i = 0; $i < count($contatos); $i++) {
     $dataEnvio = implode('/', array_reverse(explode('-',$explodeData[0])));
     $horaEnvio = $explodeData[1];
     echo '<tr>
-            <td>' . $contatos[$i]["nome"] . '</td>
-            <td>' . $contatos[$i]["email"] . '</td>
+            <td>
+                <strong>' . $contatos[$i]["nome"] . '</strong> <br />
+                '. $contatos[$i]["email"] . '
+            </td>
             <td>' . $contatos[$i]["assunto"] . '</td>
             <td>' . $dataEnvio . ' '.$horaEnvio.'</td>
             <td><a href="responderContato.php?id='.$contatos[$i]["idEmail"].'">Responder</a></td>

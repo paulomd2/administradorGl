@@ -21,10 +21,10 @@
                 <table class="tableAll">
                     <thead>
                         <tr>
-                            <td style="width: 40%;">Categoria</td>
+                            <td>Categoria</td>
                             <td style="width: 10%;">Alterar</td>
                             <td style="width: 10%;">Excluir</td>
-                            <td style="width: 10%;">Cadastrar</td>
+                            <td style="width: 20%;">Adicionar imagem</td>
                         </tr>
                     </thead>
                     <tbody id="listaCategorias"></tbody>

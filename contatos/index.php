@@ -44,10 +44,9 @@ setcookie("ck_authorized", "true", 0, "/");
                 <table class="tableAll">
                     <thead>
                         <tr>
-                            <td>Nome</td>
-                            <td>Email</td>
-                            <td>Assunto</td>
-                            <td>Data de Envio</td>
+                            <td style="width:320px;">Contato</td>
+                            <td style="width:170px">Assunto</td>
+                            <td style="width:150px;">Data de Envio</td>
                             <td>Responder</td>
                         </tr>
                     </thead>
