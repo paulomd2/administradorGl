@@ -22,7 +22,7 @@ class UploadDAO extends Banco{
     public function listaPastas(){
         $conexao = $this->abreConexao();
         
-        echo $sql = "SELECT distinct(pasta) FROM ".TBL_UPLOAD." WHERE status != 0";
+        $sql = "SELECT distinct(pasta) FROM ".TBL_UPLOAD." WHERE status != 0";
         
         $banco = $conexao->query($sql);
         

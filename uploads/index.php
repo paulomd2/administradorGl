@@ -17,8 +17,14 @@
         </script>
     </head>
     <body>
-        <?php include_once '../include/header.php'; ?>
-        <?php include_once '../include/lateral.php'; ?>
+        <?php
+        include_once '../include/header.php';
+        include_once '../include/lateral.php';
+        
+        $timestamp = time();
+        $token = md5('uniqueId' . $timestamp);
+        ?>
+        ?>
 
         <div class="main-admin">
             <div class="guia-site">
@@ -26,7 +32,7 @@
                 <a href="#">Expositores</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
-                <h1>Últimos expositores</h1>
+                <!--h1>Últimos expositores</h1>
                 <a href="verExpositores.php" class="proPage">Ver todos os expositores</a>
                 <table class="tableAll">
                     <thead>
@@ -38,62 +44,46 @@
                         </tr>
                     </thead>
                     <tbody id="listaExpositores"></tbody>
-                </table>
+                </table-->
                 <hr/>
                 <h1>Cadastrar Arquivos</h1>
                 <form name="cadUpload" id="cadUpload" action="control/controleUpload.php" enctype="multipart/form-data" method="post" class="tableform">
+                    <input type="hidden" id="token" value="<?php echo $token; ?>" />
                     <input type="hidden" value="cadastrar" name="opcao" id="opcao" />
                     <table>
                         <tr>
                             <td>Pasta:</td>
                             <td>
                                 <select id="pasta" name="pasta">
-                                    <option value="">Pasta raiz</option>
-                                    <?php
-                                    require_once '../model/banco.php';
-                                    require_once 'model/dao.php';
+                                    <optgroup label="Fixos">
+                                        <option value="fsdfsdfsddf">Pasta raiz</option>
+                                        <?php
+                                        require_once '../model/banco.php';
+                                        require_once 'model/dao.php';
 
-                                    $pastas = $objUploadDao->listaPastas();
+                                        //$pastas = $objUploadDao->listaPastas();
 
-                                    for ($i = 0; $i < count($pastas); $i++) {
-                                        echo '<option value="' . $pastas[$i]["pastas"] . '">' . $pastas[$i]["pastas"] . '</option>';
-                                    }
-                                    ?>
-                                    <option value="nova">Nova pasta</option>
-                                </select>
+                                        for ($i = 0; $i < count($pastas); $i++) {
+                                            echo '<option value="' . $pastas[$i] . '">' . $pastas[$i] . '</option>';
+                                        }
+                                        ?>
+                                        <option value="nova">Nova pasta</option>
+                                    </optgroup>
+                                    <optgroup label="Páginas criadas" id="criadas"></optgroup>
+                                </select><br />
                                 <input type="text" name="outraPasta" id="outraPasta" style="display: none" /><br />
+                                <span id="spanPasta" class="erro"></span>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2"><input type="button" id="btnCadastrar" value="Criar Pasta" /></td>
+                            <td colspan="2"><input type="button" id="btnPasta" value="Criar Pasta" /></td>
                         </tr>
                         <tr>
                             <td>Arquivo:</td>
                             <td>
                                 <div id="queue"></div>
+                                <!--input type="button" value="upload" id="uploadify" /-->
                                 <input id="file_upload" name="file_upload" type="file" multiple="true">
-
-                                <script type="text/javascript">
-                                    <?php $timestamp = time(); ?>
-                                    $(function () {
-                                        pasta = '';
-                                        
-                                        if($("#outraPasta").val() != ''){
-                                            pasta = $("#outraPasta").val();
-                                        }else{
-                                            pasta = $("#pasta").val();
-                                        }
-                                        $('#file_upload').uploadify({
-                                            'formData': {
-                                                'timestamp': '<?php echo $timestamp; ?>',
-                                                'token': '<?php echo md5('unique_salt' . $timestamp); ?>',
-                                                'folder': pasta
-                                            },
-                                            'swf'      : '../plugin/uploadify/uploadify.swf',
-                                            'uploader': '../plugin/uploadify/uploadify.php'
-                                        });
-                                    });
-                                </script>
                             </td>
                         </tr>
                     </table>
