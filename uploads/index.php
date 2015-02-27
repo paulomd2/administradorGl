@@ -20,31 +20,23 @@
         <?php
         include_once '../include/header.php';
         include_once '../include/lateral.php';
-        
-        $timestamp = time();
-        $token = md5('uniqueId' . $timestamp);
         ?>
-        ?>
-
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
                 <a href="#">Expositores</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
-                <!--h1>Últimos expositores</h1>
-                <a href="verExpositores.php" class="proPage">Ver todos os expositores</a>
+                <h1>Todas pastas</h1>
                 <table class="tableAll">
                     <thead>
                         <tr>
-                            <td>Arquivo</td>
-                            <td>Pasta</td>
-                            <td>Editar</td>
-                            <td>Excluir</td>
+                            <td style="min-width: 20%;">Pasta</td>
+                            <td style="width: 10%;">Excluir</td>
                         </tr>
                     </thead>
-                    <tbody id="listaExpositores"></tbody>
-                </table-->
+                    <tbody id="listaPastas"></tbody>
+                </table>
                 <hr/>
                 <h1>Cadastrar Arquivos</h1>
                 <form name="cadUpload" id="cadUpload" action="control/controleUpload.php" enctype="multipart/form-data" method="post" class="tableform">
@@ -58,11 +50,6 @@
                                     <optgroup label="Fixos">
                                         <option value="fsdfsdfsddf">Pasta raiz</option>
                                         <?php
-                                        require_once '../model/banco.php';
-                                        require_once 'model/dao.php';
-
-                                        //$pastas = $objUploadDao->listaPastas();
-
                                         for ($i = 0; $i < count($pastas); $i++) {
                                             echo '<option value="' . $pastas[$i] . '">' . $pastas[$i] . '</option>';
                                         }
