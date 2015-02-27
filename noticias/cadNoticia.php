@@ -54,7 +54,7 @@ setcookie("ck_authorized", "true", 0, "/");
                         <tr>
                             <td>Fonte:</td>
                             <td>
-                                <input type="text" name="fonte" id="fonte" /><br />
+                                <textarea type="text" name="fonte" id="fonte" cols="40" rows="8"></textarea><br />
                                 <span id="spanFonte" class="erro"></span>
                             </td>
                         </tr>

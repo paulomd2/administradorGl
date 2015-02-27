@@ -54,7 +54,7 @@ setcookie("ck_authorized", "true", 0, "/");
                         <tr>
                             <td>Sub-título:</td>
                             <td>
-                                <input type="text" name="sub" id="sub" /><br />
+                                <textarea name="sub" id="sub" cols="40" rows="8"></textarea><br />
                                 <span id="spanSub" class="erro"></span>
                             </td>
                         </tr>
