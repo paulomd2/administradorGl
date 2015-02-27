@@ -21,7 +21,7 @@
             <a href="#">Usuário</a>
         </div>
         <div class="tenor" style="overflow: hidden!important;">
-            <h1>Todas Postagens</h1> <a href="cadPostagens.php" class="proPage">Cadastrar postagens</a>
+            <h1>Todas Postagens</h1> <a href="cadPostagem.php" class="proPage">Cadastrar postagens</a>
             <table class="tableAll">
                 <thead>
                     <tr>
