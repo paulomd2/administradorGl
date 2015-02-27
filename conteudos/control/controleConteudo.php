@@ -193,6 +193,16 @@ switch ($opcao) {
 
         $objConteudoDao->delPagina($objPagina);
         break;
+    
+    case 'verificaLink':
+        $link = converteLink($_POST['link']);
+        
+        $objPagina->setLink($link);
+        
+        $retorno = $objConteudoDao->verificaLink($objPagina);
+        
+        print_r($retorno['link']);
+        break;
 }
 
 function converteLink($post) {

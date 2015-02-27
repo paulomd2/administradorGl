@@ -297,6 +297,22 @@ class ConteudoDAO extends Banco {
                 
         $this->fechaConexao();
     }
+    
+    public function verificaLink($objPagina){
+        $conexao = $this->abreConexao();
+        $sql = "
+                SELECT count(*) as link
+                    FROM ".TBL_PAGINA."
+                        WHERE link = '".$objPagina->getLink()."'
+               ";
+                
+        $banco = $conexao->query($sql);
+                
+        $linha = $banco->fetch_assoc();
+        
+        return $linha;
+        $this->fechaConexao();
+    }
 
 }
 

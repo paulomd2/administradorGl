@@ -8,24 +8,24 @@ function delMenu(id) {
 function delSubmenu(id) {
     if (confirm("Você tem certeza que deseja excluir esse Submenu?") == true) {
         $.post('control/controleConteudo.php', {opcao: 'excluirSubmenu', idSubmenu: id});
-        
+
         var idMenu = $("#idMenu").val();
-        $("#listaSubmenus").load('listaSubmenuAjax.php?id='+idMenu);
+        $("#listaSubmenus").load('listaSubmenuAjax.php?id=' + idMenu);
     }
 }
 
-function delPagina(id){
+function delPagina(id) {
     if (confirm("Você tem certeza que deseja excluir essa Página?") == true) {
         $.post('control/controleConteudo.php', {opcao: 'excluirPagina', idPagina: id});
         $("#listaPaginas").load('listaPaginasAjax.php');
     }
 }
 
-$(document).ready(function() {
-    $("#btnCadastrarSubmenu").click(function() {
+$(document).ready(function () {
+    $("#btnCadastrarSubmenu").click(function () {
         CKEDITOR.instances.texto.updateElement();
         CKEDITOR.instances.descricaoMetaTag.updateElement();
-        
+
         var idMenu = $("#idMenu").val();
         var tituloMenu = $("#tituloMenu").val().trim();
         var tituloPagina = $("#tituloPagina").val().trim();
@@ -73,12 +73,12 @@ $(document).ready(function() {
             window.location = 'verSubmenus.php?id=' + idMenu;
         }
     });
-    
-    
-    $("#btnAlterarSubmenu").click(function() {
+
+
+    $("#btnAlterarSubmenu").click(function () {
         CKEDITOR.instances.texto.updateElement();
         CKEDITOR.instances.descricaoMetaTag.updateElement();
-        
+
 
         var idSubmenu = $("#idSubmenu").val();
         var idMenu = $("#idMenu").val();
@@ -129,26 +129,26 @@ $(document).ready(function() {
         }
     });
 
-    $("#btnCadastrarMenu").click(function() {
+    $("#btnCadastrarMenu").click(function () {
         var titulo = $("#titulo").val().trim();
         var link = $("#link").val().trim();
         var target = $("#target").val();
 
-        $(".erro").html('').css('display','none');
+        $(".erro").html('').css('display', 'none');
         if (titulo == '') {
             $("#titulo").focus();
-            $("#spanTitulo").html('Você deve preencher o Título!').css('display','inline-block');
-        } else if(target == ''){
+            $("#spanTitulo").html('Você deve preencher o Título!').css('display', 'inline-block');
+        } else if (target == '') {
             $("#target").focus();
-            $("#spanTarget").html('Você deve selecionar um Target!').css('display','inline-block');
-        }else {
-            $.post('control/controleConteudo.php', {opcao: 'cadastrarMenu', titulo: titulo, link: link, target:target});
+            $("#spanTarget").html('Você deve selecionar um Target!').css('display', 'inline-block');
+        } else {
+            $.post('control/controleConteudo.php', {opcao: 'cadastrarMenu', titulo: titulo, link: link, target: target});
             window.location = 'index.php';
         }
     });
 
 
-    $("#btnAlterarMenu").click(function() {
+    $("#btnAlterarMenu").click(function () {
         var titulo = $("#titulo").val().trim();
         var link = $("#link").val().trim();
         var target = $("#target").val();
@@ -157,20 +157,20 @@ $(document).ready(function() {
         if (titulo == '') {
             $("#titulo").focus();
             $("#spanTitulo").html('Você deve preencher o Título!');
-        } else if(target == ''){
+        } else if (target == '') {
             $("#target").focus();
-            $("#spanTarget").html('Você deve selecionar um Target!').css('display','inline-block');
-        }else {
-            $.post('control/controleConteudo.php', {opcao: 'alterarMenu', titulo: titulo, link: link, idMenu: idMenu, target:target});
+            $("#spanTarget").html('Você deve selecionar um Target!').css('display', 'inline-block');
+        } else {
+            $.post('control/controleConteudo.php', {opcao: 'alterarMenu', titulo: titulo, link: link, idMenu: idMenu, target: target});
             window.location = 'verMenus.php';
         }
     });
-    
-    
-    $("#btnCadastrarPagina").click(function() {
+
+
+    $("#btnCadastrarPagina").click(function () {
         CKEDITOR.instances.texto.updateElement();
         CKEDITOR.instances.descricaoMetaTag.updateElement();
-        
+
         var titulo = $("#titulo").val().trim();
         var link = $("#link").val().trim();
         var texto = CKEDITOR.instances.texto.getData();
@@ -180,19 +180,19 @@ $(document).ready(function() {
         var tituloMetaTag = $("#tituloMetaTag").val().trim();
         var keywordsMetaTag = $("#keywordsMetaTag").val().trim();
         var descricaoMetaTag = CKEDITOR.instances.descricaoMetaTag.getData();
-        
+
 
         $(".erro").html('').css('display', 'none');
         if (titulo == '') {
             $("#titulo").focus();
             $("#spanTitulo").html('Você precisa preencher o Título da Página').css('display', 'inline-block');
-        } else if(link == ''){
+        } else if (link == '') {
             $("#link").focus();
             $("#spanLink").html('Você precisa preencher o link').css('display', 'inline-block');
-        }else if(texto == ''){
+        } else if (texto == '') {
             texto.focus;
             $("#spanTexto").html('Você precisa preencher o texto').css('display', 'inline-block');
-        }else if (status == '') {
+        } else if (status == '') {
             $("#status").focus();
             $("#spanStatus").html('Você precisa selecionar um Status').css('display', 'inline-block');
         } else if (tituloMetaTag == '') {
@@ -209,12 +209,12 @@ $(document).ready(function() {
             window.location = 'verPaginas.php';
         }
     });
-    
-    
-    $("#btnAlterarPagina").click(function() {
+
+
+    $("#btnAlterarPagina").click(function () {
         CKEDITOR.instances.texto.updateElement();
         CKEDITOR.instances.descricaoMetaTag.updateElement();
-        
+
         var idPagina = $("#idPagina").val();
         var titulo = $("#titulo").val().trim();
         var link = $("#link").val().trim();
@@ -225,19 +225,19 @@ $(document).ready(function() {
         var tituloMetaTag = $("#tituloMetaTag").val().trim();
         var keywordsMetaTag = $("#keywordsMetaTag").val().trim();
         var descricaoMetaTag = CKEDITOR.instances.descricaoMetaTag.getData();
-        
+
 
         $(".erro").html('').css('display', 'none');
         if (titulo == '') {
             $("#titulo").focus();
             $("#spanTitulo").html('Você precisa preencher o Título da Página').css('display', 'inline-block');
-        } else if(link == ''){
+        } else if (link == '') {
             $("#link").focus();
             $("#spanLink").html('Você precisa preencher o link').css('display', 'inline-block');
-        }else if(texto == ''){
+        } else if (texto == '') {
             texto.focus;
             $("#spanTexto").html('Você precisa preencher o texto').css('display', 'inline-block');
-        }else if (status == '') {
+        } else if (status == '') {
             $("#status").focus();
             $("#spanStatus").html('Você precisa selecionar um Status').css('display', 'inline-block');
         } else if (tituloMetaTag == '') {
@@ -250,8 +250,22 @@ $(document).ready(function() {
             $("#descricaoMetaTag").focus();
             $("#spanDescricaoMetaTag").html('Você precisa preencher a Descrição da Metatag').css('display', 'inline-block');
         } else {
-            $.post('control/controleConteudo.php', {opcao: 'alterarPagina', idPagina:idPagina, titulo: titulo, link: link, status: status, texto: texto, tituloMetaTag: tituloMetaTag, keywordsMetaTag: keywordsMetaTag, descricaoMetaTag: descricaoMetaTag, dataEntrada: dataEntrada, dataSaida: dataSaida});
+            $.post('control/controleConteudo.php', {opcao: 'alterarPagina', idPagina: idPagina, titulo: titulo, link: link, status: status, texto: texto, tituloMetaTag: tituloMetaTag, keywordsMetaTag: keywordsMetaTag, descricaoMetaTag: descricaoMetaTag, dataEntrada: dataEntrada, dataSaida: dataSaida});
             window.location = 'verPaginas.php';
         }
+    });
+
+
+    $("#link").blur(function () {
+        var link = $("#link").val();
+
+        $.post('control/controleConteudo.php', {opcao: 'verificaLink', link: link},
+        function (r) {
+            $(".erro").html('').css('display', 'none');
+            if (r != 0) {
+                $("#link").focus();
+                $("#spanLink").html('Este link já existe').css('display', 'inline-block');
+            }
+        })
     });
 });
