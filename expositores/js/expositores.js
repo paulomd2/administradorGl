@@ -31,7 +31,6 @@ $(document).ready(function () {
         var link = $("#link").val().trim();
         var estande = $("#estande").val().trim();
         var dataPublicacao = $("#dataPublicacao").val().trim();
-        var imagem = $("#imagem").val().trim();
 
         $('.erro').html('').css('display', 'none');
         if (nome == '') {
@@ -46,9 +45,6 @@ $(document).ready(function () {
         } else if (dataPublicacao == '') {
             $("#dataPublicacao").focus();
             $("#spanDataPublicacao").html('Vcoê deve preencher uma data!').css('display', 'inline-block');
-        } else if (imagem == '') {
-            $("#imagem").focus();
-            $("#spanImagem").html('Vcoê deve selecionar uma imagem!').css('display', 'inline-block');
         } else {
             $("#cadExpositor").submit();
         }
