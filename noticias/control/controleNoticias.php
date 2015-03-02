@@ -13,6 +13,7 @@ switch ($opcao) {
             $DataPublicacao = $_POST['dataPublicacao'];
             $mercado = $_POST['mercado'];
             $fonte = $_POST['fonte'];
+            $status = $_POST['status'];
 
             $objNoticia->setTitulo($titulo);
             $objNoticia->setSubtitulo($subtitulo);
@@ -20,6 +21,7 @@ switch ($opcao) {
             $objNoticia->setDataPublicacao($DataPublicacao);
             $objNoticia->setFonte($fonte);
             $objNoticia->setMercado($mercado);
+            $objNoticia->setStatus($status);
 
             $objNoticiaDao->cadNoticia($objNoticia);
 
@@ -34,6 +36,7 @@ switch ($opcao) {
             $DataPublicacao = $_POST['dataPublicacao'];
             $mercado = $_POST['mercado'];
             $fonte = $_POST['fonte'];
+            $status = $_POST['status'];
 
             $objNoticia->setTitulo($titulo);
             $objNoticia->setSubtitulo($subtitulo);
@@ -42,6 +45,7 @@ switch ($opcao) {
             $objNoticia->setFonte($fonte);
             $objNoticia->setIdNoticia($idNoticia);
             $objNoticia->setMercado($mercado);
+            $objNoticia->setStatus($status);
 
 
             $objNoticiaDao->altNoticia($objNoticia);

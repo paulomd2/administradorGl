@@ -50,7 +50,7 @@ setcookie("ck_authorized", "true", 0, "/");
                             <tr>
                                 <td>Sub-título:</td>
                                 <td>
-                                    <textarea type="text" name="sub" id="sub" value="<?php echo $noticia['subTitulo']; ?>" cols="40" rows="8"></textarea><br />
+                                    <textarea type="text" name="sub" id="sub" cols="40" rows="8"><?php echo $noticia['subTitulo']; ?></textarea><br />
                                     <span id="spanSub" class="erro"></span>
                                 </td>
                             </tr>
@@ -75,6 +75,17 @@ setcookie("ck_authorized", "true", 0, "/");
                                     <span id="spanTexto" class="erro"></span>
                                 </td>
                             </tr>
+                            <tr>
+                            <td>Status:</td>
+                            <td>
+                                <select id="status" name="status">
+                                    <option value="">Selecione um status</option>
+                                    <option value="1" <?php if($noticia['status'] == '1'){ echo 'selected'; } ?>>Habilitado</option>
+                                    <option value="2" <?php if($noticia['status'] == '2'){ echo 'selected'; } ?>>Desabilitado</option>
+                                </select>
+                                <span id="spanStatus" class="erro"></span>
+                            </td>
+                        </tr>
                             <tr>
                                 <td><label for="mercado">Notícia de Mercado?</label></td>
                                 <td><input type="checkbox" value="1" id="mercado" name="mercado" <?php if ($noticia['mercado'] == 1) {

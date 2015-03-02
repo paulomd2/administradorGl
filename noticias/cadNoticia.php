@@ -73,6 +73,17 @@ setcookie("ck_authorized", "true", 0, "/");
                             </td>
                         </tr>
                         <tr>
+                            <td>Status:</td>
+                            <td>
+                                <select id="status" name="status">
+                                    <option value="">Selecione um status</option>
+                                    <option value="1" selected="">Habilitado</option>
+                                    <option value="2">Desabilitado</option>
+                                </select>
+                                <span id="spanStatus" class="erro"></span>
+                            </td>
+                        </tr>
+                        <tr>
                             <td><label for="mercado">Notícia de Mercado?</label></td>
                             <td><input type="checkbox" value="1" id="mercado" name="mercado" /></td>
                         </tr>

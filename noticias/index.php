@@ -8,9 +8,9 @@ setcookie("ck_authorized", "true", 0, "/");
         <meta charset="UTF-8">
         <title>Painel | Fagga</title>
         <?php include_once '../include/head.php'; ?>
-        <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
         <script type="text/javascript" src="js/noticias.js"></script>
         <script src="../plugin/ckeditor/ckeditor.js"></script>
+        <script src="../plugin/ckfinder/ckfinder.js"></script>
     </head>
     <body>
         <?php include_once '../include/header.php'; ?>
@@ -77,6 +77,17 @@ setcookie("ck_authorized", "true", 0, "/");
                             <td>
                                 <textarea name="texto" id="texto" rows="10" cols="40"></textarea>
                                 <span id="spanTexto" class="erro"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Status:</td>
+                            <td>
+                                <select id="status" name="status">
+                                    <option value="">Selecione um status</option>
+                                    <option value="1" selected="">Habilitado</option>
+                                    <option value="2">Desabilitado</option>
+                                </select>
+                                <span id="spanStatus" class="erro"></span>
                             </td>
                         </tr>
                         <tr>

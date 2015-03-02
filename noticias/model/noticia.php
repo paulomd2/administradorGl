@@ -10,6 +10,7 @@ class Noticia {
     private $dataPublicacao;
     private $dataCadastro;
     private $mercado;
+    private $status;
 
     public function getIdNoticia() {
         return $this->idNoticia;
@@ -72,6 +73,14 @@ class Noticia {
     }
     function setMercado($mercado) {
         $this->mercado = seg($mercado);
+    }
+    
+    
+    function getStatus() {
+        return $this->status;
+    }
+    function setStatus($status) {
+        $this->status = seg($status);
     }
 }
 

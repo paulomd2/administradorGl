@@ -45,6 +45,7 @@ $(document).ready(function () {
         var dataPublicacao = $("#publicacao").val().trim();
         var mercado = '';
         var texto = CKEDITOR.instances.texto.getData();
+        var status = $("#status").val();
         
         if ($("#mercado").is(':checked')) {
             mercado = 1;
@@ -52,8 +53,7 @@ $(document).ready(function () {
             mercado = 0;
         }
 
-        $(".erro").html('');
-        $('.erro').css('display', 'none');
+        $(".erro").html('').css('display', 'none');
         if (titulo == '') {
             $("#titulo").focus();
             $("#spanTitulo").html('Você deve preencher o Título!').css('display', 'inline-block');
@@ -66,8 +66,14 @@ $(document).ready(function () {
         } else if (dataPublicacao == '') {
             $("#publicacao").focus();
             $("#spanPublicacao").html('Você deve preencher a Data de Publicação!').css('display', 'inline-block');
-        } else {
-            $.post('control/controleNoticias.php', {opcao: 'cadastrar', titulo: titulo, subtitulo: subtitulo, fonte: fonte, dataPublicacao: dataPublicacao, texto: texto, mercado:mercado});
+        }else if(texto == ''){
+            texto.focus();
+            $("#spanTexto").html('Você deve preencher o texto!').css('display', 'inline-block');
+        }else if(status == ''){
+            $("#status").focus();
+            $("#spanStatus").html('Você deve preencher o status!').css('display', 'inline-block');
+        }else {
+            $.post('control/controleNoticias.php', {opcao: 'cadastrar', titulo: titulo, subtitulo: subtitulo, fonte: fonte, dataPublicacao: dataPublicacao, texto: texto, mercado:mercado, status:status});
             window.location = 'verNoticias.php';
         }
     });
@@ -81,7 +87,7 @@ $(document).ready(function () {
         var idNoticia = $("#idNoticia").val();
         var mercado = '';
         var texto = CKEDITOR.instances.texto.getData();
-        //CKeditor.focus()
+        var status = $("#status").val();
 
         if ($("#mercado").is(':checked')) {
             mercado = 1;
@@ -89,25 +95,25 @@ $(document).ready(function () {
             mercado = 0;
         }
 
-        $(".erro").html('');
+        $(".erro").html('').css('display', 'none');
         if (titulo == '') {
             $("#titulo").focus();
-            $("#spanTitulo").html('Você deve preencher o Título!');
+            $("#spanTitulo").html('Você deve preencher o Título!').css('display','inline-block');
         } else if (subtitulo == '') {
             $("#sub").focus();
-            $("#spanSub").html('Você deve preencher o Subtítulo!');
+            $("#spanSub").html('Você deve preencher o Subtítulo!').css('display','inline-block');
         } else if (fonte == '') {
             $("#fonte").focus();
-            $("#spanFonte").html('Você deve preencher a Fonte!');
+            $("#spanFonte").html('Você deve preencher a Fonte!').css('display','inline-block');
         } else if (dataPublicacao == '') {
             $("#publicacao").focus();
-            $("#spanPublicacao").html('Você deve preencher a Data de Publicação!');
+            $("#spanPublicacao").html('Você deve preencher a Data de Publicação!').css('display','inline-block');
         } else if (texto == '') {
             $("#texto").focus();
-            $("#spanTexto").html('Você deve preencher o Texto!');
+            $("#spanTexto").html('Você deve preencher o Texto!').css('display','inline-block');
         } else {
-            $.post('control/controleNoticias.php', {opcao: 'alterar', idNoticia: idNoticia, titulo: titulo, subtitulo: subtitulo, fonte: fonte, dataPublicacao: dataPublicacao, mercado:mercado ,texto: texto});
-            window.location = 'verNoticias.php';
+            $.post('control/controleNoticias.php', {opcao: 'alterar', idNoticia: idNoticia, titulo: titulo, subtitulo: subtitulo, fonte: fonte, dataPublicacao: dataPublicacao, mercado:mercado ,texto: texto, status:status});
+            //window.location = 'verNoticias.php';
         }
     });
 });

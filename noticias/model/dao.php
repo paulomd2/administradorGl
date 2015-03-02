@@ -13,7 +13,8 @@ class NoticiasDAO extends Banco {
                dataPublicacao = '" . $objNoticia->getDataPublicacao() . "',
                texto = '" . $objNoticia->getTexto() . "',
                dataCadastro = '" . $objNoticia->getDataCadastro() . "',
-               mercado = " . $objNoticia->getMercado() . "
+               mercado = " . $objNoticia->getMercado() . ",
+               status = ".$objNoticia->getStatus()."
                ";
 
         $conexao->query($sql);
@@ -24,13 +25,14 @@ class NoticiasDAO extends Banco {
     public function altNoticia($objNoticia) {
         $conexao = $this->abreConexao();
 
-     echo   $sql = "UPDATE " . TBL_NOTICIA . " SET
+        $sql = "UPDATE " . TBL_NOTICIA . " SET
                titulo = '" . $objNoticia->getTitulo() . "',
                subtitulo = '" . $objNoticia->getSubTitulo() . "',
                fonte = '" . $objNoticia->getFonte() . "',
                dataPublicacao = '" . $objNoticia->getDataPublicacao() . "',
                texto = '" . $objNoticia->getTexto() . "',
-               mercado = " . $objNoticia->getMercado() . "
+               mercado = " . $objNoticia->getMercado() . ",
+               status = ".$objNoticia->getStatus()."
                    WHERE idNoticia = " . $objNoticia->getIdNoticia() . "
                ";
 
@@ -54,9 +56,9 @@ class NoticiasDAO extends Banco {
     public function verNoticias($count) {
         $conexao = $this->abreConexao();
 
-         $sql = "SELECT idNoticia, titulo, subTitulo, fonte, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao, texto
+         $sql = "SELECT *, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao
                 FROM " . TBL_NOTICIA . "
-                    WHERE status = 1
+                    WHERE status != 0
                         ORDER BY dataPublicacao DESC
                         LIMIT ".$count."
                 ";
@@ -76,7 +78,7 @@ class NoticiasDAO extends Banco {
     public function verNoticiasHome($count) {
         $conexao = $this->abreConexao();
 
-         $sql = "SELECT idNoticia, titulo, subTitulo, fonte, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao, texto
+         $sql = "SELECT *, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao
                 FROM " . TBL_NOTICIA . "
                     WHERE status = 1
                         ORDER BY idNoticia DESC
@@ -98,7 +100,7 @@ class NoticiasDAO extends Banco {
     public function verNoticia1($objNoticia){
         $conexao = $this->abreConexao();
 
-        $sql = "SELECT idNoticia, titulo, subTitulo, fonte, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao, texto, mercado
+        $sql = "SELECT *, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacaoFormatada
                 FROM " . TBL_NOTICIA . "
                     WHERE idNoticia = ".$objNoticia->getIdNoticia()."
                         ORDER BY dataPublicacao DESC
