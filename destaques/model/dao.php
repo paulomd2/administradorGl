@@ -7,7 +7,7 @@ class DestaquesDAO extends Banco {
     public function cadDestaque($objDestaque) {
         $conexao = $this->abreConexao();
 
-        echo $sql = "INSERT INTO " . TBL_DESTAQUE . " SET
+        $sql = "INSERT INTO " . TBL_DESTAQUE . " SET
                titulo = '" . $objDestaque->getTitulo() . "',
                subtitulo = '" . $objDestaque->getSubtitulo() . "',
                link = '" . $objDestaque->getLink() . "',
@@ -34,7 +34,8 @@ class DestaquesDAO extends Banco {
                conteudo = '" . $objDestaque->getConteudo() . "',
                dataPublicacao = '" . $objDestaque->getDataPublicacao() . "',
                dataSaida = '" . $objDestaque->getDataSaida() . "',
-               imagem = '" . $objDestaque->getImagem() . "'
+               imagem = '" . $objDestaque->getImagem() . "',
+               status = ".$objDestaque->getStatus()."
                    WHERE idDestaque = " . $objDestaque->getIdDestaque() . "
                ";
 

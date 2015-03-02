@@ -170,6 +170,17 @@ setcookie("ck_authorized", "true", 0, "/");
                                 </td>
                             </tr>
                             <tr>
+                            <td>Status:</td>
+                            <td>
+                                <select id="status" name="status">
+                                    <option value="">Selecione um status</option>
+                                    <option value="1" <?php if($destaque['status'] == '1'){ echo 'selected'; } ?>>Habilitado</option>
+                                    <option value="2" <?php if($destaque['status'] == '2'){ echo 'selected'; } ?>>Desabilitado</option>
+                                </select><br />
+                                <span id="spanStatus" class="erro"></span>
+                            </td>
+                        </tr>
+                            <tr>
                                 <td colspan="2"><input type="button" id="btnAlterar" value="Alterar" /></td>
                             </tr>
                         </table>

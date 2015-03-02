@@ -25,7 +25,7 @@ switch ($opcao) {
             $dataSaida .= ' ' . $_POST['horaSaida'] . ':' . $_POST['minutoSaida'] . ':00';
             $link = $_POST['link'];
             $dataCadastro = date('Y-m-d H:i:s');
-            $satus = 1;
+            $status = $_POST['status'];
             $imagem = uploadImagem();
 
             if ($imagem == false) {
@@ -48,7 +48,7 @@ switch ($opcao) {
                 $objDestaque->setDataSaida($dataSaida);
                 $objDestaque->setDataCadastro($dataCadastro);
                 $objDestaque->setLink($link);
-                $objDestaque->setStatus($satus);
+                $objDestaque->setStatus($status);
 
                 $objDestaqueDao->cadDestaque($objDestaque);
 
@@ -62,9 +62,10 @@ switch ($opcao) {
             $titulo = $_POST['titulo'];
             $subtitulo = $_POST['subtitulo'];
             $conteudo = $_POST['conteudo'];
-            echo $dataPublicacao = $_POST['dataPublicacao'].' '.$_POST['horaPublicacao'].':'.$_POST['minutoPublicacao'].':00';
+            $dataPublicacao = $_POST['dataPublicacao'].' '.$_POST['horaPublicacao'].':'.$_POST['minutoPublicacao'].':00';
             $dataSaida = $_POST['dataSaida'].' '.$_POST['horaSaida'].':'.$_POST['minutoSaida'].':00';
             $link = $_POST['link'];
+            $status = $_POST['status'];
 
             if ($_FILES['imagem']['name'] == '') {
                 $imagem = $_POST['imagemAntiga'];
@@ -92,6 +93,7 @@ switch ($opcao) {
                 $objDestaque->setDataSaida($dataSaida);
                 $objDestaque->setLink($link);
                 $objDestaque->setIdDestaque($idDestaque);
+                $objDestaque->setStatus($status);
 
                 $objDestaqueDao->altDestaque($objDestaque);
 

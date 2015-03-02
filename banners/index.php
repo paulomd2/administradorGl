@@ -4,9 +4,7 @@
         <meta charset="UTF-8">
         <title>Painel | Fagga</title>
         <?php include_once '../include/head.php'; ?>
-        <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
         <script type="text/javascript" src="js/banners.js"></script>
-        <script type="text/javascript" src="../js/jquery-2.1.3.js"></script>
         <script type="text/javascript" src="../js/jquery-ui.js"></script>
         <script>
 

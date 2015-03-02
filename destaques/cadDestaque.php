@@ -144,6 +144,17 @@ setcookie("ck_authorized", "true", 0, "/");
                             </td>
                         </tr>
                         <tr>
+                            <td>Status:</td>
+                            <td>
+                                <select id="status" name="status">
+                                    <option value="" selected="">Selecione um status</option>
+                                    <option value="1">Habilitado</option>
+                                    <option value="2">Desabilitado</option>
+                                </select><br />
+                                <span id="spanStatus" class="erro"></span>
+                            </td>
+                        </tr>
+                        <tr>
                             <td colspan="2"><input type="button" id="btnCadastrar" value="Cadastrar" /></td>
                         </tr>
                     </table>
