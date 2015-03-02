@@ -75,6 +75,17 @@ $expositor = $objExpositorDao->listaExpositor1($objExpositor);
                             </td>
                         </tr>
                         <tr>
+                            <td>Status:</td>
+                            <td>
+                                <select id="status" name="status">
+                                    <option value="">Selecione um status...</option>
+                                    <option value="1" <?php if($expositor['status'] == '1'){ echo 'selected'; }?>>Habilitado</option>
+                                    <option value="2" <?php if($expositor['status'] == '2'){ echo 'selected'; }?>>Desabilitado</option>
+                                </select><br />
+                                <span id="spanStatus" class="erro"></span>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>Imagem:</td>
                             <td>
                                 <input type="file" name="imagem" id="imagem" /><br />

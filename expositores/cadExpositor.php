@@ -56,6 +56,17 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>Status:</td>
+                            <td>
+                                <select id="status" name="status">
+                                    <option value="" selected>Selecione um status...</option>
+                                    <option value="1">Habilitado</option>
+                                    <option value="2">Desabilitado</option>
+                                </select><br />
+                                <span id="spanStatus" class="erro"></span>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>Imagem:</td>
                             <td>
                                 <input type="file" name="imagem" id="imagem" /><br />

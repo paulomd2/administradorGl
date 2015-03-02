@@ -25,7 +25,7 @@
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Últimos expositores</h1>
-                <a href="verExpositores.php" class="proPage">Ver todos os expositores</a>
+                <a href="cadExpositor.php" class="proPage">Cadastrar expositores</a>
                 <table class="tableAll">
                     <thead>
                         <tr>
@@ -73,6 +73,17 @@
                             <td>
                                 <input type="date" name="dataPublicacao" id="dataPublicacao" /><br />
                                 <span id="spanDataPublicacao" class="erro"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Status:</td>
+                            <td>
+                                <select id="status" name="status">
+                                    <option value="" selected>Selecione um status...</option>
+                                    <option value="1">Habilitado</option>
+                                    <option value="2">Desabilitado</option>
+                                </select><br />
+                                <span id="spanStatus" class="erro"></span>
                             </td>
                         </tr>
                         <tr>

@@ -12,6 +12,7 @@ switch ($opcao) {
         $dataPublicacao = $_POST['dataPublicacao'];
         $dataCadastro = date('Y-m-d H:is');
         $imagem = uploadImagem();
+        $status = $_POST['status'];
 
         if ($imagem == false) {
             unset($_POST['idBanner']);
@@ -30,6 +31,7 @@ switch ($opcao) {
             $objExpositor->setEstande($estande);
             $objExpositor->setDataPublicacao($dataPublicacao);
             $objExpositor->setDataCadastro($dataCadastro);
+            $objExpositor->setStatus($status);
 
             $objExpositorDao->cadExpositor($objExpositor);
             
@@ -46,6 +48,7 @@ switch ($opcao) {
         $dataCadastro = date('Y-m-d H:is');
         $idExpositor = $_POST['idExpositor'];
         $imagem = '';
+        $status = $_POST['status'];
         
         if($_FILES['imagem']['name'] == ''){
             $imagem = $_POST['imagemAntiga'];
@@ -70,6 +73,7 @@ switch ($opcao) {
             $objExpositor->setEstande($estande);
             $objExpositor->setDataPublicacao($dataPublicacao);
             $objExpositor->setDataCadastro($dataCadastro);
+            $objExpositor->setStatus($status);
             $objExpositor->setIdExpositor($idExpositor);
 
             $objExpositorDao->altExpositor($objExpositor);

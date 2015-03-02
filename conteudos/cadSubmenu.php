@@ -42,11 +42,11 @@
 
                                     for ($i = 1; $i < count($menus); $i++) {
                                         $selected = '';
-                                        if($menus[$i]['idMenu'] == $_GET['id']){
-                                            $selected = 'selected';    
+                                        if ($menus[$i]['idMenu'] == $_GET['id']) {
+                                            $selected = 'selected';
                                         }
-                                        
-                                        echo '<option value="' . $menus[$i]["idMenu"] . '" '.$selected.'>' . $menus[$i]["titulo"] . '</option>';
+
+                                        echo '<option value="' . $menus[$i]["idMenu"] . '" ' . $selected . '>' . $menus[$i]["titulo"] . '</option>';
                                     }
                                     ?>
                                 </select><br />
@@ -150,11 +150,6 @@
                         uiColor: '#cfcfcf',
                         filebrowserImageBrowseUrl: '../plugin/ckfinder/ckfinder.html?Type=Images',
                     });
-                    
-                    CKEDITOR.replace('descricaoMetaTag', {
-                    uiColor: '#cfcfcf',
-                    filebrowserImageBrowseUrl: '../plugin/ckfinder/ckfinder.html?Type=Images',
-                });
                 </script>
             </div>
         </div>

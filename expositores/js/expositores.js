@@ -31,6 +31,7 @@ $(document).ready(function () {
         var link = $("#link").val().trim();
         var estande = $("#estande").val().trim();
         var dataPublicacao = $("#dataPublicacao").val().trim();
+        var status = $("#status").val();
 
         $('.erro').html('').css('display', 'none');
         if (nome == '') {
@@ -45,7 +46,10 @@ $(document).ready(function () {
         } else if (dataPublicacao == '') {
             $("#dataPublicacao").focus();
             $("#spanDataPublicacao").html('Vcoê deve preencher uma data!').css('display', 'inline-block');
-        } else {
+        } else if(status == ''){
+            $("#status").focus();
+            $("#spanStatus").html('Vcoê deve preencher um status!').css('display', 'inline-block');
+        }else {
             $("#cadExpositor").submit();
         }
     });
@@ -55,6 +59,7 @@ $(document).ready(function () {
         var link = $("#link").val().trim();
         var estande = $("#estande").val().trim();
         var dataPublicacao = $("#dataPublicacao").val();
+        var status = $("#status").val();
 
         $('.erro').html('').css('display', 'none');
         if (nome == '') {
@@ -69,7 +74,10 @@ $(document).ready(function () {
         } else if (dataPublicacao == '') {
             $("#dataPublicacao").focus();
             $("#spanDataPublicacao").html('Vcoê deve preencher uma data!').css('display', 'inline-block');
-        } else {
+        } else if(status == ''){
+            $("#status").focus();
+            $("#spanStatus").html('Vcoê deve preencher um status!').css('display', 'inline-block');
+        }else {
             $("#altExpositor").submit();
         }
     })

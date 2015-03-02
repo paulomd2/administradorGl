@@ -51,7 +51,8 @@ class ExpositoresDAO extends Banco {
                 estande = '".$objExpositor->getEstande()."',
                 dataCadastro = '".$objExpositor->getDataCadastro()."',
                 dataPublicacao = '".$objExpositor->getDataPublicacao()."',
-                imagem = '".$objExpositor->getImagem()."'
+                imagem = '".$objExpositor->getImagem()."',
+                status = ".$objExpositor->getStatus()."
                 ";
 
         $conexao->query($sql);
@@ -69,7 +70,8 @@ class ExpositoresDAO extends Banco {
                 estande = '".$objExpositor->getEstande()."',
                 dataCadastro = '".$objExpositor->getDataCadastro()."',
                 dataPublicacao = '".$objExpositor->getDataPublicacao()."',
-                imagem = '".$objExpositor->getImagem()."'
+                imagem = '".$objExpositor->getImagem()."',
+                status = ".$objExpositor->getStatus()."
                     WHERE idExpositor = ".$objExpositor->getIdExpositor()."
                 ";
 
