@@ -8,14 +8,6 @@
         <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
         <script type="text/javascript" src="js/eventos.js"></script>
         <script src="../plugin/ckeditor/ckeditor.js"></script>
-        <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
-        <!-- polyfiller file to detect and load polyfills -->
-        <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
-        <script>
-            webshims.setOptions('waitReady', false);
-            webshims.setOptions('forms-ext', {types: 'date'});
-            webshims.polyfill('forms forms-ext');
-        </script>
     </head>
     <body>
         <?php include_once '../include/header.php'; ?>
@@ -24,12 +16,31 @@
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="index.php">Eventos</a>
-                <a href="#">Cadastrar evento</a>
+                <a href="#">Eventos</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
+                <h1>Últimos eventos</h1>
+                <form name="cadNoticia">
+                    <input type="hidden" value="<?php echo $_GET['mercado']; ?>" id="mercado"/>
+                    <table class="tableAll">
+                        <thead>
+                            <tr>
+                                <td>Nome</td>
+                                <td>Imagem</td>
+                                <td>Editar</td>
+                                <td>Excluir</td>
+                            </tr>
+                        </thead>
+                        <tbody id="listaEventos">
+                            <?php
+                            require_once 'listaEventosAjax.php'
+                            ?>
+                        </tbody>
+                    </table>
+                </form>
+                <a href="verEventos.php" class="proPage">Ver todos os eventos</a>
+                <hr/>
                 <h1>Cadastrar evento</h1>
-                <a href="verEventos.php" class="proPage">Todos os eventos</a>
                 <form name="cadEvento" id="cadEvento" action="control/controleEventos.php" enctype="multipart/form-data" method="post" class="tableform">
                     <input type="hidden" value="cadastrar" name="opcao" id="opcao" />
                     <table>
@@ -50,14 +61,14 @@
                         <tr>
                             <td>Data de Início:</td>
                             <td>
-                                <input type="date" name="dataInicio" id="dataInicio" /><br />
+                                <input type="text" name="dataInicio" id="dataInicio" /><br />
                                 <span id="spanDataInicio" class="erro"></span>
                             </td>
                         </tr>
                         <tr>
                             <td>Data de Fim:</td>
                             <td>
-                                <input type="date" name="dataFim" id="dataFim" /><br />
+                                <input type="text" name="dataFim" id="dataFim" /><br />
                                 <span id="spanDataFim" class="erro"></span>
                             </td>
                         </tr>
@@ -69,20 +80,20 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>Status:</td>
+                            <td>
+                                <select id="status" name="status">
+                                    <option value="" selected>Selecione um status</option>
+                                    <option value="1">Habilitado</option>
+                                    <option value="2">Desabilitado</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>Imagem:</td>
                             <td>
                                 <input type="file" name="imagem" id="imagem" /><br />
                                 <span id="spanImagem" class="erro"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Status:</td>
-                            <td>
-                                <select id="status" name="status">
-                                    <option value="" selected>Selecione um status...</option>
-                                    <option value="1">Habilitado</option>
-                                    <option value="2">Desabilitado</option>
-                                </select>
                             </td>
                         </tr>
                         <tr>

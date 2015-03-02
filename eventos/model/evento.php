@@ -13,6 +13,7 @@ class Evento {
     private $tituloMetaTag;
     private $keywordsMetaTag;
     private $descricaoMetaTag;
+    private $status;
 
     function getIdEvento() {
         return $this->idEvento;
@@ -89,17 +90,24 @@ class Evento {
     function getKeywordsMetatag() {
         return $this->keywordsMetaTag;
     }
-
     function setKeywordsMetatag($keywordsMetatag) {
         $this->keywordsMetaTag = $keywordsMetatag;
     }
 
+    
     function getDescricaoMetaTag() {
         return $this->descricaoMetaTag;
     }
-
     function setDescricaoMetaTag($descricaoMetaTag) {
         $this->descricaoMetaTag = $descricaoMetaTag;
+    }
+    
+    
+    function getStatus(){
+        return $this->status;
+    }
+    function setStatus($status){
+        $this->status = $status;
     }
 }
 

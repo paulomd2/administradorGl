@@ -17,7 +17,8 @@ class EventosDAO extends Banco {
                 tituloMetaTag = '" . $objEvento->getTituloMetaTag() . "',
                 keywordsMetaTag = '" . $objEvento->getKeywordsMetaTag() . "',
                 descricaoMetaTag = '" . $objEvento->getDescricaoMetaTag() . "',
-                dataCadastro = '" . $objEvento->getDataCadastro() . "'
+                dataCadastro = '" . $objEvento->getDataCadastro() . "',
+                status = ".$objEvento->getStatus()."
                ";
 
         $conexao->query($sql);
@@ -52,7 +53,8 @@ class EventosDAO extends Banco {
                 texto = '" . $objEvento->getTexto() . "',
                 tituloMetaTag = '" . $objEvento->getTituloMetaTag() . "',
                 keywordsMetaTag = '" . $objEvento->getKeywordsMetaTag() . "',
-                descricaoMetaTag = '" . $objEvento->getDescricaoMetaTag() . "'
+                descricaoMetaTag = '" . $objEvento->getDescricaoMetaTag() . "',
+                status = ".$objEvento->getStatus()."
                     WHERE idEvento = " . $objEvento->getIdEvento();
 
         $conexao->query($sql);

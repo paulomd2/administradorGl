@@ -15,6 +15,7 @@ switch ($opcao) {
         $tituloMetaTag = $_POST['tituloMetaTag'];
         $keywordsMetatag = $_POST['keywordsMetaTag'];
         $descricaoMetaTag = $_POST['descricaoMetaTag'];
+        $status = $_POST['status'];
 
         $imagem = uploadImagem();
 
@@ -28,6 +29,7 @@ switch ($opcao) {
         $objEvento->setTituloMetaTag($tituloMetaTag);
         $objEvento->setKeywordsMetatag($keywordsMetatag);
         $objEvento->setDescricaoMetaTag($descricaoMetaTag);
+        $objEvento->setStatus($status);
 
         $objEventoDao->cadEvento($objEvento);
         echo "<script>window.location='../verEventos.php?d=proximo'</script>";
@@ -43,6 +45,7 @@ switch ($opcao) {
         $tituloMetaTag = $_POST['tituloMetaTag'];
         $keywordsMetatag = $_POST['keywordsMetaTag'];
         $descricaoMetaTag = $_POST['descricaoMetaTag'];
+        echo $status = $_POST['status'];
 
         if ($_FILES['imagem']['name'] != '') {
             $imagem = uploadImagem();
@@ -60,6 +63,7 @@ switch ($opcao) {
         $objEvento->setTituloMetaTag($tituloMetaTag);
         $objEvento->setKeywordsMetatag($keywordsMetatag);
         $objEvento->setDescricaoMetaTag($descricaoMetaTag);
+        $objEvento->setStatus($status);
 
         $objEventoDao->altEvento($objEvento);
 

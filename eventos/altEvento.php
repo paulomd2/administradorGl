@@ -78,6 +78,16 @@ $evento = $objEventoDao->listaEvento1($objEvento);
                             </td>
                         </tr>
                         <tr>
+                            <td>Status:</td>
+                            <td>
+                                <select id="status" name="status">
+                                    <option value="" selected>Selecione um status...</option>
+                                    <option value="1" <?php if($evento['status'] == '1'){echo 'selected'; } ?>>Habilitado</option>
+                                    <option value="2" <?php if($evento['status'] == '2'){echo 'selected'; } ?>>Desabilitado</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
                             <td colspan="2"><h2>Meta tags</h2></td>
                         </tr>
                         <tr>
