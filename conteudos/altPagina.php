@@ -63,9 +63,8 @@
                             <td>
                                 <select name="status" id="status">
                                     <option value="">Selecione um status...</option>
-                                    <option value="1" <?php if($pagina['status'] == 1){echo 'selected';}?>>Publicado</option>
-                                    <option value="2" <?php if($pagina['status'] == 2){echo 'selected';}?>>Em revisão</option>
-                                    <option value="0" <?php if($pagina['status'] == 0){echo 'selected';}?>>Desabilitado</option>
+                                    <option value="1" <?php if($pagina['status'] == 1){echo 'selected';}?>>Habilitado</option>
+                                    <option value="2" <?php if($pagina['status'] == 2){echo 'selected';}?>>Desabilitado</option>
                                 </select><br />
                                 <span id="spanStatus" class="erro"></span>
                             </td>

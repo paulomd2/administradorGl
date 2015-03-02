@@ -64,8 +64,8 @@
 
                                 <select id="status" name="status">
                                     <option value="">Selecione um Status...</option>
-                                    <option value="1">Publicado</option>
-                                    <option value="2">Revisão</option>
+                                    <option value="1">Habilitado</option>
+                                    <option value="2">Desabilitado</option>
                                 </select><br />
                                 <span class="erro" id="spanStatus"></span>
                             </td>

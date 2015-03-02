@@ -90,9 +90,8 @@
                             <td>
                                 <select name="status" id="status">
                                     <option value="">Selecione um status...</option>
-                                    <option value="1">Publicado</option>
-                                    <option value="2">Em revisão</option>
-                                    <option value="0">Desabilitado</option>
+                                    <option value="1">Habilitado</option>
+                                    <option value="2">Desabilitado</option>
                                 </select><br />
                                 <span id="spanStatus" class="erro"></span>
                             </td>

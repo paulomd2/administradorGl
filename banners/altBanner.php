@@ -111,12 +111,12 @@
                                         if ($banner['status'] == 1) {
                                             echo 'selected';
                                         }
-                                        ?> >Publicado</option>
+                                        ?> >Habilitado</option>
                                         <option value="2" <?php
                                         if ($banner['status'] == 2) {
                                             echo 'selected';
                                         }
-                                        ?>>Revisão</option>
+                                        ?>>Desabilitado</option>
                                     </select><br />
                                     <span class="erro" id="spanStatus"></span>
                                 </td>

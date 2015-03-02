@@ -111,14 +111,9 @@
                                     if ($submenu['status'] == '1') {
                                         echo 'selected';
                                     }
-                                    ?>>Publicado</option>
+                                    ?>>Habilitado</option>
                                     <option value="2" <?php
                                     if ($submenu['status'] == '2') {
-                                        echo 'selected';
-                                    }
-                                    ?>>Em revisão</option>
-                                    <option value="0" <?php
-                                    if ($submenu['status'] == '0') {
                                         echo 'selected';
                                     }
                                     ?>>Desabilitado</option>
