@@ -134,12 +134,12 @@ setcookie("ck_authorized", "true", 0, "/");
                                         if ($release['status'] == 1) {
                                             echo 'selected';
                                         }
-                                        ?> >Publicado</option>
+                                        ?> >Habilitado</option>
                                         <option value="2" <?php
                                         if ($release['status'] == 2) {
                                             echo 'selected';
                                         }
-                                        ?>>Revisão</option>
+                                        ?>>Desabilitado</option>
                                     </select>
                                 </td>
                             </tr>

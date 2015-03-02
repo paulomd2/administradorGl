@@ -11,7 +11,7 @@ setcookie("ck_authorized", "true", 0, "/");
         <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
         <script type="text/javascript" src="js/releases.js"></script>
         <script src="../plugin/ckeditor/ckeditor.js"></script>
-        <script src="../plugin/ckeditor/ckeditor.js"></script>
+        <script src="../plugin/ckfinder/ckfinder.js"></script>
         <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
         <!-- polyfiller file to detect and load polyfills -->
         <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
@@ -69,8 +69,8 @@ setcookie("ck_authorized", "true", 0, "/");
                             <td>
                                 <select id="status" name="status">
                                     <option value="">Selecione um Status...</option>
-                                    <option value="1">Publicado</option>
-                                    <option value="2">Revisão</option>
+                                    <option value="1">Habilitado</option>
+                                    <option value="2">Desabilitado</option>
                                 </select><br />
                                 <span id="spanStatus" class="erro"></span>
                             </td>
