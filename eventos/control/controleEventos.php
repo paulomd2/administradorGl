@@ -45,7 +45,7 @@ switch ($opcao) {
         $tituloMetaTag = $_POST['tituloMetaTag'];
         $keywordsMetatag = $_POST['keywordsMetaTag'];
         $descricaoMetaTag = $_POST['descricaoMetaTag'];
-        echo $status = $_POST['status'];
+        $status = $_POST['status'];
 
         if ($_FILES['imagem']['name'] != '') {
             $imagem = uploadImagem();
