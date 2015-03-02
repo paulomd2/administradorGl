@@ -29,7 +29,6 @@
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Cadastrar evento</h1>
-                <a href="verEventos.php" class="proPage">Todos os eventos</a>
                 <form name="cadEvento" id="cadEvento" action="control/controleEventos.php" enctype="multipart/form-data" method="post" class="tableform">
                     <input type="hidden" value="cadastrar" name="opcao" id="opcao" />
                     <table>

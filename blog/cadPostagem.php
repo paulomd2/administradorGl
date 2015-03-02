@@ -162,11 +162,6 @@
                     uiColor: '#ffffff',
                     filebrowserImageBrowseUrl: '../plugin/ckfinder/ckfinder.html?Type=Images',
                 });
-
-                CKEDITOR.replace('descricaoSeo', {
-                    uiColor: '#ffffff',
-                    filebrowserImageBrowseUrl: '../plugin/ckfinder/ckfinder.html?Type=Images',
-                });
             </script>
         </div>
     </div>

@@ -175,11 +175,6 @@
                     uiColor: '#cfcfcf',
                     filebrowserImageBrowseUrl: '../plugin/ckfinder/ckfinder.html?Type=Images',
                 });
-                
-                CKEDITOR.replace('descricaoMetaTag', {
-                    uiColor: '#cfcfcf',
-                    filebrowserImageBrowseUrl: '../plugin/ckfinder/ckfinder.html?Type=Images',
-                });
             </script>
         </div>
     </body>
