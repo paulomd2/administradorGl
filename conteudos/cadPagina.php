@@ -16,13 +16,17 @@
         </script>
     </head>
     <body>
-        <?php include_once '../include/header.php'; ?>
-        <?php include_once '../include/lateral.php'; ?>
+        <?php
+        include_once '../include/header.php'; 
+        include_once '../include/lateral.php';
+        ?>
 
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="./">Conteúdos</a>
+                <a href="./">Conteúdo</a>
+                <a href="verPaginas.php"> Páginas </a>
+                <a href="#"> Cadastrar Página</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Cadastrar Página</h1>

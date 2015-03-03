@@ -1,13 +1,3 @@
-<?php
-require_once '../model/banco.php';
-require_once 'model/dao.php';
-
-$idMenu = $_GET['id'];
-
-$objMenu->setIdMenu($idMenu);
-$menu1 = $objConteudoDao->listaMenu1($objMenu);
-$submenus = $objConteudoDao->listaSubmenus($idMenu);
-?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -18,15 +8,15 @@ $submenus = $objConteudoDao->listaSubmenus($idMenu);
         <script type="text/javascript" src="js/conteudo.js"></script>
         <script type="text/javascript" src="../js/jquery-ui.js"></script>        
         <script>
-            $(document).ready(function() {
+            $(document).ready(function () {
 
                 $("#submenusordem ul").sortable({
                     opacity: 0.6,
                     cursor: 'move',
-                    update: function() {
+                    update: function () {
                         var order = $(this).sortable("serialize") + '&opcao=ordenaSubmenu';
-                        
-                        $.post("control/controleConteudo.php", order, function(theResponse) {
+
+                        $.post("control/controleConteudo.php", order, function (theResponse) {
                             console.log(theResponse);
                         });
                     }
@@ -68,9 +58,19 @@ $submenus = $objConteudoDao->listaSubmenus($idMenu);
         </style>
     </head>
     <body>
-        <?php include_once '../include/header.php'; ?>
-        <?php include_once '../include/lateral.php'; ?>
+        <?php
+        include_once '../include/header.php'; 
+        include_once '../include/lateral.php';
+        
+        require_once '../model/banco.php';
+        require_once 'model/dao.php';
 
+        $idMenu = $_GET['id'];
+
+        $objMenu->setIdMenu($idMenu);
+        $menu1 = $objConteudoDao->listaMenu1($objMenu);
+        $submenus = $objConteudoDao->listaSubmenus($idMenu);
+        ?>
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
@@ -79,7 +79,7 @@ $submenus = $objConteudoDao->listaSubmenus($idMenu);
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <input type="hidden" id="idMenu" value="<?php echo $idMenu; ?>"
-                <h1><?php echo $menu1['titulo']; ?></h1> <a href="cadSubmenu.php?id=<?php echo $_GET['id']; ?>" class="proPage">Adicionar nova página</a>
+                       <h1><?php echo $menu1['titulo']; ?></h1> <a href="cadSubmenu.php?id=<?php echo $_GET['id']; ?>" class="proPage">Adicionar nova página</a>
                 <div id="listaSubmenus">
                     <?php require_once 'listaSubmenuAjax.php'; ?>
                 </div>

@@ -18,13 +18,21 @@
         </script>
     </head>
     <body>
-        <?php include_once '../include/header.php'; ?>
-        <?php include_once '../include/lateral.php'; ?>
+        <?php
+        include_once '../include/header.php'; 
+        include_once '../include/lateral.php';
+        $idMenu = $_GET['id'];
 
+        $objMenu->setIdMenu($idMenu);
+        $menu1 = $objConteudoDao->listaMenu1($objMenu);
+        $submenus = $objConteudoDao->listaSubmenus($idMenu);
+        ?>
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="#">Notícias</a>
+                <a href="./">Conteúdo</a>
+                <a href="verSubmenus.php?id=<?php echo $idMenu; ?>"><?php echo $menu1['titulo']; ?></a>
+                <a href="#">Cadastrar submenu</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Cadastrar submenu</h1>

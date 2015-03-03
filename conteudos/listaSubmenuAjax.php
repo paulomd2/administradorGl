@@ -17,7 +17,7 @@ $submenus = $objConteudoDao->listaSubmenus($_GET['id']);
                     <span class="titMenu"><?php echo $submenus[$i]['tituloSubmenu']; ?></span>
                     <a href="altSubmenu.php?id=<?php echo $submenus[$i]['idSubmenu']; ?>">Alterar</a> | <a href="javascript:delSubmenu(<?php echo $submenus[$i]['idSubmenu']; ?>)">Excluir</a>
                 </div>
-            </li>   
+            </li>
         <?php } ?>
     </ul>
 </div>

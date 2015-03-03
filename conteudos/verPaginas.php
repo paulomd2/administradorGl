@@ -10,9 +10,7 @@ $paginas = $objConteudoDao->listaPaginas();
         <meta charset="UTF-8">
         <title>Painel | Fagga</title>
         <?php include_once '../include/head.php'; ?>
-        <script type="text/javascript" src="../js/jquery-ui-1.7.1.custom.min.js"></script>
         <script type="text/javascript" src="js/conteudo.js"></script>
-
         <style>
             .menu-conteudo{
                 width: 600px;
@@ -48,8 +46,10 @@ $paginas = $objConteudoDao->listaPaginas();
         </style>
     </head>
     <body>
-        <?php include_once '../include/header.php'; ?>
-        <?php include_once '../include/lateral.php'; ?>
+        <?php
+        include_once '../include/header.php'; 
+        include_once '../include/lateral.php';
+        ?>
 
         <div class="main-admin">
             <div class="guia-site">
@@ -58,7 +58,7 @@ $paginas = $objConteudoDao->listaPaginas();
                 <a href="#"> Páginas </a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
-                <h1>Ultimas páginas</h1> <a href="cadPagina.php" class="proPage">Adicionar nova página</a>
+                <h1>Gerenciar páginas</h1> <a href="cadPagina.php" class="proPage">Adicionar nova página</a>
                 <table class="tableAll">
                     <thead>
                         <tr>

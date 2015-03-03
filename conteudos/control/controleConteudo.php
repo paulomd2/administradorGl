@@ -121,6 +121,7 @@ switch ($opcao) {
         }
 
     case 'ordenaSubmenu': {
+        
             //$action = mysql_real_escape_string($_POST['action']);
             $updateRecordsArray = $_POST['recordsArray'];
 
@@ -129,6 +130,7 @@ switch ($opcao) {
                 $objConteudoDao->ordenaSubmenu($listingCounter, $recordIDValue);
                 $listingCounter++;
             }
+            break;
         }
 
 
@@ -141,75 +143,80 @@ switch ($opcao) {
                 $objConteudoDao->ordenaMenu($listingCounter, $recordIDValue);
                 $listingCounter++;
             }
+            
+            break;
         }
 
-    case 'cadastrarPagina':
-        $titulo = $_POST['titulo'];
-        $link = converteLink($_POST['link']);
-        $status = $_POST['status'];
-        $texto = $_POST['texto'];
-        $tituloSeo = $_POST['tituloMetaTag'];
-        $keywordsSeo = $_POST['keywordsMetaTag'];
-        $descricaoSeo = $_POST['descricaoMetaTag'];
+    case 'cadastrarPagina': {
+            $titulo = $_POST['titulo'];
+            $link = converteLink($_POST['link']);
+            $status = $_POST['status'];
+            $texto = $_POST['texto'];
+            $tituloSeo = $_POST['tituloMetaTag'];
+            $keywordsSeo = $_POST['keywordsMetaTag'];
+            $descricaoSeo = $_POST['descricaoMetaTag'];
 
 
-        $objPagina->setTitulo($titulo);
-        $objPagina->setLink($link);
-        $objPagina->setStatus($status);
-        $objPagina->setTexto($texto);
-        $objPagina->setTituloSeo($tituloSeo);
-        $objPagina->setKeywordSeo($keywordsSeo);
-        $objPagina->setDescricaoSeo($descricaoSeo);
+            $objPagina->setTitulo($titulo);
+            $objPagina->setLink($link);
+            $objPagina->setStatus($status);
+            $objPagina->setTexto($texto);
+            $objPagina->setTituloSeo($tituloSeo);
+            $objPagina->setKeywordSeo($keywordsSeo);
+            $objPagina->setDescricaoSeo($descricaoSeo);
 
-        $objConteudoDao->cadPagina($objPagina);
-        break;
+            $objConteudoDao->cadPagina($objPagina);
+            break;
+        }
 
-    case 'alterarPagina':
-        $idPagina = $_POST['idPagina'];
-        $titulo = $_POST['titulo'];
-        $link = converteLink($_POST['link']);
-        $status = $_POST['status'];
-        $texto = $_POST['texto'];
-        $tituloSeo = $_POST['tituloMetaTag'];
-        $keywordsSeo = $_POST['keywordsMetaTag'];
-        $descricaoSeo = $_POST['descricaoMetaTag'];
+    case 'alterarPagina': {
+            $idPagina = $_POST['idPagina'];
+            $titulo = $_POST['titulo'];
+            $link = converteLink($_POST['link']);
+            $status = $_POST['status'];
+            $texto = $_POST['texto'];
+            $tituloSeo = $_POST['tituloMetaTag'];
+            $keywordsSeo = $_POST['keywordsMetaTag'];
+            $descricaoSeo = $_POST['descricaoMetaTag'];
 
-        $objPagina->setIdPagina($idPagina);
-        $objPagina->setTitulo($titulo);
-        $objPagina->setLink($link);
-        $objPagina->setStatus($status);
-        $objPagina->setTexto($texto);
-        $objPagina->setTituloSeo($tituloSeo);
-        $objPagina->setKeywordSeo($keywordsSeo);
-        $objPagina->setDescricaoSeo($descricaoSeo);
+            $objPagina->setIdPagina($idPagina);
+            $objPagina->setTitulo($titulo);
+            $objPagina->setLink($link);
+            $objPagina->setStatus($status);
+            $objPagina->setTexto($texto);
+            $objPagina->setTituloSeo($tituloSeo);
+            $objPagina->setKeywordSeo($keywordsSeo);
+            $objPagina->setDescricaoSeo($descricaoSeo);
 
-        $objConteudoDao->altPagina($objPagina);
-        break;
+            $objConteudoDao->altPagina($objPagina);
+            break;
+        }
 
-    case 'excluirPagina':
-        $idPagina = $_POST['idPagina'];
+    case 'excluirPagina': {
+            $idPagina = $_POST['idPagina'];
 
-        $objPagina->setIdPagina($idPagina);
+            $objPagina->setIdPagina($idPagina);
 
-        $objConteudoDao->delPagina($objPagina);
-        break;
-    
-    case 'verificaLink':
-        $link = converteLink($_POST['link']);
-        
-        $objPagina->setLink($link);
-        
-        $retorno = $objConteudoDao->verificaLink($objPagina);
-        
-        print_r($retorno['link']);
-        break;
+            $objConteudoDao->delPagina($objPagina);
+        }
+
+    case 'verificaLink': {
+            $link = converteLink($_POST['link']);
+
+            $objPagina->setLink($link);
+
+            $retorno = $objConteudoDao->verificaLink($objPagina);
+
+            print_r($retorno['link']);
+            break;
+        }
 }
 
 function converteLink($post) {
     $link = strtolower($post);
     $link = str_replace(' ', '-', $link);
-    $link = preg_replace( '/[`^~\'"]/', null, iconv( 'UTF-8', 'ASCII//TRANSLIT', $link ) );
-    
-            
+    $link = preg_replace('/[`^~\'"]/', null, iconv('UTF-8', 'ASCII//TRANSLIT', $link));
+
+
     return $link;
 }

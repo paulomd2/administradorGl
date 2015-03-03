@@ -4,8 +4,57 @@
         <meta charset="UTF-8">
         <title>Painel | Fagga</title>
         <?php include_once '../include/head.php'; ?>
-        <script type="text/javascript" src="../js/jquery-2.1.3.js"></script>
         <script type="text/javascript" src="js/conteudo.js"></script>
+        <script type="text/javascript" src="../js/jquery-ui.js"></script>        
+        <script>
+            $(document).ready(function () {
+
+                $("#menusordem ul").sortable({
+                    opacity: 0.6,
+                    cursor: 'move',
+                    update: function () {
+                        var order = $(this).sortable("serialize") + '&opcao=ordenaMenu';
+
+                        $.post("control/controleConteudo.php", order,  function (theResponse) {
+                            console.log(theResponse);
+                        });
+                    }
+                });
+            });
+        </script>
+        <style>
+            .menu-conteudo{
+                width: 600px;
+                height: auto;
+                background: none;
+                border: 1px solid #a2a5a6;
+                border-radius: 5px;
+                margin-bottom: 10px;
+                background: white;
+                padding: 5px;
+            }
+            .menu-conteudo span.titMenu{
+                font-size: 16px;
+                color: black;
+                display: block;
+            }
+            .menu-conteudo a{
+                display: inline-block;
+                font-size: 14px;
+                color: #3366ff;
+                text-decoration: none;
+            }
+            .menu-conteudo a:hover{
+                text-decoration: underline;
+            }
+            a.linkIcon{
+                color: #333;
+                text-decoration: none;
+            }
+            ul{
+                list-style: none;
+            }
+        </style>
     </head>
     <body>
         <?php include_once '../include/header.php'; ?>
@@ -14,61 +63,18 @@
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="index.php">Conteúdo</a>
-                <a href="#">Gerenciar conteúdo</a>
+                <a href="./">Conteúdo</a>
+                <a href="#">Gerenciar menus</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
-                <h1>Gerenciar conteúdo</h1><br/><br/>
-                <h2>Cadastrar novo menu</h2>
-                <form name="cadMenu">
-                    <table class="tableform">
-                        <tr>
-                            <td>Título:</td>
-                            <td>
-                                <input type="text" name="titulo" id="titulo" /><br />
-                                <span id="spanTitulo" class="erro"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Link:</td>
-                            <td>
-                                <input type="text" name="link" id="link" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Target:</td>
-                            <td>
-                                <select name="target" id="target">
-                                    <option value="_self" selected="">Abrir na mesma página</option>
-                                    <option value="_blank">Abrir em outra página</option>
-                                </select><br />
-                                <span id="spanTarget" class="erro"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><input type="button" id="btnCadastrarMenu" value="Cadastrar" /></td>
-                        </tr>
-                    </table>
-                </form>
-                <hr/>
-                <h2>Menus cadastrados</h2>
-                <table class="tableAll">
-                    <thead>
-                        <tr>
-                            <td style="width: 80%;">Título</td>
-                            <td style="width: 10%;">Editar</td>
-                            <td style="width: 10%;">Excluir</td>
-                        </tr>
-                    </thead>
-                    <tbody id="listaMenus">
-                        <?php
-                        require_once 'listaMenuAjax.php';
-                        
-                        ?>
-                    </tbody>
-                </table>
-
+                <h1>Gerenciar menus</h1><a href="cadMenu.php" class="proPage">Adicionar novo menu</a>
+                <div id="listaMenus">
+                    <?php
+                    require_once 'listaMenuAjax.php';
+                    ?>
+                </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>

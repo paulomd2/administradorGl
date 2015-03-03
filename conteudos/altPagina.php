@@ -22,7 +22,9 @@
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="./">Conteúdos</a>
+                <a href="./">Conteúdo</a>
+                <a href="verPaginas.php"> Páginas </a>
+                <a href="#"> Alterar Página</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Alterar Página</h1>

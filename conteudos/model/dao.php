@@ -203,7 +203,7 @@ class ConteudoDAO extends Banco {
         $query = "
                     UPDATE ".TBL_MENU."
                     SET ordem = " . $listingCounter . "
-                    WHERE idSubmenu = " . $recordIDValue;
+                    WHERE idmenu = " . $recordIDValue;
         
         
         $conexao->query($query);        
