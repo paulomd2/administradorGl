@@ -24,7 +24,7 @@ if(empty($_SESSION)){
             
             $usuarioLogado = $objUsuarioDao->verUsuario1($objUsuario);
             
-            echo $usuarioLogado['nome'];
+            echo $usuarioLogado['nome']." <a href='../home/editar-user.php' class='editar-user' title='Editar usuário'><i class='icon icon-pencil'></i></a>";
             ?>
         </span>
     </div>
