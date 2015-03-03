@@ -116,13 +116,17 @@ aside.barra-lateral{
 }
 .center-user .detail-user{
     background: #505153;
-    width: 168px;
+    width: 188px;
     float: left;
-    padding: 20px;
+    /*padding: 10px 10px 25px 10px;*/
+    padding: 20px 10px;
 }
 .center-user .detail-user span{
     font-size: 13px;
     color: white;
+}
+.center-user .detail-user span em{
+    display: block;
 }
 .center-user .barra-user{
     width: 100%;
@@ -413,4 +417,12 @@ hr{
     font-size: 13px;
     margin-top: 5px;
     display: none;
+}
+.editar-user{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+.editar-user:hover{
+    color: #858383;
 }
