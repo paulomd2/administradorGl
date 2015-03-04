@@ -21,14 +21,15 @@ $usuario = $objUsuarioDao->verUsuario1($objUsuario);
         <script type="text/javascript" src="js/usuario.js"></script>
     </head>
     <body>
-        <?php include_once '../include/header.php'; ?>
-        <?php include_once '../include/lateral.php'; ?>
+        <?php
+        include_once '../include/header.php';
+        include_once '../include/lateral.php';
+        ?>
 
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="/">Usuários</a>
-                <a href="verUsuarios.php">Usuários cadastrados</a>
+                <a href="./">Usuários</a>
                 <a href="#">Alterar usuário</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
