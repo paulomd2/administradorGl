@@ -23,8 +23,9 @@
 
         <div class="main-admin">
             <div class="guia-site">
-                <a href="../home/"><i class="icon icon-home"></i> Home</a>
+                <a href="../home"><i class="icon icon-home"></i> Home</a>
                 <a href="./">Banners</a>
+                <a href="#">Alterar banner</a>
             </div>
             <div class="tenor">
                 <h1>Alterar Banner</h1>

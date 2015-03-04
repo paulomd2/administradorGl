@@ -60,14 +60,15 @@
 
     </head>
     <body>
-        <?php include_once '../include/header.php'; ?>
-        <?php include_once '../include/lateral.php'; ?>
+        <?php
+        include_once '../include/header.php';
+        include_once '../include/lateral.php';
+        ?>
 
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="index.php">Banners</a>
-                <a href="#">Todos os banners</a>
+                <a href="#">Banners</a>
             </div>
             <div class="tenor">
                 <h1>Todos os banners</h1>
