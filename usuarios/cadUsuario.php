@@ -31,7 +31,7 @@ if ($_SESSION['nivel'] != 1) {
                         <tr>
                             <td>Nome:</td>
                             <td>
-                                <input type="text" name="nome" id="nome" /><br />
+                                <input type="text" name="nome" id="nome" maxlength="19" /><br />
                                 <span id="spanNome" class="erro"></span>
                             </td>
                         </tr>

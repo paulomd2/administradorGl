@@ -37,10 +37,9 @@ switch ($opcao) {
         $nivel = $_POST['nivel'];
         $dataCricao = date('Y-m-d H:i:s');
         $idUsuario = $_POST['idUsuario'];
-
-        if ($_POST['senha'] == '') {
-            $senha = $_POST['senhaAntiga'];
-        } else {
+        $senha = $_POST['senha'];
+        
+        if (strlen($senha) != 32) {
             $senha = md5($_POST['senha']);
         }
 

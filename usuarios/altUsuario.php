@@ -40,7 +40,7 @@ $usuario = $objUsuarioDao->verUsuario1($objUsuario);
                         <tr>
                             <td>Nome:</td>
                             <td>
-                                <input type="text" name="nome" id="nome" value="<?php echo $usuario['nome']; ?>" /><br />
+                                <input type="text" name="nome" id="nome" value="<?php echo $usuario['nome']; ?>" maxlength="19" /><br />
                                 <span id="spanNome" class="erro"></span>
                             </td>
                         </tr>

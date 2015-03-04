@@ -105,4 +105,41 @@ $(document).ready(function () {
             window.location = 'verUsuarios.php';
         }
     });
+    
+   $("#btnAlterarUsuarioHome").click(function () {
+        var nome = $("#nome").val().trim();
+        var email = $("#email").val().trim();
+        var senhaDigitada = $("#senha").val().trim();
+        var senhaAntiga = $("#senhaAntiga").val().trim();
+        var senha;
+        var usuario = $("#usuario").val().trim();
+        var idUsuario = $("#idUsuario").val();
+        var nivel = $("#nivel").val();
+        if (senhaDigitada == '') {
+            senha = senhaAntiga;
+        } else {
+            senha = senhaDigitada;
+        }
+
+        $(".erro").html('').css('display', 'none');
+        if (nome == '') {
+            $("#nome").focus();
+            $("#spanNome").html('Você deve preencher o Nome!').css('display', 'inline-block');
+        } else if (email == '') {
+            $("#email").focus();
+            $("#spanEmail").html('Você deve preencher o Email!').css('display', 'inline-block');
+        } else if (!$.validaEmail(email)) {
+            $("#email").focus();
+            $("#spanEmail").html('Você deve preencher um Email válido!').css('display', 'inline-block');
+        } else if (usuario == '') {
+            $("#usuario").focus();
+            $("#spanUsuario").html('Você deve preencher o Usuário!').css('display', 'inline-block');
+        } else {
+            $.post('../usuarios/control/controleUsuario.php', {opcao: 'alterar', idUsuario: idUsuario, usuario: usuario, nome: nome, email: email, senha: senha, senhaAntiga:senhaAntiga, nivel:nivel},
+            function(r){
+                console.log(r);
+            });
+            //window.location = './';
+        }
+    }); 
 });
