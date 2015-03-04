@@ -17,8 +17,8 @@ setcookie("ck_authorized", "true", 0, "/");
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="index.php">Notícias</a>
-                <a href="#">Todas as notícias</a>
+                <a href="./">Caravanas</a>
+                <a href="#">Todas as caravanas</a>
             </div>
             <div class="tenor">
                 <h1>Últimas Caravanas</h1><a href="cadCaravana.php" class="proPage">Cadastrar Caravanas</a>

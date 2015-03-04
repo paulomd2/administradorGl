@@ -15,7 +15,7 @@
             <div class="guia-site">
                 <a href="../home"><i class="icon icon-home"></i> Home</a>
                 <a href="./">Caravanas</a>
-                <a href="#">Cadastrar Caravana</a>
+                <a href="#">alterar Caravana</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Cadastrar caravana</h1>
