@@ -26,18 +26,28 @@
         <?php 
         include_once '../include/header.php';
         include_once '../include/lateral.php';
+        require_once '../model/banco.php';
+        require_once './model/dao.php';
+        
+        $id = $_GET['id'];
+        
+        $objCategoria->setIdCategoria($id);
+        
+        $categoria = $objRodapeDao->listaCategoria1($objCategoria)
         ?>
 
         <div class="main-admin">
             <div class="guia-site">
-                <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="./">Banners</a>
-                <a href="#">Todas as categorias</a>
+                <a href="../home"><i class="icon icon-home"></i> Home</a>
+                <a href="#">Administração</a>
+                <a href="./">Rodapé</a>
+                <a href="#"><?php echo $categoria['nome']; ?></a>
+                <a href="#">Ver Imagens</a>
             </div>
             <div class="tenor">
                 <h1>Todos as imagens</h1>
-                <a href="cadImagem.php?id=<?php echo $_GET['id']; ?>" class="proPage">Cadastrar Imagem</a>
-                <input type="hidden" value="<?php echo $_GET['id']; ?>" id="idCategoria" />
+                <a href="cadImagem.php?id=<?php echo $id; ?>" class="proPage">Cadastrar Imagem</a>
+                <input type="hidden" value="<?php echo $id; ?>" id="idCategoria" />
                 <table class="tableAll">
                     <thead>
                         <tr>

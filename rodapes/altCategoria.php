@@ -12,11 +12,13 @@
 
         <div class="main-admin">
             <div class="guia-site">
-                <a href="../home/"><i class="icon icon-home"></i> Home</a>
+                <a href="../home"><i class="icon icon-home"></i> Home</a>
+                <a href="#">Administração</a>
                 <a href="./">Rodapé</a>
+                <a href="#">Alterar Categoria</a>
             </div>
             <div class="tenor">
-                <h1>Alterar Banner</h1>
+                <h1>Alterar Categoria</h1>
                 <div>
                     <?php
                     $idCategoria = $_GET['id'];

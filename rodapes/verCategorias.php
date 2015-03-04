@@ -28,20 +28,21 @@
 
         <div class="main-admin">
             <div class="guia-site">
-                <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="./">Banners</a>
-                <a href="#">Todas as categorias</a>
+                <a href="../home"><i class="icon icon-home"></i> Home</a>
+                <a href="#">Administração</a>
+                <a href="./">Rodapé</a>
+                <a href="#">Categorias</a>
             </div>
             <div class="tenor">
-                <h1>Todos os banners</h1>
+                <h1>Todas as categorias</h1>
                 <a href="cadCategoria.php" class="proPage">Cadastrar categoria</a>
                 <table class="tableAll">
                     <thead>
                         <tr>
-                            <td style="width: 40%;">Categoria</td>
+                            <td>Categoria</td>
                             <td style="width: 10%;">Alterar</td>
                             <td style="width: 10%;">Excluir</td>
-                            <td style="width: 10%;">Cadastrar</td>
+                            <td style="width: 20%;">Ver imagem</td>
                         </tr>
                     </thead>
 

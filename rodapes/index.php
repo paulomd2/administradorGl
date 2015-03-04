@@ -13,7 +13,9 @@
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home"><i class="icon icon-home"></i> Home</a>
+                <a href="#">Administração</a>
                 <a href="./">Rodapé</a>
+                <a href="#">Categorias</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Últimas Categorias</h1>
@@ -24,7 +26,7 @@
                             <td>Categoria</td>
                             <td style="width: 10%;">Alterar</td>
                             <td style="width: 10%;">Excluir</td>
-                            <td style="width: 20%;">Adicionar imagem</td>
+                            <td style="width: 20%;">Ver imagem</td>
                         </tr>
                     </thead>
                     <tbody id="listaCategorias"></tbody>

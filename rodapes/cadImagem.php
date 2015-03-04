@@ -7,13 +7,26 @@
         <script type="text/javascript" src="js/rodape.js"></script>
     </head>
     <body>
-        <?php include_once '../include/header.php'; ?>
-        <?php include_once '../include/lateral.php'; ?>
+        <?php 
+        include_once '../include/header.php';
+        include_once '../include/lateral.php';
+        require_once '../model/banco.php';
+        require_once './model/dao.php';
+        
+        $id = $_GET['id'];
+        
+        $objCategoria->setIdCategoria($id);
+        
+        $categoria = $objRodapeDao->listaCategoria1($objCategoria)
+        ?>
 
         <div class="main-admin">
             <div class="guia-site">
-                <a href="../home/"><i class="icon icon-home"></i> Home</a>
+                <a href="../home"><i class="icon icon-home"></i> Home</a>
+                <a href="#">Administração</a>
                 <a href="./">Rodapé</a>
+                <a href="verImagens.php?id=<?php echo $id; ?>"><?php echo $categoria['nome']; ?></a>
+                <a href="#">Cadastrar Imagem</a>
             </div>
             <div class="tenor">
                 <h1>Cadastrar Imagem</h1>

@@ -7,13 +7,26 @@
         <script type="text/javascript" src="js/rodape.js"></script>
     </head>
     <body>
-        <?php include_once '../include/header.php'; ?>
-        <?php include_once '../include/lateral.php'; ?>
+        <?php
+        include_once '../include/header.php';
+        include_once '../include/lateral.php';
+        require_once '../model/banco.php';
+        require_once './model/dao.php';
+
+        $id = $_GET['id'];
+
+        $objCategoria->setIdCategoria($id);
+
+        $categoria = $objRodapeDao->listaCategoria1($objCategoria)
+        ?>
 
         <div class="main-admin">
             <div class="guia-site">
-                <a href="../home/"><i class="icon icon-home"></i> Home</a>
+                <a href="../home"><i class="icon icon-home"></i> Home</a>
+                <a href="#">Administração</a>
                 <a href="./">Rodapé</a>
+                <a href="verImagens.php?id=<?php echo $id; ?>"><?php echo $categoria['nome']; ?></a>
+                <a href="#">Alterar Imagem</a>
             </div>
             <div class="tenor">
                 <h1>Alterar Imagem</h1>
@@ -22,9 +35,9 @@
                     $idImagem = $_GET['id'];
                     require_once '../model/banco.php';
                     require_once 'model/dao.php';
-                    
+
                     $objImagem->setIdImagem($idImagem);
-                    
+
                     $imagem = $objRodapeDao->listaImagem1($objImagem);
                     ?>
                     <form id="cadImagem" enctype="multipart/form-data" method="post" action="control/controleRodape.php">
@@ -52,8 +65,12 @@
                                 <td>
                                     <select id="status" name="status">
                                         <option value="">Selecione um status</option>
-                                        <option value="1" <?php if($imagem['status'] == 1){ echo 'selected'; } ?>>Habilitado</option>
-                                        <option value="2" <?php if($imagem['status'] == 2){ echo 'selected'; } ?>>Desabilitado</option>
+                                        <option value="1" <?php if ($imagem['status'] == 1) {
+                        echo 'selected';
+                    } ?>>Habilitado</option>
+                                        <option value="2" <?php if ($imagem['status'] == 2) {
+                        echo 'selected';
+                    } ?>>Desabilitado</option>
                                     </select><br />
                                     <span class="erro" id="spanStatus"></span>
                                 </td>

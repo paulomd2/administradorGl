@@ -13,7 +13,9 @@
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home"><i class="icon icon-home"></i> Home</a>
+                <a href="#">Administração</a>
                 <a href="./">Rodapé</a>
+                <a href="#">Cadastrar Categoria</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Cadastrar Categoria</h1>
