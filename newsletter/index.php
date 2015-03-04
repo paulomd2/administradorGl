@@ -7,14 +7,16 @@
         <script type="text/javascript" src="../js/jquery-2.1.3.js"></script>
     </head>
     <body>
-        <?php include_once '../include/header.php'; ?>
-        <?php include_once '../include/lateral.php'; ?>
+        <?php
+        include_once '../include/header.php';
+        include_once '../include/lateral.php';
+        ?>
 
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="./">Releases</a>
-                <a href="./">Todos as news</a>
+                <a href="#">Administração</a>
+                <a href="./">newsletter</a>
             </div>
             <div class="tenor">
                 <h1>Todos os emails</h1>
@@ -29,20 +31,20 @@
                     </thead>
                     <tbody id="listaNews">
                         <?php
-                            require_once '../model/banco.php';
-                            require_once 'model/dao.php';
-                            
-                            $news = $objNewsDao->listaEmail();
-                            
-                            for($i = 1; $i < count($news); $i++){
-                                echo '
+                        require_once '../model/banco.php';
+                        require_once 'model/dao.php';
+
+                        $news = $objNewsDao->listaEmail();
+
+                        for ($i = 1; $i < count($news); $i++) {
+                            echo '
                                         <tr>
-                                            <td>'.$news[$i]["nome"].'</td>
-                                            <td>'.$news[$i]["email"].'</td>
-                                            <td>'.$news[$i]["dataCadastro"].'</td>
+                                            <td>' . $news[$i]["nome"] . '</td>
+                                            <td>' . $news[$i]["email"] . '</td>
+                                            <td>' . $news[$i]["dataCadastro"] . '</td>
                                         </tr>
                                      ';
-                            }
+                        }
                         ?>
                     </tbody>
                 </table>
