@@ -157,14 +157,14 @@
                         <tr>
                             <td>Keywords:</td>
                             <td>
-                                <input type="text" name="keywordsMetaTag" id="keywordsMetaTag" value="<?php echo $submenu['keywordMetaTag']; ?>" /><br />
+                                <textarea name="keywordsMetaTag" id="keywordsMetaTag"><?php echo $submenu['keywordMetaTag']; ?></textarea><br />
                                 <span id="spanKeywordsMetaTag" class="erro"></span>
                             </td>
                         </tr>
                         <tr>
                             <td>Descrição:</td>
                             <td>
-                                <input type="text" name="descricaoMetaTag" id="descricaoMetaTag" value="<?php echo $submenu['descricaoMetaTag']; ?>" /><br />
+                                <textarea name="descricaoMetaTag" id="descricaoMetaTag"><?php echo $submenu['descricaoMetaTag']; ?></textarea><br />
                                 <span id="spanDescricaoMetaTag" class="erro"></span>
                             </td>
                         </tr>

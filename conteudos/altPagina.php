@@ -31,9 +31,9 @@
                 <?php
                 require_once '../model/banco.php';
                 require_once 'model/dao.php';
-                
+
                 $objPagina->setIdPagina($_GET['id']);
-                
+
                 $pagina = $objConteudoDao->listaPagina1($objPagina)
                 ?>
                 <form name="altMenu">
@@ -65,8 +65,12 @@
                             <td>
                                 <select name="status" id="status">
                                     <option value="">Selecione um status...</option>
-                                    <option value="1" <?php if($pagina['status'] == 1){echo 'selected';}?>>Habilitado</option>
-                                    <option value="2" <?php if($pagina['status'] == 2){echo 'selected';}?>>Desabilitado</option>
+                                    <option value="1" <?php if ($pagina['status'] == 1) {
+                    echo 'selected';
+                } ?>>Habilitado</option>
+                                    <option value="2" <?php if ($pagina['status'] == 2) {
+                    echo 'selected';
+                } ?>>Desabilitado</option>
                                 </select><br />
                                 <span id="spanStatus" class="erro"></span>
                             </td>
@@ -84,7 +88,7 @@
                         <tr>
                             <td>Keywords:</td>
                             <td>
-                                <input type="text" name="keywordsMetaTag" id="keywordsMetaTag" value="<?php echo $pagina['keywordSeo']; ?>" /><br />
+                                <textarea name="keywordsMetaTag" id="keywordsMetaTag"><?php echo $pagina['keywordSeo']; ?></textarea><br />
                                 <span id="spanKeywordsMetaTag" class="erro"></span>
                             </td>
                         </tr>
@@ -108,7 +112,7 @@
                         uiColor: '#cfcfcf',
                         filebrowserImageBrowseUrl: '../plugin/ckfinder/ckfinder.html?Type=Images',
                     });
-         </script>
+                </script>
             </div>
         </div>
     </body>

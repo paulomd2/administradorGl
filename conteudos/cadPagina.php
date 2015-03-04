@@ -77,14 +77,14 @@
                         <tr>
                             <td>Keywords:</td>
                             <td>
-                                <input type="text" name="keywordsMetaTag" id="keywordsMetaTag" /><br />
+                                <textarea name="keywordsMetaTag" id="keywordsMetaTag"></textarea><br />
                                 <span id="spanKeywordsMetaTag" class="erro"></span>
                             </td>
                         </tr>
                         <tr>
                             <td>Descrição:</td>
                             <td>
-                                <input type="text" name="descricaoMetaTag" id="descricaoMetaTag" /><br />
+                                <textarea name="descricaoMetaTag" id="descricaoMetaTag"></textarea><br />
                                 <span id="spanDescricaoMetaTag" class="erro"></span>
                             </td>
                         </tr>
