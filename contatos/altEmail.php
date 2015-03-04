@@ -15,11 +15,12 @@
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="./">Contato</a>
-                <a href="#">Alterar contatos</a>
+                <a href="#">Administração</a>
+                <a href="./">contatos</a>
+                <a href="#">Alterar Email</a>
             </div>
             <div class="tenor">
-                <h1>Alterar notícia</h1>
+                <h1>Alterar email</h1>
 
                 <?php
                 require_once '../model/banco.php';

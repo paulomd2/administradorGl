@@ -19,7 +19,8 @@ setcookie("ck_authorized", "true", 0, "/");
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="#">Contatos</a>
+                <a href="#">Administração</a>
+                <a href="./">Contatos</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Todos os emails</h1>

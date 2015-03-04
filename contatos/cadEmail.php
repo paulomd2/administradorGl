@@ -9,12 +9,15 @@
         <script src="../plugin/ckeditor/ckeditor.js"></script>
     </head>
     <body>
-        <?php include_once '../include/header.php'; ?>
-        <?php include_once '../include/lateral.php'; ?>
+        <?php
+        include_once '../include/header.php';
+        include_once '../include/lateral.php';
+        ?>
 
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
+                <a href="#">Administração</a>
                 <a href="./">contatos</a>
                 <a href="#">Cadastrar Email</a>
             </div>
