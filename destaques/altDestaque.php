@@ -23,7 +23,7 @@ setcookie("ck_authorized", "true", 0, "/");
                 <a href="#">Alterar destaque</a>
             </div>
             <div class="tenor">
-                <h1>Alterar notícia</h1>
+                <h1>Alterar destaque</h1>
 
                 <?php
                 require_once '../model/banco.php';
