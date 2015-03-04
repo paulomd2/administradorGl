@@ -32,7 +32,7 @@ $expositor = $objExpositorDao->listaExpositor1($objExpositor);
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
                 <a href="./">Expositores</a>
-                <a href="#">Alterar evento</a>
+                <a href="#">Alterar expositor</a>
             </div>
             <div class="tenor">
                 <h1>Alterar Expositor</h1>

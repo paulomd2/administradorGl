@@ -7,13 +7,15 @@
         <script type="text/javascript" src="js/expositores.js"></script>
     </head>
     <body>
-        <?php include_once '../include/header.php'; ?>
-        <?php include_once '../include/lateral.php'; ?>
+        <?php
+        include_once '../include/header.php';
+        include_once '../include/lateral.php';
+        ?>
 
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="index.php">Eventos</a>
+                <a href="./">Expositor</a>
                 <a href="#">Cadastrar expositor</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
