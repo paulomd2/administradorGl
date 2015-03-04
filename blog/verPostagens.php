@@ -18,7 +18,8 @@
     <div class="main-admin">
         <div class="guia-site">
             <a href="../home"><i class="icon icon-home"></i> Home</a>
-            <a href="#">Usuário</a>
+            <a href="./">Blog</a>
+            <a href="#">Todas Postagens</a>
         </div>
         <div class="tenor" style="overflow: hidden!important;">
             <h1>Todas Postagens</h1> <a href="cadPostagem.php" class="proPage">Cadastrar postagens</a>
