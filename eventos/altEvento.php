@@ -24,7 +24,7 @@ $evento = $objEventoDao->listaEvento1($objEvento);
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="/">Eventos</a>
+                <a href="#">Eventos</a>
                 <a href="#">Alterar evento</a>
             </div>
             <div class="tenor">

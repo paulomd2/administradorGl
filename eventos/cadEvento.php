@@ -24,7 +24,7 @@
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="index.php">Eventos</a>
+                <a href="#">Eventos</a>
                 <a href="#">Cadastrar evento</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">

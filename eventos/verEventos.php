@@ -26,7 +26,7 @@ if ($data == 'proximo') {
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="../eventos/">Eventos</a>
+                <a href="#">Eventos</a>
                 <a href="#">Todos os eventos</a>
             </div>
             <div class="tenor">
