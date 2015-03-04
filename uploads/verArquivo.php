@@ -27,6 +27,7 @@
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
                 <a href="./">Upload</a>
+                <a href="#"><?php echo $_GET['id']; ?></a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <input type="hidden" value="<?php echo $_GET['id'] ?>" name="pasta" id="pasta" />
