@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>Painel | Fagga</title>
         <?php include_once '../include/head.php'; ?>
-        <script type="text/javascript" src="../js/jquery-2.1.3.js"></script>
+        <script src="js/newsletter.js"></script>
     </head>
     <body>
         <?php
@@ -21,6 +21,12 @@
             <div class="tenor">
                 <h1>Todos os emails</h1>
                 <a href="exportar.php" class="proPage">Exportar CSV</a>
+                Exibir por página <select id="numNews">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
                 <table class="tableAll">
                     <thead>
                         <tr>
@@ -29,24 +35,7 @@
                             <td style="width: 20%;">Data de Cadastro</td>
                         </tr>
                     </thead>
-                    <tbody id="listaNews">
-                        <?php
-                        require_once '../model/banco.php';
-                        require_once 'model/dao.php';
-
-                        $news = $objNewsDao->listaEmail();
-
-                        for ($i = 1; $i < count($news); $i++) {
-                            echo '
-                                        <tr>
-                                            <td>' . $news[$i]["nome"] . '</td>
-                                            <td>' . $news[$i]["email"] . '</td>
-                                            <td>' . $news[$i]["dataCadastro"] . '</td>
-                                        </tr>
-                                     ';
-                        }
-                        ?>
-                    </tbody>
+                    <tbody id="listaNews"></tbody>
                 </table>
 
             </div>
