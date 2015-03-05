@@ -42,6 +42,13 @@ setcookie("ck_authorized", "true", 0, "/");
                 <h1>Listar Contatos</h1>
                 <a href="exportar.php?f=mes" class="proPage">Exportar por mês</a>
                 <a href="exportar.php?f=ano" class="proPage">Exportar por ano</a>
+                Exibir por página
+                <select id="numContatos">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
                 <table class="tableAll">
                     <thead>
                         <tr>

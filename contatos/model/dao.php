@@ -117,7 +117,7 @@ class ContatoDAO extends Banco {
         $this->fechaConexao();
     }
 
-    public function verContatos($filtro = NULL) {
+    public function verContatos($filtro = NULL, $count = NULL) {
         $conexao = $this->abreConexao();
         
         if($filtro == 'mes'){
@@ -127,12 +127,18 @@ class ContatoDAO extends Banco {
         }else{
             $filtro = '';
         }
-
-        $sql = "SELECT * FROM " . TBL_CONTATO." ".$filtro;
+        
+        if($count != ''){
+            $count = 'LIMIT '.$count;
+        }
+        
+        $sql = "SELECT * FROM " . TBL_CONTATO." ".$filtro.' '.$count;
 
         $banco = $conexao->query($sql);
-
+        $numRows = $banco->num_rows;
+        
         $linhas = array();
+        $linhas['quantidade'] = $numRows;
         while ($linha = $banco->fetch_assoc()) {
             $linhas[] = $linha;
         }
@@ -140,6 +146,18 @@ class ContatoDAO extends Banco {
         return $linhas;
 
         $this->fechaConexao();
+    }
+    
+    public function numContatos(){
+        $conexao = $this->abreConexao();
+        
+        $sql = "SELECT COUNT(*) AS quantidade FROM ".TBL_CONTATO;
+        
+        $banco = $conexao->query($sql);
+        
+        $linha = $banco->fetch_assoc();
+        $this->fechaConexao();
+        return $linha['quantidade'];
     }
 
     public function verContato1($id) {

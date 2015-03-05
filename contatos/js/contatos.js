@@ -10,8 +10,18 @@
  } else {
  count = 5;
  }
- */
+*/ 
 
+function paginacao(pagina){
+    var count = $("#numContatos").val();
+    
+    $("#listaContatos").load('listaContatosAjax.php?count='+count+'&pagina='+pagina);
+    
+    $.get('listaContatosAjax.php',{count:count,pagina:pagina},
+        function(r){
+            console.log(r);
+        })
+}
 function attPrincipal(id){
     $.post('control/controleContatos.php',{opcao:'attPrincipal',id:id});    
 }
@@ -79,5 +89,17 @@ $(document).ready(function () {
             $.post('control/controleContatos.php', {opcao: 'alterarEmail', nome: nome, email: email, idEmail:idEmail});
             window.location = 'index.php';
         }
+    });
+    
+    $("#numContatos").change(function(){
+        var numContatos = $("#numContatos").val();
+        
+        $("#listaContatos").load('listaContatosAjax.php?count='+numContatos);
+        /*
+        $.get('listaContatosAjax.php',{count:numContatos},
+        function(r){
+            console.log(r);
+        })
+        */
     });
 });
