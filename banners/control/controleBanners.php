@@ -1,5 +1,6 @@
 <?php
 require_once '../../model/banco.php';
+require_once '../../model/log.php';
 require_once '../model/dao.php';
 
 $opcao = $_POST['opcao'];
@@ -41,7 +42,7 @@ switch ($opcao) {
 
 
             $objBannersDao->cadBanner($objBanner);
-            $objLogDao->log($_SESSION['id'], 'CADASTROU', 'BANNERS', 0, $dataCadastro);
+            $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'BANNERS', 0, $dataCadastro);
         }
         echo '<script>window.location = "../";</script>';
         break;
@@ -89,7 +90,7 @@ switch ($opcao) {
             $objBanner->setOrdem(0);
 
             $objBannersDao->altBanner($objBanner);
-            $objLogDao->log($_SESSION['id'], 'ALTEROU', 'BANNERS', $objBanner->getIdBanner($idBanner), $dataCadastro);
+            $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'BANNERS', $objBanner->getIdBanner($idBanner), $dataCadastro);
 
             echo "<script>window.location = '../';</script>";
         }
@@ -101,7 +102,7 @@ switch ($opcao) {
         $objBanner->setIdBanner($idBanner);
 
         $objBannersDao->delBanner($objBanner);
-        $objLogDao->log($_SESSION['id'], 'EXCLUIU', 'BANNERS', $objBanner->getIdBanner($idBanner), date('Y-m-d H:i:s'));
+        $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'BANNERS', $objBanner->getIdBanner($idBanner), date('Y-m-d H:i:s'));
         break;
 
     case 'ordena':
