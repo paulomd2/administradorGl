@@ -1,4 +1,6 @@
 <?php
+@session_start();
+date_default_timezone_set('America/Sao_Paulo');
 require_once 'constantesBanco.php';
 
 //função para remover expressões comuns de banco de dados
@@ -32,3 +34,4 @@ define("TBL_TEXTO_CARAVANA", DB_ADMIN . TBL_ADMIN . "caravanaprincipal ");
 define("TBL_CARAVANA", DB_ADMIN . TBL_ADMIN . "caravanas ");
 define("TBL_BLOG_POSTAGEM", DB_ADMIN . TBL_ADMIN . "blogpostagens ");
 define("TBL_UPLOAD", DB_ADMIN . TBL_ADMIN . "uploads ");
+define("TBL_LOG", DB_ADMIN . TBL_ADMIN . "logs ");

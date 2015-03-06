@@ -1,5 +1,4 @@
 <?php
-
 require_once '../../model/banco.php';
 require_once '../model/dao.php';
 
@@ -42,6 +41,7 @@ switch ($opcao) {
 
 
             $objBannersDao->cadBanner($objBanner);
+            $objLogDao->log($_SESSION['id'], 'CADASTROU', 'BANNERS', 0, $dataCadastro);
         }
         echo '<script>window.location = "../";</script>';
         break;
@@ -81,7 +81,6 @@ switch ($opcao) {
             $objBanner->setLink($link);
             $objBanner->setStatus($status);
             $objBanner->setTarget($target);
-            $objBanner->setDataCadastro($dataCadastro);
             $objBanner->setDataPublicacao($dataEntrada);
             $objBanner->setDataSaida($dataSaida);
             $objBanner->setIdBanner($idBanner);
@@ -90,6 +89,7 @@ switch ($opcao) {
             $objBanner->setOrdem(0);
 
             $objBannersDao->altBanner($objBanner);
+            $objLogDao->log($_SESSION['id'], 'ALTEROU', 'BANNERS', $objBanner->getIdBanner($idBanner), $dataCadastro);
 
             echo "<script>window.location = '../';</script>";
         }
@@ -101,6 +101,7 @@ switch ($opcao) {
         $objBanner->setIdBanner($idBanner);
 
         $objBannersDao->delBanner($objBanner);
+        $objLogDao->log($_SESSION['id'], 'EXCLUIU', 'BANNERS', $objBanner->getIdBanner($idBanner), date('Y-m-d H:i:s'));
         break;
 
     case 'ordena':
