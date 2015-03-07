@@ -90,7 +90,7 @@ switch ($opcao) {
             $objBanner->setOrdem(0);
 
             $objBannersDao->altBanner($objBanner);
-            $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'BANNERS', $objBanner->getIdBanner($idBanner), $dataCadastro);
+            $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'BANNERS', $objBanner->getIdBanner(), $dataCadastro);
 
             echo "<script>window.location = '../';</script>";
         }
@@ -102,7 +102,7 @@ switch ($opcao) {
         $objBanner->setIdBanner($idBanner);
 
         $objBannersDao->delBanner($objBanner);
-        $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'BANNERS', $objBanner->getIdBanner($idBanner), date('Y-m-d H:i:s'));
+        $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'BANNERS', $objBanner->getIdBanner(), date('Y-m-d H:i:s'));
         break;
 
     case 'ordena':
