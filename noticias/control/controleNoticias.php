@@ -1,6 +1,7 @@
 <?php
 
 require_once '../../model/banco.php';
+require_once '../../model/log.php';
 require_once '../model/dao.php';
 
 $opcao = $_POST['opcao'];
@@ -14,6 +15,7 @@ switch ($opcao) {
             $mercado = $_POST['mercado'];
             $fonte = $_POST['fonte'];
             $status = $_POST['status'];
+            $dataCadastro = date('Y-m-d H:i:s');
 
             $objNoticia->setTitulo($titulo);
             $objNoticia->setSubtitulo($subtitulo);
@@ -22,9 +24,10 @@ switch ($opcao) {
             $objNoticia->setFonte($fonte);
             $objNoticia->setMercado($mercado);
             $objNoticia->setStatus($status);
+            $objNoticia->setDataCadastro($dataCadastro);
 
             $objNoticiaDao->cadNoticia($objNoticia);
-
+            $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'NOTICIAS', 0, $dataCadastro);
             break;
         }
 
@@ -47,8 +50,8 @@ switch ($opcao) {
             $objNoticia->setMercado($mercado);
             $objNoticia->setStatus($status);
 
-
             $objNoticiaDao->altNoticia($objNoticia);
+            $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'NOTICIAS', $objNoticia->getIdNoticia(), date('Y-m-d H:i:s'));
             break;
         }
 
@@ -58,7 +61,7 @@ switch ($opcao) {
             $objNoticia->setIdNoticia($idNoticia);
 
             $objNoticiaDao->delNoticia($objNoticia);
-
+            $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'NOTICIAS', $objNoticia->getIdNoticia(), date('Y-m-d H:i:s'));
             break;
         }
 }

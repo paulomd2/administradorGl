@@ -12,6 +12,7 @@ class Pagina {
     private $tituloSeo;
     private $keywordSeo;
     private $descricaoSeo;
+    private $dataCadastro;
 
     function getIdPagina() {
         return $this->idPagina;
@@ -74,6 +75,14 @@ class Pagina {
     }
     function setDescricaoSeo($descricaoSeo) {
         $this->descricaoSeo = seg($descricaoSeo);
+    }
+    
+    
+    function getDataCadastro(){
+        return $this->dataCadastro;
+    }
+    function setDataCadastro($dataCadastro){
+        $this->dataCadastro = seg($dataCadastro);
     }
 }
 

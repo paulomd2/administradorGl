@@ -6,6 +6,7 @@ class Menu {
     private $titulo;
     private $link;
     private $target;
+    private $dataCadastro;
 
     function getIdMenu() {
         return $this->idMenu;
@@ -36,6 +37,14 @@ class Menu {
     }
     function setTarget($target){
         $this->target = seg($target);
+    }
+    
+    
+    function getDataCadastro(){
+        return $this->dataCadastro;
+    }
+    function setDataCadastro($dataCadastro){
+        $this->dataCadastro = seg($dataCadastro);
     }
 
 }

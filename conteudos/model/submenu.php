@@ -15,6 +15,7 @@ class Submenu {
     private $descricaoMetaTag;
     private $dataEntrada;
     private $dataSaida;
+    private $dataCadastro;
 
     function getIdMenu() {
         return $this->idMenu;
@@ -117,6 +118,14 @@ class Submenu {
     }
     function setDataSaida($dataSaida) {
         $this->dataSaida = seg($dataSaida);
+    }
+    
+    
+    function getDataCadastro(){
+        return $this->dataCadastro;
+    }
+    function setDataCadastro($dataCadastro){
+        $this->dataCadastro = seg($dataCadastro);
     }
 
 }

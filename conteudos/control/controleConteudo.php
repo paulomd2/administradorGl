@@ -11,13 +11,15 @@ switch ($opcao) {
             $titulo = $_POST['titulo'];
             $link = $_POST['link'];
             $target = $_POST['target'];
+            $dataCadastro = date('Y-m-d H:i:s');
 
             $objMenu->setTitulo($titulo);
             $objMenu->setLink($link);
             $objMenu->setTarget($target);
+            $objMenu->setDataCadastro($dataCadastro);
 
             $objConteudoDao->cadMenu($objMenu);
-
+            $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'MENU', 0, $dataCadastro);
             break;
         }
     case "alterarMenu": {
@@ -32,6 +34,7 @@ switch ($opcao) {
             $objMenu->setTarget($target);
 
             $objConteudoDao->altMenu($objMenu);
+            $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'MENU', $objMenu->getIdMenu(), date('Y-m-d H:i:s'));
 
             break;
         }
@@ -41,6 +44,7 @@ switch ($opcao) {
             $objMenu->setIdMenu($idMenu);
 
             $objConteudoDao->delMenu($objMenu);
+            $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'MENU', $objMenu->getIdMenu(), date('Y-m-d H:i:s'));
 
             break;
         }
@@ -58,6 +62,7 @@ switch ($opcao) {
             $descricaoMetaTag = $_POST['descricaoMetaTag'];
             $dataEntrada = implode('-', array_reverse(explode('/', $_POST['dataEntrada'])));
             $dataSaida = implode('-', array_reverse(explode('/', $_POST['dataSaida'])));
+            $dataCadastro = date('Y-m-d H:i:s');
 
             $objSubMenu->setIdMenu($idMenu);
             $objSubMenu->setTituloMenu($tituloMenu);
@@ -71,8 +76,10 @@ switch ($opcao) {
             $objSubMenu->setDescricaoMetaTag($descricaoMetaTag);
             $objSubMenu->setDataEntrada($dataEntrada);
             $objSubMenu->setDataSaida($dataSaida);
+            $objSubMenu->setDataCadastro($dataCadastro);
 
             $objConteudoDao->cadSubmenu($objSubMenu);
+            $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'SUBMENU', 0, $dataCadastro);
             break;
         }
 
@@ -83,6 +90,7 @@ switch ($opcao) {
             $objSubMenu->setIdSubmenu($idSubmenu);
 
             $objConteudoDao->delSubmenu($objSubMenu);
+            $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'SUBMENU', $objSubMenu->getIdSubmenu(), date('Y-m-d H:i:s'));
             break;
         }
 
@@ -117,11 +125,12 @@ switch ($opcao) {
             $objSubMenu->setDataSaida($dataSaida);
 
             $objConteudoDao->altSubmenu($objSubMenu);
+            $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'SUBMENU', $objSubMenu->getIdSubmenu(), date('Y-m-d H:i:s'));
             break;
         }
 
     case 'ordenaSubmenu': {
-        
+
             //$action = mysql_real_escape_string($_POST['action']);
             $updateRecordsArray = $_POST['recordsArray'];
 
@@ -143,7 +152,7 @@ switch ($opcao) {
                 $objConteudoDao->ordenaMenu($listingCounter, $recordIDValue);
                 $listingCounter++;
             }
-            
+
             break;
         }
 
@@ -155,7 +164,7 @@ switch ($opcao) {
             $tituloSeo = $_POST['tituloMetaTag'];
             $keywordsSeo = $_POST['keywordsMetaTag'];
             $descricaoSeo = $_POST['descricaoMetaTag'];
-
+            $dataCadastro = date('Y-m-d H:i:s');
 
             $objPagina->setTitulo($titulo);
             $objPagina->setLink($link);
@@ -164,8 +173,10 @@ switch ($opcao) {
             $objPagina->setTituloSeo($tituloSeo);
             $objPagina->setKeywordSeo($keywordsSeo);
             $objPagina->setDescricaoSeo($descricaoSeo);
+            $objPagina->setDataCadastro($dataCadastro);
 
             $objConteudoDao->cadPagina($objPagina);
+            $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'PÁGINA', 0, $dataCadastro);
             break;
         }
 
