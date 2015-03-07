@@ -1,6 +1,7 @@
 <?php
 
 require_once '../../model/banco.php';
+require_once '../../model/log.php';
 require_once '../model/dao.php';
 
 $opcao = $_POST['opcao'];
@@ -19,7 +20,7 @@ switch ($opcao) {
             $objEmail->setDataCadastro($dataCadastro);
 
             $objContatoDao->cadEmail($objEmail);
-
+            $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'CONTATOS', 0, $dataCadastro);
             break;
         }
 
@@ -34,7 +35,7 @@ switch ($opcao) {
             $objEmail->setIdEmail($idEmail);
 
             $objContatoDao->altEmail($objEmail);
-
+            $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'CONTATOS', $objEmail->getIdEmail(), date('Y-m-d H:i:s'));
             break;
         }
 
@@ -45,7 +46,7 @@ switch ($opcao) {
             $objEmail->setIdEmail($idEmail);
 
             $objContatoDao->delEmail($objEmail);
-
+            $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'CONTATOS', $objEmail->getIdEmail(), date('Y-m-d H:i:s'));
             break;
         }
 
@@ -56,6 +57,7 @@ switch ($opcao) {
             $objEmail->setIdEmail($id);
 
             $objContatoDao->setaPrincipal($objEmail);
+            $objLogDao->cadLog($_SESSION['id'], 'ATUALIZOU_EMAIL_PRINCIPAL', 'CONTATOS', $objEmail->getIdEmail(), date('Y-m-d H:i:s'));
             break;
         }
 
@@ -86,5 +88,6 @@ switch ($opcao) {
             $objEmail->setDataCadastro($dataResposta);
             
             $objContatoDao->gravaResposta($objEmail);
+            $objLogDao->cadLog($_SESSION['id'], 'RESPONDEU_EMAIL', 'CONTATOS', $objEmail->getIdEmail(), date('Y-m-d H:i:s'));
         }
 }

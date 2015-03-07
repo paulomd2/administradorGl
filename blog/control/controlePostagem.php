@@ -1,8 +1,6 @@
 <?php
-
-@session_start();
-
 require_once '../../model/banco.php';
+require_once '../../model/log.php';
 require_once '../model/dao.php';
 
 $opcao = $_REQUEST["opcao"];
@@ -38,6 +36,7 @@ switch ($opcao) {
             $objBlog->setStatus(1);
 
             $objBlogDao->cadPostagem($objBlog);
+            $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'BLOG', 0, $dataCadastro);
             echo "<script>window.location='../verPostagens.php';</script>";
 
             break;
@@ -73,6 +72,7 @@ switch ($opcao) {
             $objBlog->setIdPostagem($idPostagem);
 
             $objBlogDao->altPostagem($objBlog);
+            $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'BLOG', $objBlog->getIdPostagem(), $dataCadastro);
 
             echo "<script>window.location='../verPostagens.php';</script>";
 
@@ -85,6 +85,7 @@ switch ($opcao) {
             $objBlog->setIdPostagem($idPostagem);
 
             $objBlogDao->delPostagem($objBlog);
+            $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'BANNERS', $objBlog->getIdPostagem(), date('Y-m-d H:i:s'));
             break;
         }
 }

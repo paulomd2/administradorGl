@@ -1,5 +1,6 @@
 <?php
 require_once '../../model/banco.php';
+require_once '../../model/log.php';
 require_once '../model/dao.php';
 
 
@@ -20,6 +21,8 @@ $objRede->setYoutube($youtube);
 
 if($opcao == 'cadastrar'){
     $objRedeDao->cadRede($objRede);
+    $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'REDES', 0, date('Y-m-d H:i:s'));
 }else{
     $objRedeDao->altRede($objRede);
+    $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'REDES', 0, date('Y-m-d H:i:s'));
 }

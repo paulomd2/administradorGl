@@ -1,6 +1,7 @@
 <?php
 
 require_once '../../model/banco.php';
+require_once '../../model/log.php';
 require_once '../model/dao.php';
 
 $opcao = $_POST['opcao'];
@@ -51,7 +52,7 @@ switch ($opcao) {
                 $objDestaque->setStatus($status);
 
                 $objDestaqueDao->cadDestaque($objDestaque);
-
+                $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'DESTAQUE', 0, $dataCadastro);
                 echo '<script>window.location="../verDestaques.php"</script>';
             }
             break;
@@ -96,6 +97,7 @@ switch ($opcao) {
                 $objDestaque->setStatus($status);
 
                 $objDestaqueDao->altDestaque($objDestaque);
+                $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'DESTAQUE', $objDestaque->getIdDestaque(), date('Y-m-d H:i:s'));
 
                 echo '<script>window.location="../verDestaques.php"</script>';
             }
@@ -108,7 +110,7 @@ switch ($opcao) {
             $objDestaque->setIdDestaque($idDestaque);
 
             $objDestaqueDao->delDestaque($objDestaque);
-
+            $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'DESTAQUE', $objDestaque->getIdDestaque(), date('Y-m-d H:i:s'));
             break;
         }
         

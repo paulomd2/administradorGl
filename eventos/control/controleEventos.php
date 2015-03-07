@@ -1,6 +1,7 @@
 <?php
 
 require_once '../../model/banco.php';
+require_once '../../model/log.php';
 require_once '../model/dao.php';
 
 $opcao = $_POST['opcao'];
@@ -32,6 +33,7 @@ switch ($opcao) {
         $objEvento->setStatus($status);
 
         $objEventoDao->cadEvento($objEvento);
+        $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'EVENTOS', 0, $dataCadastro);
         echo "<script>window.location='../verEventos.php?d=proximo'</script>";
         break;
 
@@ -66,7 +68,8 @@ switch ($opcao) {
         $objEvento->setStatus($status);
 
         $objEventoDao->altEvento($objEvento);
-
+        $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'EVENTOS', $objEvento->getIdEvento(), date('Y-m-d H:i:s'));
+        
         if($dataFim >= date('Y-m-d H:i:s')){
             echo "<script>window.location='../verEventos.php?d=proximo'</script>";    
         }else{
@@ -81,6 +84,7 @@ switch ($opcao) {
         $objEvento->setIdEvento($idEvento);
 
         $objEventoDao->delEvento($objEvento);
+        $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'EVENTOS', $objEvento->getIdEvento(), date('Y-m-d H:i:s'));
         break;
     
     

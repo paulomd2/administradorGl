@@ -8,6 +8,7 @@ switch ($opcao) {
 
         if ($pasta != '' && is_dir($pasta) === false) {
             mkdir($pasta);
+            $objLogDao->cadLog($_SESSION['id'], 'CRIOU', 'PASTA_UPLOAD '.$_POST['pasta'], 0, date('Y-m-d H:i:s'));
         }
 
         break;
@@ -27,6 +28,7 @@ switch ($opcao) {
 
 
         delTree($caminho . $pasta);
+        $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'PASTA_UPLOAD '.$_POST['pasta'], 0, date('Y-m-d H:i:s'));
         break;
 
     case 'listaArquivos':
@@ -46,6 +48,7 @@ switch ($opcao) {
         echo $caminho = '../../arquivos/'.$pasta.'/'.$arquivo;
         
         unlink($caminho);
+        $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'ARQUIVO_UPLOAD '.$_POST['arquivo'], 0, date('Y-m-d H:i:s'));
         break;
 }
 

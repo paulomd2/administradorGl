@@ -1,6 +1,7 @@
 <?php
 
 require_once '../../model/banco.php';
+require_once '../../model/log.php';
 require_once '../model/dao.php';
 
 $opcao = $_POST['opcao'];
@@ -12,11 +13,12 @@ switch ($opcao) {
         $status = 1;
 
         $objCategoria->setNome($nome);
-        //$objCategoria->setIdentificador($identificador);
+//        $objCategoria->setIdentificador($identificador);
         $objCategoria->setDataCadastro($dataCadastro);
         $objCategoria->setStatus($status);
 
         $objRodapeDao->cadCategoria($objCategoria);
+        $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'CATEGORIA_RODAPÉ', 0, $dataCadastro);
         break;
 
     case 'alterarCategoria':
@@ -29,6 +31,7 @@ switch ($opcao) {
         $objCategoria->setIdCategoria($idCategoria);
 
         $objRodapeDao->altCategoria($objCategoria);
+        $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'CATEGORIA_RODAPÉ', $objCategoria->getIdCategoria(), date('Y-m-d H:i:s'));
         break;
 
     case 'excluirCategoria':
@@ -37,6 +40,7 @@ switch ($opcao) {
         $objCategoria->setIdCategoria($idCategoria);
 
         $objRodapeDao->delCategoria($objCategoria);
+        $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'CATEGORIA_RODAPÉ', $objCategoria->getIdCategoria(), date('Y-m-d H:i:s'));
         break;
 
     case 'ordena':
@@ -92,6 +96,7 @@ switch ($opcao) {
                 </script>";
             } else {
                 $objRodapeDao->cadImagem($objImagem);
+                $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'IMAGEM_RODAPÉ', 0, $dataCadastro);
                 echo '<script>window.location = "../verImagens.php?id=' . $idCategoria . '";</script>';
             }
         }
@@ -129,6 +134,7 @@ switch ($opcao) {
                 </script>";
             } else {
                 $objRodapeDao->altImagem($objImagem);
+                $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'IMAGEM_RODAPÉ', $objCategoria->getIdImagem(), date('Y-m-d H:i:s'));
                 echo '<script>window.location = "../verImagens.php?id=' . $idCategoria . '";</script>';
             }
         }
@@ -140,6 +146,7 @@ switch ($opcao) {
         $objImagem->setIdImagem($idImagem);
         
         $objRodapeDao->delImagem($objImagem);
+        $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'IMAGEM_RODAPÉ', $objCategoria->getIdImagem(), date('Y-m-d H:i:s'));
         break;
 }
 

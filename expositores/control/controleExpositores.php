@@ -1,6 +1,7 @@
 <?php
 
 require_once '../../model/banco.php';
+require_once '../../model/log.php';
 require_once '../model/dao.php';
 
 $opcao = $_POST['opcao'];
@@ -34,6 +35,7 @@ switch ($opcao) {
             $objExpositor->setStatus($status);
 
             $objExpositorDao->cadExpositor($objExpositor);
+            $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'EXPOSITORES', 0, $dataCadastro);
             
             echo '<script>window.location = "../verExpositores.php";</script>';
         }
@@ -77,6 +79,7 @@ switch ($opcao) {
             $objExpositor->setIdExpositor($idExpositor);
 
             $objExpositorDao->altExpositor($objExpositor);
+            $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'EXPOSITORES', $objExpositor->getIdExpositor($idExpositor), date('Y-m-d H:i:s'));
             
             echo '<script>window.location = "../verExpositores.php";</script>';
         }
@@ -88,6 +91,7 @@ switch ($opcao) {
         $objExpositor->setIdExpositor($idExpositor);
 
         $objExpositorDao->delExpositor($objExpositor);
+        $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'EXPOSITORES', $objExpositor->getIdExpositor($idExpositor), date('Y-m-d H:i:s'));
         break;
 
     case 'ordena':

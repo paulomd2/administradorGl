@@ -1,6 +1,7 @@
 <?php
 
 require_once '../../model/banco.php';
+require_once '../../model/log.php';
 require_once '../model/dao.php';
 
 
@@ -14,8 +15,10 @@ switch ($opcao) {
 
         if ($opcaoTexto == 'cadastrar') {
             $objCaravanaDao->cadTexto($objTexto);
+            $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'TEXTO_CARAVANAS', 0, date('Y-m-d H:i:s'));
         } else {
             $objCaravanaDao->altTexto($objTexto);
+            $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'TEXTO_CARAVANAS', 0, date('Y-m-d H:i:s'));
         }
         break;
         
@@ -43,6 +46,7 @@ switch ($opcao) {
         $objCaravana->setDataCadastro($dataCadastro);
         
         $objCaravanaDao->cadCaravana($objCaravana);
+        $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'CARAVANAS', 0, $dataCadastro);
         
         break;
     
@@ -68,6 +72,7 @@ switch ($opcao) {
         $objCaravana->setIdCaravana($idCaravana);
         
         $objCaravanaDao->altCaravana($objCaravana);
+        $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'CARAVANAS', $objCaravana->getIdCaravana(), date('Y-m-d H:i:s'));
         
         break;
     
@@ -78,6 +83,7 @@ switch ($opcao) {
         $objCaravana->setIdCaravana($idCaravana);
         
         $objCaravanaDao->delCaravana($objCaravana);
+        $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'CARAVANAS', $objCaravana->getIdCaravana(), date('Y-m-d H:i:s'));
         break;
         
         
