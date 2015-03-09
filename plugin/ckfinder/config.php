@@ -32,8 +32,8 @@ $config['LicenseKey'] = '';
   Uncomment lines below to enable PHP error reporting and displaying PHP errors.
   Do not do this on a production server. Might be helpful when debugging why CKFinder does not work as expected.
  */
- error_reporting(E_ALL);
- ini_set('display_errors', 1);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 /*
   To make it easy to configure CKFinder, the $baseUrl and $baseDir can be used.
@@ -51,7 +51,10 @@ $config['LicenseKey'] = '';
   ATTENTION: The trailing slash is required.
  */
 //$baseUrl = '';
- $baseUrl = '../images/';
+$raiz = explode('/', $_SERVER['REQUEST_URI']);
+$raiz = $raiz[1];
+
+$baseUrl = 'http://' . $_SERVER["SERVER_NAME"] . '/' . $raiz . '/';
 
 /*
   $baseDir : the path to the local directory (in the server) which points to the
@@ -70,9 +73,10 @@ $config['LicenseKey'] = '';
 
   ATTENTION: The trailing slash is required.
  */
-//$baseDir = resolveUrl($baseUrl);
+$baseDir = resolveUrl($baseUrl);
 //$baseDir = 'C:/xampp/htdocs/administradorGl/images';
-$baseDir = 'C:/xampp/htdocs/administradorGl/images/';
+//$baseDir = 'C:/xampp/htdocs/administradorGl/';
+//$baseDir = '/../images/';
 
 /*
  * ### Advanced Settings
