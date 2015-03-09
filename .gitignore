@@ -3,7 +3,8 @@ arquivos/*
 
 #imagens de upload
 images/*
-
+images/_thumbs
+images/_thmbs/*
 #diretório de teste
 teste/*
 
