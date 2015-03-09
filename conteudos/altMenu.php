@@ -59,6 +59,14 @@ $menus = $objConteudoDao->listaMenu1($objMenu);
                             </td>
                         </tr>
                         <tr>
+                            <td>Lingua:</td>
+                            <td>
+                                <input type="radio" name="lingua" id="pt" value="pt" <?php if($menus['lingua'] == 'pt'){echo 'checked'; } ?> /> <label for="pt">Português</label>
+                                <input type="radio" name="lingua" id="en" value="en" <?php if($menus['lingua'] == 'en'){echo 'checked'; } ?> /> <label for="en">Inglês</label>
+                                <input type="radio" name="lingua" id="es" value="es" <?php if($menus['lingua'] == 'es'){echo 'checked'; } ?> /> <label for="es">Espanhol</label>
+                            </td>
+                        </tr>
+                        <tr>
                             <td colspan="2"><input type="button" id="btnAlterarMenu" value="Alterar" /></td>
                         </tr>
                     </table>

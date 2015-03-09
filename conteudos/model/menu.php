@@ -7,6 +7,7 @@ class Menu {
     private $link;
     private $target;
     private $dataCadastro;
+    private $lingua;
 
     function getIdMenu() {
         return $this->idMenu;
@@ -47,5 +48,12 @@ class Menu {
         $this->dataCadastro = seg($dataCadastro);
     }
 
+    
+    function getLingua(){
+        return $this->lingua; 
+    }
+    function setLingua($lingua){
+        $this->lingua = $lingua;
+    }
 }
 $objMenu = new Menu();

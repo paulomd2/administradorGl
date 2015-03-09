@@ -169,6 +169,14 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>Lingua:</td>
+                            <td>
+                                <input type="radio" name="lingua" id="pt" value="pt" <?php if($submenu['lingua'] == 'pt'){echo 'checked'; } ?> /> <label for="pt">Português</label>
+                                <input type="radio" name="lingua" id="en" value="en" <?php if($submenu['lingua'] == 'en'){echo 'checked'; } ?> /> <label for="en">Inglês</label>
+                                <input type="radio" name="lingua" id="es" value="es" <?php if($submenu['lingua'] == 'es'){echo 'checked'; } ?> /> <label for="es">Espanhol</label>
+                            </td>
+                        </tr>
+                        <tr>
                             <td colspan="2">
                                 <input type="button" id="btnAlterarSubmenu" value="Alterar" /><br />
                                 <span id="spanBtn" class="erro"></span>

@@ -16,6 +16,7 @@ class Submenu {
     private $dataEntrada;
     private $dataSaida;
     private $dataCadastro;
+    private $lingua;
 
     function getIdMenu() {
         return $this->idMenu;
@@ -128,6 +129,13 @@ class Submenu {
         $this->dataCadastro = seg($dataCadastro);
     }
 
+    
+    function getLingua(){
+        return $this->lingua; 
+    }
+    function setLingua($lingua){
+        $this->lingua = $lingua;
+    }
 }
 
 $objSubMenu = new Submenu();

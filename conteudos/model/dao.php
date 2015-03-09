@@ -13,7 +13,8 @@ class ConteudoDAO extends Banco {
                 INSERT INTO " . TBL_MENU . " SET
                 titulo = '" . $objMenu->getTitulo() . "',
                 link = '" . $objMenu->getLink() . "',
-                target = '".$objMenu->getTarget()."'
+                target = '".$objMenu->getTarget()."',
+                lingua = '".$objMenu->getLingua()."'
                ";
 
         $conexao->query($sql);
@@ -62,7 +63,8 @@ class ConteudoDAO extends Banco {
                 UPDATE " . TBL_MENU . " SET
                 titulo = '" . $objMenu->getTitulo() . "',
                 link = '" . $objMenu->getLink() . "',
-                target = '".$objMenu->getTarget()."'
+                target = '".$objMenu->getTarget()."',
+                lingua = '".$objMenu->getLingua()."'
                    WHERE idMenu = " . $objMenu->getIdMenu() . "
                ";
 
@@ -100,7 +102,8 @@ class ConteudoDAO extends Banco {
                 keywordMetaTag = '" . $objSubMenu->getKeywordMetaTag() . "',
                 descricaoMetaTag = '" . $objSubMenu->getDescricaoMetaTag() . "',
                 dataEntrada = '" . $objSubMenu->getDataEntrada() . "',
-                dataSaida = '" . $objSubMenu->getDataSaida() . "'
+                dataSaida = '" . $objSubMenu->getDataSaida() . "',
+                lingua = '".$objSubMenu->getLingua()."'
                ";
 
         $conexao->query($sql);
@@ -123,7 +126,8 @@ class ConteudoDAO extends Banco {
                 keywordMetaTag = '" . $objSubMenu->getKeywordMetaTag() . "',
                 descricaoMetaTag = '" . $objSubMenu->getDescricaoMetaTag() . "',
                 dataEntrada = '" . $objSubMenu->getDataEntrada() . "',
-                dataSaida = '" . $objSubMenu->getDataSaida() . "'
+                dataSaida = '" . $objSubMenu->getDataSaida() . "',
+                lingua = '".$objSubMenu->getLingua()."'
                     WHERE idSubmenu = " . $objSubMenu->getIdSubmenu() . "
                ";
 
