@@ -10,6 +10,7 @@ class Release {
     private $status;
     private $dataEntrada;
     private $dataSaida;
+    private $lingua;
 
     public function getIdRelease() {
         return $this->idRelease;
@@ -72,6 +73,14 @@ class Release {
     }
     public function setDataSaida($dataSaida){
         $this->dataSaida = seg($dataSaida);
+    }
+    
+    
+    public function getLingua(){
+        return $this->lingua;
+    }
+    public function setLingua($lingua){
+        $this->lingua = $lingua;
     }
 }
 

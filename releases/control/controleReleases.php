@@ -13,6 +13,7 @@ switch ($opcao){
         $dataCadastro = date('Y-m-d H:i:s');
         $dataEntrada = $_POST['dataEntrada'];
         $dataSaida = $_POST['dataSaida'];
+        $lingua = $_POST['lingua'];
         
         $objRelease->setTitulo($titulo);
         $objRelease->setMes($mes);
@@ -21,6 +22,7 @@ switch ($opcao){
         $objRelease->setDataCadastro($dataCadastro);
         $objRelease->setDataEntrada($dataEntrada);
         $objRelease->setDataSaida($dataSaida);
+        $objRelease->setLingua($lingua);
         
         $objReleasesDao->cadRelease($objRelease);
         $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'RELEASES', 0, $dataCadastro);

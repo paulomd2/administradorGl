@@ -152,12 +152,20 @@ setcookie("ck_authorized", "true", 0, "/");
                             </tr>
                             <tr>
                                 <td>Data de Publicação:</td>
-                                <td><input type="date" id="dataPublicacao" value="<?php echo implode('/', array_reverse(explode('-', $release['dataEntrada']))); ?>" name="dataPublicacao" /></td>
+                                <td><input type="date" id="dataPublicacao" value="<?php echo $release['dataEntrada']; ?>" name="dataPublicacao" /></td>
                             </tr>
                             <tr>
                                 <td>Data de Saída:</td>
-                                <td><input type="date" id="dataSaida" value="<?php echo implode('/', array_reverse(explode('-', $release['dataSaida']))); ?>" name="dataSaida" /></td>
+                                <td><input type="date" id="dataSaida" value="<?php echo $release['dataSaida']; ?>" name="dataSaida" /></td>
                             </tr>
+                            <tr>
+                            <td>Lingua:</td>
+                            <td>
+                                <input type="radio" name="lingua" id="pt" value="pt" <?php if($release['lingua'] == 'pt'){ echo 'checked'; } ?> /> <label for="pt">Português</label>
+                                <input type="radio" name="lingua" id="en" value="en" <?php if($release['lingua'] == 'en'){ echo 'checked'; } ?> /> <label for="en">Inglês</label>
+                                <input type="radio" name="lingua" id="es" value="es" <?php if($release['lingua'] == 'es'){ echo 'checked'; } ?> /> <label for="es">Espanhol</label>
+                            </td>
+                        </tr>
                             <tr>
                                 <td colspan="2"><input type="button" id="btnAlterar" value="Alterar" /></td>
                             </tr>

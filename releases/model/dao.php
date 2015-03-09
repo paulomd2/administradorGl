@@ -14,7 +14,8 @@ class ReleasesDAO extends Banco {
                 texto = '" . $objRelease->getTexto() . "',
                 dataCadastro = '" . $objRelease->getDataCadastro() . "',
                 dataEntrada = '" . $objRelease->getDataEntrada() . "',
-                dataSaida = '" . $objRelease->getDataSaida() . "'
+                dataSaida = '" . $objRelease->getDataSaida() . "',
+                    lingua = '".$objRelease->getLingua()."'
                ";
 
         $conexao->query($sql);

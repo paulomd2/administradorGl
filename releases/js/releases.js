@@ -35,6 +35,7 @@ $(document).ready(function() {
         var texto = CKEDITOR.instances.texto.getData();
         var dataEntrada = $("#dataPublicacao").val();
         var dataSaida = $("#dataSaida").val();
+        var lingua = $( "input[name='lingua']:checked" ).val();
 
         $(".erro").html('').css('display','none');
         if (titulo == '') {
@@ -50,10 +51,9 @@ $(document).ready(function() {
             texto.focus;
             $("#spanTexto").html('Você deve preencher o Texto!').css('display','inline-block');
         } else {
-            $("#cadRelease")[0].reset();
-            $.post('control/controleReleases.php', {opcao: 'cadastrar', titulo: titulo, mes: mes, status: status, texto: texto, dataEntrada: dataEntrada, dataSaida: dataSaida});
-//            $("#listaReleases").load('listaReleasesAjax.php');
-              window.location = 'verReleases.php';
+            //$("#cadRelease")[0].reset();
+            $.post('control/controleReleases.php', {opcao: 'cadastrar', titulo: titulo, mes: mes, status: status, texto: texto, dataEntrada: dataEntrada, dataSaida: dataSaida,lingua:lingua});
+              //window.location = 'verReleases.php';
         }
     });
 
@@ -66,6 +66,7 @@ $(document).ready(function() {
         var dataEntrada = $("#dataPublicacao").val();
         var dataSaida = $("#dataSaida").val();
         var idRelease = $("#idRelease").val();
+        var lingua = $( "input[name='lingua']:checked" ).val();
 
         $(".erro").html('');
         if (titulo == '') {
@@ -81,7 +82,7 @@ $(document).ready(function() {
             $("#texto").focus();
             $("#spanTexto").html('Você deve preencher o Texto!');
         } else {
-            $.post('control/controleReleases.php', {opcao: 'alterar', idRelease: idRelease, titulo: titulo, mes: mes, status: status, texto: texto, dataEntrada: dataEntrada, dataSaida: dataSaida});
+            $.post('control/controleReleases.php', {opcao: 'alterar', idRelease: idRelease, titulo: titulo, mes: mes, status: status, texto: texto, dataEntrada: dataEntrada, dataSaida: dataSaida,lingua:lingua});
             window.location = 'verReleases.php';
         }
     });
