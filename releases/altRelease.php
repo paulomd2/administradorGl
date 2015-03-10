@@ -159,7 +159,7 @@ setcookie("ck_authorized", "true", 0, "/");
                                 <td><input type="date" id="dataSaida" value="<?php echo $release['dataSaida']; ?>" name="dataSaida" /></td>
                             </tr>
                             <tr>
-                            <td>Lingua:</td>
+                            <td>Idioma:</td>
                             <td>
                                 <input type="radio" name="lingua" id="pt" value="pt" <?php if($release['lingua'] == 'pt'){ echo 'checked'; } ?> /> <label for="pt">Português</label>
                                 <input type="radio" name="lingua" id="en" value="en" <?php if($release['lingua'] == 'en'){ echo 'checked'; } ?> /> <label for="en">Inglês</label>

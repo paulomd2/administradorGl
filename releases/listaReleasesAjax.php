@@ -3,13 +3,15 @@
 require_once '../model/banco.php';
 require_once 'model/dao.php';
 
-if(isset($_GET['count'])){
-    $count = $_GET['count'];
-}else{
-    $count = 777;
+$count = $_GET['count'];
+
+if (isset($_GET['lingua'])) {
+    $lingua = $_GET['lingua'];
+} else {
+    $lingua = 'pt';
 }
 
-$releases = $objReleasesDao->verReleases($count);
+$releases = $objReleasesDao->verReleases($count, $lingua);
 
 for ($i = 1; $i < count($releases); $i++) {
 

@@ -15,7 +15,7 @@ class ReleasesDAO extends Banco {
                 dataCadastro = '" . $objRelease->getDataCadastro() . "',
                 dataEntrada = '" . $objRelease->getDataEntrada() . "',
                 dataSaida = '" . $objRelease->getDataSaida() . "',
-                    lingua = '".$objRelease->getLingua()."'
+                lingua = '".$objRelease->getLingua()."'
                ";
 
         $conexao->query($sql);
@@ -32,7 +32,8 @@ class ReleasesDAO extends Banco {
                     status = '" . $objRelease->getStatus() . "',
                     texto = '" . $objRelease->getTexto() . "',
                     dataEntrada = '" . $objRelease->getDataEntrada() . "',
-                    dataSaida = '" . $objRelease->getDataSaida() . "'
+                    dataSaida = '" . $objRelease->getDataSaida() . "',
+                    lingua = '".$objRelease->getLingua()."'
                         WHERE idRelease = " . $objRelease->getIdRelease() . "
                ";
 
@@ -53,7 +54,7 @@ class ReleasesDAO extends Banco {
         $this->fechaConexao();
     }
 
-    public function verReleases($count) {
+    public function verReleases($count, $lingua) {
         $conexao = $this->abreConexao();
 
         $sql = "SELECT titulo, idRelease,
@@ -72,6 +73,7 @@ class ReleasesDAO extends Banco {
                     END AS mes
                         FROM " . TBL_RELEASE . "
                             WHERE status != 0
+                            AND lingua = '".$lingua."'
                             ORDER BY mes DESC
                             LIMIT " . $count . "
                 ";

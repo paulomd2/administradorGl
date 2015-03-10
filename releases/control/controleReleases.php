@@ -36,6 +36,7 @@ switch ($opcao){
         $idRelease = $_POST['idRelease'];
         $dataEntrada = implode('-', array_reverse(explode('/', $_POST['dataEntrada'])));
         $dataSaida = implode('-', array_reverse(explode('/', $_POST['dataSaida'])));
+        $lingua = $_POST['lingua'];
         
         $objRelease->setTitulo($titulo);
         $objRelease->setMes($mes);
@@ -44,9 +45,10 @@ switch ($opcao){
         $objRelease->setIdRelease($idRelease);
         $objRelease->setDataEntrada($dataEntrada);
         $objRelease->setDataSaida($dataSaida);
+        $objRelease->setLingua($lingua);
         
         $objReleasesDao->altRelease($objRelease);
-        $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'RELEASES', $objRelease->setIdRelease($idRelease), date('Y-m-d H:i:s'));
+        $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'RELEASES', $objRelease->getIdRelease(), date('Y-m-d H:i:s'));
     break;
 
     case 'excluir':
@@ -55,6 +57,6 @@ switch ($opcao){
         $objRelease->setIdRelease($idRelease);
         
         $objReleasesDao->delRelease($objRelease);
-        $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'RELEASES', $objRelease->setIdRelease($idRelease), date('Y-m-d H:i:s'));
+        $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'RELEASES', $objRelease->getIdRelease(), date('Y-m-d H:i:s'));
     break;
 }

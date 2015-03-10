@@ -24,6 +24,12 @@ setcookie("ck_authorized", "true", 0, "/");
             <div class="tenor">
                 <h1>Todos os releases</h1>
                 <a href="cadRelease.php" class="proPage">Cadastrar release</a>
+                selecione o idioma:
+                <select id="selIdioma">
+                    <option value="pt">Portugês</option>
+                    <option value="en">Inglês</option>
+                    <option value="es">Espanhol</option>
+                </select>
                 <table class="tableAll">
                     <thead>
                         <tr>
@@ -33,10 +39,7 @@ setcookie("ck_authorized", "true", 0, "/");
                             <td style="width: 10%;">Excluir</td>
                         </tr>
                     </thead>
-                    <tbody id="listaNoticias">
-                        <?php
-                        require_once 'listaReleasesAjax.php';
-                        ?>
+                    <tbody id="listaReleases">
                     </tbody>
                 </table>
 
