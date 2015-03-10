@@ -39,24 +39,24 @@
                                     <span id="spanNome" class="erro"></span>
                                 </td>
                             </tr>
-                            <!--tr>
-                                <td>Identificador:</td>
+                            <tr>
+                            <td>Status:</td>
+                            <td>
+                                <select id="status">
+                                    <option value="" selected>Escolha um status...</option>
+                                    <option value="1" <?php if($categoria['status'] == '1'){ echo 'selected'; } ?>>Habilitado</option>
+                                    <option value="2" <?php if($categoria['status'] == '2'){ echo 'selected'; } ?>>Desabilitado</option>
+                                </select>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td>Idioma:</td>
                                 <td>
-                                    <select id="identificador" name="identificador">
-                                        <option value="">Selecione um identificador...</option>
-                                        <option value="2" <?php if ($categoria['identificador'] == 2) { echo 'selected'; } ?>>
-                                            Apoio
-                                        </option>   
-                                        <option value="1" <?php if ($categoria['identificador'] == 1) { echo 'selected'; } ?>>
-                                            Patrocinador
-                                        </option>
-                                        <option value="1" <?php if ($categoria['identificador'] == 0) { echo 'selected';}?>>
-                                            Sem identificador
-                                        </option>
-                                    </select><br />
-                                    <span class="erro" id="spanIdentificador"></span>
+                                    <input type="radio" name="lingua" id="pt" value="pt" <?php if($categoria['lingua'] == 'pt'){echo 'checked'; } ?> /> <label for="pt">Português</label>
+                                    <input type="radio" name="lingua" id="en" value="en" <?php if($categoria['lingua'] == 'en'){echo 'checked'; } ?> /> <label for="en">Inglês</label>
+                                    <input type="radio" name="lingua" id="es" value="es" <?php if($categoria['lingua'] == 'es'){echo 'checked'; } ?> /> <label for="es">Espanhol</label>
                                 </td>
-                            </tr-->
+                            </tr>
                             <tr>
                                 <td colspan="2"><input type="button" id="btnAlterarCategoria" value="Alterar" /></td>
                             </tr>

@@ -10,12 +10,13 @@ switch ($opcao) {
         $nome = $_POST['nome'];
         //$identificador = $_POST['identificador'];
         $dataCadastro = date('Y-m-d H:i:s');
-        $status = 1;
+        $status = $_POST['status'];
+        $lingua = $_POST['lingua'];
 
         $objCategoria->setNome($nome);
-//        $objCategoria->setIdentificador($identificador);
         $objCategoria->setDataCadastro($dataCadastro);
         $objCategoria->setStatus($status);
+        $objCategoria->setLingua($lingua);
 
         $objRodapeDao->cadCategoria($objCategoria);
         $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'CATEGORIA_RODAPÉ', 0, $dataCadastro);
@@ -25,10 +26,13 @@ switch ($opcao) {
         $nome = $_POST['nome'];
         $identificador = $_POST['identificador'];
         $idCategoria = $_POST['idCategoria'];
+        $status = $_POST['status'];
+        $lingua = $_POST['lingua'];
 
         $objCategoria->setNome($nome);
-        //$objCategoria->setIdentificador($identificador);
+        $objCategoria->setStatus($status);
         $objCategoria->setIdCategoria($idCategoria);
+        $objCategoria->setLingua($lingua);
 
         $objRodapeDao->altCategoria($objCategoria);
         $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'CATEGORIA_RODAPÉ', $objCategoria->getIdCategoria(), date('Y-m-d H:i:s'));

@@ -8,6 +8,7 @@ class Categoria {
     private $identificador;
     private $dataCadastro;
     private $status;
+    private $lingua;
 
     function getIdCategoria() {
         return $this->idCategoria;
@@ -54,6 +55,14 @@ class Categoria {
     }
     function setStatus($status) {
         $this->status = seg($status);
+    }
+    
+    
+    function getLingua(){
+        return $this->lingua;
+    }
+    function  setLingua($lingua){
+        $this->lingua = seg($lingua);
     }
 }
 

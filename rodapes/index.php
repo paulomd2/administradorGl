@@ -43,6 +43,24 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>Status:</td>
+                            <td>
+                                <select id="status">
+                                    <option value="" selected>Escolha um status...</option>
+                                    <option value="1">Habilitado</option>
+                                    <option value="2">Desabilitado</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Idioma:</td>
+                            <td>
+                                <input type="radio" name="lingua" id="pt" value="pt" checked /> <label for="pt">Português</label>
+                                <input type="radio" name="lingua" id="en" value="en" /> <label for="en">Inglês</label>
+                                <input type="radio" name="lingua" id="es" value="es" /> <label for="es">Espanhol</label>
+                            </td>
+                        </tr>
+                        <tr>
                             <td colspan="2"><input type="button" id="btnCadastrarCategoria" value="Cadastrar" /></td>
                         </tr>
                     </table>

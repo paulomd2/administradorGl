@@ -31,6 +31,7 @@ $(document).ready(function () {
     $("#btnCadastrarCategoria").click(function () {
         var nome = $("#nome").val().trim();
         var identificador = $("#identificador").val();
+        var lingua = $("input[name='lingua']:checked").val();
         
         $(".erro").html('').css('display','none');
         if (nome == '') {
@@ -40,7 +41,7 @@ $(document).ready(function () {
             $("#identificador").focus();
             $("#spanIdentificador").html('Você deve selecionsr um identificador!').css('display','inline-block');
         } else {
-           $.post('control/controleRodape.php',{opcao:'cadastrarCategoria', nome:nome, identificador:identificador});
+           $.post('control/controleRodape.php',{opcao:'cadastrarCategoria', nome:nome, identificador:identificador,lingua:lingua});
            window.location = 'verCategorias.php';
         }
     });
@@ -49,6 +50,7 @@ $(document).ready(function () {
         var nome = $("#nome").val().trim();
         var identificador = $("#identificador").val();
         var idCategoria = $("#idCategoria").val()
+        var lingua = $("input[name='lingua']:checked").val();
         
         $(".erro").html('').css('display','none');
         if (nome == '') {
@@ -58,7 +60,7 @@ $(document).ready(function () {
             $("#identificador").focus();
             $("#spanIdentificador").html('Você deve selecionsr um identificador!').css('display','inline-block');
         } else {
-           $.post('control/controleRodape.php',{opcao:'alterarCategoria', idCategoria:idCategoria, nome:nome, identificador:identificador});
+           $.post('control/controleRodape.php',{opcao:'alterarCategoria', idCategoria:idCategoria, nome:nome, identificador:identificador,lingua:lingua});
            window.location = 'verCategorias.php';
         }
     });

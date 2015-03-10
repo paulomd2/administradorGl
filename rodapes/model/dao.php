@@ -11,7 +11,9 @@ class CategoriasDAO extends Banco {
         $sql = 'INSERT INTO ' . TBL_CATEGORIA_RODAPE . ' SET
                     nome = "' . $objCategoria->getNome() . '",
                     status = "' . $objCategoria->getStatus() . '",
-                    dataCadastro = "' . $objCategoria->getDataCadastro() . '"';
+                    dataCadastro = "' . $objCategoria->getDataCadastro() . '",
+                    lingua = "'.$objCategoria->getLingua().'"
+                ';
 
         $conexao->query($sql);
 
@@ -22,8 +24,9 @@ class CategoriasDAO extends Banco {
         $conexao = $this->abreConexao();
 
         $sql = 'UPDATE ' . TBL_CATEGORIA_RODAPE . ' SET
-                    nome = "' . $objCategoria->getNome() . '"
-                    /*identificador = ' . $objCategoria->getIdentificador() . '*/
+                    nome = "' . $objCategoria->getNome() . '",
+                    status = '.$objCategoria->getStatus().',
+                    lingua = "'.$objCategoria->getLingua().'"
                         WHERE idCategoria = ' . $objCategoria->getIdCategoria();
         $conexao->query($sql);
 
