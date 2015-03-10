@@ -24,7 +24,7 @@ function delPagina(id) {
 $(document).ready(function () {
     $("#btnCadastrarSubmenu").click(function () {
         CKEDITOR.instances.texto.updateElement();
-        CKEDITOR.instances.descricaoMetaTag.updateElement();
+        //CKEDITOR.instances.descricaoMetaTag.updateElement();
 
         var idMenu = $("#idMenu").val();
         var tituloMenu = $("#tituloMenu").val().trim();
@@ -35,7 +35,8 @@ $(document).ready(function () {
         var texto = CKEDITOR.instances.texto.getData();
         var tituloMetaTag = $("#tituloMetaTag").val().trim();
         var keywordsMetaTag = $("#keywordsMetaTag").val().trim();
-        var descricaoMetaTag = CKEDITOR.instances.descricaoMetaTag.getData();
+        //var descricaoMetaTag = CKEDITOR.instances.descricaoMetaTag.getData();
+        var descricaoMetaTag = $("#descricaoMetaTag").val().trim();
         var dataEntrada = $("#dataPublicacao").val();
         var dataSaida = $("#dataSaida").val();
         var lingua = $("input[name='lingua']:checked").val();
@@ -70,19 +71,15 @@ $(document).ready(function () {
         } else if (link !== '' && texto !== '') {
             $("#spanBtn").html('Você preencheu o Link e o texto, por favor preencha apenas um').css('display', 'inline-block');
         } else {
-            $.post('control/controleConteudo.php', {opcao: 'cadastrarSubmenu', tituloMenu: tituloMenu, idMenu: idMenu, tituloPagina: tituloPagina, link: link, target: target, status: status, texto: texto, tituloMetaTag: tituloMetaTag, keywordsMetaTag: keywordsMetaTag, descricaoMetaTag: descricaoMetaTag, dataEntrada: dataEntrada, dataSaida: dataSaida, lingua:lingua},
-            function(r){
-                console.log(r);
-            });
-            //window.location = 'verSubmenus.php?id=' + idMenu;
+            $.post('control/controleConteudo.php', {opcao: 'cadastrarSubmenu', tituloMenu: tituloMenu, idMenu: idMenu, tituloPagina: tituloPagina, link: link, target: target, status: status, texto: texto, tituloMetaTag: tituloMetaTag, keywordsMetaTag: keywordsMetaTag, descricaoMetaTag: descricaoMetaTag, dataEntrada: dataEntrada, dataSaida: dataSaida, lingua: lingua});
+            window.location = 'verSubmenus.php?id=' + idMenu;
         }
     });
 
 
     $("#btnAlterarSubmenu").click(function () {
         CKEDITOR.instances.texto.updateElement();
-        CKEDITOR.instances.descricaoMetaTag.updateElement();
-
+//        CKEDITOR.instances.descricaoMetaTag.updateElement();
 
         var idSubmenu = $("#idSubmenu").val();
         var idMenu = $("#idMenu").val();
@@ -94,7 +91,8 @@ $(document).ready(function () {
         var texto = CKEDITOR.instances.texto.getData();
         var tituloMetaTag = $("#tituloMetaTag").val().trim();
         var keywordsMetaTag = $("#keywordsMetaTag").val().trim();
-        var descricaoMetaTag = CKEDITOR.instances.descricaoMetaTag.getData();
+        //var descricaoMetaTag = CKEDITOR.instances.descricaoMetaTag.getData();
+        var descricaoMetaTag = $("#descricaoMetaTag").val().trim();
         var dataEntrada = $("#dataPublicacao").val();
         var dataSaida = $("#dataSaida").val();
         var lingua = $("input[name='lingua']:checked").val();
@@ -129,11 +127,8 @@ $(document).ready(function () {
         } else if (link !== '' && texto !== '') {
             $("#spanBtn").html('Você preencheu o Link e o texto, por favor preencha apenas um').css('display', 'inline-block');
         } else {
-            $.post('control/controleConteudo.php', {opcao: 'AlterarSubmenu', idSubmenu: idSubmenu, tituloMenu: tituloMenu, idMenu: idMenu, tituloPagina: tituloPagina, link: link, target: target, status: status, texto: texto, tituloMetaTag: tituloMetaTag, keywordsMetaTag: keywordsMetaTag, descricaoMetaTag: descricaoMetaTag, dataEntrada: dataEntrada, dataSaida: dataSaida, lingua: lingua},
-            function(r){
-                console.log(r);
-            });
-            //window.location = 'verSubmenus.php?id=' + idMenu;
+            $.post('control/controleConteudo.php', {opcao: 'AlterarSubmenu', idSubmenu: idSubmenu, tituloMenu: tituloMenu, idMenu: idMenu, tituloPagina: tituloPagina, link: link, target: target, status: status, texto: texto, tituloMetaTag: tituloMetaTag, keywordsMetaTag: keywordsMetaTag, descricaoMetaTag: descricaoMetaTag, dataEntrada: dataEntrada, dataSaida: dataSaida, lingua: lingua});
+            window.location = 'verSubmenus.php?id=' + idMenu;
         }
     });
 
@@ -151,11 +146,8 @@ $(document).ready(function () {
             $("#target").focus();
             $("#spanTarget").html('Você deve selecionar um Target!').css('display', 'inline-block');
         } else {
-            $.post('control/controleConteudo.php', {opcao: 'cadastrarMenu', titulo: titulo, link: link, target: target,lingua:lingua},
-            function(r){
-                console.log(r);
-            });
-            //window.location = 'index.php';
+            $.post('control/controleConteudo.php', {opcao: 'cadastrarMenu', titulo: titulo, link: link, target: target, lingua: lingua});
+            window.location = 'index.php';
         }
     });
 
@@ -174,11 +166,8 @@ $(document).ready(function () {
             $("#target").focus();
             $("#spanTarget").html('Você deve selecionar um Target!').css('display', 'inline-block');
         } else {
-            $.post('control/controleConteudo.php', {opcao: 'alterarMenu', titulo: titulo, link: link, idMenu: idMenu, target: target,lingua:lingua},
-            function(r){
-                console.log(r);
-            });
-            //window.location = 'index.php';
+            $.post('control/controleConteudo.php', {opcao: 'alterarMenu', titulo: titulo, link: link, idMenu: idMenu, target: target, lingua: lingua});
+            window.location = 'index.php';
         }
     });
 

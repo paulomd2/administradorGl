@@ -1,6 +1,7 @@
 <?php
 
 require_once '../../model/banco.php';
+require_once '../../model/log.php';
 require_once '../model/dao.php';
 
 $opcao = $_POST["opcao"];
