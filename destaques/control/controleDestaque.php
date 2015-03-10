@@ -10,6 +10,7 @@ switch ($opcao) {
             $titulo = $_POST['titulo'];
             $subtitulo = $_POST['subtitulo'];
             $conteudo = $_POST['conteudo'];
+            $lingua = $_POST['lingua'];
 
             if ($_POST['dataPublicacao'] == '') {
                 $dataPublicacao = '0000-00-00';
@@ -50,6 +51,7 @@ switch ($opcao) {
                 $objDestaque->setDataCadastro($dataCadastro);
                 $objDestaque->setLink($link);
                 $objDestaque->setStatus($status);
+                $objDestaque->setLingua($lingua);
 
                 $objDestaqueDao->cadDestaque($objDestaque);
                 $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'DESTAQUE', 0, $dataCadastro);
@@ -67,6 +69,7 @@ switch ($opcao) {
             $dataSaida = $_POST['dataSaida'].' '.$_POST['horaSaida'].':'.$_POST['minutoSaida'].':00';
             $link = $_POST['link'];
             $status = $_POST['status'];
+            $lingua = $_POST['lingua'];
 
             if ($_FILES['imagem']['name'] == '') {
                 $imagem = $_POST['imagemAntiga'];
@@ -95,6 +98,7 @@ switch ($opcao) {
                 $objDestaque->setLink($link);
                 $objDestaque->setIdDestaque($idDestaque);
                 $objDestaque->setStatus($status);
+                $objDestaque->setLingua($lingua);
 
                 $objDestaqueDao->altDestaque($objDestaque);
                 $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'DESTAQUE', $objDestaque->getIdDestaque(), date('Y-m-d H:i:s'));

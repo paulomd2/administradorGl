@@ -12,9 +12,8 @@ class Destaque {
     private $link;
     private $dataCadastro;
     private $status;
-    
-
-    function getIdDestaque() {
+    private $lingua;
+                function getIdDestaque() {
         return $this->idDestaque;
     }
     function setIdDestaque($idDestaque) {
@@ -91,6 +90,14 @@ class Destaque {
     }
     function setStatus($status){
         $this->status = seg($status);
+    }
+    
+    
+    function getLingua(){
+        return $this->lingua;
+    }
+    function setLingua($lingua){
+        $this->lingua = seg($lingua);
     }
 
 }

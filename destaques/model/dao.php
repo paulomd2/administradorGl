@@ -16,7 +16,8 @@ class DestaquesDAO extends Banco {
                dataCadastro = '" . $objDestaque->getDataCadastro() . "',
                dataSaida = '" . $objDestaque->getDataSaida() . "',
                status = " . $objDestaque->getStatus() . ",
-               imagem = '" . $objDestaque->getImagem() . "'
+               imagem = '" . $objDestaque->getImagem() . "',
+               lingua = '".$objDestaque->getLingua()."'
                ";
 
         $conexao->query($sql);
@@ -35,7 +36,8 @@ class DestaquesDAO extends Banco {
                dataPublicacao = '" . $objDestaque->getDataPublicacao() . "',
                dataSaida = '" . $objDestaque->getDataSaida() . "',
                imagem = '" . $objDestaque->getImagem() . "',
-               status = ".$objDestaque->getStatus()."
+               status = ".$objDestaque->getStatus().",
+               lingua = '".$objDestaque->getLingua()."'
                    WHERE idDestaque = " . $objDestaque->getIdDestaque() . "
                ";
 
@@ -56,12 +58,13 @@ class DestaquesDAO extends Banco {
         $this->fechaConexao();
     }
 
-    public function verDestaques($count) {
+    public function verDestaques($count, $lingua) {
         $conexao = $this->abreConexao();
 
         $sql = "SELECT *, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao
                 FROM " . TBL_DESTAQUE . "
                     WHERE status != 0
+                    AND lingua = '".$lingua."'
                         ORDER BY ordem
                         LIMIT " . $count . "
                 ";

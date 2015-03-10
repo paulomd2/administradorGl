@@ -59,6 +59,12 @@ setcookie("ck_authorized", "true", 0, "/");
             <div class="tenor">
                 <h1>Todos os destaques</h1>
                 <a href="cadDestaque.php" class="proPage">Cadastrar destaque</a>
+                Selecione o idioma:
+                <select id="selLingua">
+                    <option value="pt">Portugês</option>
+                    <option value="en">Inglês</option>
+                    <option value="es">Espanhol</option>
+                </select>
                 <div id="listaDestaques">
                     <?php require_once 'listaDestaqueAjax.php'; ?>
                 </div>

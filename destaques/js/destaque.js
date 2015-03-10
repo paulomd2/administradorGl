@@ -39,6 +39,8 @@ $(document).ready(function () {
                 });
             }
         });
+
+        $("#listaDestaques").load('listaDestaqueAjax.php?count=' + count);
     }
 
     $("#btnCadastrar").click(function () {
@@ -50,6 +52,7 @@ $(document).ready(function () {
         var dataSaida = $("#dataPublicacao").val() + ' ' + $("#horaSaida").val() + ':' + $("#minutoSaida").val();
         var imagem = $("#imagem").val();
         var conteudo = CKEDITOR.instances.conteudo.getData();
+        var lingua = $("#lingua").val();
 
         $(".erro").html('').css('display', 'none');
         if (titulo == '') {
@@ -78,6 +81,7 @@ $(document).ready(function () {
         var dataSaida = $("#dataPublicacao").val() + ' ' + $("#horaSaida").val() + ':' + $("#minutoSaida").val();
         var imagem = $("#imagem").val();
         var conteudo = CKEDITOR.instances.conteudo.getData();
+        var lingua = $("#lingua").val();
 
         $(".erro").html('').css('display', 'none');
         if (titulo == '') {
@@ -93,4 +97,19 @@ $(document).ready(function () {
             $("#cadDestaque").submit();
         }
     });
+
+    $("#selLingua").change(function () {
+        var idioma = $("#selLingua").val();
+
+        var split = url.split('/');
+        var pagina = split[split.length - 1];
+
+        count = '';
+        if (pagina == 'verDestaques.php') {
+            count = 500;
+        } else {
+            count = 5;
+        }
+        $("#listaDestaques").load('listaDestaqueAjax.php?count=' + count + '&lingua=' + idioma);
+    })
 });

@@ -63,8 +63,13 @@
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Últimos destaques</h1>
                 <a href="cadDestaque.php" class="proPage">Cadastrar destaque</a>
+                Selecione o idioma:
+                <select id="selLingua">
+                    <option value="pt">Portugês</option>
+                    <option value="en">Inglês</option>
+                    <option value="es">Espanhol</option>
+                </select>
                 <div id="listaDestaques">
-                    <?php require_once 'listaDestaqueAjax.php'; ?>
                 </div>
             </div>
         </div>

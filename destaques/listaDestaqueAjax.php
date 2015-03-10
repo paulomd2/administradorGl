@@ -9,8 +9,14 @@
         } else {
             $count = 5;
         }
+        
+        if(isset($_GET['lingua'])){
+            $lingua = $_GET['lingua'];
+        }else{
+            $lingua = 'pt';
+        }
 
-        $destaques = $objDestaqueDao->verDestaques($count);
+        $destaques = $objDestaqueDao->verDestaques($count,$lingua);
 
         for ($i = 1; $i < count($destaques); $i++) {
 
