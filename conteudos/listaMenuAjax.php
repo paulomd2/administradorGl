@@ -4,8 +4,13 @@
         require_once '../model/banco.php';
         require_once 'model/dao.php';
         
-
-        $menus = $objConteudoDao->listaMenus();
+        if(isset($_GET['lingua'])){
+            $lingua = $_GET['lingua'];
+        }else{
+            $lingua = 'pt';
+        }
+        
+        $menus = $objConteudoDao->listaMenus($lingua);
         for ($i = 1; $i < count($menus); $i++) {
             echo '<li id="recordsArray_'.$menus[$i]["idMenu"].'">
                     <div class="menu-conteudo">

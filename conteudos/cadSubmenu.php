@@ -144,14 +144,6 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Lingua:</td>
-                            <td>
-                                <input type="radio" name="lingua" id="pt" value="pt" checked /> <label for="pt">Português</label>
-                                <input type="radio" name="lingua" id="en" value="en" /> <label for="en">Inglês</label>
-                                <input type="radio" name="lingua" id="es" value="es" /> <label for="es">Espanhol</label>
-                            </td>
-                        </tr>
-                        <tr>
                             <td colspan="2">
                                 <input type="button" id="btnCadastrarSubmenu" value="Cadastrar" /><br />
                                 <span id="spanBtn" class="erro"></span>

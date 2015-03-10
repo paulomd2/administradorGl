@@ -1,3 +1,4 @@
+
 function delMenu(id) {
     if (confirm("Você tem certeza que deseja excluir esse Menu?") == true) {
         $.post('control/controleConteudo.php', {opcao: 'excluirMenu', idMenu: id});
@@ -272,5 +273,12 @@ $(document).ready(function () {
                 $("#spanLink").html('Este link já existe').css('display', 'inline-block');
             }
         })
+    });
+    
+    
+    $("#selLingua").change(function(){
+        var idioma = $("#selLingua").val();
+        
+        $("#listaMenus").load('listaMenuAjax.php?lingua='+idioma);
     });
 });

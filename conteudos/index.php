@@ -68,6 +68,12 @@
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Gerenciar menus</h1><a href="cadMenu.php" class="proPage">Adicionar novo menu</a>
+                Selecione o idioma:
+                <select id="selLingua">
+                    <option value="pt">Portugês</option>
+                    <option value="en">Inglês</option>
+                    <option value="es">Espanhol</option>
+                </select>
                 <div id="listaMenus">
                     <?php
                     require_once 'listaMenuAjax.php';

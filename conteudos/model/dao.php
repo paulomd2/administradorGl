@@ -22,11 +22,11 @@ class ConteudoDAO extends Banco {
         $this->fechaConexao();
     }
 
-    public function listaMenus() {
+    public function listaMenus($lingua='pt') {
         $conexao = $this->abreConexao();
 
         $sql = "
-                SELECT * FROM " . TBL_MENU . " WHERE status = 1 ORDER BY ordem
+                SELECT * FROM " . TBL_MENU . " WHERE status !=0 AND lingua = '".$lingua."' ORDER BY ordem
                ";
 
         $banco = $conexao->query($sql);
@@ -102,8 +102,7 @@ class ConteudoDAO extends Banco {
                 keywordMetaTag = '" . $objSubMenu->getKeywordMetaTag() . "',
                 descricaoMetaTag = '" . $objSubMenu->getDescricaoMetaTag() . "',
                 dataEntrada = '" . $objSubMenu->getDataEntrada() . "',
-                dataSaida = '" . $objSubMenu->getDataSaida() . "',
-                lingua = '".$objSubMenu->getLingua()."'
+                dataSaida = '" . $objSubMenu->getDataSaida() . "'
                ";
 
         $conexao->query($sql);
@@ -126,8 +125,7 @@ class ConteudoDAO extends Banco {
                 keywordMetaTag = '" . $objSubMenu->getKeywordMetaTag() . "',
                 descricaoMetaTag = '" . $objSubMenu->getDescricaoMetaTag() . "',
                 dataEntrada = '" . $objSubMenu->getDataEntrada() . "',
-                dataSaida = '" . $objSubMenu->getDataSaida() . "',
-                lingua = '".$objSubMenu->getLingua()."'
+                dataSaida = '" . $objSubMenu->getDataSaida() . "'
                     WHERE idSubmenu = " . $objSubMenu->getIdSubmenu() . "
                ";
 
