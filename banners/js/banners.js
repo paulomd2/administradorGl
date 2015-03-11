@@ -1,7 +1,8 @@
 function delBanner(id) {
     if (confirm("Você tem certeza que deseja excluir esse banner?") == true) {
         $.post('control/controleBanners.php', {opcao: 'excluir', idBanner: id});
-        $("#listaBanners").load('listaBannersAjax.php?count=5');
+        var lingua = $("#selLingua").val();
+        $("#listaBanners").load('listaBannersAjax.php?lingua='+lingua);
     }
 }
 
@@ -75,5 +76,10 @@ $(document).ready(function () {
         } else {
            $("#altBanner").submit();
         }
+    });
+    
+    $("#selLingua").change(function(){
+        var lingua = $("#selLingua").val();
+        $("#listaBanners").load('listaBannersAjax.php?lingua='+lingua);
     });
 });

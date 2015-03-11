@@ -73,6 +73,12 @@
             <div class="tenor">
                 <h1>Todos os banners</h1>
                 <a href="cadBanner.php" class="proPage">Cadastrar banner</a>
+                Selecione o idioma:
+                <select id="selLingua">
+                    <option value="pt">Portugês</option>
+                    <option value="en">Inglês</option>
+                    <option value="es">Espanhol</option>
+                </select>
                 <div id="listaBanners">
                     <?php
                     require_once 'listaBannersAjax.php';

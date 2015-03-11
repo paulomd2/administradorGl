@@ -16,6 +16,7 @@ switch ($opcao) {
         $dataSaida = implode('-', array_reverse(explode('/', $_POST['dataSaida'])));
         $horaSaida = $_POST['horaSaida'] . ':' . $_POST['minutoSaida'] . ':00';
         $imagem = uploadImagem();
+        $lingua = $_POST['lingua'];
 
         if ($imagem == false) {
             unset($_POST['idBanner']);
@@ -39,6 +40,7 @@ switch ($opcao) {
             $objBanner->setHoraPublicacao($horaEntrada);
             $objBanner->setHoraSaida($horaSaida);
             $objBanner->setOrdem(0);
+            $objBanner->setLingua($lingua);
 
 
             $objBannersDao->cadBanner($objBanner);
@@ -58,6 +60,7 @@ switch ($opcao) {
         $dataSaida = implode('-', array_reverse(explode('/', $_POST['dataSaida'])));
         $horaSaida = $_POST['horaSaida'] . ':' . $_POST['minutoSaida'] . ':00';
         $idBanner = $_POST['idBanner'];
+        $lingua = $_POST['lingua'];
 
         if ($_FILES['imagem']['name'] != '') {
             $imagem = uploadImagem();
@@ -88,6 +91,7 @@ switch ($opcao) {
             $objBanner->setHoraPublicacao($horaEntrada);
             $objBanner->setHoraSaida($horaSaida);
             $objBanner->setOrdem(0);
+            $objBanner->setLingua($lingua);
 
             $objBannersDao->altBanner($objBanner);
             $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'BANNERS', $objBanner->getIdBanner(), $dataCadastro);
@@ -127,14 +131,14 @@ function uploadImagem() {
     if ($_FILES['imagem']['size'] > (512000)) { //não pode ser maior que 500Kb
         $valido = false;
     } else {
-        $imagemAntiga = '../../images/'.$_POST["imagemAntiga"];
+        @$imagemAntiga = '../../images/'.$_POST["imagemAntiga"];
         
         if (!file_exists('../../images/')) {
-            mkdir('../../images');
+            @mkdir('../../images');
         }elseif(file_exists($imagemAntiga)){
-            unlink($imagemAntiga);
+            @unlink($imagemAntiga);
         }
-        move_uploaded_file($_FILES['imagem']['tmp_name'], '../../images/' . $new_file_name);
+        @move_uploaded_file($_FILES['imagem']['tmp_name'], '../../images/' . $new_file_name);
 
         $valido = $new_file_name;
     }

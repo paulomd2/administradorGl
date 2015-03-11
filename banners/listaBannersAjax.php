@@ -3,14 +3,14 @@
         <?php
         require_once '../model/banco.php';
         require_once 'model/dao.php';
-
-        if (isset($_GET['count'])) {
-            $count = $_GET['count'];
+        
+        if (isset($_GET['lingua'])) {
+            $lingua = $_GET['lingua'];
         } else {
-            $count = 100;
+            $lingua = 'pt';
         }
 
-        $banners = $objBannersDao->listaBanners($count);
+        $banners = $objBannersDao->listaBanners($lingua);
 
         for ($i = 0; $i < count($banners); $i++) {
             echo '

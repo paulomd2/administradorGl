@@ -13,6 +13,7 @@ class Banners {
     private $status;
     private $dataSaida;
     private $horaSaida;
+    private $lingua;
 
     function getIdBanner() {
         return $this->idBanner;
@@ -106,6 +107,14 @@ class Banners {
     }
     public function setHoraSaida($horaSaida) {
         $this->horaSaida = seg($horaSaida);
+    }
+    
+    
+    public function getLingua(){
+        return $this->lingua;
+    }
+    public function setLingua($lingua){
+        $this->lingua = seg($lingua);
     }
 
 }

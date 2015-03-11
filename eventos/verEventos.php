@@ -31,6 +31,12 @@ if ($data == 'proximo') {
             </div>
             <div class="tenor">
                 <h1><?php echo $texto; ?></h1>
+                Selecione o idioma:
+                <select id="selLingua">
+                    <option value="pt">Portugês</option>
+                    <option value="en">Inglês</option>
+                    <option value="es">Espanhol</option>
+                </select>
                 <table class = "tableAll">
                     <thead>
                         <tr>

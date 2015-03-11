@@ -17,7 +17,8 @@ class BannersDAO extends Banco {
                     status = "' . $objBanner->getStatus() . '", 
                     dataSaida = "' . $objBanner->getDataSaida() . '",
                     horaSaida = "' . $objBanner->getDataSaida() . '",
-                    horaPublicacao = "' . $objBanner->getHoraPublicacao() . '"';
+                    horaPublicacao = "' . $objBanner->getHoraPublicacao() . '",
+                    lingua = "'.$objBanner->getLingua() .'"';
 
         $conexao->query($sql);
 
@@ -37,7 +38,8 @@ class BannersDAO extends Banco {
                     status = "' . $objBanner->getStatus() . '", 
                     dataSaida = "' . $objBanner->getDataSaida() . '",
                     horaSaida = "' . $objBanner->getHoraSaida() . '",
-                    horaPublicacao = "' . $objBanner->getHoraPublicacao() . '"
+                    horaPublicacao = "' . $objBanner->getHoraPublicacao() . '",
+                    lingua = "'.$objBanner->getLingua() .'"
                     WHERE idBanner = ' . $objBanner->getIdBanner();
 
         $conexao->query($sql);
@@ -66,10 +68,14 @@ class BannersDAO extends Banco {
         $this->fechaConexao();
     }
 
-    public function listaBanners($count) {
+    public function listaBanners($lingua) {
         $conexao = $this->abreConexao();
 
-        $sql = 'SELECT * FROM' . TBL_BANNER . 'WHERE status != 0 ORDER BY ordem LIMIT ' . $count;
+        $sql = 'SELECT *
+                    FROM' . TBL_BANNER . '
+                        WHERE status != 0
+                        AND lingua = "'.$lingua.'"
+                            ORDER BY ordem';
         $banco = $conexao->query($sql);
 
         $linhas = array();

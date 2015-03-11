@@ -210,6 +210,14 @@
                                 </td>
                             </tr>
                             <tr>
+                            <td>Idioma:</td>
+                            <td>
+                                <input type="radio" name="lingua" id="pt" value="pt" <?php if($banner['lingua'] == 'pt'){ echo 'checked'; } ?> /> <label for="pt">Português</label>
+                                <input type="radio" name="lingua" id="en" value="en" <?php if($banner['lingua'] == 'en'){ echo 'checked'; } ?> /> <label for="en">Inglês</label>
+                                <input type="radio" name="lingua" id="es" value="es" <?php if($banner['lingua'] == 'es'){ echo 'checked'; } ?> /> <label for="es">Espanhol</label>
+                            </td>
+                        </tr>
+                            <tr>
                                 <td colspan="2"><input type="button" id="btnAlterar" value="Alterar" /></td>
                             </tr>
                         </table>
