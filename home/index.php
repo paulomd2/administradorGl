@@ -1,3 +1,10 @@
+<?php
+@session_start();
+
+if($_SESSION['nivel'] == '3'){
+    header('Location: ../blog');
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
