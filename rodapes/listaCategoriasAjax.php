@@ -9,7 +9,13 @@ if(isset($_GET['count'])){
     $count = 100;
 }
 
-$categorias = $objRodapeDao->listaCategoria($count);
+if(isset($_GET['lingua'])){
+    $lingua = $_GET['lingua'];
+}else{
+    $lingua = 'pt';
+}
+
+$categorias = $objRodapeDao->listaCategoria($count, $lingua);
 
 for ($i = 0; $i < count($categorias); $i++) {
     if($categorias[$i]["identificador"] == 0){

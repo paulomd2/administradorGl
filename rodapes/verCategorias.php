@@ -36,6 +36,12 @@
             <div class="tenor">
                 <h1>Todas as categorias</h1>
                 <a href="cadCategoria.php" class="proPage">Cadastrar categoria</a>
+                Selecione o idioma:
+                <select id="selLingua">
+                    <option value="pt">Portugês</option>
+                    <option value="en">Inglês</option>
+                    <option value="es">Espanhol</option>
+                </select>
                 <table class="tableAll">
                     <thead>
                         <tr>

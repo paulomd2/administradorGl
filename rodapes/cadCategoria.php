@@ -35,7 +35,8 @@
                                     <option value="" selected>Escolha um status...</option>
                                     <option value="1">Habilitado</option>
                                     <option value="2">Desabilitado</option>
-                                </select>
+                                </select><br />
+                                <span id="spStatus" class="erro"></span>
                             </td>
                         </tr>
                         <tr>

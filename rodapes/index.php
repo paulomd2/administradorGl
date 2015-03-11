@@ -20,6 +20,12 @@
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Últimas Categorias</h1>
                 <a href="verCategorias.php" class="proPage">Ver todas as categorias</a>
+                Selecione o idioma:
+                <select id="selLingua">
+                    <option value="pt">Portugês</option>
+                    <option value="en">Inglês</option>
+                    <option value="es">Espanhol</option>
+                </select>
                 <table class="tableAll">
                     <thead>
                         <tr>
@@ -49,7 +55,8 @@
                                     <option value="" selected>Escolha um status...</option>
                                     <option value="1">Habilitado</option>
                                     <option value="2">Desabilitado</option>
-                                </select>
+                                </select><br />
+                                <span id="spStatus" class="erro"></span>
                             </td>
                         </tr>
                         <tr>

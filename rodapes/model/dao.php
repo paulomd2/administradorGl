@@ -59,12 +59,14 @@ class CategoriasDAO extends Banco {
         $this->fechaConexao();
     }
 
-    public function listaCategoria($count) {
+    public function listaCategoria($count, $lingua) {
         $conexao = $this->abreConexao();
 
         $sql = 'SELECT *
                     FROM' . TBL_CATEGORIA_RODAPE . '
-                        WHERE status != 0 ORDER BY ordem DESC LIMIT ' . $count;
+                        WHERE status != 0
+                        AND lingua = "'.$lingua.'"
+                        ORDER BY ordem DESC LIMIT ' . $count;
         $banco = $conexao->query($sql);
 
         $linhas = array();

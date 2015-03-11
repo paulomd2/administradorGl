@@ -24,7 +24,6 @@ switch ($opcao) {
 
     case 'alterarCategoria':
         $nome = $_POST['nome'];
-        $identificador = $_POST['identificador'];
         $idCategoria = $_POST['idCategoria'];
         $status = $_POST['status'];
         $lingua = $_POST['lingua'];

@@ -46,7 +46,8 @@
                                     <option value="" selected>Escolha um status...</option>
                                     <option value="1" <?php if($categoria['status'] == '1'){ echo 'selected'; } ?>>Habilitado</option>
                                     <option value="2" <?php if($categoria['status'] == '2'){ echo 'selected'; } ?>>Desabilitado</option>
-                                </select>
+                                </select><br />
+                                <span id="spStatus" class="erro"></span>
                             </td>
                         </tr>
                             <tr>
