@@ -25,16 +25,18 @@ function delEventoBusca(id, busca) {
     if (confirm("Você tem certeza que deseja remover esse evento?")) {
         $.post('../eventos/control/controleEventos.php', {opcao: 'excluir', idEvento: id});
 
-        $(".tableAll").load('listaBuscaAjax.php?modulo=eventos&busca='+busca);
+        $(".tableAll").load('listaBuscaAjax.php?modulo=eventos&busca=' + busca);
     }
 }
 
 $(document).ready(function () {
-
+    evento = '';
     if ($("#listaEventosProximo").length) {
         $("#listaEventosProximo").load('listaEventosAjax.php?count=' + count + '&d=Proximo');
+        evento = 'proximo';
     } else {
         $("#listaEventosAnterior").load('listaEventosAjax.php?count=' + count + '&d=Anterior');
+        evento = 'anterior';
     }
 
     $("#btnCadastrar").click(function () {
@@ -120,6 +122,23 @@ $(document).ready(function () {
         } else {
             $("#altEvento").submit();
         }
+    });
 
+    $("#selLingua").change(function () {
+        var lingua = $("#selLingua").val();
+        var pagina = split[split.length - 1];
+
+        count = '';
+        if (pagina == 'verEventos.php') {
+            count = 500;
+        } else {
+            count = 5;
+        }
+        
+        if (evento == 'proximo') {
+            $("#listaEventosProximo").load('listaEventosAjax.php?count=' + count + '&d=Proximo&lingua='+lingua);
+        } else {
+            $("#listaEventosAnterior").load('listaEventosAjax.php?count=' + count + '&d=Anterior&lingua='+lingua);
+        }        
     });
 });

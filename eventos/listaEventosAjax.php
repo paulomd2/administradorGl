@@ -3,12 +3,16 @@
 require_once '../model/banco.php';
 require_once 'model/dao.php';
 
-$count = 100;
+if(isset($_GET['lingua'])){
+    $lingua = $_GET['lingua'];
+}else{
+    $lingua = 'pt';
+}
 
 if ($_GET['d'] == 'Proximo') {
-    $eventos = $objEventoDao->verEventosProximos($count);
+    $eventos = $objEventoDao->verEventosProximos($lingua);
 } else {
-    $eventos = $objEventoDao->verEventosAnteriores($count);
+    $eventos = $objEventoDao->verEventosAnteriores($lingua);
 }
 
 for ($i = 1; $i < count($eventos); $i++) {

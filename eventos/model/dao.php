@@ -18,7 +18,8 @@ class EventosDAO extends Banco {
                 keywordsMetaTag = '" . $objEvento->getKeywordsMetaTag() . "',
                 descricaoMetaTag = '" . $objEvento->getDescricaoMetaTag() . "',
                 dataCadastro = '" . $objEvento->getDataCadastro() . "',
-                status = ".$objEvento->getStatus()."
+                status = ".$objEvento->getStatus().",
+                lingua = '".$objEvento->getLingua()."'
                ";
 
         $conexao->query($sql);
@@ -54,7 +55,8 @@ class EventosDAO extends Banco {
                 tituloMetaTag = '" . $objEvento->getTituloMetaTag() . "',
                 keywordsMetaTag = '" . $objEvento->getKeywordsMetaTag() . "',
                 descricaoMetaTag = '" . $objEvento->getDescricaoMetaTag() . "',
-                status = ".$objEvento->getStatus()."
+                status = ".$objEvento->getStatus().",
+                lingua = '".$objEvento->getLingua()."'
                     WHERE idEvento = " . $objEvento->getIdEvento();
 
         $conexao->query($sql);
@@ -89,7 +91,7 @@ class EventosDAO extends Banco {
         $this->fechaConexao();
     }
 
-    public function verEventosProximos($count) {
+    public function verEventosProximos($lingua) {
         $conexao = $this->abreConexao();
 
         $sql = "
@@ -98,10 +100,10 @@ class EventosDAO extends Banco {
                 DATE_FORMAT(dataFim, '%d/%m/%Y') as dataFim,
                 DATE_FORMAT(dataCadastro, '%d/%m/%Y') as dataCadastro
                     FROM ".TBL_EVENTO."
-                        WHERE status = 1
+                        WHERE status != 0
+                        AND lingua = '".$lingua."'
                         AND dataFim > NOW()
                         ORDER BY ordem
-                        LIMIT ".$count."
                ";
 
         
@@ -118,19 +120,19 @@ class EventosDAO extends Banco {
     }
     
     
-    public function verEventosAnteriores($count) {
+    public function verEventosAnteriores($lingua = 'pt') {
         $conexao = $this->abreConexao();
 
-       echo $sql = "
+        $sql = "
                 SELECT *,
                 DATE_FORMAT(dataInicio, '%d/%m/%Y') as dataInicio,
                 DATE_FORMAT(dataFim, '%d/%m/%Y') as dataFim,
                 DATE_FORMAT(dataCadastro, '%d/%m/%Y') as dataCadastro
                     FROM ".TBL_EVENTO."
                         WHERE status != 0
+                        AND lingua = '".$lingua."'
                         AND dataFim <= NOW()
                         ORDER BY dataInicio
-                        LIMIT ".$count."
                ";
 
         

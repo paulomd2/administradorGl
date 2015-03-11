@@ -17,6 +17,7 @@ switch ($opcao) {
         $keywordsMetatag = $_POST['keywordsMetaTag'];
         $descricaoMetaTag = $_POST['descricaoMetaTag'];
         $status = $_POST['status'];
+        $lingua = $_POST['lingua'];
 
         $imagem = uploadImagem();
 
@@ -31,6 +32,7 @@ switch ($opcao) {
         $objEvento->setKeywordsMetatag($keywordsMetatag);
         $objEvento->setDescricaoMetaTag($descricaoMetaTag);
         $objEvento->setStatus($status);
+        $objEvento->setLingua($lingua);
 
         $objEventoDao->cadEvento($objEvento);
         $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'EVENTOS', 0, $dataCadastro);
@@ -48,6 +50,7 @@ switch ($opcao) {
         $keywordsMetatag = $_POST['keywordsMetaTag'];
         $descricaoMetaTag = $_POST['descricaoMetaTag'];
         $status = $_POST['status'];
+        $lingua = $_POST['lingua'];
 
         if ($_FILES['imagem']['name'] != '') {
             $imagem = uploadImagem();
@@ -66,6 +69,7 @@ switch ($opcao) {
         $objEvento->setKeywordsMetatag($keywordsMetatag);
         $objEvento->setDescricaoMetaTag($descricaoMetaTag);
         $objEvento->setStatus($status);
+        $objEvento->setLingua($lingua);
 
         $objEventoDao->altEvento($objEvento);
         $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'EVENTOS', $objEvento->getIdEvento(), date('Y-m-d H:i:s'));

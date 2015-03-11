@@ -14,6 +14,7 @@ class Evento {
     private $keywordsMetaTag;
     private $descricaoMetaTag;
     private $status;
+    private $lingua;
 
     function getIdEvento() {
         return $this->idEvento;
@@ -108,6 +109,14 @@ class Evento {
     }
     function setStatus($status){
         $this->status = $status;
+    }
+    
+    
+    function getLingua(){
+        return $this->lingua;
+    }
+    function setLingua($lingua){
+        $this->lingua = seg($lingua);
     }
 }
 

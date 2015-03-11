@@ -82,8 +82,12 @@ $evento = $objEventoDao->listaEvento1($objEvento);
                             <td>
                                 <select id="status" name="status">
                                     <option value="" selected>Selecione um status...</option>
-                                    <option value="1" <?php if($evento['status'] == '1'){echo 'selected'; } ?>>Habilitado</option>
-                                    <option value="2" <?php if($evento['status'] == '2'){echo 'selected'; } ?>>Desabilitado</option>
+                                    <option value="1" <?php if ($evento['status'] == '1') {
+            echo 'selected';
+        } ?>>Habilitado</option>
+                                    <option value="2" <?php if ($evento['status'] == '2') {
+            echo 'selected';
+        } ?>>Desabilitado</option>
                                 </select>
                             </td>
                         </tr>
@@ -109,6 +113,15 @@ $evento = $objEventoDao->listaEvento1($objEvento);
                             <td>
                                 <input type="text" id="descricaoMetaTag" name="descricaoMetaTag" value="<?php echo $evento['descricaoMetaTag']; ?>" /><br />
                                 <span id="spanDescricaoMetaTag" class="erro"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Idioma:</td>
+                            <td>
+                                <input type="radio" name="lingua" id="pt" value="pt" <?php if ($evento['lingua'] == 'pt') { echo 'checked'; } ?> />
+                                <label for="pt">Português</label>
+                                <input type="radio" name="lingua" id="en" value="en" <?php if ($evento['lingua'] == 'en') { echo 'checked'; } ?> /> <label for="en">Inglês</label>
+                                <input type="radio" name="lingua" id="es" value="es" <?php if ($evento['lingua'] == 'es') { echo 'checked'; } ?> /> <label for="es">Espanhol</label>
                             </td>
                         </tr>
                         <tr>
