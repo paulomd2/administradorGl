@@ -116,8 +116,8 @@ aside.barra-lateral{
 }
 .center-user .detail-user{
     background: #505153;
-    width: 188px;
-    float: left;
+    width: 188px; 
+   float: left;
     /*padding: 10px 10px 25px 10px;*/
     padding: 20px 10px;
 }
@@ -368,7 +368,7 @@ hr{
 }
 .tableAll tbody td{
     padding: 3px;
-    color: #1e1e1e!important;
+    /*color: #1e1e1e!important;*/
 }
 .tableAll tbody td a{
     text-decoration: none;
@@ -425,4 +425,12 @@ hr{
 }
 .editar-user:hover{
     color: #858383;
+}
+
+td.habilitado{
+    color: #6a9814;
+}
+
+td.desabilitado{
+    color: #FF7F00;
 }
