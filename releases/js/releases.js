@@ -1,6 +1,7 @@
 var url = document.URL;
 var split = url.split('/');
 var pagina = split[split.length - 1];
+idioma = 'pt';
 
 count = '';
 if (pagina == 'verReleases.php') {
@@ -23,7 +24,7 @@ function delReleaseBusca(id, busca) {
 function delRelease(id) {
     if (confirm("Você tem certeza que deseja excluir esse release?") == true) {
         $.post('control/controleReleases.php', {opcao: 'excluir', idRelease: id});
-        $("#listaReleases").load('listaReleasesAjax.php?count=' + count);
+        $("#listaReleases").load('listaReleasesAjax.php?count=' + count+'&lingua=' + idioma);
     }
 }
 $(document).ready(function () {
@@ -101,7 +102,8 @@ $(document).ready(function () {
 
     $("#selIdioma").change(function () {
         var pagina = split[split.length - 1];
-
+        idioma = $("#selIdioma").val();
+        
         count = '';
         if (pagina == 'verReleases.php') {
             count = 500;
@@ -109,7 +111,7 @@ $(document).ready(function () {
             count = 5;
         }
         
-        var idioma = $("#selIdioma").val();
+        
         $("#listaReleases").load('listaReleasesAjax.php?count=' + count + '&lingua=' + idioma);
     });
 });

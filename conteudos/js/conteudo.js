@@ -1,8 +1,9 @@
+idioma = 'pt';
 
 function delMenu(id) {
     if (confirm("Você tem certeza que deseja excluir esse Menu?") == true) {
         $.post('control/controleConteudo.php', {opcao: 'excluirMenu', idMenu: id});
-        $("#listaMenus").load('listaMenuAjax.php');
+        $("#listaMenus").load('listaMenuAjax.php?lingua='+idioma);
     }
 }
 
@@ -277,7 +278,7 @@ $(document).ready(function () {
     
     
     $("#selLingua").change(function(){
-        var idioma = $("#selLingua").val();
+        idioma = $("#selLingua").val();
         
         $("#listaMenus").load('listaMenuAjax.php?lingua='+idioma);
     });

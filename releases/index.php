@@ -33,6 +33,12 @@ setcookie("ck_authorized", "true", 0, "/");
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Últimos releases</h1>
                 <a href="verReleases.php" class="proPage">Ver todos os releases</a>
+                selecione o idioma:
+                <select id="selIdioma">
+                    <option value="pt">Portugês</option>
+                    <option value="en">Inglês</option>
+                    <option value="es">Espanhol</option>
+                </select>
                 <table class="tableAll">
                     <thead>
                         <tr>

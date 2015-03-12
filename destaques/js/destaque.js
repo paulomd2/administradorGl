@@ -1,6 +1,7 @@
 var url = document.URL;
 var split = url.split('/');
 var pagina = split[split.length - 1];
+idioma = 'pt';
 
 count = '';
 if (pagina == 'verDestaques.php') {
@@ -13,7 +14,7 @@ function delDestaque(id) {
     if (confirm("Você tem certeza que deseja excluir esse destaque?") == true) {
         $.post('control/controleDestaque.php', {opcao: 'excluir', idDestaque: id});
 
-        $("#listaDestaques").load('listaDestaqueAjax.php?count=' + count);
+        $("#listaDestaques").load('listaDestaqueAjax.php?count=' + count+'&lingua='+idioma);
     }
 }
 
@@ -99,7 +100,7 @@ $(document).ready(function () {
     });
 
     $("#selLingua").change(function () {
-        var idioma = $("#selLingua").val();
+        idioma = $("#selLingua").val();
 
         var split = url.split('/');
         var pagina = split[split.length - 1];

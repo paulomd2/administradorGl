@@ -1,6 +1,7 @@
 var url = document.URL;
 var split = url.split('/');
 var pagina = split[split.length - 1];
+lingua = 'pt';
 
 count = '';
 if (pagina == 'verEventos.php') {
@@ -14,9 +15,9 @@ function delEvento(id) {
         $.post('control/controleEventos.php', {opcao: 'excluir', idEvento: id});
 
         if ($("#listaEventosProximo").length) {
-            $("#listaEventosProximo").load('listaEventosAjax.php?count=' + count + '&d=proximo');
+            $("#listaEventosProximo").load('listaEventosAjax.php?count=' + count + '&d=proximo&lingua='+lingua);
         } else {
-            $("#listaEventosAnterior").load('listaEventosAjax.php?count=' + count + '&d=anterior');
+            $("#listaEventosAnterior").load('listaEventosAjax.php?count=' + count + '&d=anterior&lingua='+lingua);
         }
     }
 }
@@ -125,7 +126,7 @@ $(document).ready(function () {
     });
 
     $("#selLingua").change(function () {
-        var lingua = $("#selLingua").val();
+        lingua = $("#selLingua").val();
         var pagina = split[split.length - 1];
 
         count = '';

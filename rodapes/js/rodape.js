@@ -1,6 +1,7 @@
 var url = document.URL;
 var split = url.split('/');
 var pagina = split[split.length - 1];
+lingua = 'pt';
 
 count = '';
 if (pagina == 'verDestaques.php') {
@@ -12,7 +13,7 @@ if (pagina == 'verDestaques.php') {
 function delCategoria(id) {
     if (confirm("Você tem certeza que deseja excluir essa categoria?") == true) {
         $.post('control/controleRodape.php', {opcao: 'excluirCategoria', idCategoria: id});
-        $("#listaCategorias").load('listaCategoriasAjax.php?count=' + count);
+        $("#listaCategorias").load('listaCategoriasAjax.php?count=' + count+'&lingua='+lingua);
     }
 }
 
@@ -109,7 +110,7 @@ $(document).ready(function () {
 
 
     $("#selLingua").change(function () {
-        var lingua = $("#selLingua").val();
+        lingua = $("#selLingua").val();
         var pagina = split[split.length - 1];
 
         count = '';
