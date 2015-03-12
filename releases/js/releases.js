@@ -30,7 +30,6 @@ function delRelease(id) {
 $(document).ready(function () {
     $("#listaReleases").load('listaReleasesAjax.php?count=' + count);
 
-    var contador = count;
     var data = new Date();
     var dia = data.getDate();
     var mes = data.getMonth() + 1;

@@ -57,7 +57,7 @@ class ReleasesDAO extends Banco {
     public function verReleases($count, $lingua) {
         $conexao = $this->abreConexao();
 
-        $sql = "SELECT titulo, idRelease,
+        $sql = "SELECT *,
                     CASE WHEN mes = 1 THEN 'Janeiro'
                     WHEN mes = 2 THEN 'Fevereiro'
                     WHEN mes = 3 THEN 'Março'
