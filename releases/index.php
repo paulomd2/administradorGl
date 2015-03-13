@@ -34,9 +34,9 @@ setcookie("ck_authorized", "true", 0, "/");
                 <a href="verReleases.php" class="proPage">Ver todos os releases</a>
                 selecione o idioma:
                 <select id="selIdioma">
-                    <option value="pt">Portugês</option>
-                    <option value="en">Inglês</option>
-                    <option value="es">Espanhol</option>
+                    <option value="pt" <?php if($_SESSION['idioma'] == 'pt'){ echo 'selected'; } ?>>Portugês</option>
+                    <option value="en" <?php if($_SESSION['idioma'] == 'en'){ echo 'selected'; } ?>>Inglês</option>
+                    <option value="es" <?php if($_SESSION['idioma'] == 'es'){ echo 'selected'; } ?>>Espanhol</option>
                 </select>
                 <table class="tableAll">
                     <thead>
@@ -116,9 +116,9 @@ setcookie("ck_authorized", "true", 0, "/");
                         <tr>
                             <td>Idioma:</td>
                             <td>
-                                <input type="radio" name="lingua" id="pt" value="pt" checked /> <label for="pt">Português</label>
-                                <input type="radio" name="lingua" id="en" value="en" /> <label for="en">Inglês</label>
-                                <input type="radio" name="lingua" id="es" value="es" /> <label for="es">Espanhol</label>
+                                <input type="radio" name="lingua" id="pt" value="pt" <?php if($_SESSION['idioma'] == 'pt'){ echo 'checked'; } ?> /> <label for="pt">Português</label>
+                                <input type="radio" name="lingua" id="en" value="en" <?php if($_SESSION['idioma'] == 'en'){ echo 'checked'; } ?> /> <label for="en">Inglês</label>
+                                <input type="radio" name="lingua" id="es" value="es" <?php if($_SESSION['idioma'] == 'es'){ echo 'checked'; } ?> /> <label for="es">Espanhol</label>
                             </td>
                         </tr>
                         <tr>

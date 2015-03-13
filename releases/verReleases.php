@@ -26,9 +26,9 @@ setcookie("ck_authorized", "true", 0, "/");
                 <a href="cadRelease.php" class="proPage">Cadastrar release</a>
                 selecione o idioma:
                 <select id="selIdioma">
-                    <option value="pt">Portugês</option>
-                    <option value="en">Inglês</option>
-                    <option value="es">Espanhol</option>
+                    <option value="pt" <?php if($_SESSION['idioma'] == 'pt'){ echo 'selected'; } ?>>Portugês</option>
+                    <option value="en" <?php if($_SESSION['idioma'] == 'en'){ echo 'selected'; } ?>>Inglês</option>
+                    <option value="es" <?php if($_SESSION['idioma'] == 'es'){ echo 'selected'; } ?>>Espanhol</option>
                 </select>
                 <table class="tableAll">
                     <thead>
