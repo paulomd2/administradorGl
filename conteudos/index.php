@@ -70,9 +70,9 @@
                 <h1>Gerenciar menus</h1><a href="cadMenu.php" class="proPage">Adicionar novo menu</a>
                 Selecione o idioma:
                 <select id="selLingua">
-                    <option value="pt">Portugês</option>
-                    <option value="en">Inglês</option>
-                    <option value="es">Espanhol</option>
+                    <option value="pt" <?php if($_SESSION['idioma'] == 'pt'){ echo 'selected'; } ?>>Portugês</option>
+                    <option value="en" <?php if($_SESSION['idioma'] == 'en'){ echo 'selected'; } ?>>Inglês</option>
+                    <option value="es" <?php if($_SESSION['idioma'] == 'es'){ echo 'selected'; } ?>>Espanhol</option>
                 </select>
                 <div id="listaMenus">
                     <?php
