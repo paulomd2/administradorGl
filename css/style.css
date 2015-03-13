@@ -427,10 +427,10 @@ hr{
     color: #858383;
 }
 
-td.habilitado{
-    color: #6a9814;
+td.habilitado, .habilitado{
+    color: #6a9814!important;
 }
 
-td.desabilitado{
-    color: #FF7F00;
+td.desabilitado, .desabilitado{
+    color: #FF7F00!important;
 }

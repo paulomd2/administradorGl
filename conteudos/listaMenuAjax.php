@@ -12,9 +12,16 @@
         
         $menus = $objConteudoDao->listaMenus($lingua);
         for ($i = 1; $i < count($menus); $i++) {
+            if($menus[$i]['status'] == 1){
+                $classe = 'habilitado';
+            }else{
+                $classe = 'desabilitado';
+            }
+            
+            
             echo '<li id="recordsArray_'.$menus[$i]["idMenu"].'">
                     <div class="menu-conteudo">
-                        <span class="titMenu">'.$menus[$i]["titulo"].'</span>
+                        <span class="titMenu '.$classe.'">'.$menus[$i]["titulo"].'</span>
                         <a href="altMenu.php?id=' . $menus[$i]["idMenu"] . '">Alterar</a> | <td><a href="javascript:delMenu(' . $menus[$i]["idMenu"] . ')">Excluir</a>
                     </div>
                 </li>';
