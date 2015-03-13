@@ -12,7 +12,7 @@ if(isset($_GET['count'])){
 if(isset($_GET['lingua'])){
     $lingua = $_GET['lingua'];
 }else{
-    $lingua = 'pt';
+    $lingua = $_SESSION['idioma'];
 }
 
 $categorias = $objRodapeDao->listaCategoria($count, $lingua);
