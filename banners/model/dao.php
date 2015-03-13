@@ -47,7 +47,7 @@ class BannersDAO extends Banco {
         $this->fechaConexao();
     }
 
-    public function delBanners(banners $objBanner) {
+    public function delBanners($objBanner) {
         $conexao = $this->abreConexao();
 
         $sql = 'UPDATE FROM ' . TBL_BANNER . ' SET status = 0 WHERE idBanner = "' . $objBanner->getIdBanner() . '"';

@@ -22,7 +22,7 @@ class ConteudoDAO extends Banco {
         $this->fechaConexao();
     }
 
-    public function listaMenus($lingua='pt') {
+    public function listaMenus($lingua) {
         $conexao = $this->abreConexao();
 
         $sql = "

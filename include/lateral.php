@@ -69,7 +69,7 @@ if (array_search('eventos', $diretorio) || array_search('verEventos', $diretorio
                         <a href="../conteudos/">Gerenciar menus</a>
                     </li>
                     <?php
-                    $menu = $objConteudoDao->listaMenus();
+                    $menu = $objConteudoDao->listaMenus($_SESSION['idioma']);
 
                     for ($i = 1; $i < count($menu); $i++) {
                         echo '<li><a href="../conteudos/verSubmenus.php?id=' . $menu[$i]["idMenu"] . '#1" onclick="javascript:void(0);">' . $menu[$i]['titulo'] . '</a></li>';

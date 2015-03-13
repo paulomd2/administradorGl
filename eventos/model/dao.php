@@ -64,7 +64,7 @@ class EventosDAO extends Banco {
         $this->fechaConexao();
     }
     
-    public function verEventos($count) {
+    public function verEventos($count,$lingua) {
         $conexao = $this->abreConexao();
 
         $sql = "
@@ -73,7 +73,8 @@ class EventosDAO extends Banco {
                 DATE_FORMAT(dataFim, '%d/%m/%Y') as dataFim,
                 DATE_FORMAT(dataCadastro, '%d/%m/%Y') as dataCadastro
                     FROM ".TBL_EVENTO."
-                        WHERE status = 1
+                        WHERE status !=0
+                        AND lingua = '".$lingua."'
                         ORDER BY idEvento DESC
                         LIMIT ".$count."
                ";

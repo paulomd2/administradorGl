@@ -1,3 +1,12 @@
+function idioma(lingua){
+    $.post('../include/idioma.php',{lingua:lingua},
+    function(r){
+        //console.log(r)
+        
+        location.reload();
+    });
+}
+
 function busca(){
     var modulo = $("#modulo").val();
     var busca = $("#busca").val();

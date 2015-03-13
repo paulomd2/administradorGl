@@ -20,6 +20,7 @@ switch ($opcao) {
         if ($retorno != 0) {
             $_SESSION['id'] = $retorno['idUsuario'];
             $_SESSION['nivel'] = $retorno['nivel'];
+            $_SESSION['idioma'] = 'pt';
             
             $retorno = json_encode($retorno);
         }

@@ -173,7 +173,7 @@ aside.barra-lateral{
     float: right;
     position: relative;
     top: 5px;
-    width: 200px;
+    width: 400px;
     text-align: right;
 }
 .barra-user .logout a{
@@ -433,4 +433,8 @@ td.habilitado, .habilitado{
 
 td.desabilitado, .desabilitado{
     color: #FF7F00!important;
+}
+
+.marcLang{
+    background: black!important;
 }

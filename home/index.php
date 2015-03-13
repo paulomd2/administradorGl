@@ -93,7 +93,7 @@ if($_SESSION['nivel'] == '3'){
                     require_once '../model/banco.php';
                     require_once '../eventos/model/dao.php';
 
-                    $eventos = $objEventoDao->verEventos(8);
+                    $eventos = $objEventoDao->verEventos(8, $_SESSION['idioma']);
 
                     for ($i = 1; $i < count($eventos); $i++) {
                         $explode = explode('/', $eventos[$i]["dataInicio"]);
@@ -117,7 +117,7 @@ if($_SESSION['nivel'] == '3'){
                 <div style="width: 373px; height: 230px; margin: 0 auto; padding: 15px 0;">
                     <?php
                     require_once '../banners/model/dao.php';
-                    $banners = $objBannersDao->listaBanners(5);
+                    $banners = $objBannersDao->listaBanners($_SESSION['idioma']);
                     
 //                    echo var_dump($banners);
                     
@@ -151,7 +151,7 @@ if($_SESSION['nivel'] == '3'){
                 <?php
                 require_once '../destaques/model/dao.php';
 
-                $destaques = $objDestaqueDao->verDestaques(4);
+                $destaques = $objDestaqueDao->verDestaques(4, $_SESSION['idioma']);
                 ?>
                 <div class="tit-box">
                     <strong>ÚLTIMOS</strong> DESTAQUES CADASTRADOS

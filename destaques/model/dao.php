@@ -58,7 +58,7 @@ class DestaquesDAO extends Banco {
         $this->fechaConexao();
     }
 
-    public function verDestaques($count, $lingua='pt') {
+    public function verDestaques($count, $lingua) {
         $conexao = $this->abreConexao();
 
         $sql = "SELECT *, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao

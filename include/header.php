@@ -47,6 +47,9 @@ if(empty($_SESSION)){
             </form>
         </div>
         <div class="logout">
+            <a <?php if($_SESSION['idioma'] == 'pt'){ echo 'href="#" class="marcLang"'; }else{ echo 'href="javascript:idioma(\'pt\')"'; } ?>>PT</a>
+            <a <?php if($_SESSION['idioma'] == 'en'){ echo 'href="#" class="marcLang"'; }else{ echo 'href="javascript:idioma(\'en\')"'; } ?>>EN</a>
+            <a <?php if($_SESSION['idioma'] == 'es'){ echo 'href="#" class="marcLang"'; }else{ echo 'href="javascript:idioma(\'es\')"'; } ?>>ES</a>
             <a href="#" class="visu-site">Visualizar site</a>
             <a href="#" onclick="deslogar()" class="sair">Sair</a>
         </div>
