@@ -65,9 +65,9 @@
                 <a href="cadDestaque.php" class="proPage">Cadastrar destaque</a>
                 Selecione o idioma:
                 <select id="selLingua">
-                    <option value="pt">Portugês</option>
-                    <option value="en">Inglês</option>
-                    <option value="es">Espanhol</option>
+                    <option value="pt" <?php if ($_SESSION['idioma'] == 'pt') { echo 'selected'; } ?>>Portugês</option>
+                    <option value="en" <?php if ($_SESSION['idioma'] == 'en') { echo 'selected'; } ?>>Inglês</option>
+                    <option value="es" <?php if ($_SESSION['idioma'] == 'es') { echo 'selected'; } ?>>Espanhol</option>
                 </select>
                 <div id="listaDestaques">
                 </div>

@@ -13,7 +13,7 @@
         if (isset($_GET['lingua'])) {
             $lingua = $_GET['lingua'];
         } else {
-            $lingua = 'pt';
+            $lingua = $_SESSION['idioma'];
         }
 
         $destaques = $objDestaqueDao->verDestaques($count, $lingua);
