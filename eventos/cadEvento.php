@@ -111,10 +111,12 @@
                         <tr>
                             <td>Idioma:</td>
                             <td>
-                                <input type="radio" name="lingua" id="pt" value="pt" checked />
+                                <input type="radio" name="lingua" id="pt" value="pt" <?php if($_SESSION['idioma'] == 'pt'){ echo 'checked'; } ?> />
                                 <label for="pt">Português</label>
-                                <input type="radio" name="lingua" id="en" value="en" /> <label for="en">Inglês</label>
-                                <input type="radio" name="lingua" id="es" value="es" /> <label for="es">Espanhol</label>
+                                <input type="radio" name="lingua" id="en" value="en" <?php if($_SESSION['idioma'] == 'en'){ echo 'checked'; } ?> />
+                                <label for="en">Inglês</label>
+                                <input type="radio" name="lingua" id="es" value="es" <?php if($_SESSION['idioma'] == 'es'){ echo 'checked'; } ?> />
+                                <label for="es">Espanhol</label>
                             </td>
                         </tr>
                         <tr>

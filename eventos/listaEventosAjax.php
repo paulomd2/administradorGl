@@ -6,7 +6,7 @@ require_once 'model/dao.php';
 if(isset($_GET['lingua'])){
     $lingua = $_GET['lingua'];
 }else{
-    $lingua = 'pt';
+    $lingua = $_SESSION['idioma'];
 }
 
 if ($_GET['d'] == 'Proximo') {
