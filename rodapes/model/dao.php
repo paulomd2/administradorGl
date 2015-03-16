@@ -186,7 +186,7 @@ class CategoriasDAO extends Banco {
     public function delImagem($objImagem){
         $conexao = $this->abreConexao();
         
-     echo   $sql = "
+        $sql = "
                 UPDATE ".TBL_IMAGEM_RODAPE." SET
                 status = 0
                     WHERE idImagem = ".$objImagem->getIdImagem()."

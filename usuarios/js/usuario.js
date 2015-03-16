@@ -38,6 +38,8 @@ $(document).ready(function () {
         var senha = $("#senha").val().trim();
         var usuario = $("#usuario").val().trim();
         var nivel = $("#nivel").val();
+        var status = $("#status").val();
+        
         $(".erro").html('').css('display', 'none');
         if (nome == '') {
             $("#nome").focus();
@@ -57,10 +59,14 @@ $(document).ready(function () {
         } else if (nivel == '') {
             $("#nivel").focus();
             $("#spanNivel").html('Você deve preencher o Nível!').css('display', 'inline-block');
-        } else {
-            $.post('control/controleUsuario.php', {opcao: 'cadastrar', nome: nome, email: email, senha: senha, usuario: usuario, nivel: nivel},
+        } else if(status == ''){
+            $("#status").focus();
+            $("#spanStatus").html('Você deve preencher o status!').css('display', 'inline-block');
+        }else {
+            $.post('control/controleUsuario.php', {opcao: 'cadastrar', nome: nome, email: email, senha: senha, usuario: usuario, nivel: nivel, status:status},
             function (r) {
-                if (r != 0) {
+                console.log(r);
+                if (r > 0) {
                     $("#email").focus();
                     $("#spanEmail").html('Esse email já está cadastrado, por favor, escolha outro!').css('display', 'inline-block');
                 } else {
@@ -78,6 +84,7 @@ $(document).ready(function () {
         var usuario = $("#usuario").val().trim();
         var nivel = $("#nivel").val();
         var idUsuario = $("#idUsuario").val();
+        var status = $("#status").val();
         if (senhaDigitada == '') {
             senha = senhaAntiga;
         } else {
@@ -100,9 +107,11 @@ $(document).ready(function () {
         } else if (nivel == '') {
             $("#nivel").focus();
             $("#spanNivel").html('Você deve preencher o Nível!').css('display', 'inline-block');
-        } else {
-            $.post('control/controleUsuario.php', {opcao: 'alterar', idUsuario: idUsuario, usuario: usuario, nome: nome, email: email, senha: senha, senhaAntiga:senhaAntiga, nivel: nivel});
-            window.location = 'verUsuarios.php';
+        } else if(status == ''){
+            $("#status").focus();
+            $("#spanStatus").html('Você deve preencher o status!').css('display', 'inline-block');
+        }else {
+            $.post('control/controleUsuario.php', {opcao: 'cadastrar', nome: nome, email: email, senha: senha, usuario: usuario, nivel: nivel, status:status,idUsuario:idUsuario});
         }
     });
     

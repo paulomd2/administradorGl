@@ -65,32 +65,20 @@ switch ($opcao) {
             $dataCadastro = date('Y-m-d H:i:s');
             $idCategoria = $_POST['idCategoria'];
             $imagem = uploadImagem();
+            $link = $_POST['link'];
 
             $objImagem->setIdCategoria($idCategoria);
             $objImagem->setImagem($imagem);
             $objImagem->setNome($nome);
             $objImagem->setDataCadastro($dataCadastro);
             $objImagem->setStatus($status);
+            $objImagem->setLink($link);
 
             //$verificaCategoria = $objRodapeDao->listaCategoriasImagens($objImagem);
 
             unset($_POST['opcao']);
             $post = implode('|', $_POST);
-            /*
-              if ($verificaCategoria['identificador'] == 1 && $verificaCategoria['quantidade'] >= 1) {
-              echo "
-              <script>
-              var url = '" . $_SERVER['HTTP_REFERER'] . "&errorId=48';
-              window.location = url;
-              </script>";
-              } elseif ($verificaCategoria['identificador'] == 2 && $verificaCategoria['quantidade'] >= 20) {
-              echo "
-              <script>
-              var url = '" . $_SERVER['HTTP_REFERER'] . "&errorId=49';
-              window.location = url;
-              </script>";
-              }
-             */
+            
             if ($imagem == false) {
                 echo "
                 <script>
@@ -110,8 +98,8 @@ switch ($opcao) {
             $status = $_POST['status'];
             $dataCadastro = date('Y-m-d H:i:s');
             $idCategoria = $_POST['idCategoria'];
-            $imagem = uploadImagem();
             $idImagem = $_POST['idImagem'];
+            $link = $_POST['link'];
 
             if ($_FILES['imagem']['name'] == '') {
                 $imagem = $_POST['imagemAntiga'];
@@ -119,12 +107,14 @@ switch ($opcao) {
                 $imagem = uploadImagem();
             }
 
+            
             $objImagem->setIdCategoria($idCategoria);
             $objImagem->setIdImagem($idImagem);
             $objImagem->setImagem($imagem);
             $objImagem->setNome($nome);
             $objImagem->setDataCadastro($dataCadastro);
             $objImagem->setStatus($status);
+            $objImagem->setLink($link);
 
             if ($imagem == false) {
                 unset($_POST['opcao']);
@@ -137,9 +127,11 @@ switch ($opcao) {
                 </script>";
             } else {
                 $objRodapeDao->altImagem($objImagem);
-                $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'IMAGEM_RODAPÉ', $objCategoria->getIdImagem(), date('Y-m-d H:i:s'));
+                $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'IMAGEM_RODAPÉ', $objImagem->getIdImagem(), date('Y-m-d H:i:s'));
                 echo '<script>window.location = "../verImagens.php?id=' . $idCategoria . '";</script>';
             }
+            
+            break;
         }
         
         
@@ -163,7 +155,10 @@ function uploadImagem() {
     if ($_FILES['imagem']['size'] > (204800)) { //não pode ser maior que 200Kb
         $valido = false;
     } else {
-        $imagemAntiga = '../../images/' . $_POST["imagemAntiga"];
+        $imagemAntiga = '';
+        if(isset($_POST["imagemAntiga"])){
+            $imagemAntiga = '../../images/' . $_POST["imagemAntiga"];
+        }
 
         if (!file_exists('../../images/')) {
             mkdir('../../images');

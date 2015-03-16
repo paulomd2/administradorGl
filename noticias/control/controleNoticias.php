@@ -8,9 +8,9 @@ $opcao = $_POST['opcao'];
 switch ($opcao) {
     case "cadastrar": {
 
-            $titulo = $_POST['titulo'];
-            $subtitulo = $_POST['subtitulo'];
-            $texto = $_POST['texto'];
+            $titulo = htmlentities($_POST['titulo']);
+            $subtitulo = htmlentities($_POST['subtitulo']);
+            $texto = htmlentities($_POST['texto']);
             $DataPublicacao = $_POST['dataPublicacao'];
             $mercado = $_POST['mercado'];
             $fonte = $_POST['fonte'];
@@ -33,9 +33,9 @@ switch ($opcao) {
 
     case "alterar": {
             $idNoticia = $_POST['idNoticia'];
-            $titulo = $_POST['titulo'];
-            $subtitulo = $_POST['subtitulo'];
-            $texto = $_POST['texto'];
+            $titulo = htmlentities($_POST['titulo']);
+            $subtitulo = htmlentities($_POST['subtitulo']);
+            $texto = htmlentities($_POST['texto']);
             $DataPublicacao = $_POST['dataPublicacao'];
             $mercado = $_POST['mercado'];
             $fonte = $_POST['fonte'];

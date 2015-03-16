@@ -59,19 +59,10 @@ $(document).ready(function () {
         } else if (status == '') {
             $("#status").focus();
             $("#spanStatus").html('Você precisa selecionar um Status').css('display', 'inline-block');
-        } else if (tituloMetaTag == '') {
-            $("#tituloMetaTag").focus();
-            $("#spanTituloMetaTag").html('Você precisa preencher o Título da Metatag').css('display', 'inline-block');
-        } else if (keywordsMetaTag == '') {
-            $("#keywordsMetaTag").focus();
-            $("#spanKeywordsMetaTag").html('Você precisa preencher as Keywords da Metatag').css('display', 'inline-block');
-        } else if (descricaoMetaTag == '') {
-            $("#descricaoMetaTag").focus();
-            $("#spanDescricaoMetaTag").html('Você precisa preencher a Descrição da Metatag').css('display', 'inline-block');
-        } else if (link == '' && texto == '') {
-            $("#spanBtn").html('Você precisa preencher o Link ou o texto, por favor preencha um dos dois').css('display', 'inline-block');
+        }else if (link == '' && texto == '') {
+            $("#spanBtn").html('Você precisa preencher o Link ou o texto, por favor preencha apenas uma opção').css('display', 'inline-block');
         } else if (link !== '' && texto !== '') {
-            $("#spanBtn").html('Você preencheu o Link e o texto, por favor preencha apenas um').css('display', 'inline-block');
+            $("#spanBtn").html('Você preencheu o Link e o texto, por favor preencha apenas uma opção').css('display', 'inline-block');
         } else {
             $.post('control/controleConteudo.php', {opcao: 'cadastrarSubmenu', tituloMenu: tituloMenu, idMenu: idMenu, tituloPagina: tituloPagina, link: link, target: target, status: status, texto: texto, tituloMetaTag: tituloMetaTag, keywordsMetaTag: keywordsMetaTag, descricaoMetaTag: descricaoMetaTag, dataEntrada: dataEntrada, dataSaida: dataSaida, lingua: lingua});
             window.location = 'verSubmenus.php?id=' + idMenu;
@@ -115,15 +106,6 @@ $(document).ready(function () {
         } else if (status == '') {
             $("#status").focus();
             $("#spanStatus").html('Você precisa selecionar um Status').css('display', 'inline-block');
-        } else if (tituloMetaTag == '') {
-            $("#tituloMetaTag").focus();
-            $("#spanTituloMetaTag").html('Você precisa preencher o Título da Metatag').css('display', 'inline-block');
-        } else if (keywordsMetaTag == '') {
-            keywordsMetaTag.focus();
-            $("#spanKeywordsMetaTag").html('Você precisa preencher as Keywords da Metatag').css('display', 'inline-block');
-        } else if (descricaoMetaTag == '') {
-            $("#descricaoMetaTag").focus();
-            $("#spanDescricaoMetaTag").html('Você precisa preencher a Descrição da Metatag').css('display', 'inline-block');
         } else if (link == '' && texto == '') {
             $("#spanBtn").html('Você precisa preencher o Link ou o texto, por favor preencha um dos dois').css('display', 'inline-block');
         } else if (link !== '' && texto !== '') {
@@ -202,15 +184,6 @@ $(document).ready(function () {
         } else if (status == '') {
             $("#status").focus();
             $("#spanStatus").html('Você precisa selecionar um Status').css('display', 'inline-block');
-        } else if (tituloMetaTag == '') {
-            $("#tituloMetaTag").focus();
-            $("#spanTituloMetaTag").html('Você precisa preencher o Título da Metatag').css('display', 'inline-block');
-        } else if (keywordsMetaTag == '') {
-            $("#keywordsMetaTag").focus();
-            $("#spanKeywordsMetaTag").html('Você precisa preencher as Keywords da Metatag').css('display', 'inline-block');
-        } else if (descricaoMetaTag == '') {
-            $("#descricaoMetaTag").focus();
-            $("#spanDescricaoMetaTag").html('Você precisa preencher a Descrição da Metatag').css('display', 'inline-block');
         } else {
             $.post('control/controleConteudo.php', {opcao: 'cadastrarPagina', titulo: titulo, link: link, status: status, texto: texto, tituloMetaTag: tituloMetaTag, keywordsMetaTag: keywordsMetaTag, descricaoMetaTag: descricaoMetaTag, dataEntrada: dataEntrada, dataSaida: dataSaida});
             window.location = 'verPaginas.php';
@@ -247,15 +220,6 @@ $(document).ready(function () {
         } else if (status == '') {
             $("#status").focus();
             $("#spanStatus").html('Você precisa selecionar um Status').css('display', 'inline-block');
-        } else if (tituloMetaTag == '') {
-            $("#tituloMetaTag").focus();
-            $("#spanTituloMetaTag").html('Você precisa preencher o Título da Metatag').css('display', 'inline-block');
-        } else if (keywordsMetaTag == '') {
-            $("#keywordsMetaTag").focus();
-            $("#spanKeywordsMetaTag").html('Você precisa preencher as Keywords da Metatag').css('display', 'inline-block');
-        } else if (descricaoMetaTag == '') {
-            $("#descricaoMetaTag").focus();
-            $("#spanDescricaoMetaTag").html('Você precisa preencher a Descrição da Metatag').css('display', 'inline-block');
         } else {
             $.post('control/controleConteudo.php', {opcao: 'alterarPagina', idPagina: idPagina, titulo: titulo, link: link, status: status, texto: texto, tituloMetaTag: tituloMetaTag, keywordsMetaTag: keywordsMetaTag, descricaoMetaTag: descricaoMetaTag, dataEntrada: dataEntrada, dataSaida: dataSaida});
             window.location = 'verPaginas.php';

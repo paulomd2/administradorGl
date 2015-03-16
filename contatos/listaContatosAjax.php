@@ -41,7 +41,7 @@ for ($i = 0; $i < count($contatos) - 1; $i++) {
     $horaEnvio = $explodeData[1];
     echo '<tr>
             <td>
-                <strong>'.$contatos[$i]["idEmail"].' '. $contatos[$i]["nome"] . '</strong> <br />
+                <strong>'. $contatos[$i]["nome"] . '</strong> <br />
                 ' . $contatos[$i]["email"] . '
             </td>
             <td>' . $contatos[$i]["assunto"] . '</td>

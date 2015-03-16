@@ -69,6 +69,19 @@ if ($_SESSION['nivel'] != 1) {
                             </td>
                         </tr>
                         <tr>
+                            <td>
+                                Status:
+                            </td>
+                            <td>
+                                <select id="status" name="status">
+                                    <option selected>Selecione um status...</option>
+                                    <option value="1">Habilitado</option>
+                                    <option value="2">Desabilitado</option>
+                                </select><br />
+                                <span class="erro" id="spanStatus"></span>
+                            </td>
+                        </tr>
+                        <tr>
                             <td colspan="2"><input type="button" id="btnCadastrarUsuario" value="Cadastrar" /></td>
                         </tr>
                     </table>

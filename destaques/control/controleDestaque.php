@@ -140,12 +140,12 @@ function uploadImagem() {
     if ($_FILES['imagem']['size'] > (512000)) { //não pode ser maior que 500Kb
         $valido = false;
     } else {
-        $imagemAntiga = '../../images/' . $_POST["imagemAntiga"];
+        @$imagemAntiga = '../../images/' . $_POST["imagemAntiga"];
 
         if (!file_exists('../../images/')) {
-            mkdir('../../images');
+            @mkdir('../../images');
         } elseif (file_exists($imagemAntiga)) {
-            unlink($imagemAntiga);
+            @unlink($imagemAntiga);
         }
         move_uploaded_file($_FILES['imagem']['tmp_name'], '../../images/' . $new_file_name);
 

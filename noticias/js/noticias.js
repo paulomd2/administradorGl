@@ -113,7 +113,7 @@ $(document).ready(function () {
             $("#spanTexto").html('Você deve preencher o Texto!').css('display','inline-block');
         } else {
             $.post('control/controleNoticias.php', {opcao: 'alterar', idNoticia: idNoticia, titulo: titulo, subtitulo: subtitulo, fonte: fonte, dataPublicacao: dataPublicacao, mercado:mercado ,texto: texto, status:status});
-            //window.location = 'verNoticias.php';
+            window.location = 'verNoticias.php';
         }
     });
 });
