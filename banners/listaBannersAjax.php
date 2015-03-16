@@ -7,7 +7,7 @@
         if (isset($_GET['lingua'])) {
             $lingua = $_GET['lingua'];
         } else {
-            $lingua = 'pt';
+            $lingua = $_SESSION['idioma'];
         }
 
         $banners = $objBannersDao->listaBanners($lingua);
