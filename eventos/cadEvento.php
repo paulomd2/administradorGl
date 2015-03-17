@@ -39,13 +39,13 @@
                                 <span id="spanNome" class="erro"></span>
                             </td>
                         </tr>
-                        <tr>
+                        <!--tr>
                             <td>Titulo:</td>
                             <td>
                                 <input type="text" name="titulo" id="titulo" /><br />
                                 <span id="spanTitulo" class="erro"></span>
                             </td>
-                        </tr>
+                        </tr>-->
                         <tr>
                             <td>Data de Início:</td>
                             <td>

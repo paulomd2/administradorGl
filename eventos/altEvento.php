@@ -41,13 +41,13 @@ $evento = $objEventoDao->listaEvento1($objEvento);
                                 <span id="spanNome" class="erro"></span>
                             </td>
                         </tr>
-                        <tr>
+                        <!--tr>
                             <td>Titulo:</td>
                             <td>
                                 <input type="text" name="titulo" id="titulo" value="<?php echo $evento['titulo']; ?>" /><br />
                                 <span id="spanTitulo" class="erro"></span>
                             </td>
-                        </tr>
+                        </tr-->
                         <tr>
                             <td>Data de Início:</td>
                             <td>
