@@ -57,19 +57,10 @@ $(document).ready(function () {
         if (titulo == '') {
             $("#titulo").focus();
             $("#spanTitulo").html('Você deve preencher o Título!').css('display', 'inline-block');
-        } else if (subtitulo == '') {
-            $("#sub").focus();
-            $("#spanSub").html('Você deve preencher o Subtítulo!').css('display', 'inline-block');
-        } else if (fonte == '') {
-            $("#fonte").focus();
-            $("#spanFonte").html('Você deve preencher a Fonte!').css('display', 'inline-block');
-        } else if (dataPublicacao == '') {
-            $("#publicacao").focus();
-            $("#spanPublicacao").html('Você deve preencher a Data de Publicação!').css('display', 'inline-block');
-        }else if(texto == ''){
+        } else if(texto == ''){
             texto.focus();
             $("#spanTexto").html('Você deve preencher o texto!').css('display', 'inline-block');
-        }else if(status == ''){
+        } else if(status == ''){
             $("#status").focus();
             $("#spanStatus").html('Você deve preencher o status!').css('display', 'inline-block');
         }else {
@@ -99,18 +90,12 @@ $(document).ready(function () {
         if (titulo == '') {
             $("#titulo").focus();
             $("#spanTitulo").html('Você deve preencher o Título!').css('display','inline-block');
-        } else if (subtitulo == '') {
-            $("#sub").focus();
-            $("#spanSub").html('Você deve preencher o Subtítulo!').css('display','inline-block');
-        } else if (fonte == '') {
-            $("#fonte").focus();
-            $("#spanFonte").html('Você deve preencher a Fonte!').css('display','inline-block');
-        } else if (dataPublicacao == '') {
-            $("#publicacao").focus();
-            $("#spanPublicacao").html('Você deve preencher a Data de Publicação!').css('display','inline-block');
         } else if (texto == '') {
             $("#texto").focus();
             $("#spanTexto").html('Você deve preencher o Texto!').css('display','inline-block');
+        } else if(status == ''){
+            $("#status").focus();
+            $("#spanStatus").html('Você deve preencher o status!').css('display', 'inline-block');
         } else {
             $.post('control/controleNoticias.php', {opcao: 'alterar', idNoticia: idNoticia, titulo: titulo, subtitulo: subtitulo, fonte: fonte, dataPublicacao: dataPublicacao, mercado:mercado ,texto: texto, status:status});
             window.location = 'verNoticias.php';
