@@ -15,6 +15,15 @@ function delBannerBusca(id,busca) {
     }
 }
 $(document).ready(function () {
+    var data = new Date();
+    var dia = data.getDate();
+    var mes = data.getMonth() + 1;
+    mes = '0' + mes;
+    var ano = data.getFullYear();
+    if($("#dataPublicacao").length && $("#dataPublicacao").val() == ''){
+        $("#dataPublicacao").val(ano + '-' + mes + '-' + dia);
+    }
+    
     $("#btnCadastrar").click(function () {
         var nome = $("#nome").val().trim();
         var link = $("#link").val().trim();
