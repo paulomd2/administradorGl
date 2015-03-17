@@ -22,10 +22,16 @@ for ($i = 1; $i < count($eventos); $i++) {
         $classe = 'class="desabilitado"';
     }
     
+    if($eventos[$i]["dataInicio"] == $eventos[$i]["dataFim"]){
+        $data = $eventos[$i]["dataInicio"];
+    }else{
+        $data = $eventos[$i]["dataInicio"] . ' à ' . $eventos[$i]["dataFim"];
+    }
+    
     echo '
             <tr>
                 <td '.$classe.'>' . $eventos[$i]["nome"] . '</td>
-                <td>' . $eventos[$i]["dataInicio"] . ' à ' . $eventos[$i]["dataFim"] . '</td>
+                <td>' . $data . '</td>
                 <td><a href="altEvento.php?id=' . $eventos[$i]["idEvento"] . '">Alterar</a></td>
                 <td><a href="javascript:delEvento(' . $eventos[$i]["idEvento"] . ')">Excluir</a></td>
             </tr>
