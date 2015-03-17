@@ -11,7 +11,6 @@ if ($_SESSION['nivel'] != 1) {
         <meta charset="UTF-8">
         <title>Painel | Fagga</title>
         <?php include_once '../include/head.php'; ?>
-        <script type="text/javascript" src="js/usuario.js"></script>
     </head>
     <body>
         <?php include_once '../include/header.php'; ?>
@@ -69,16 +68,14 @@ if ($_SESSION['nivel'] != 1) {
                             </td>
                         </tr>
                         <tr>
+                            <td>Status:</td>
                             <td>
-                                Status:
-                            </td>
-                            <td>
-                                <select id="status" name="status">
-                                    <option selected>Selecione um status...</option>
+                                <select name="status" id="status">
+                                    <option value="">Escolha um status...</option>
                                     <option value="1">Habilitado</option>
                                     <option value="2">Desabilitado</option>
                                 </select><br />
-                                <span class="erro" id="spanStatus"></span>
+                                <span id="spanStatus" class="erro"></span>
                             </td>
                         </tr>
                         <tr>

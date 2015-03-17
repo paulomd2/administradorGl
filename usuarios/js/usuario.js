@@ -3,7 +3,7 @@ var split = url.split('/');
 var pagina = split[split.length];
 
 count = '';
-if (split[split.length] == 'verUsuarios.php' || split[split.length-1] == 'verUsuarios.php') {
+if (split[split.length] == 'verUsuarios.php' || split[split.length - 1] == 'verUsuarios.php') {
     count = 500;
 } else {
     count = 5;
@@ -13,8 +13,46 @@ $.validaEmail = function (email) {
     er = /^[a-zA-Z0-9][a-zA-Z0-9\._-]+@([a-zA-Z0-9\._-]+\.)[a-zA-Z-0-9]{2}/;
     if (er.exec(email))
         return true;
-    else 
+    else
         return false;
+}
+
+function verificaEmail(email) {
+    var resposta = 0;
+    
+    $.ajax({
+        url: 'control/controleUsuario.php',
+        async: false,
+        type: 'POST',
+        data: {
+            opcao: 'verificaEmail',
+            email: email
+        },
+    }).done(function (r) {
+        resposta = r;
+    });
+    
+    return resposta;
+}
+
+
+function verificaUsuario(usuario) {
+    var resposta = 0;
+    
+    $.ajax({
+        url: 'control/controleUsuario.php',
+        async: false,
+        type: 'POST',
+        data: {
+            opcao: 'verificaUsuario',
+            usuario: usuario
+        },
+    }).done(function (r) {
+        console.log(r);
+        resposta = r;
+    });
+    
+    return resposta;
 }
 
 function delUsuario(id) {
@@ -26,12 +64,12 @@ function delUsuario(id) {
 
 function deslogar() {
     $.post('control/controleUsuario.php', {opcao: 'deslogar'});
-    window.location='../';  
+    window.location = '../';
 }
 
 $(document).ready(function () {
     $("#listaUsuarios").load("listaUsuariosAjax.php?count=" + count);
-    
+
     $("#btnCadastrarUsuario").click(function () {
         var nome = $("#nome").val().trim();
         var email = $("#email").val().trim();
@@ -50,29 +88,26 @@ $(document).ready(function () {
         } else if (!$.validaEmail(email)) {
             $("#email").focus();
             $("#spanEmail").html('Você deve preencher um Email válido!').css('display', 'inline-block');
-        } else if (usuario == '') {
+        } else if(verificaEmail(email) >= 1 ){
+            $("#email").focus();
+            $("#spanEmail").html('Este email já está cadastrado!').css('display', 'inline-block');
+        }else if (usuario == '') {
             $("#usuario").focus();
             $("#spanUsuario").html('Você deve preencher o Usuário!').css('display', 'inline-block');
+        } else if (verificaUsuario(usuario) > 0 ) {
+            $("#usuario").focus();
+            $("#spanUsuario").html('Este usuário já está cadastrado!').css('display', 'inline-block');
         } else if (senha == '') {
             $("#senha").focus();
             $("#spanSenha").html('Você deve preencher a Senha!').css('display', 'inline-block');
         } else if (nivel == '') {
             $("#nivel").focus();
-            $("#spanNivel").html('Você deve preencher o Nível!').css('display', 'inline-block');
+            $("#spanNivel").html('Você deve selecionar o Nível!').css('display', 'inline-block');
         } else if(status == ''){
             $("#status").focus();
-            $("#spanStatus").html('Você deve preencher o status!').css('display', 'inline-block');
+            $("#spanStatus").html('Você deve selecionar o Status!').css('display', 'inline-block');
         }else {
-            $.post('control/controleUsuario.php', {opcao: 'cadastrar', nome: nome, email: email, senha: senha, usuario: usuario, nivel: nivel, status:status},
-            function (r) {
-                console.log(r);
-                if (r > 0) {
-                    $("#email").focus();
-                    $("#spanEmail").html('Esse email já está cadastrado, por favor, escolha outro!').css('display', 'inline-block');
-                } else {
-                    window.location = 'verUsuarios.php';
-                }
-            });
+            $.post('control/controleUsuario.php', {opcao: 'cadastrar', nome: nome, email: email, senha: senha, usuario: usuario, nivel: nivel, status:status});
         }
     });
     $("#btnAlterarUsuario").click(function () {
@@ -109,13 +144,14 @@ $(document).ready(function () {
             $("#spanNivel").html('Você deve preencher o Nível!').css('display', 'inline-block');
         } else if(status == ''){
             $("#status").focus();
-            $("#spanStatus").html('Você deve preencher o status!').css('display', 'inline-block');
-        }else {
-            $.post('control/controleUsuario.php', {opcao: 'cadastrar', nome: nome, email: email, senha: senha, usuario: usuario, nivel: nivel, status:status,idUsuario:idUsuario});
+            $("#spanStatus").html('Você deve selecionar o Status!').css('display', 'inline-block');
+        } else {
+            $.post('control/controleUsuario.php', {opcao: 'alterar', idUsuario: idUsuario, usuario: usuario, nome: nome, email: email, senha: senha, senhaAntiga: senhaAntiga, nivel: nivel,  status:status});
+            window.location = 'verUsuarios.php';
         }
     });
-    
-   $("#btnAlterarUsuarioHome").click(function () {
+
+    $("#btnAlterarUsuarioHome").click(function () {
         var nome = $("#nome").val().trim();
         var email = $("#email").val().trim();
         var senhaDigitada = $("#senha").val().trim();
@@ -144,11 +180,11 @@ $(document).ready(function () {
             $("#usuario").focus();
             $("#spanUsuario").html('Você deve preencher o Usuário!').css('display', 'inline-block');
         } else {
-            $.post('../usuarios/control/controleUsuario.php', {opcao: 'alterar', idUsuario: idUsuario, usuario: usuario, nome: nome, email: email, senha: senha, senhaAntiga:senhaAntiga, nivel:nivel},
-            function(r){
+            $.post('../usuarios/control/controleUsuario.php', {opcao: 'alterar', idUsuario: idUsuario, usuario: usuario, nome: nome, email: email, senha: senha, senhaAntiga: senhaAntiga, nivel: nivel},
+            function (r) {
                 console.log(r);
             });
             //window.location = './';
         }
-    }); 
+    });
 });

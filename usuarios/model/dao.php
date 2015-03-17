@@ -13,8 +13,8 @@ class UsuariosDAO extends Banco {
                usuario = '" . $objUsuario->getUsuario() . "',
                senha = '" . $objUsuario->getSenha() . "',
                nivel = " . $objUsuario->getNivel() . ",
-               status = ".$objUsuario->getStatus().",
-               dataCriacao = '" . $objUsuario->getDataCriacao() . "'
+               dataCriacao = '" . $objUsuario->getDataCriacao() . "',
+               status = ".$objUsuario->getStatus() ."
                ";
 
         $conexao->query($sql);
@@ -64,7 +64,7 @@ class UsuariosDAO extends Banco {
                usuario = '" . $objUsuario->getUsuario() . "',
                senha = '" . $objUsuario->getSenha() . "',
                nivel = " . $objUsuario->getNivel() . ",
-               status = ".$objUsuario->getStatus().",
+               status = ".$objUsuario->getStatus() ."
                    WHERE idUsuario = " . $objUsuario->getIdUsuario() . "
                ";
 
@@ -116,7 +116,21 @@ class UsuariosDAO extends Banco {
     public function verificaEmail($objUsuario){
         $conexao = $this->abreConexao();
         
-        $sql = "SELECT count(*) as quantidade FROM ".TBL_USUARIO." WHERE email = '".$objUsuario->getEmail()."'";
+        $sql = "SELECT * FROM ".TBL_USUARIO." WHERE email = '".$objUsuario->getEmail()."'";
+        
+        $banco = $conexao->query($sql);
+        
+        $linha = $banco->num_rows;
+        return $linha;
+        
+        $this->fechaConexao();
+    }
+    
+    
+    public function verificaUsuario($objUsuario){
+        $conexao = $this->abreConexao();
+        
+        $sql = "SELECT * FROM ".TBL_USUARIO." WHERE usuario = '".$objUsuario->getUsuario()."'";
         
         $banco = $conexao->query($sql);
         

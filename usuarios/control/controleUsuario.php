@@ -1,4 +1,5 @@
 <?php
+
 @session_start();
 
 require_once '../../model/banco.php';
@@ -20,16 +21,10 @@ switch ($opcao) {
         $objUsuario->setUsuario($usuario);
         $objUsuario->setSenha($senha);
         $objUsuario->setNivel($nivel);
-        $objUsuario->setDataCriacao($dataCricao);
         $objUsuario->setStatus($status);
+        $objUsuario->setDataCriacao($dataCricao);
 
-        $contador = $objUsuarioDao->verificaEmail($objUsuario);
-        $contador = $contador['quantidade'];
-        if ( $contador == 0) {
-            $objUsuarioDao->cadUsuario($objUsuario);
-        }
-
-        print_r($contador);
+        $objUsuarioDao->cadUsuario($objUsuario);
         break;
 
     case 'alterar':
@@ -42,7 +37,7 @@ switch ($opcao) {
         $idUsuario = $_POST['idUsuario'];
         $senha = $_POST['senha'];
         $status = $_POST['status'];
-        
+
         if (strlen($senha) != 32) {
             $senha = md5($_POST['senha']);
         }
@@ -52,8 +47,8 @@ switch ($opcao) {
         $objUsuario->setUsuario($usuario);
         $objUsuario->setSenha($senha);
         $objUsuario->setNivel($nivel);
-        $objUsuario->setDataCriacao($dataCricao);
         $objUsuario->setStatus($status);
+        $objUsuario->setDataCriacao($dataCricao);
         $objUsuario->setIdUsuario($idUsuario);
 
         $objUsuarioDao->altUsuario($objUsuario);
@@ -79,8 +74,24 @@ switch ($opcao) {
 
         print_r($retorno['idUsuario']);
         break;
-    
+
     case 'deslogar':
         session_destroy();
+        break;
+
+    case 'verificaEmail':
+        $objUsuario->setEmail($_POST['email']);
+
+        $contador = $objUsuarioDao->verificaEmail($objUsuario);
+        print_r($contador);
+
+        break;
+
+    case 'verificaUsuario':
+        $objUsuario->setUsuario($_POST['usuario']);
+
+        $contador = $objUsuarioDao->verificaUsuario($objUsuario);
+        print_r($contador);
+
         break;
 }

@@ -83,16 +83,14 @@ $usuario = $objUsuarioDao->verUsuario1($objUsuario);
                             </td>
                         </tr>
                         <tr>
+                            <td>Status:</td>
                             <td>
-                                Status:
-                            </td>
-                            <td>
-                                <select id="status" name="status">
-                                    <option <?php if($usuario['status'] == ''){ echo 'selected'; } ?>>Selecione um status...</option>
-                                    <option value="1" <?php if($usuario['status'] == 1){ echo 'selected'; } ?>>Habilitado</option>
-                                    <option value="2" <?php if($usuario['status'] == 2){ echo 'selected'; } ?>>Desabilitado</option>
+                                <select name="status" id="status">
+                                    <option value="">Escolha um status...</option>
+                                    <option value="1" <?php if ($usuario['status'] == 1) { echo 'selected'; } ?>>Habilitado</option>
+                                    <option value="2" <?php if ($usuario['status'] == 2) { echo 'selected'; } ?>>Desabilitado</option>
                                 </select><br />
-                                <span class="erro" id="spanStatus"></span>
+                                <span id="spanStatus" class="erro"></span>
                             </td>
                         </tr>
                         <tr>
