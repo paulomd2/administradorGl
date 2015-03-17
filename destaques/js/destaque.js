@@ -59,9 +59,6 @@ $(document).ready(function () {
         if (titulo == '') {
             $("#titulo").focus();
             $("#spanTitulo").html('Você deve preencher o Título!').css('display', 'inline-block');
-        } else if (subtitulo == '') {
-            $("#sub").focus();
-            $("#spanSub").html('Você deve preencher o Subtítulo!').css('display', 'inline-block');
         } else if (conteudo == '') {
             CKEDITOR.instances.conteudo.focus();
             $("#spanConteudo").html('Você deve preencher o Conteúdo!').css('display', 'inline-block');
@@ -88,9 +85,6 @@ $(document).ready(function () {
         if (titulo == '') {
             $("#titulo").focus();
             $("#spanTitulo").html('Você deve preencher o Título!').css('display', 'inline-block');
-        } else if (subtitulo == '') {
-            $("#sub").focus();
-            $("#spanSub").html('Você deve preencher o Subtítulo!').css('display', 'inline-block');
         } else if (conteudo == '') {
             CKEDITOR.instances.conteudo.focus();
             $("#spanConteudo").html('Você deve preencher o Conteúdo!').css('display', 'inline-block');
