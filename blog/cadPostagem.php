@@ -137,6 +137,16 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>Status:</td>
+                        <td>
+                            <select id="status" name="status">
+                                <option selected>Escolha um status...</option>
+                                <option value="1">Habilitado</option>
+                                <option value="2">Desabilitado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
                         <td colspan="2"><h2>SEO</h2></td>
                     </tr>
                     <tr>

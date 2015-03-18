@@ -72,7 +72,7 @@ switch ($opcao) {
             $objBlog->setIdPostagem($idPostagem);
 
             $objBlogDao->altPostagem($objBlog);
-            $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'BLOG', $objBlog->getIdPostagem(), $dataCadastro);
+            $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'BLOG', $objBlog->getIdPostagem(), date('Y-m-d H:i:s'));
 
             echo "<script>window.location='../verPostagens.php';</script>";
 
