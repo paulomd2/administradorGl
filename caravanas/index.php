@@ -18,6 +18,7 @@
             </div>
             <div class="tenor" style="overflow: hidden!important;">
                 <h1>Últimas Caravanas</h1><a href="cadCaravana.php" class="proPage">Cadastrar Caravanas</a>
+                <a href="verCaravanas.php" class="proPage">Ver todas as Caravanas</a>
                 <table class="tableAll">
                     <thead>
                         <tr>

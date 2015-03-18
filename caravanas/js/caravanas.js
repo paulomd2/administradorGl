@@ -46,7 +46,7 @@ $(document).ready(function () {
     $("#btnCadastrarCaravana").click(function () {
         var nome = $("#nome").val().trim();
         var responsavel = $("#responsavel").val();
-        var email = $("#email").val().trim();
+        var email = $("#email").val();
         var telefone = $("#telefone").val();
         var celular = $("#celular").val();
         var estado = $("#estado").val().trim();
@@ -60,10 +60,7 @@ $(document).ready(function () {
         } else if (responsavel == '') {
             $("#responsavel").focus();
             $('#spanResponsavel').html('Você deve preencher um responsável!').css('display', 'inline-block');
-        } else if (email == '') {
-            $("#email").focus();
-            $('#spanEmail').html('Você deve preencher um email!').css('display', 'inline-block');
-        } else if (!$.validaEmail(email)) {
+        } else if (email != '' && !$.validaEmail(email)) {
             $("#email").focus();
             $('#spanEmail').html('Você deve preencher um email válido!').css('display', 'inline-block');
         } else if (telefone == '' && celular == '') {
