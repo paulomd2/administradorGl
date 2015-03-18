@@ -5,6 +5,14 @@
         <title>Painel | Fagga</title>
         <?php include_once '../include/head.php'; ?>
         <script type="text/javascript" src="js/expositores.js"></script>
+        <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+        <!-- polyfiller file to detect and load polyfills -->
+        <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+        <script>
+            webshims.setOptions('waitReady', false);
+            webshims.setOptions('forms-ext', {types: 'date'});
+            webshims.polyfill('forms forms-ext');
+        </script>
     </head>
     <body>
         <?php
@@ -53,7 +61,7 @@
                         <tr>
                             <td>Data de Publicação:</td>
                             <td>
-                                <input type="text" name="dataPublicacao" id="dataPublicacao" /><br />
+                                <input type="date" name="dataPublicacao" id="dataPublicacao" /><br />
                                 <span id="spanDataPublicacao" class="erro"></span>
                             </td>
                         </tr>

@@ -22,8 +22,7 @@ switch ($opcao) {
 
             echo "
                 <script>
-                    var url = '" . $_SERVER['HTTP_REFERER'] . "+&errorId=50&data=" . $post . "';
-                    window.location = url;
+                    window.history.back();
                 </script>";
         } else {
             $objExpositor->setImagem($imagem);
@@ -65,8 +64,7 @@ switch ($opcao) {
             
             echo "
                 <script>
-                    var url = '" . $_SERVER['HTTP_REFERER'] . "+&errorId=50&data=" . $post . "';
-                    window.location = url;
+                    window.history.back();
                 </script>";
         } else {
             $objExpositor->setImagem($imagem);
@@ -117,12 +115,12 @@ function uploadImagem() {
     if ($_FILES['imagem']['size'] > (204800)) { //não pode ser maior que 200Kb
         $valido = false;
     } else {
-        $imagemAntiga = '../../images/' . $_POST["imagemAntiga"];
+        @$imagemAntiga = '../../images/' . $_POST["imagemAntiga"];
 
         if (!file_exists('../../images/')) {
             mkdir('../../images');
         } elseif (file_exists($imagemAntiga)) {
-            unlink($imagemAntiga);
+            @unlink($imagemAntiga);
         }
         move_uploaded_file($_FILES['imagem']['tmp_name'], '../../images/' . $new_file_name);
 
