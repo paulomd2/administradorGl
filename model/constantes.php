@@ -7,7 +7,7 @@ require_once 'constantesBanco.php';
 function seg($var) {
     $procura = array("insert into", "update", "delete from", "select % from");
     $retorno = str_ireplace($procura, '', $var);
-    $retorno = htmlentities($retorno);
+//    $retorno = htmlentities($retorno);
     
     return $retorno;
 }
