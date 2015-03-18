@@ -84,8 +84,8 @@ setcookie("ck_authorized", "true", 0, "/");
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="mercado">Notícia de Mercado?</label></td>
-                            <td><input type="checkbox" value="1" id="mercado" name="mercado" /></td>
+                            <td><label for="lblMercado">Notícia de Mercado?</label></td>
+                            <td><input type="checkbox" value="1" id="lblMercado" name="lblMercado" /></td>
                         </tr>
                         <tr>
                             <td colspan="2"><input type="button" id="btnCadastrar" value="Cadastrar" /></td>

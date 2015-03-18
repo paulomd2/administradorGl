@@ -1,14 +1,3 @@
-var url = document.URL;
-var split = url.split('/');
-var pagina = split[split.length - 1];
-
-count = '';
-if (pagina == 'verNoticias.php') {
-    count = 500;
-} else {
-    count = 5;
-}
-
 function delNoticia(id) {
     if (confirm("Você tem certeza que deseja excluir essa notícia?") == true) {
         $.post('control/controleNoticias.php', {opcao: 'excluir', idNoticia: id});
@@ -18,18 +7,29 @@ function delNoticia(id) {
 }
 
 
-function delNoticiaBusca(id,busca) {
+function delNoticiaBusca(id, busca) {
     if (confirm("Você tem certeza que deseja excluir essa notícia?") == true) {
         $.post('../noticias/control/controleNoticias.php', {opcao: 'excluir', idNoticia: id});
 
-        $(".tableAll").load('listaBuscaAjax.php?modulo=noticias&busca='+busca);
+        $(".tableAll").load('listaBuscaAjax.php?modulo=noticias&busca=' + busca);
     }
 }
 $(document).ready(function () {
+    var url = document.URL;
+    var split = url.split('/');
+    var pagina = split[split.length - 1];
+
+    count = '';
+    if (pagina == 'verNoticias.php') {
+        count = 500;
+    } else {
+        count = 5;
+    }
+
     var data = new Date();
     var dia = data.getDate();
-    var mes =  data.getMonth()+1;
-    mes = '0'+mes;
+    var mes = data.getMonth() + 1;
+    mes = '0' + mes;
     var ano = data.getFullYear();
     if ($("#publicacao").val() == '') {
         $("#publicacao").val(ano + '-' + mes + '-' + dia);
@@ -46,10 +46,10 @@ $(document).ready(function () {
         var mercado = '';
         var texto = CKEDITOR.instances.texto.getData();
         var status = $("#status").val();
-        
-        if ($("#mercado").is(':checked')) {
+
+        if ($('#lblMercado').prop('checked')) {
             mercado = 1;
-        }else{
+        } else {
             mercado = 0;
         }
 
@@ -57,14 +57,14 @@ $(document).ready(function () {
         if (titulo == '') {
             $("#titulo").focus();
             $("#spanTitulo").html('Você deve preencher o Título!').css('display', 'inline-block');
-        } else if(texto == ''){
+        } else if (texto == '') {
             texto.focus();
             $("#spanTexto").html('Você deve preencher o texto!').css('display', 'inline-block');
-        } else if(status == ''){
+        } else if (status == '') {
             $("#status").focus();
             $("#spanStatus").html('Você deve preencher o status!').css('display', 'inline-block');
-        }else {
-            $.post('control/controleNoticias.php', {opcao: 'cadastrar', titulo: titulo, subtitulo: subtitulo, fonte: fonte, dataPublicacao: dataPublicacao, texto: texto, mercado:mercado, status:status});
+        } else {
+            $.post('control/controleNoticias.php', {opcao: 'cadastrar', titulo: titulo, subtitulo: subtitulo, fonte: fonte, dataPublicacao: dataPublicacao, texto: texto, mercado: mercado, status: status});
             window.location = 'verNoticias.php';
         }
     });
@@ -80,24 +80,24 @@ $(document).ready(function () {
         var texto = CKEDITOR.instances.texto.getData();
         var status = $("#status").val();
 
-        if ($("#mercado").is(':checked')) {
+        if ($('#lblMercado').prop('checked')) {
             mercado = 1;
-        }else{
+        } else {
             mercado = 0;
         }
 
         $(".erro").html('').css('display', 'none');
         if (titulo == '') {
             $("#titulo").focus();
-            $("#spanTitulo").html('Você deve preencher o Título!').css('display','inline-block');
+            $("#spanTitulo").html('Você deve preencher o Título!').css('display', 'inline-block');
         } else if (texto == '') {
             $("#texto").focus();
-            $("#spanTexto").html('Você deve preencher o Texto!').css('display','inline-block');
-        } else if(status == ''){
+            $("#spanTexto").html('Você deve preencher o Texto!').css('display', 'inline-block');
+        } else if (status == '') {
             $("#status").focus();
             $("#spanStatus").html('Você deve preencher o status!').css('display', 'inline-block');
         } else {
-            $.post('control/controleNoticias.php', {opcao: 'alterar', idNoticia: idNoticia, titulo: titulo, subtitulo: subtitulo, fonte: fonte, dataPublicacao: dataPublicacao, mercado:mercado ,texto: texto, status:status});
+            $.post('control/controleNoticias.php', {opcao: 'alterar', idNoticia: idNoticia, titulo: titulo, subtitulo: subtitulo, fonte: fonte, dataPublicacao: dataPublicacao, mercado: mercado, texto: texto, status: status});
             window.location = 'verNoticias.php';
         }
     });

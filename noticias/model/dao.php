@@ -6,7 +6,7 @@ class NoticiasDAO extends Banco {
     public function cadNoticia($objNoticia) {
         $conexao = $this->abreConexao();
 
-        $sql = "INSERT INTO " . TBL_NOTICIA . " SET
+      echo  $sql = "INSERT INTO " . TBL_NOTICIA . " SET
                titulo = '" . $objNoticia->getTitulo() . "',
                subtitulo = '" . $objNoticia->getSubTitulo() . "',
                fonte = '" . $objNoticia->getFonte() . "',
@@ -56,7 +56,7 @@ class NoticiasDAO extends Banco {
     public function verNoticias($count) {
         $conexao = $this->abreConexao();
 
-         $sql = "SELECT *, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao
+        $sql = "SELECT *, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao
                 FROM " . TBL_NOTICIA . "
                     WHERE status != 0
                         ORDER BY dataPublicacao DESC
@@ -65,7 +65,7 @@ class NoticiasDAO extends Banco {
 
         $banco = $conexao->query($sql);
         
-        $linhas[] = array();
+        $linhas = array();
         while ($linha = $banco->fetch_assoc()) {
             $linhas[] = $linha;
         }
@@ -80,7 +80,7 @@ class NoticiasDAO extends Banco {
 
          $sql = "SELECT *, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao
                 FROM " . TBL_NOTICIA . "
-                    WHERE status = 1
+                    WHERE status != 0
                         ORDER BY idNoticia DESC
                         LIMIT ".$count."
                 ";

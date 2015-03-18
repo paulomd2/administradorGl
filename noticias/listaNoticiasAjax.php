@@ -6,7 +6,7 @@ $count = $_GET['count'];
 
 $noticias = $objNoticiaDao->verNoticias($count);
 
-for ($i = 1; $i < count($noticias); $i++) {
+for ($i = 0; $i < count($noticias); $i++) {
     if($noticias[$i]['status'] == 1){
         $classe = 'class="habilitado"';
     }else{

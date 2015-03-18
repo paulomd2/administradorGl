@@ -87,8 +87,8 @@ setcookie("ck_authorized", "true", 0, "/");
                             </td>
                         </tr>
                             <tr>
-                                <td><label for="mercado">Notícia de Mercado?</label></td>
-                                <td><input type="checkbox" value="1" id="mercado" name="mercado" <?php if ($noticia['mercado'] == 1) {
+                                <td><label for="lblMercado">Notícia de Mercado?</label></td>
+                                <td><input type="checkbox" value="1" id="lblMercado" name="lblMercado" <?php if ($noticia['mercado'] == 1) {
                     echo 'checked';
                 } ?> /></td>
                             </tr>
