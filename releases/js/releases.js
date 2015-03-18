@@ -35,7 +35,7 @@ $(document).ready(function () {
     var mes = data.getMonth() + 1;
     mes = '0' + mes;
     var ano = data.getFullYear();
-    if ($("#dataPublicacao").val() == '') {
+    if ($("#dataPublicacao").length && $("#dataPublicacao").val() == '') {
         $("#dataPublicacao").val(ano + '-' + mes + '-' + dia);
     }
 
