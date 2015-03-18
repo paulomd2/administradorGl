@@ -29,6 +29,15 @@ function delDestaqueBusca(id, busca) {
 
 
 $(document).ready(function () {
+    var data = new Date();
+    var dia = data.getDate();
+    var mes = data.getMonth() + 1;
+    mes = '0' + mes;
+    var ano = data.getFullYear();
+    if ($("#dataPublicacao").length && $("#dataPublicacao").val() == '') {
+        $("#dataPublicacao").val(ano + '-' + mes + '-' + dia);
+    }
+    
     if ($("#listaDestaques").length) {
         $("#destaquesordem ul").sortable({
             opacity: 0.6,
