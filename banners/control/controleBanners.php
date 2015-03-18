@@ -1,4 +1,5 @@
 <?php
+
 require_once '../../model/banco.php';
 require_once '../../model/log.php';
 require_once '../model/dao.php';
@@ -25,8 +26,7 @@ switch ($opcao) {
 
             echo "
                 <script>
-                    var teste = '" . $_SERVER['HTTP_REFERER'] . "+&errorId=50&data=" . $post . "';
-                    window.location = teste;
+                    window.history.back();
                 </script>";
         } else {
             $objBanner->setImagem($imagem);
@@ -76,8 +76,7 @@ switch ($opcao) {
 
             echo "
                 <script>
-                    var teste = '" . $_SERVER['HTTP_REFERER'] . "+&errorId=50&data=" . $post . "';
-                    window.location = teste;
+                    window.history.back();
                 </script>";
         } else {
             $objBanner->setImagem($imagem);
@@ -131,11 +130,11 @@ function uploadImagem() {
     if ($_FILES['imagem']['size'] > (512000)) { //não pode ser maior que 500Kb
         $valido = false;
     } else {
-        @$imagemAntiga = '../../images/'.$_POST["imagemAntiga"];
-        
+        @$imagemAntiga = '../../images/' . $_POST["imagemAntiga"];
+
         if (!file_exists('../../images/')) {
             @mkdir('../../images');
-        }elseif(file_exists($imagemAntiga)){
+        } elseif (file_exists($imagemAntiga)) {
             @unlink($imagemAntiga);
         }
         @move_uploaded_file($_FILES['imagem']['tmp_name'], '../../images/' . $new_file_name);

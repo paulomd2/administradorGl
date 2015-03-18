@@ -16,10 +16,6 @@ switch ($opcao) {
         $status = $_POST['status'];
 
         if ($imagem == false) {
-            unset($_POST['idBanner']);
-            unset($_POST['opcao']);
-            $post = implode('|', $_POST);
-
             echo "
                 <script>
                     window.history.back();
@@ -58,10 +54,6 @@ switch ($opcao) {
         }
             
         if ($imagem == false) {
-            unset($_POST['idBanner']);
-            unset($_POST['opcao']);
-            $post = implode('|', $_POST);
-            
             echo "
                 <script>
                     window.history.back();

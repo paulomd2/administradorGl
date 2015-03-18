@@ -31,14 +31,9 @@ switch ($opcao) {
             $imagem = uploadImagem();
 
             if ($imagem == false) {
-                unset($_POST['idBanner']);
-                unset($_POST['opcao']);
-                $post = implode('|', $_POST);
-
                 echo "
                 <script>
-                    var teste = '" . $_SERVER['HTTP_REFERER'] . "+&errorId=50&data=" . $post . "';
-                    window.location = teste;
+                    window.history.back();
                 </script>";
             } else {
 
@@ -78,14 +73,9 @@ switch ($opcao) {
             }
 
             if ($imagem == false) {
-                unset($_POST['idBanner']);
-                unset($_POST['opcao']);
-                $post = implode('|', $_POST);
-
                 echo "
                 <script>
-                    var teste = '" . $_SERVER['HTTP_REFERER'] . "+&errorId=50&data=" . $post . "';
-                    window.location = teste;
+                    window.history.back();
                 </script>";
             } else {
 
