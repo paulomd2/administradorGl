@@ -97,7 +97,7 @@ class CategoriasDAO extends Banco {
     public function listaImagens($objImagem){
         $conexao = $this->abreConexao();
         
-        $sql = "SELECT * FROM ".TBL_IMAGEM_RODAPE." WHERE idCategoria = ".$objImagem->getIdCategoria()." AND status = 1";
+        $sql = "SELECT * FROM ".TBL_IMAGEM_RODAPE." WHERE idCategoria = ".$objImagem->getIdCategoria()." AND status != 0";
         
         $banco = $conexao->query($sql);
         
@@ -131,7 +131,7 @@ class CategoriasDAO extends Banco {
     public function cadImagem($objImagem){
         $conexao = $this->abreConexao();
         
-        $sql = "INSERT INTO ".TBL_IMAGEM_RODAPE."
+       echo $sql = "INSERT INTO ".TBL_IMAGEM_RODAPE."
                 SET
                 idCategoria = ".$objImagem->getIdCategoria().",
                 nome = '".$objImagem->getNome()."',
@@ -163,25 +163,6 @@ class CategoriasDAO extends Banco {
         
         $this->fechaConexao();
     }
-    
-    public function listaCategoriasImagens($objImagem) {
-        $conexao = $this->abreConexao();
-
-        $sql = "
-                    SELECT rc.*, count(*) as quantidade
-                        FROM ".TBL_CATEGORIA_RODAPE." rc
-                        JOIN ".TBL_IMAGEM_RODAPE." ri ON rc.idCategoria = ri.idCategoria
-                            WHERE rc.idCategoria = ".$objImagem->getIdCategoria();
-        
-        $banco = $conexao->query($sql);
-        
-        $linha = $banco->fetch_assoc();
-        
-        return $linha;
-        
-        $this->fechaConexao();
-    }
-    
     
     public function delImagem($objImagem){
         $conexao = $this->abreConexao();

@@ -74,8 +74,6 @@ switch ($opcao) {
             $objImagem->setStatus($status);
             $objImagem->setLink($link);
 
-            //$verificaCategoria = $objRodapeDao->listaCategoriasImagens($objImagem);
-
             unset($_POST['opcao']);
             $post = implode('|', $_POST);
             
