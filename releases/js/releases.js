@@ -63,9 +63,8 @@ $(document).ready(function () {
             texto.focus;
             $("#spanTexto").html('Você deve preencher o Texto!').css('display', 'inline-block');
         } else {
-            //$("#cadRelease")[0].reset();
             $.post('control/controleReleases.php', {opcao: 'cadastrar', titulo: titulo, mes: mes, status: status, texto: texto, dataEntrada: dataEntrada, dataSaida: dataSaida, lingua: lingua});
-            //window.location = 'verReleases.php';
+            window.location = 'verReleases.php';
         }
     });
 
