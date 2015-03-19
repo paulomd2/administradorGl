@@ -38,20 +38,21 @@ $(document).ready(function () {
         $("#dataPublicacao").val(ano + '-' + mes + '-' + dia);
     }
     
-    if ($("#listaDestaques").length) {
-        $("#destaquesordem ul").sortable({
-            opacity: 0.6,
-            cursor: 'move',
-            update: function () {
-                var order = $(this).sortable("serialize") + '&opcao=ordena';
-                $.post("control/controleDestaque.php", order, function (theResponse) {
-                    console.log(theResponse);
-                });
-            }
-        });
-
-        $("#listaDestaques").load('listaDestaqueAjax.php?count=' + count);
-    }
+//    if ($("#listaDestaques").length) {
+////        alert('dfdhdu');
+//        $("#destaquesordem ul").sortable({
+//            opacity: 0.6,
+//            cursor: 'move',
+//            update: function () {
+//                var order = $(this).sortable("serialize") + '&opcao=ordena';
+//                $.post("control/controleDestaque.php", order, function (theResponse) {
+//                    console.log(theResponse);
+//                });
+//            }
+//        });
+//
+//        $("#listaDestaques").load('listaDestaqueAjax.php?count=' + count);
+//    }
 
     $("#btnCadastrar").click(function () {
         CKEDITOR.instances.conteudo.updateElement();

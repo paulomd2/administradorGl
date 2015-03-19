@@ -4,8 +4,10 @@
         <meta charset="UTF-8">
         <title>Painel | Fagga</title>
         <?php include_once '../include/head.php'; ?>
+        <script type="text/javascript" src="../js/jquery-ui.js"></script>
         <script type="text/javascript" src="js/destaque.js"></script>
         <script src="../plugin/ckeditor/ckeditor.js"></script>
+        
         <script src="../plugin/ckfinder/ckfinder.js"></script>
         <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
         <!-- polyfiller file to detect and load polyfills -->
@@ -61,17 +63,38 @@
                 <a href="./">Destaques</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
-                <h1>Últimos destaques</h1>
+                <h1>Todos os destaques</h1>
                 <a href="cadDestaque.php" class="proPage">Cadastrar destaque</a>
                 Selecione o idioma:
                 <select id="selLingua">
-                    <option value="pt" <?php if ($_SESSION['idioma'] == 'pt') { echo 'selected'; } ?>>Portugês</option>
-                    <option value="en" <?php if ($_SESSION['idioma'] == 'en') { echo 'selected'; } ?>>Inglês</option>
-                    <option value="es" <?php if ($_SESSION['idioma'] == 'es') { echo 'selected'; } ?>>Espanhol</option>
+                    <option value="pt" <?php if ($_SESSION['idioma'] == 'pt') {
+            echo 'selected';
+        } ?>>Portugês</option>
+                    <option value="en" <?php if ($_SESSION['idioma'] == 'en') {
+            echo 'selected';
+        } ?>>Inglês</option>
+                    <option value="es" <?php if ($_SESSION['idioma'] == 'es') {
+                        echo 'selected';
+                    } ?>>Espanhol</option>
                 </select>
                 <div id="listaDestaques">
+<?php
+require_once 'listaDestaqueAjax.php';
+?>
                 </div>
             </div>
         </div>
+        <script>
+            $("#destaquesordem ul").sortable({
+                opacity: 0.6,
+                cursor: 'move',
+                update: function () {
+                    var order = $(this).sortable("serialize") + '&opcao=ordena';
+                    $.post("control/controleDestaque.php", order, function (theResponse) {
+                        console.log(theResponse);
+                    });
+                }
+            });
+        </script>
     </body>
 </html>

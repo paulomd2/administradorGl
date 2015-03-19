@@ -21,16 +21,16 @@
         for ($i = 1; $i < count($destaques); $i++) {
 
             if ($destaques[$i]['status'] == 1) {
-                $classe = 'class="habilitado"';
+                $classe = 'habilitado';
             } else {
-                $classe = 'class="desabilitado"';
+                $classe = 'desabilitado';
             }
 
             echo '
                     <li id="recordsArray_' . $destaques[$i]["idDestaque"] . '">
-                        <div class = "lista_destaque">
+                        <div class = "lista_destaque '.$classe.'">
                             <img src = "../images/' . $destaques[$i]["imagem"] . '" alt = "' . $destaques[$i]["titulo"] . '" title = "' . $destaques[$i]["titulo"] . '" width = "300" style = "float: left; margin-right: 10px;"/>
-                            <span '.$classe.'>' . $destaques[$i]["titulo"] . '</span><br/>
+                            <span>' . $destaques[$i]["titulo"] . '</span><br/>
                             <a href="altDestaque.php?id=' . $destaques[$i]['idDestaque'] . '">Alterar</a> | <a href="javascript:delDestaque(' . $destaques[$i]["idDestaque"] . ')">Excluir</a>
                             </a>
                         </div>
