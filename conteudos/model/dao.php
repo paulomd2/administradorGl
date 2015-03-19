@@ -14,7 +14,8 @@ class ConteudoDAO extends Banco {
                 titulo = '" . $objMenu->getTitulo() . "',
                 link = '" . $objMenu->getLink() . "',
                 target = '".$objMenu->getTarget()."',
-                lingua = '".$objMenu->getLingua()."'
+                lingua = '".$objMenu->getLingua()."',
+                status = ".$objMenu->getStatus()."
                ";
 
         $conexao->query($sql);
@@ -64,7 +65,8 @@ class ConteudoDAO extends Banco {
                 titulo = '" . $objMenu->getTitulo() . "',
                 link = '" . $objMenu->getLink() . "',
                 target = '".$objMenu->getTarget()."',
-                lingua = '".$objMenu->getLingua()."'
+                lingua = '".$objMenu->getLingua()."',
+                status = ".$objMenu->getStatus()."
                    WHERE idMenu = " . $objMenu->getIdMenu() . "
                ";
 

@@ -121,6 +121,7 @@ $(document).ready(function () {
         var link = $("#link").val().trim();
         var target = $("#target").val();
         var lingua = $("input[name='lingua']:checked").val();
+        var status = $("#status").val();
 
         $(".erro").html('').css('display', 'none');
         if (titulo == '') {
@@ -129,8 +130,11 @@ $(document).ready(function () {
         } else if (target == '') {
             $("#target").focus();
             $("#spanTarget").html('Você deve selecionar um Target!').css('display', 'inline-block');
+        } else if(status == ''){
+            $("#status").focus();
+            $("#spanStatus").html('Você deve selecionar um Status!').css('display', 'inline-block');
         } else {
-            $.post('control/controleConteudo.php', {opcao: 'cadastrarMenu', titulo: titulo, link: link, target: target, lingua: lingua});
+            $.post('control/controleConteudo.php', {opcao: 'cadastrarMenu', titulo: titulo, link: link, target: target, status:status,lingua: lingua});
             window.location = 'index.php';
         }
     });
@@ -142,6 +146,7 @@ $(document).ready(function () {
         var target = $("#target").val();
         var idMenu = $("#idMenu").val();
         var lingua = $("input[name='lingua']:checked").val();
+        var status = $("#status").val();
 
         if (titulo == '') {
             $("#titulo").focus();
@@ -149,8 +154,11 @@ $(document).ready(function () {
         } else if (target == '') {
             $("#target").focus();
             $("#spanTarget").html('Você deve selecionar um Target!').css('display', 'inline-block');
+        } else if(status == ''){
+            $("#status").focus();
+            $("#spanStatus").html('Você deve selecionar um Status!').css('display', 'inline-block');
         } else {
-            $.post('control/controleConteudo.php', {opcao: 'alterarMenu', titulo: titulo, link: link, idMenu: idMenu, target: target, lingua: lingua});
+            $.post('control/controleConteudo.php', {opcao: 'alterarMenu', titulo: titulo, link: link, idMenu: idMenu, target: target, status:status, lingua: lingua});
             window.location = 'index.php';
         }
     });

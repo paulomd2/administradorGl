@@ -59,6 +59,17 @@ $menus = $objConteudoDao->listaMenu1($objMenu);
                             </td>
                         </tr>
                         <tr>
+                            <td>Status:</td>
+                            <td>
+                                <select name="status" id="status">
+                                    <option value="">Selecione um Status...</option>
+                                    <option value="1" <?php if($menus['status'] == '1'){echo 'selected'; } ?>>Habilitado</option>
+                                    <option value="2" <?php if($menus['status'] == '2'){echo 'selected'; } ?>>Desabilitado</option>
+                                </select><br />
+                                <span id="spanStatus" class="erro"></span>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>Idioma:</td>
                             <td>
                                 <input type="radio" name="lingua" id="pt" value="pt" <?php if($menus['lingua'] == 'pt'){echo 'checked'; } ?> /> <label for="pt">Português</label>

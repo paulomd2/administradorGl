@@ -14,12 +14,14 @@ switch ($opcao) {
             $target = $_POST['target'];
             $dataCadastro = date('Y-m-d H:i:s');
             $lingua = $_POST['lingua'];
+            $status = $_POST['status'];
 
             $objMenu->setTitulo($titulo);
             $objMenu->setLink($link);
             $objMenu->setTarget($target);
             $objMenu->setDataCadastro($dataCadastro);
             $objMenu->setLingua($lingua);
+            $objMenu->setStatus($status);
 
             $objConteudoDao->cadMenu($objMenu);
             $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'MENU', 0, $dataCadastro);
@@ -31,12 +33,14 @@ switch ($opcao) {
             $idMenu = $_POST['idMenu'];
             $target = $_POST['target'];
             $lingua = $_POST['lingua'];
+            $status = $_POST['status'];
 
             $objMenu->setIdMenu($idMenu);
             $objMenu->setTitulo($titulo);
             $objMenu->setLink($link);
             $objMenu->setTarget($target);
             $objMenu->setLingua($lingua);
+            $objMenu->setStatus($status);
 
             $objConteudoDao->altMenu($objMenu);
             $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'MENU', $objMenu->getIdMenu(), date('Y-m-d H:i:s'));
