@@ -46,7 +46,7 @@
                                     <?php
                                     require_once '../model/banco.php';
                                     require_once 'model/dao.php';
-                                    $menus = $objConteudoDao->listaMenus();
+                                    $menus = $objConteudoDao->listaMenus($_SESSION['idioma']);
 
                                     for ($i = 1; $i < count($menus); $i++) {
                                         $selected = '';

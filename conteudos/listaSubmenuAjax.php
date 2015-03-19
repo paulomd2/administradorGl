@@ -11,18 +11,19 @@ $submenus = $objConteudoDao->listaSubmenus($_GET['id']);
     <ul>
         <?php
         for ($i = 1; $i < count($submenus); $i++) {
-            if($submenus[$i]['status'] == 1){
-                $classe = 'habilitado';
-            }else{
+            $classe = 'habilitado';
+            if ($submenus[$i]['status'] == 2) {
                 $classe = 'desabilitado';
             }
-            ?>
-            <li id="recordsArray_<?php echo $submenus[$i]['idSubmenu']; ?>">
-                <div class="menu-conteudo">
-                    <span class="titMenu <?php echo $classe; ?>"><?php echo $submenus[$i]['tituloSubmenu']; ?></span>
-                    <a href="altSubmenu.php?id=<?php echo $submenus[$i]['idSubmenu']; ?>">Alterar</a> | <a href="javascript:delSubmenu(<?php echo $submenus[$i]['idSubmenu']; ?>)">Excluir</a>
-                </div>
-            </li>
-        <?php } ?>
+            echo '
+                <li id="recordsArray_'.$submenus[$i]['idSubmenu'].'">
+                    <div class="menu-conteudo '.$classe.'">
+                        <span class="titMenu">'.$submenus[$i]['tituloSubmenu'].'</span>
+                        <a href="altSubmenu.php?id='.$submenus[$i]['idSubmenu'].'">Alterar</a> | <a href="javascript:delSubmenu('.$submenus[$i]['idSubmenu'].')">Excluir</a>
+                    </div>
+                </li>
+            ';
+        }
+        ?>
     </ul>
 </div>

@@ -141,9 +141,7 @@ class ConteudoDAO extends Banco {
 
         $sql = "
                 SELECT
-                s.*, s.tituloMenu AS tituloSubmenu,
-                CASE s.status WHEN 1 THEN 'Publicado' WHEN 2 THEN 'Em Aprovação' ELSE 'Desabilitado' END AS status,
-                CASE s.target WHEN '_blank' THEN 'Nova Página' ELSE 'Mesma Página' END AS target,
+                s.*, s.tituloMenu as tituloSubmenu,
                 m.titulo AS tituloMenu
                     FROM " . TBL_SUBMENU . " s
                         JOIN " . TBL_MENU . " m ON m.idMenu = s.idMenu

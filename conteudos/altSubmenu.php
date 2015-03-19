@@ -55,7 +55,7 @@
 
                                     $submenu = $objConteudoDao->listaSubmenu1($objSubMenu);
 
-                                    $menus = $objConteudoDao->listaMenus();
+                                    $menus = $objConteudoDao->listaMenus($_SESSION['idioma']);
 
                                     for ($i = 1; $i < count($menus); $i++) {
                                         $selected = '';

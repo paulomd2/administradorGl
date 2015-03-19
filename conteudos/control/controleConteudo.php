@@ -118,7 +118,6 @@ switch ($opcao) {
             $descricaoMetaTag = $_POST['descricaoMetaTag'];
             $dataEntrada = implode('-', array_reverse(explode('/', $_POST['dataEntrada'])));
             $dataSaida = implode('-', array_reverse(explode('/', $_POST['dataSaida'])));
-            $lingua = $_POST['lingua'];
 
             $objSubMenu->setIdSubmenu($idSubmenu);
             $objSubMenu->setIdMenu($idMenu);
@@ -133,7 +132,6 @@ switch ($opcao) {
             $objSubMenu->setDescricaoMetaTag($descricaoMetaTag);
             $objSubMenu->setDataEntrada($dataEntrada);
             $objSubMenu->setDataSaida($dataSaida);
-            $objSubMenu->setLingua($lingua);
 
             $objConteudoDao->altSubmenu($objSubMenu);
             $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'SUBMENU', $objSubMenu->getIdSubmenu(), date('Y-m-d H:i:s'));
