@@ -15,16 +15,16 @@ function delNoticiaBusca(id, busca) {
     }
 }
 $(document).ready(function () {
-    var url = document.URL;
-    var split = url.split('/');
-    var pagina = split[split.length - 1];
-
-    count = '';
-    if (pagina == 'verNoticias.php') {
-        count = 500;
-    } else {
-        count = 5;
-    }
+//    var url = document.URL;
+//    var split = url.split('/');
+//    var pagina = split[split.length - 1];
+//
+//    count = '';
+//    if (pagina == 'verNoticias.php') {
+//        count = 500;
+//    } else {
+//        count = 5;
+//    }
 
     var data = new Date();
     var dia = data.getDate();
@@ -35,7 +35,8 @@ $(document).ready(function () {
         $("#publicacao").val(ano + '-' + mes + '-' + dia);
     }
 
-    $("#listaNoticias").load('listaNoticiasAjax.php?count=' + count);
+//    $("#listaNoticias").load('listaNoticiasAjax.php?count=' + count);
+    $("#listaNoticias").load('listaNoticiasAjax.php');
 
     $("#btnCadastrar").click(function () {
         CKEDITOR.instances.texto.updateElement();

@@ -24,6 +24,12 @@ setcookie("ck_authorized", "true", 0, "/");
             <div class="tenor">
                 <h1>Todas as notícias</h1>
                 <a href="cadNoticia.php" class="proPage">Cadastrar nova notícia</a>
+                Exibir por página <select id="numNews">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
                 <table class="tableAll">
                     <thead>
                         <tr>

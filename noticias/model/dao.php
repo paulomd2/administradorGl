@@ -1,4 +1,5 @@
 <?php
+
 require_once 'noticia.php';
 
 class NoticiasDAO extends Banco {
@@ -6,7 +7,7 @@ class NoticiasDAO extends Banco {
     public function cadNoticia($objNoticia) {
         $conexao = $this->abreConexao();
 
-      echo  $sql = "INSERT INTO " . TBL_NOTICIA . " SET
+        echo $sql = "INSERT INTO " . TBL_NOTICIA . " SET
                titulo = '" . $objNoticia->getTitulo() . "',
                subtitulo = '" . $objNoticia->getSubTitulo() . "',
                fonte = '" . $objNoticia->getFonte() . "',
@@ -14,7 +15,7 @@ class NoticiasDAO extends Banco {
                texto = '" . $objNoticia->getTexto() . "',
                dataCadastro = '" . $objNoticia->getDataCadastro() . "',
                mercado = " . $objNoticia->getMercado() . ",
-               status = ".$objNoticia->getStatus()."
+               status = " . $objNoticia->getStatus() . "
                ";
 
         $conexao->query($sql);
@@ -32,7 +33,7 @@ class NoticiasDAO extends Banco {
                dataPublicacao = '" . $objNoticia->getDataPublicacao() . "',
                texto = '" . $objNoticia->getTexto() . "',
                mercado = " . $objNoticia->getMercado() . ",
-               status = ".$objNoticia->getStatus()."
+               status = " . $objNoticia->getStatus() . "
                    WHERE idNoticia = " . $objNoticia->getIdNoticia() . "
                ";
 
@@ -52,7 +53,7 @@ class NoticiasDAO extends Banco {
 
         $this->fechaConexao();
     }
-    
+
     public function verNoticias($count) {
         $conexao = $this->abreConexao();
 
@@ -60,11 +61,11 @@ class NoticiasDAO extends Banco {
                 FROM " . TBL_NOTICIA . "
                     WHERE status != 0
                         ORDER BY dataPublicacao DESC
-                        LIMIT ".$count."
+                        LIMIT " . $count . "
                 ";
 
         $banco = $conexao->query($sql);
-        
+
         $linhas = array();
         while ($linha = $banco->fetch_assoc()) {
             $linhas[] = $linha;
@@ -74,19 +75,19 @@ class NoticiasDAO extends Banco {
 
         $this->fechaConexao();
     }
-    
+
     public function verNoticiasHome($count) {
         $conexao = $this->abreConexao();
 
-         $sql = "SELECT *, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao
+        $sql = "SELECT *, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao
                 FROM " . TBL_NOTICIA . "
                     WHERE status != 0
                         ORDER BY idNoticia DESC
-                        LIMIT ".$count."
+                        LIMIT " . $count . "
                 ";
 
         $banco = $conexao->query($sql);
-        
+
         $linhas[] = array();
         while ($linha = $banco->fetch_assoc()) {
             $linhas[] = $linha;
@@ -96,42 +97,42 @@ class NoticiasDAO extends Banco {
 
         $this->fechaConexao();
     }
-    
-    public function verNoticia1($objNoticia){
+
+    public function verNoticia1($objNoticia) {
         $conexao = $this->abreConexao();
 
         $sql = "SELECT *, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacaoFormatada
                 FROM " . TBL_NOTICIA . "
-                    WHERE idNoticia = ".$objNoticia->getIdNoticia()."
+                    WHERE idNoticia = " . $objNoticia->getIdNoticia() . "
                         ORDER BY dataPublicacao DESC
                 ";
 
         $banco = $conexao->query($sql);
-        
+
         $linha = $banco->fetch_assoc();
 
         return $linha;
 
         $this->fechaConexao();
     }
-    
-    public function busca($objNoticia){
+
+    public function busca($objNoticia) {
         $conexao = $this->abreConexao();
-        
+
         $sql = "
                 SELECT *
-                    FROM ".TBL_NOTICIA."
-                        WHERE titulo like '%".$objNoticia->getTitulo()."%'
+                    FROM " . TBL_NOTICIA . "
+                        WHERE titulo like '%" . $objNoticia->getTitulo() . "%'
                         AND status in(1,2)
                ";
-        
+
         $banco = $conexao->query($sql);
-        
+
         $linhas = array();
-        while($linha = $banco->fetch_assoc()){
+        while ($linha = $banco->fetch_assoc()) {
             $linhas[] = $linha;
         }
-        
+
         return $linhas;
     }
 
