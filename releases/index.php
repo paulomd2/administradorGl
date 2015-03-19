@@ -38,7 +38,7 @@ setcookie("ck_authorized", "true", 0, "/");
                     if ($_SESSION['idioma'] == 'pt') {
                         echo 'selected';
                     }
-                    ?>>Portugês</option>
+                    ?>>Português</option>
                     <option value="en" <?php
                     if ($_SESSION['idioma'] == 'en') {
                         echo 'selected';

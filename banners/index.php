@@ -56,7 +56,7 @@
                 <select id="selLingua">
                     <option value="pt" <?php if ($_SESSION['idioma'] == 'pt') {
             echo 'selected';
-        } ?>>Portugês</option>
+        } ?>>Português</option>
                     <option value="en" <?php if ($_SESSION['idioma'] == 'en') {
             echo 'selected';
         } ?>>Inglês</option>

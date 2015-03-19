@@ -74,7 +74,7 @@
                     if ($_SESSION['idioma'] == 'pt') {
                         echo 'selected';
                     }
-                    ?>>Portugês</option>
+                    ?>>Português</option>
                     <option value="en" <?php
                     if ($_SESSION['idioma'] == 'en') {
                         echo 'selected';
@@ -87,12 +87,11 @@
                     ?>>Espanhol</option>
                 </select>
                 <div id="listaMenus">
-<?php
-require_once 'listaMenuAjax.php';
-?>
+                    <?php
+                    require_once 'listaMenuAjax.php';
+                    ?>
                 </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
