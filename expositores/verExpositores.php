@@ -24,7 +24,7 @@
                         <tr>
                             <td>Nome</td>
                             <td>Imagem</td>
-                            <td>Editar</td>
+                            <td>alterar</td>
                             <td>Excluir</td>
                         </tr>
                     </thead>

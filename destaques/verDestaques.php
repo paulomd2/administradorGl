@@ -11,40 +11,6 @@ setcookie("ck_authorized", "true", 0, "/");
         <script type="text/javascript" src="../js/jquery.maskedinput.js"></script>
         <script type="text/javascript" src="../js/jquery-ui.js"></script>
         <script type="text/javascript" src="js/destaque.js"></script>
-        <style>
-            .lista_destaque{
-                width: 600px;
-                height: auto;
-                background: none;
-                border: 1px solid #a2a5a6;
-                border-radius: 5px;
-                margin-bottom: 10px;
-                background: white;
-                padding: 5px;
-                overflow: hidden;
-            }
-            .menu-conteudo span.titMenu{
-                font-size: 16px;
-                color: black;
-                display: block;
-            }
-            .menu-conteudo a{
-                display: inline-block;
-                font-size: 14px;
-                color: #3366ff;
-                text-decoration: none;
-            }
-            .menu-conteudo a:hover{
-                text-decoration: underline;
-            }
-            a.linkIcon{
-                color: #333;
-                text-decoration: none;
-            }
-            ul{
-                list-style: none;
-            }
-        </style>
     </head>
     <body>
         <?php include_once '../include/header.php'; ?>

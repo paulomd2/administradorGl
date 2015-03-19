@@ -35,27 +35,6 @@
                 padding: 5px;
                 overflow: hidden;
             }
-            .menu-conteudo span.titMenu{
-                font-size: 16px;
-                color: black;
-                display: block;
-            }
-            .menu-conteudo a{
-                display: inline-block;
-                font-size: 14px;
-                color: #3366ff;
-                text-decoration: none;
-            }
-            .menu-conteudo a:hover{
-                text-decoration: underline;
-            }
-            a.linkIcon{
-                color: #333;
-                text-decoration: none;
-            }
-            ul{
-                list-style: none;
-            }
         </style>
 
     </head>
@@ -75,14 +54,20 @@
                 <a href="cadBanner.php" class="proPage">Cadastrar banner</a>
                 Selecione o idioma:
                 <select id="selLingua">
-                    <option value="pt" <?php if($_SESSION['idioma'] == 'pt'){ echo 'selected'; } ?>>Portugês</option>
-                    <option value="en" <?php if($_SESSION['idioma'] == 'en'){ echo 'selected'; } ?>>Inglês</option>
-                    <option value="es" <?php if($_SESSION['idioma'] == 'es'){ echo 'selected'; } ?>>Espanhol</option>
+                    <option value="pt" <?php if ($_SESSION['idioma'] == 'pt') {
+            echo 'selected';
+        } ?>>Portugês</option>
+                    <option value="en" <?php if ($_SESSION['idioma'] == 'en') {
+            echo 'selected';
+        } ?>>Inglês</option>
+                    <option value="es" <?php if ($_SESSION['idioma'] == 'es') {
+                        echo 'selected';
+                    } ?>>Espanhol</option>
                 </select>
                 <div id="listaBanners">
-                    <?php
-                    require_once 'listaBannersAjax.php';
-                    ?>
+<?php
+require_once 'listaBannersAjax.php';
+?>
                 </div>
             </div>
         </div>

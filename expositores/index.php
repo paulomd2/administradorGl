@@ -31,8 +31,8 @@
                         <tr>
                             <td>Nome</td>
                             <td>Imagem</td>
-                            <td>Editar</td>
-                            <td>Excluir</td>
+                            <td style="width: 10%;">Alterar</td>
+                            <td style="width: 10%;">Excluir</td>
                         </tr>
                     </thead>
                     <tbody id="listaExpositores"></tbody>

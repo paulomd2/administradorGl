@@ -60,7 +60,7 @@ $email = $objContatoDao->verContato1($id);
         </table>
         <script>
             CKEDITOR.replace('mensagem', {
-                uiColor: '#ffffff',
+                uiColor: '#dfdfdf',
                 filebrowserImageBrowseUrl: '../plugin/ckfinder/ckfinder.html?Type=Images',
             });
         </script> 

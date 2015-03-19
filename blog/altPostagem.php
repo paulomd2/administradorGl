@@ -309,7 +309,7 @@
                     </form>
                     <script>
                         CKEDITOR.replace('texto', {
-                            uiColor: '#ffffff',
+                            uiColor: '#dfdfdf',
                             filebrowserImageBrowseUrl: '../plugin/ckfinder/ckfinder.html?Type=Images',
                         });
                     </script>

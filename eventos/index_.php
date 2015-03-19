@@ -27,7 +27,7 @@
                             <tr>
                                 <td>Nome</td>
                                 <td>Imagem</td>
-                                <td>Editar</td>
+                                <td>alterar</td>
                                 <td>Excluir</td>
                             </tr>
                         </thead>
@@ -128,7 +128,7 @@
 
                 <script>
                     CKEDITOR.replace('texto', {
-                        uiColor: '#ffffff',
+                        uiColor: '#dfdfdf',
                         filebrowserImageBrowseUrl: '../plugin/ckfinder/ckfinder.html?Type=Images',
                     });
                 </script>

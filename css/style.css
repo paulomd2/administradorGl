@@ -310,6 +310,7 @@ aside.barra-lateral{
     color: #545454;
     margin-bottom: 10px;
     display: inline;
+    margin-right: 20px;
 }
 .main-admin .tenor h2{
     font-size: 14px;
@@ -379,6 +380,7 @@ hr{
     background: #7d7c7c;
     /*color: white;*/
     /*padding: 3px;*/
+    text-transform: capitalize;
 }
 .tableAll thead td{
     padding: 3px;
@@ -405,7 +407,7 @@ hr{
     font-size: 13px;
     padding: 4px 6px;
     display: inline-block;
-    margin: 20px;
+    margin: 20px 20px 20px 0px;
     /*    margin-left: 2px;*/
     border-radius: 3px;
     /*
@@ -449,10 +451,10 @@ hr{
 }
 
 
-.tableAll tr td.habilitado{
+.tableAll tr.habilitado{
     background: #d1f6d4!important;  
 }
-.tableAll tr td.desabilitado{
+.tableAll tr.desabilitado{
     background: #e1e1e1!important;  
 }
 
@@ -470,4 +472,50 @@ div.desabilitado{
     border: 2px solid #B0DCCC;
     color: #67686b!important;
     font-weight: bold!important
+}
+
+/* DESTAQUES */
+
+.lista_destaque{
+    width: 600px;
+    height: auto;
+    background: none;
+    border: 1px solid #a2a5a6;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: white;
+    padding: 5px;
+    overflow: hidden;
+}
+.lista_destaque a{
+    display: inline-block;
+    font-size: 14px;
+    color: #999;
+    text-decoration: none;
+}
+.lista_destaque a:hover{
+    text-decoration: underline;
+}
+ul{
+    list-style: none;
+}
+.lista_banner{
+    width: 600px;
+    height: auto;
+    background: none;
+    border: 1px solid #a2a5a6;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: white;
+    padding: 5px;
+    overflow: hidden;
+}
+.lista_banner a{
+    display: inline-block;
+    font-size: 14px;
+    color: #999;
+    text-decoration: none;
+}
+.lista_banner a:hover{
+    text-decoration: underline;
 }

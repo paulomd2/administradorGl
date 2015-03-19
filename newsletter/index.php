@@ -30,9 +30,9 @@
                 <table class="tableAll">
                     <thead>
                         <tr>
-                            <td style="width: 60%;">Nome</td>
-                            <td style="width: 20%;">Email</td>
-                            <td style="width: 20%;">Data de Cadastro</td>
+                            <td style="width: 50%;">Nome</td>
+                            <td style="width: 30%;">E-mail</td>
+                            <td style="width: 20%; text-align: center;">Data de Cadastro</td>
                         </tr>
                     </thead>
                     <tbody id="listaNews"></tbody>

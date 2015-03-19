@@ -37,7 +37,7 @@ if ($data == 'proximo') {
                     <option value="en" <?php if($_SESSION['idioma'] == 'en'){ echo 'selected'; } ?>>Inglês</option>
                     <option value="es" <?php if($_SESSION['idioma'] == 'es'){ echo 'selected'; } ?>>Espanhol</option>
                 </select>
-                <table class = "tableAll">
+                <table class = "tableAll" style="margin-top: 10px;">
                     <thead>
                         <tr>
                             <td style = "width: 50%;">Nome</td>
@@ -48,6 +48,7 @@ if ($data == 'proximo') {
                     </thead>
                     <tbody id="listaEventos<?php echo $busca; ?>">
                     </tbody>
+                </table>
             </div>
         </div>
     </body>

@@ -40,7 +40,7 @@ for ($i = 0; $i < count($news); $i++) {
             <tr>
                 <td>'. $news[$i]["nome"] . '</td>
                 <td>' . $news[$i]["email"] . '</td>
-                <td>' . $news[$i]["dataCadastro"] . '</td>
+                <td style="text-align: center;">' . $news[$i]["dataCadastro"] . '</td>
             </tr>
         ';
 }

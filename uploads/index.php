@@ -48,7 +48,7 @@
                             <td>
                                 <select id="pasta" name="pasta">
                                     <optgroup label="Fixos">
-                                        <option value="fsdfsdfsddf">Pasta raiz</option>
+                                        <option value=".">Pasta raiz</option>
                                         <?php
                                         for ($i = 0; $i < count($pastas); $i++) {
                                             echo '<option value="' . $pastas[$i] . '">' . $pastas[$i] . '</option>';
@@ -57,7 +57,7 @@
                                         <option value="nova">Nova pasta</option>
                                     </optgroup>
                                     <optgroup label="Páginas criadas" id="criadas"></optgroup>
-                                </select><br />
+                                </select><br /><br />
                                 <input type="text" name="outraPasta" id="outraPasta" style="display: none" /><br />
                                 <span id="spanPasta" class="erro"></span>
                             </td>
