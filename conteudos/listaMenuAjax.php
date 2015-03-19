@@ -20,8 +20,8 @@
             
             
             echo '<li id="recordsArray_'.$menus[$i]["idMenu"].'">
-                    <div class="menu-conteudo">
-                        <span class="titMenu '.$classe.'">'.$menus[$i]["titulo"].'</span>
+                    <div class="menu-conteudo '.$classe.'" >
+                        <span class="titMenu">'.$menus[$i]["titulo"].'</span>
                         <a href="altMenu.php?id=' . $menus[$i]["idMenu"] . '">Alterar</a> | <td><a href="javascript:delMenu(' . $menus[$i]["idMenu"] . ')">Excluir</a>
                     </div>
                 </li>';

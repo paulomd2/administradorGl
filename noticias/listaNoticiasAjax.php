@@ -13,8 +13,8 @@ for ($i = 0; $i < count($noticias); $i++) {
         $classe = 'class="desabilitado"';
     }
 
-    echo '<tr>
-            <td '.$classe.'>' . $noticias[$i]["titulo"] . '</td>
+    echo '<tr '.$classe.'>
+            <td>' . $noticias[$i]["titulo"] . '</td>
             <td>' . $noticias[$i]["dataPublicacao"] . '</td>
             <td><a href="altNoticia.php?id=' . $noticias[$i]['idNoticia'] . '">Alterar</a></td>
             <td><a href="javascript:delNoticia(' . $noticias[$i]["idNoticia"] . ')">Excluir</a></td>

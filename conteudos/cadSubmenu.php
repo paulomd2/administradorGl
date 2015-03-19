@@ -19,7 +19,7 @@
     </head>
     <body>
         <?php
-        include_once '../include/header.php'; 
+        include_once '../include/header.php';
         include_once '../include/lateral.php';
         $idMenu = $_GET['id'];
 

@@ -29,9 +29,6 @@ setcookie("ck_authorized", "true", 0, "/");
                         <tr>
                             <td style="width: 60%;">Título</td>
                             <td style="width: 20%;">Data de Publicação</td>
-                            <!--<td>Sub-título</td>-->
-                            <!--<td>Fonte</td>-->
-                            <!--<td>Texto</td>-->
                             <td style="width: 10%;">Alterar</td>
                             <td style="width: 10%;">Excluir</td>
                         </tr>

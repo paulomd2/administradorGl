@@ -12,7 +12,7 @@ body{
     background: #f1f2f2;
 }
 /*
-html {
+html {table
 overflow-y: hidden;
 }#scrollbar-track {
 width: 15px;
@@ -117,7 +117,7 @@ aside.barra-lateral{
 .center-user .detail-user{
     background: #505153;
     width: 188px; 
-   float: left;
+    float: left;
     /*padding: 10px 10px 25px 10px;*/
     padding: 20px 10px;
 }
@@ -180,7 +180,7 @@ aside.barra-lateral{
     display: inline-block;
     padding: 8px 16px;
     color: #fff;
-    background: orange;
+    background: #67686b;
     font-size: 11px;
     text-transform: uppercase;
     margin-right: 0;
@@ -317,20 +317,27 @@ aside.barra-lateral{
     font-weight: normal;
     color: #fff;
     background: #545454;
-    display: inline-block;
     margin-bottom: 10px;
+    display: block; 
+    width: 735px;
 }
 .tableform{
     width: 760px;
     height: auto;
     /*border: 1px solid red;*/
+    margin-top: 20px;
 }
 .tableform tr{
     margin-bottom: 10px;
     display: block;
 }
 .tableform td:first-child{
-    font-size: 14px; width: 150px;
+    font-size: 14px; 
+    width: 150px;
+}
+.tableform td:last-child{
+    font-size: 14px; 
+    width: 590px;
 }
 input[type="submit"],input[type="button"]{
     color: white;
@@ -342,6 +349,20 @@ input[type="submit"],input[type="button"]{
 }
 .tableform input[type="text"]{
     height: 25px;
+    width: 100%;
+}
+.tableform textarea{
+    height: 60px;
+    /*max-height: 120px;*/
+    width: 100%;
+    /*max-width: 100%;*/
+    resize: none;
+}
+.tableform input[type='radio']{
+    margin-left: 20px;
+}
+.tableform input[type='radio']:first-child{
+    margin-left: 0px;
 }
 h2{
     font-size: 16px;
@@ -384,8 +405,8 @@ hr{
     font-size: 13px;
     padding: 4px 6px;
     display: inline-block;
-    margin: 10px 0;
-    margin-left: 2px;
+    margin: 20px;
+    /*    margin-left: 2px;*/
     border-radius: 3px;
     /*
     color: white;
@@ -427,14 +448,26 @@ hr{
     color: #858383;
 }
 
-td.habilitado, .habilitado{
-    color: #6a9814!important;
+
+.tableAll tr td.habilitado{
+    background: #d1f6d4!important;  
+}
+.tableAll tr td.desabilitado{
+    background: #e1e1e1!important;  
 }
 
-td.desabilitado, .desabilitado{
-    color: #FF7F00!important;
+div.habilitado{
+    border: 5px solid #d1f6d4!important;
+}
+
+div.desabilitado{
+    border: 5px solid #e1e1e1!important;
 }
 
 .marcLang{
-    background: black!important;
+    background: #d1f6d4!important;
+    border: 2px solid #67686b;
+    border: 2px solid #B0DCCC;
+    color: #67686b!important;
+    font-weight: bold!important
 }

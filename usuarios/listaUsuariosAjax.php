@@ -22,11 +22,11 @@ for ($i = 0; $i < count($usuarios); $i++) {
     
     echo '<tr>
             <td '.$classe.'>' . $usuarios[$i]["nome"] . '</td>
-            <td>' . $usuarios[$i]["email"] . '</td>
-            <td>' . $usuarios[$i]["usuario"] . '</td>
-            <td>' . $usuarios[$i]["nivel"] . '</td>
-            <td><a href="altUsuario.php?id=' . $usuarios[$i]['idUsuario'] . '">Alterar</a></td>
-            <td><a href="javascript:delUsuario(' . $usuarios[$i]["idUsuario"] . ')">Excluir</a></td>
+            <td '.$classe.'>' . $usuarios[$i]["email"] . '</td>
+            <td '.$classe.'>' . $usuarios[$i]["usuario"] . '</td>
+            <td '.$classe.'>' . $usuarios[$i]["nivel"] . '</td>
+            <td '.$classe.'><a href="altUsuario.php?id=' . $usuarios[$i]['idUsuario'] . '">Alterar</a></td>
+            <td '.$classe.'><a href="javascript:delUsuario(' . $usuarios[$i]["idUsuario"] . ')">Excluir</a></td>
           </tr>';
 }
 ?>

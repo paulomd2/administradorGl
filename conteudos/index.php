@@ -15,7 +15,7 @@
                     update: function () {
                         var order = $(this).sortable("serialize") + '&opcao=ordenaMenu';
 
-                        $.post("control/controleConteudo.php", order,  function (theResponse) {
+                        $.post("control/controleConteudo.php", order, function (theResponse) {
                             console.log(theResponse);
                         });
                     }
@@ -41,7 +41,7 @@
             .menu-conteudo a{
                 display: inline-block;
                 font-size: 14px;
-                color: #3366ff;
+                color: #999;
                 text-decoration: none;
             }
             .menu-conteudo a:hover{
@@ -70,14 +70,26 @@
                 <h1>Gerenciar menus</h1><a href="cadMenu.php" class="proPage">Adicionar novo menu</a>
                 Selecione o idioma:
                 <select id="selLingua">
-                    <option value="pt" <?php if($_SESSION['idioma'] == 'pt'){ echo 'selected'; } ?>>Portugês</option>
-                    <option value="en" <?php if($_SESSION['idioma'] == 'en'){ echo 'selected'; } ?>>Inglês</option>
-                    <option value="es" <?php if($_SESSION['idioma'] == 'es'){ echo 'selected'; } ?>>Espanhol</option>
+                    <option value="pt" <?php
+                    if ($_SESSION['idioma'] == 'pt') {
+                        echo 'selected';
+                    }
+                    ?>>Portugês</option>
+                    <option value="en" <?php
+                    if ($_SESSION['idioma'] == 'en') {
+                        echo 'selected';
+                    }
+                    ?>>Inglês</option>
+                    <option value="es" <?php
+                    if ($_SESSION['idioma'] == 'es') {
+                        echo 'selected';
+                    }
+                    ?>>Espanhol</option>
                 </select>
                 <div id="listaMenus">
-                    <?php
-                    require_once 'listaMenuAjax.php';
-                    ?>
+<?php
+require_once 'listaMenuAjax.php';
+?>
                 </div>
             </div>
         </div>
