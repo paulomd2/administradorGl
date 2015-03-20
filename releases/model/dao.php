@@ -89,6 +89,23 @@ class ReleasesDAO extends Banco {
 
         $this->fechaConexao();
     }
+    
+    public function numRelease($lingua){
+        $conexao = $this->abreConexao();
+        
+        $sql = "SELECT COUNT(*) as quantidade
+                    FROM ".TBL_RELEASE."
+                        WHERE status != 0
+                        AND lingua = '".$lingua."'
+                ";
+        
+        $banco = $conexao->query($sql);
+        
+        $linha = $banco->fetch_assoc();
+        return $linha['quantidade'];
+        
+        $this->fechaConexao();
+    }
 
     public function verRelease1($objRelease) {
         $conexao = $this->abreConexao();
