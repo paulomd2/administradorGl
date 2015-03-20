@@ -7,7 +7,7 @@
         <script type="text/javascript" src="../js/jquery-ui.js"></script>
         <script type="text/javascript" src="js/destaque.js"></script>
         <script src="../plugin/ckeditor/ckeditor.js"></script>
-        
+
         <script src="../plugin/ckfinder/ckfinder.js"></script>
         <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
         <!-- polyfiller file to detect and load polyfills -->
@@ -67,26 +67,14 @@
                 <a href="cadDestaque.php" class="proPage">Cadastrar destaque</a>
                 Selecione o idioma:
                 <select id="selLingua">
-<<<<<<< HEAD
-                    <option value="pt" <?php if ($_SESSION['idioma'] == 'pt') {
-            echo 'selected';
-        } ?>>Portugês</option>
-                    <option value="en" <?php if ($_SESSION['idioma'] == 'en') {
-            echo 'selected';
-        } ?>>Inglês</option>
-                    <option value="es" <?php if ($_SESSION['idioma'] == 'es') {
-                        echo 'selected';
-                    } ?>>Espanhol</option>
-=======
-                    <option value="pt" <?php if ($_SESSION['idioma'] == 'pt') { echo 'selected'; } ?>>Português</option>
+                    <option value="pt" <?php  if ($_SESSION['idioma'] == 'pt') { echo 'selected'; } ?>>Português</option>
                     <option value="en" <?php if ($_SESSION['idioma'] == 'en') { echo 'selected'; } ?>>Inglês</option>
                     <option value="es" <?php if ($_SESSION['idioma'] == 'es') { echo 'selected'; } ?>>Espanhol</option>
->>>>>>> origin/master
                 </select>
                 <div id="listaDestaques">
-<?php
-require_once 'listaDestaqueAjax.php';
-?>
+                <?php
+                require_once 'listaDestaqueAjax.php';
+                ?>
                 </div>
             </div>
         </div>
