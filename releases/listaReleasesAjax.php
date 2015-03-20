@@ -51,7 +51,7 @@ for ($i = 1; $i < count($releases); $i++) {
             <td><a href="javascript:delRelease(' . $releases[$i]["idRelease"] . ')">Excluir</a></td>
           </tr>';
 }
-if (count($releases) >= 10) {
+if ($numPaginas > 1) {
     echo '<tr>
             <td colspan="4" style="text-align:center">' . $paginas . '</td>
         </tr>';

@@ -37,6 +37,12 @@ if ($data == 'proximo') {
                     <option value="en" <?php if($_SESSION['idioma'] == 'en'){ echo 'selected'; } ?>>Inglês</option>
                     <option value="es" <?php if($_SESSION['idioma'] == 'es'){ echo 'selected'; } ?>>Espanhol</option>
                 </select>
+                Exibir por página <select id="numEventos">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
                 <table class = "tableAll" style="margin-top: 10px;">
                     <thead>
                         <tr>

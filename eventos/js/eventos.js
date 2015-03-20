@@ -1,13 +1,23 @@
-var url = document.URL;
-var split = url.split('/');
-var pagina = split[split.length - 1];
+url = document.URL;
+split = url.split('/');
+pagina = split[split.length - 1];
 lingua = 'pt';
 
 count = '';
-if (pagina == 'verEventos.php') {
-    count = 500;
+if (pagina.indexOf('verEventos.php') > -1) {
+    count = 10;
 } else {
     count = 5;
+}
+
+function paginacao(pagina) {
+    var count = $("#numEventos").val();
+
+    if ($("#listaEventosProximo").length) {
+        $("#listaEventosProximo").load('listaEventosAjax.php?count=' + count + '&d=Proximo&pagina=' + pagina);
+    } else {
+        $("#listaEventosAnterior").load('listaEventosAjax.php?count=' + count + '&d=Anterior&pagina=' + pagina);
+    }
 }
 
 function delEvento(id) {
@@ -15,9 +25,9 @@ function delEvento(id) {
         $.post('control/controleEventos.php', {opcao: 'excluir', idEvento: id});
 
         if ($("#listaEventosProximo").length) {
-            $("#listaEventosProximo").load('listaEventosAjax.php?count=' + count + '&d=proximo&lingua='+lingua);
+            $("#listaEventosProximo").load('listaEventosAjax.php?count=' + count + '&d=Proximo&lingua=' + lingua);
         } else {
-            $("#listaEventosAnterior").load('listaEventosAjax.php?count=' + count + '&d=anterior&lingua='+lingua);
+            $("#listaEventosAnterior").load('listaEventosAjax.php?count=' + count + '&d=Anterior&lingua=' + lingua);
         }
     }
 }
@@ -32,6 +42,19 @@ function delEventoBusca(id, busca) {
 
 $(document).ready(function () {
     evento = '';
+    url = document.URL;
+    split = url.split('/');
+    pagina = split[split.length - 1];
+    lingua = 'pt';
+
+    count = '';
+    console.log(pagina.indexOf('verEventos.php'));
+    if (pagina.indexOf('verEventos.php') > -1) {
+        count = 10;
+    } else {
+        count = 5;
+    }
+
     if ($("#listaEventosProximo").length) {
         $("#listaEventosProximo").load('listaEventosAjax.php?count=' + count + '&d=Proximo');
         evento = 'proximo';
@@ -55,9 +78,9 @@ $(document).ready(function () {
             $("#nome").focus();
             $("#spanNome").html('Você deve preencher o Nome!').css('display', 'inline-block');
         } /*else if (titulo == '') {
-            $("#titulo").focus();
-            $("#spanTitulo").html('Você deve preencher o Titulo!').css('display', 'inline-block');
-        } */else if (dataInicio == '') {
+         $("#titulo").focus();
+         $("#spanTitulo").html('Você deve preencher o Titulo!').css('display', 'inline-block');
+         } */ else if (dataInicio == '') {
             $("#dataInicio").focus();
             $("#spanDataInicio").html('Você deve preencher a Data de Início!').css('display', 'inline-block');
         } else if (dataFim == '') {
@@ -86,9 +109,9 @@ $(document).ready(function () {
             $("#nome").focus();
             $("#spanNome").html('Você deve preencher o Nome!');
         } /*else if (titulo == '') {
-            $("#titulo").focus();
-            $("#spanTitulo").html('Você deve preencher o Titulo!');
-        } */else if (dataInicio == '') {
+         $("#titulo").focus();
+         $("#spanTitulo").html('Você deve preencher o Titulo!');
+         } */ else if (dataInicio == '') {
             $("#dataInicio").focus();
             $("#spanDataInicio").html('Você deve preencher a Data de Início!');
         } else if (dataFim == '') {
@@ -101,19 +124,24 @@ $(document).ready(function () {
 
     $("#selLingua").change(function () {
         lingua = $("#selLingua").val();
-        var pagina = split[split.length - 1];
 
-        count = '';
-        if (pagina == 'verEventos.php') {
-            count = 500;
-        } else {
-            count = 5;
-        }
-        
         if (evento == 'proximo') {
-            $("#listaEventosProximo").load('listaEventosAjax.php?count=' + count + '&d=Proximo&lingua='+lingua);
+            $("#listaEventosProximo").load('listaEventosAjax.php?count=' + count + '&d=Proximo&lingua=' + lingua);
         } else {
-            $("#listaEventosAnterior").load('listaEventosAjax.php?count=' + count + '&d=Anterior&lingua='+lingua);
-        }        
+            $("#listaEventosAnterior").load('listaEventosAjax.php?count=' + count + '&d=Anterior&lingua=' + lingua);
+        }
+    });
+    
+    
+    $("#numEventos").change(function () {
+        var limite = $("#numEventos").val();
+        var lingua = $("#selLingua").val();
+
+//        $("#listaReleases").load('listaReleasesAjax.php?count=' + limite); 
+        if (evento == 'proximo') {
+            $("#listaEventosProximo").load('listaEventosAjax.php?count=' + count + '&d=Proximo&lingua=' + lingua+'&count='+limite);
+        } else {
+            $("#listaEventosAnterior").load('listaEventosAjax.php?count=' + count + '&d=Anterior&lingua=' + lingua+'&count='+limite);
+        }
     });
 });
