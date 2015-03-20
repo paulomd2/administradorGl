@@ -57,7 +57,7 @@ class NoticiasDAO extends Banco {
     public function verNoticias($count) {
         $conexao = $this->abreConexao();
 
-        $sql = "SELECT *, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao
+        echo $sql = "SELECT *, DATE_FORMAT(dataPublicacao, '%d/%m/%Y') as dataPublicacao
                 FROM " . TBL_NOTICIA . "
                     WHERE status != 0
                         ORDER BY dataPublicacao DESC
@@ -73,6 +73,20 @@ class NoticiasDAO extends Banco {
 
         return $linhas;
 
+        $this->fechaConexao();
+    }
+    
+    public function numNoticias(){
+        $conexao = $this->abreConexao();
+        
+        $sql = "SELECT COUNT(*) AS quantidade FROM " . TBL_NOTICIA . "
+                    WHERE status != 0";
+        
+        $banco = $conexao->query($sql);
+        
+        $linha = $banco->fetch_assoc();
+        return $linha['quantidade'];
+        
         $this->fechaConexao();
     }
 

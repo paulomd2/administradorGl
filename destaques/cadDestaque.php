@@ -24,7 +24,7 @@ setcookie("ck_authorized", "true", 0, "/");
             </div>
             <div class="tenor">
                 <h1>Cadastrar destaque</h1>
-                <a href="verDestaques.php" class="proPage">Todos os destaques</a>
+                <a href="./" class="proPage">Todos os destaques</a>
                 <form name="cadDestaque" id="cadDestaque" action="control/controleDestaque.php" enctype="multipart/form-data" method="post">
                     <input type="hidden" value="cadastrar" name="opcao" />
                     <table class="tableform">
