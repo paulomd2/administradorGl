@@ -97,7 +97,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2"><h2 style="margin: 0!important;">Meta tags</h2></td>
+                            <td colspan="2"><h2 style="margin: 0!important;">SEO</h2></td>
                         </tr>
                         <tr>
                             <td>Título:</td>

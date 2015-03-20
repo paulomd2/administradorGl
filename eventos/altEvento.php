@@ -92,7 +92,7 @@ $evento = $objEventoDao->listaEvento1($objEvento);
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2"><h2>Meta tags</h2></td>
+                            <td colspan="2"><h2>SEO</h2></td>
                         </tr>
                         <tr>
                             <td>Título:</td>

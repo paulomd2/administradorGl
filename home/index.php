@@ -60,7 +60,7 @@ if($_SESSION['nivel'] == '3'){
                 <div class="tit-box">
                     <strong>ÚLTIMAS</strong> NOTÍCIAS CADASTRADAS
                     <!--<div class="plus"><a href="#"><i class="icon icon-pencil"></i></a></div>-->
-                    <div class="plus"><a href="../noticias/verNoticias.php">+</a></div>
+                    <div class="plus"><a href="../noticias/cadNoticia.php">+</a></div>
                 </div>
                 <table>
                     <?php
@@ -86,7 +86,7 @@ if($_SESSION['nivel'] == '3'){
             <div class="box eventos">
                 <div class="tit-box">
                     <strong>ÚLTIMOS</strong> EVENTOS CADASTRADOS
-                    <div class="plus"><a href="../eventos/verEventos.php">+</a></div>
+                    <div class="plus"><a href="../eventos/cadEvento.php">+</a></div>
                 </div>
                 <table>
                     <?php
@@ -112,7 +112,7 @@ if($_SESSION['nivel'] == '3'){
             <div class="box banners" style="background: #fff;">
                 <div class="tit-box">
                     <strong>ÚLTIMOS</strong> BANNERS
-                    <div class="plus"><a href="../banners/verBanners.php">+</a></div>
+                    <div class="plus"><a href="../banners/cadBanner.php">+</a></div>
                 </div>
                 <div style="width: 373px; height: 230px; margin: 0 auto; padding: 15px 0;">
                     <?php
@@ -155,7 +155,7 @@ if($_SESSION['nivel'] == '3'){
                 ?>
                 <div class="tit-box">
                     <strong>ÚLTIMOS</strong> DESTAQUES CADASTRADOS
-                    <div class="plus"><a href="../destaques/verDestaques.php">+</a></div>
+                    <div class="plus"><a href="../destaques/cadDestaque.php">+</a></div>
                 </div>
                 <table>
                     <?php
