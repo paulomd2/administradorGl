@@ -99,6 +99,8 @@ class CategoriasDAO extends Banco {
         
         $sql = "SELECT * FROM ".TBL_IMAGEM_RODAPE." WHERE idCategoria = ".$objImagem->getIdCategoria()." AND status != 0";
         
+        
+        
         $banco = $conexao->query($sql);
         
         $linhas = array();
@@ -131,7 +133,7 @@ class CategoriasDAO extends Banco {
     public function cadImagem($objImagem){
         $conexao = $this->abreConexao();
         
-       echo $sql = "INSERT INTO ".TBL_IMAGEM_RODAPE."
+        $sql = "INSERT INTO ".TBL_IMAGEM_RODAPE."
                 SET
                 idCategoria = ".$objImagem->getIdCategoria().",
                 nome = '".$objImagem->getNome()."',
@@ -174,6 +176,21 @@ class CategoriasDAO extends Banco {
                ";
         
         $conexao->query($sql);
+        
+        $this->fechaConexao();
+    }
+    
+    
+    public function ordenaImagem($listingCounter, $recordIDValue){
+        $conexao = $this->abreConexao();
+        
+        echo $sql = "
+                UPDATE ".TBL_IMAGEM_RODAPE." SET
+                ordem = ".$listingCounter."
+                    WHERE idImagem = ".$recordIDValue.";
+               ";
+        
+        $conexao->query($sql) or die($conexao->error);
         
         $this->fechaConexao();
     }

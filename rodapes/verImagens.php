@@ -6,14 +6,23 @@
         <?php include_once '../include/head.php'; ?>
         <script type="text/javascript" src="js/rodape.js"></script>
         <script type="text/javascript" src="../js/jquery-ui.js"></script>
+        <style>
+            #imagensOrdem li {
+                float: left;
+            }
+        </style>
+
         <script>
-            $(document).ready(function() {
-                $("#contentLeft ul").sortable({
+            $(document).ready(function () {
+                $("#imagensOrdem ul").sortable({
                     opacity: 0.6,
                     cursor: 'move',
-                    update: function() {
-                        var order = $(this).sortable("serialize") + '&opcao=ordena';
-                        $.post("control/controleCategorias.php", order, function(theResponse) {
+                    display: 'inline',
+                    update: function () {
+                        var order = $(this).sortable("serialize") + '&opcao=ordenaImagem';
+                        console.log(order);
+
+                        $.post("control/controleRodape.php", order, function (theResponse) {
                             console.log(theResponse);
                         });
                     }
@@ -23,16 +32,16 @@
         </script>
     </head>
     <body>
-        <?php 
+        <?php
         include_once '../include/header.php';
         include_once '../include/lateral.php';
         require_once '../model/banco.php';
         require_once './model/dao.php';
-        
+
         $id = $_GET['id'];
-        
+
         $objCategoria->setIdCategoria($id);
-        
+
         $categoria = $objRodapeDao->listaCategoria1($objCategoria)
         ?>
 
@@ -44,27 +53,17 @@
                 <a href="#"><?php echo $categoria['nome']; ?></a>
                 <a href="#">Ver Imagens</a>
             </div>
-            <div class="tenor">
+            <div class="tenor" style="width: auto!important;">
                 <h1>Todos as imagens</h1>
                 <a href="cadImagem.php?id=<?php echo $id; ?>" class="proPage">Cadastrar Imagem</a>
                 <input type="hidden" value="<?php echo $id; ?>" id="idCategoria" />
-                <table class="tableAll">
-                    <thead>
-                        <tr>
-                            <td style="width: 50%;">Nome</td>
-                            <td style="width: 30%;">Imagem</td>
-                            <td style="width: 10%;">Alterar</td>
-                            <td style="width: 10%;">Excluir</td>
-                        </tr>
-                    </thead>
-
-                    <tbody id="listaImagens">
+                <div class="allRodape">
+                    <div id="listaImagens">
                         <?php
                         require_once 'listaImagensAjax.php';
                         ?>
-                    </tbody>
-                </table>
-
+                    </div>
+                </div>
             </div>
         </div>
     </body>

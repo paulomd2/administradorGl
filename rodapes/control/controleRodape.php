@@ -76,7 +76,7 @@ switch ($opcao) {
 
             unset($_POST['opcao']);
             $post = implode('|', $_POST);
-            
+
             if ($imagem == false) {
                 echo "
                 <script>
@@ -105,7 +105,7 @@ switch ($opcao) {
                 $imagem = uploadImagem();
             }
 
-            
+
             $objImagem->setIdCategoria($idCategoria);
             $objImagem->setIdImagem($idImagem);
             $objImagem->setImagem($imagem);
@@ -128,18 +128,28 @@ switch ($opcao) {
                 $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'IMAGEM_RODAPÉ', $objImagem->getIdImagem(), date('Y-m-d H:i:s'));
                 echo '<script>window.location = "../verImagens.php?id=' . $idCategoria . '";</script>';
             }
-            
+
             break;
         }
-        
-        
+
+
     case 'excluirImagem':
         $idImagem = $_POST['idImagem'];
-        
+
         $objImagem->setIdImagem($idImagem);
-        
+
         $objRodapeDao->delImagem($objImagem);
         $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'IMAGEM_RODAPÉ', $objCategoria->getIdImagem(), date('Y-m-d H:i:s'));
+        break;
+
+    case 'ordenaImagem':
+        $updateRecordsArray = $_POST['recordsArray'];
+
+        $listingCounter = 1;
+        foreach ($updateRecordsArray as $recordIDValue) {
+            $objRodapeDao->ordenaImagem($listingCounter, $recordIDValue);
+            $listingCounter++;
+        }
         break;
 }
 
@@ -154,7 +164,7 @@ function uploadImagem() {
         $valido = false;
     } else {
         $imagemAntiga = '';
-        if(isset($_POST["imagemAntiga"])){
+        if (isset($_POST["imagemAntiga"])) {
             $imagemAntiga = '../../images/' . $_POST["imagemAntiga"];
         }
 

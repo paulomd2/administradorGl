@@ -38,26 +38,13 @@
                 <a href="cadCategoria.php" class="proPage">Cadastrar categoria</a>
                 Selecione o idioma:
                 <select id="selLingua">
-                    <option value="pt" <?php if($_SESSION['idioma'] == 'pt'){ echo 'selected'; } ?>>Portugês</option>
+                    <option value="pt" <?php if($_SESSION['idioma'] == 'pt'){ echo 'selected'; } ?>>Português</option>
                     <option value="en" <?php if($_SESSION['idioma'] == 'en'){ echo 'selected'; } ?>>Inglês</option>
                     <option value="es" <?php if($_SESSION['idioma'] == 'es'){ echo 'selected'; } ?>>Espanhol</option>
                 </select>
-                <table class="tableAll">
-                    <thead>
-                        <tr>
-                            <td>Categoria</td>
-                            <td style="width: 10%;">Alterar</td>
-                            <td style="width: 10%;">Excluir</td>
-                            <td style="width: 20%;">Ver imagem</td>
-                        </tr>
-                    </thead>
-
-                    <tbody id="listaCategorias">
-                        <?php
-                        require_once 'listaCategoriasAjax.php';
-                        ?>
-                    </tbody>
-                </table>
+                
+                <br/>
+                <div id="listaCategorias"></div>
 
             </div>
         </div>
