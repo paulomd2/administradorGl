@@ -91,3 +91,11 @@ div.login .form-home .recSenha a:hover{
     margin-top: 5px;
     display: none;
 }
+.novaSenha{
+    font-size: 14px;
+    color: #999999;
+    margin-bottom: 10px;
+}
+.voltarHome{
+    margin-right: 15px;
+}

@@ -13,11 +13,12 @@
                 <img src="http://www.portalgl.com.br/imagens/logo_glevents.png" alt="Nome avatar" />
             </figure>
             <form class="form-home" id="frmTrocarSenha">
-                <label>Digite seu e-mail:</label><br/><br/>
+                <label class="novaSenha">Digite seu e-mail:</label>
                 <fieldset>                    
                     <input type="text" name="email" id="email" class="login"/><br />
                 </fieldset>
                 <input type="button" value="Enviar" id="btnTrocarSenha"/>
+                <input type="button" value="voltar" onclick="location.href='index.php';" class="voltarHome"/> 
                 <span id="spanEmail" class="erro" style="margin-top: 10px"></span>
             </form>
         </div>        

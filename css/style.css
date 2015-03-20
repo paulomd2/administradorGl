@@ -591,3 +591,12 @@ a.linkIcon{
         text-decoration: none;*/
 }
 
+a.selecionado{
+    background: #999;
+    padding: 2px;
+    text-decoration: none;
+    color: white;
+}
+a.selecionado:hover{
+    background: #333;
+}
