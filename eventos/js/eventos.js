@@ -139,9 +139,9 @@ $(document).ready(function () {
 
 //        $("#listaReleases").load('listaReleasesAjax.php?count=' + limite); 
         if (evento == 'proximo') {
-            $("#listaEventosProximo").load('listaEventosAjax.php?count=' + count + '&d=Proximo&lingua=' + lingua+'&count='+limite);
+            $("#listaEventosProximo").load('listaEventosAjax.php?count=' + limite + '&d=Proximo&lingua=' + lingua);
         } else {
-            $("#listaEventosAnterior").load('listaEventosAjax.php?count=' + count + '&d=Anterior&lingua=' + lingua+'&count='+limite);
+            $("#listaEventosAnterior").load('listaEventosAjax.php?count=' + limite + '&d=Anterior&lingua=' + lingua);
         }
     });
 });
