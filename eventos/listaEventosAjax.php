@@ -60,8 +60,8 @@ for ($i = 1; $i < count($eventos); $i++) {
     }
     
     echo '
-            <tr>
-                <td '.$classe.'>' . $eventos[$i]["nome"] . '</td>
+            <tr '.$classe.'>
+                <td>' . $eventos[$i]["nome"] . '</td>
                 <td>' . $data . '</td>
                 <td><a href="altEvento.php?id=' . $eventos[$i]["idEvento"] . '">Alterar</a></td>
                 <td><a href="javascript:delEvento(' . $eventos[$i]["idEvento"] . ')">Excluir</a></td>
