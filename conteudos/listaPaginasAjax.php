@@ -11,8 +11,8 @@ for ($i = 0; $i < count($paginas); $i++) {
                 $classe = 'desabilitado';
             }
     echo '
-        <tr>
-            <td class="'.$classe.'">' . $paginas[$i]["titulo"] . '</td>
+        <tr class="'.$classe.'">
+            <td>' . $paginas[$i]["titulo"] . '</td>
             <td><a href="altPagina.php?id=' . $paginas[$i]['idPagina'] . '">Alterar</a></td>
             <td><a href="javascript:delPagina(' . $paginas[$i]["idPagina"] . ')">Excluir</a></td>
          </tr>';

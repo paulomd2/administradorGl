@@ -3,7 +3,7 @@ idioma = 'pt';
 function delMenu(id) {
     if (confirm("Você tem certeza que deseja excluir esse Menu?") == true) {
         $.post('control/controleConteudo.php', {opcao: 'excluirMenu', idMenu: id});
-        $("#listaMenus").load('listaMenuAjax.php?lingua='+idioma);
+        $("#listaMenus").load('listaMenuAjax.php?lingua=' + idioma);
     }
 }
 
@@ -59,7 +59,7 @@ $(document).ready(function () {
         } else if (status == '') {
             $("#status").focus();
             $("#spanStatus").html('Você precisa selecionar um Status').css('display', 'inline-block');
-        }else if (link == '' && texto == '') {
+        } else if (link == '' && texto == '') {
             $("#spanBtn").html('Você precisa preencher o Link ou o texto, por favor preencha apenas uma opção').css('display', 'inline-block');
         } else if (link !== '' && texto !== '') {
             $("#spanBtn").html('Você preencheu o Link e o texto, por favor preencha apenas uma opção').css('display', 'inline-block');
@@ -130,11 +130,11 @@ $(document).ready(function () {
         } else if (target == '') {
             $("#target").focus();
             $("#spanTarget").html('Você deve selecionar um Target!').css('display', 'inline-block');
-        } else if(status == ''){
+        } else if (status == '') {
             $("#status").focus();
             $("#spanStatus").html('Você deve selecionar um Status!').css('display', 'inline-block');
         } else {
-            $.post('control/controleConteudo.php', {opcao: 'cadastrarMenu', titulo: titulo, link: link, target: target, status:status,lingua: lingua});
+            $.post('control/controleConteudo.php', {opcao: 'cadastrarMenu', titulo: titulo, link: link, target: target, status: status, lingua: lingua});
             window.location = 'index.php';
         }
     });
@@ -154,11 +154,11 @@ $(document).ready(function () {
         } else if (target == '') {
             $("#target").focus();
             $("#spanTarget").html('Você deve selecionar um Target!').css('display', 'inline-block');
-        } else if(status == ''){
+        } else if (status == '') {
             $("#status").focus();
             $("#spanStatus").html('Você deve selecionar um Status!').css('display', 'inline-block');
         } else {
-            $.post('control/controleConteudo.php', {opcao: 'alterarMenu', titulo: titulo, link: link, idMenu: idMenu, target: target, status:status, lingua: lingua});
+            $.post('control/controleConteudo.php', {opcao: 'alterarMenu', titulo: titulo, link: link, idMenu: idMenu, target: target, status: status, lingua: lingua});
             window.location = 'index.php';
         }
     });
@@ -166,7 +166,7 @@ $(document).ready(function () {
 
     $("#btnCadastrarPagina").click(function () {
         CKEDITOR.instances.texto.updateElement();
-        CKEDITOR.instances.descricaoMetaTag.updateElement();
+//        CKEDITOR.instances.descricaoMetaTag.updateElement();
 
         var titulo = $("#titulo").val().trim();
         var link = $("#link").val().trim();
@@ -176,7 +176,7 @@ $(document).ready(function () {
         var status = $("#status").val();
         var tituloMetaTag = $("#tituloMetaTag").val().trim();
         var keywordsMetaTag = $("#keywordsMetaTag").val().trim();
-        var descricaoMetaTag = CKEDITOR.instances.descricaoMetaTag.getData();
+        var descricaoMetaTag = $("#descricaoMetaTag").val().trim();
 
 
         $(".erro").html('').css('display', 'none');
@@ -201,7 +201,7 @@ $(document).ready(function () {
 
     $("#btnAlterarPagina").click(function () {
         CKEDITOR.instances.texto.updateElement();
-        CKEDITOR.instances.descricaoMetaTag.updateElement();
+//        CKEDITOR.instances.descricaoMetaTag.updateElement();
 
         var idPagina = $("#idPagina").val();
         var titulo = $("#titulo").val().trim();
@@ -212,7 +212,8 @@ $(document).ready(function () {
         var status = $("#status").val();
         var tituloMetaTag = $("#tituloMetaTag").val().trim();
         var keywordsMetaTag = $("#keywordsMetaTag").val().trim();
-        var descricaoMetaTag = CKEDITOR.instances.descricaoMetaTag.getData();
+//        var descricaoMetaTag = CKEDITOR.instances.descricaoMetaTag.getData();
+        var descricaoMetaTag = $("#descricaoMetaTag").val().trim();
 
 
         $(".erro").html('').css('display', 'none');
@@ -247,11 +248,11 @@ $(document).ready(function () {
             }
         })
     });
-    
-    
-    $("#selLingua").change(function(){
+
+
+    $("#selLingua").change(function () {
         idioma = $("#selLingua").val();
-        
-        $("#listaMenus").load('listaMenuAjax.php?lingua='+idioma);
+
+        $("#listaMenus").load('listaMenuAjax.php?lingua=' + idioma);
     });
 });
