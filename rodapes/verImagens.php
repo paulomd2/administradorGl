@@ -54,7 +54,7 @@
                 <a href="#">Ver Imagens</a>
             </div>
             <div class="tenor" style="width: auto!important;">
-                <h1>Todos as imagens</h1>
+                <h1><?php echo $categoria['nome']; ?></h1>
                 <a href="cadImagem.php?id=<?php echo $id; ?>" class="proPage">Cadastrar Imagem</a>
                 <input type="hidden" value="<?php echo $id; ?>" id="idCategoria" />
                 <div class="allRodape">
