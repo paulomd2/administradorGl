@@ -5,7 +5,13 @@ class BlogDAO extends Banco{
     public function listaPostagens($id){
         $conexao = $this->abreConexao();
         
-        $sql = " SELECT * FROM ".TBL_BLOG_POSTAGEM." WHERE status = 1 AND idUsuario = ".$id;
+        if($id != 0){
+            $where = 'AND idUsuario = '.$id;
+        }else{
+            $where = '';
+        }
+        
+        $sql = " SELECT * FROM ".TBL_BLOG_POSTAGEM." WHERE status != 0 ".$where;
         
         $banco = $conexao->query($sql);
         
