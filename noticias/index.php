@@ -33,7 +33,7 @@ setcookie("ck_authorized", "true", 0, "/");
                             <td style="width: 10%;">Excluir</td>
                         </tr>
                     </thead>
-                    <tbody id="listaNoticias"></tbody>
+                    <tbody id="listaNoticiasIndex"></tbody>
                 </table>
 
                 <hr/>

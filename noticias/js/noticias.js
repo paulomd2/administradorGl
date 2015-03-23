@@ -1,4 +1,4 @@
-function paginacao(pagina){
+function paginacao(pagina) {
     var count = $("#numNoticias").val();
 
     $("#listaNoticias").load('listaNoticiasAjax.php?count=' + count + '&pagina=' + pagina);
@@ -41,7 +41,11 @@ $(document).ready(function () {
         $("#publicacao").val(ano + '-' + mes + '-' + dia);
     }
 
-    $("#listaNoticias").load('listaNoticiasAjax.php?count=' + count);
+    if ($("#listaNoticias").length) {
+        $("#listaNoticias").load('listaNoticiasAjax.php?count=10');
+    }else{
+        $("#listaNoticiasIndex").load('listaNoticiasAjaxIndex.php');
+    }
 //    $("#listaNoticias").load('listaNoticiasAjax.php');
 
     $("#btnCadastrar").click(function () {
@@ -108,10 +112,10 @@ $(document).ready(function () {
             window.location = 'verNoticias.php';
         }
     });
-    
-    $("#numNoticias").change(function(){
-       var limite = $("#numNoticias").val();
 
-        $("#listaNoticias").load('listaNoticiasAjax.php?count=' + limite); 
+    $("#numNoticias").change(function () {
+        var limite = $("#numNoticias").val();
+
+        $("#listaNoticias").load('listaNoticiasAjax.php?count=' + limite);
     });
 });

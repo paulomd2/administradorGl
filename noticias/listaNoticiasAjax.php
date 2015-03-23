@@ -45,7 +45,7 @@ for ($i = 0; $i < count($noticias); $i++) {
           </tr>';
 }
 
-if ($count >= 10) {
+if ($count < $quantidade) {
     echo '<tr>
             <td colspan="4" style="text-align:center">' . $paginas . '</td>
         </tr>';
