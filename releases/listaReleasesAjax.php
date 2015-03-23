@@ -3,7 +3,7 @@
 require_once '../model/banco.php';
 require_once 'model/dao.php';
 
- $count = $_GET['count'];
+$count = $_GET['count'];
 
 if (isset($_GET['pagina'])) {
     $pagina = $_GET['pagina'];

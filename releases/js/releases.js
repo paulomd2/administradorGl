@@ -2,7 +2,7 @@ count = '';
 
 function paginacao(pagina) {
     var count = $("#numRelease").val();
-    
+
     $("#listaReleases").load('listaReleasesAjax.php?count=' + count + '&pagina=' + pagina);
 }
 
@@ -20,14 +20,19 @@ function delReleaseBusca(id, busca) {
 function delRelease(id) {
     if (confirm("Você tem certeza que deseja excluir esse release?") == true) {
         $.post('control/controleReleases.php', {opcao: 'excluir', idRelease: id});
-        $("#listaReleases").load('listaReleasesAjax.php?count=' + count + '&lingua=' + idioma);
+        var idioma = $("#selIdioma").val();
+        
+        if ($("#listaReleases").length) {
+            $("#listaReleases").load('listaReleasesAjax.php?count=' + count + '&lingua=' + idioma);
+        } else {
+            $("#listaReleasesIndex").load('listaReleasesAjaxIndex.php?count=' + count + '&lingua=' + idioma);
+        }
     }
 }
 $(document).ready(function () {
     url = document.URL;
     split = url.split('/');
     pagina = split[split.length - 1];
-    idioma = 'pt';
 
     if (pagina == 'verReleases.php') {
         count = 10;
@@ -35,8 +40,11 @@ $(document).ready(function () {
         count = 5;
     }
 
-    $("#listaReleases").load('listaReleasesAjax.php?count=' + count);
-    console.log(count);
+    if ($("#listaReleases").length) {
+        $("#listaReleases").load('listaReleasesAjax.php?count=' + count);
+    } else {
+        $("#listaReleasesIndex").load('listaReleasesAjaxIndex.php?count=' + count);
+    }
 
 
     var data = new Date();
@@ -109,7 +117,7 @@ $(document).ready(function () {
 
     $("#selIdioma").change(function () {
         var pagina = split[split.length - 1];
-        idioma = $("#selIdioma").val();
+        var idioma = $("#selIdioma").val();
 
         count = '';
         if (pagina == 'verReleases.php') {
@@ -121,11 +129,11 @@ $(document).ready(function () {
 
         $("#listaReleases").load('listaReleasesAjax.php?count=' + count + '&lingua=' + idioma);
     });
-    
-    
-    $("#numRelease").change(function(){
-       var limite = $("#numRelease").val();
 
-        $("#listaReleases").load('listaReleasesAjax.php?count=' + limite); 
+
+    $("#numRelease").change(function () {
+        var limite = $("#numRelease").val();
+
+        $("#listaReleases").load('listaReleasesAjax.php?count=' + limite);
     });
 });

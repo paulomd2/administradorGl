@@ -18,7 +18,7 @@ setcookie("ck_authorized", "true", 0, "/");
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="/">Releases</a>
+                <a href="./">Releases</a>
                 <a href="#">Todos os releases</a>
             </div>
             <div class="tenor">
@@ -29,13 +29,13 @@ setcookie("ck_authorized", "true", 0, "/");
                     <option value="pt" <?php if($_SESSION['idioma'] == 'pt'){ echo 'selected'; } ?>>Português</option>
                     <option value="en" <?php if($_SESSION['idioma'] == 'en'){ echo 'selected'; } ?>>Inglês</option>
                     <option value="es" <?php if($_SESSION['idioma'] == 'es'){ echo 'selected'; } ?>>Espanhol</option>
-                </select>
+                </select><br />
                 Exibir por página <select id="numRelease">
                     <option value="10">10</option>
                     <option value="25">25</option>
                     <option value="50">50</option>
                     <option value="100">100</option>
-                </select>
+                </select><br /><br />
                 <table class="tableAll">
                     <thead>
                         <tr>

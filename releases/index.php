@@ -60,10 +60,7 @@ setcookie("ck_authorized", "true", 0, "/");
                         </tr>
                     </thead>
 
-                    <tbody id="listaReleases">
-<?php
-//include_once 'listaReleasesAjax.php';
-?>
+                    <tbody id="listaReleasesIndex">
                     </tbody>
                 </table>
 
