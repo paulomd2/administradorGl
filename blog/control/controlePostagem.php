@@ -19,7 +19,7 @@ switch ($opcao) {
 
             $dataCadastro = date('Y-m-d H:i:s');
             //$idUsuario = $_SESSION['id'];
-            $idUsuario = 1;
+            $idUsuario = $_SESSION['id'];
             $imagem = uploadImagem();
             $tagSeo = $_POST['tagSeo'];
             $descricaoSeo = $_POST['descricaoSeo'];
