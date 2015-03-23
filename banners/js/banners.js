@@ -1,17 +1,23 @@
+function paginacao(pagina) {
+    var count = $("#numBanner").val();
+    
+    $("#listaBanners").load('listaBannersAjax.php?count=' + count + '&pagina=' + pagina);
+}
+
 function delBanner(id) {
     if (confirm("Você tem certeza que deseja excluir esse banner?") == true) {
         $.post('control/controleBanners.php', {opcao: 'excluir', idBanner: id});
         var lingua = $("#selLingua").val();
-        $("#listaBanners").load('listaBannersAjax.php?lingua='+lingua);
+        $("#listaBanners").load('listaBannersAjax.php?lingua=' + lingua);
     }
 }
 
 
-function delBannerBusca(id,busca) {
+function delBannerBusca(id, busca) {
     if (confirm("Você tem certeza que deseja excluir esse banner?") == true) {
         $.post('../banners/control/controleBanners.php', {opcao: 'excluir', idBanner: id});
-        
-        $("#bannersBusca").load('listaBuscaAjax.php?modulo=banners&busca='+busca);
+
+        $("#bannersBusca").load('listaBuscaAjax.php?modulo=banners&busca=' + busca);
     }
 }
 $(document).ready(function () {
@@ -20,10 +26,10 @@ $(document).ready(function () {
     var mes = data.getMonth() + 1;
     mes = '0' + mes;
     var ano = data.getFullYear();
-    if($("#dataPublicacao").length && $("#dataPublicacao").val() == ''){
+    if ($("#dataPublicacao").length && $("#dataPublicacao").val() == '') {
         $("#dataPublicacao").val(ano + '-' + mes + '-' + dia);
     }
-    
+
     $("#btnCadastrar").click(function () {
         var nome = $("#nome").val().trim();
         var link = $("#link").val().trim();
@@ -32,7 +38,7 @@ $(document).ready(function () {
         var dataEntrada = $("#dataPublicacao").val();
         var dataSaida = $("#dataSaida").val();
         var imagem = $("#imagem").val();
-        
+
         $(".erro").html('');
         if (nome == '') {
             $("#nome").focus();
@@ -40,20 +46,20 @@ $(document).ready(function () {
         } else if (link == '') {
             $("#link").focus();
             $("#spanLink").html('Você deve preencher o Link!');
-        } else if(target == ''){
+        } else if (target == '') {
             $("#target").focus();
             $("#spanTarget").html('Você deve selecionar o Target!');
-        }else if (status == '') {
+        } else if (status == '') {
             $("#status").focus();
             $("#spanStatus").html('Você deve selecionar o Status!');
-        } else if(dataEntrada == ''){
+        } else if (dataEntrada == '') {
             $("#dataPublicacao").focus();
             $("#spanDataPublicacao").html('Você deve selecionar a data de Publicação!');
         } else if (imagem == '') {
             $("#imagem").focus();
             $("#spanImagem").html('Você deve selecionsr a Imagem!');
         } else {
-           $("#cadBanner").submit();
+            $("#cadBanner").submit();
         }
     });
 
@@ -65,7 +71,7 @@ $(document).ready(function () {
         var dataEntrada = $("#dataPublicacao").val();
         var dataSaida = $("#dataSaida").val();
         var imagem = $("#imagem").val();
-        
+
         $(".erro").html('');
         if (nome == '') {
             $("#nome").focus();
@@ -73,22 +79,30 @@ $(document).ready(function () {
         } else if (link == '') {
             $("#link").focus();
             $("#spanLink").html('Você deve preencher o Link!');
-        } else if(target == ''){
+        } else if (target == '') {
             $("#target").focus();
             $("#spanTarget").html('Você deve selecionar o Target!');
-        }else if (status == '') {
+        } else if (status == '') {
             $("#status").focus();
             $("#spanStatus").html('Você deve selecionar o Status!');
-        } else if(dataEntrada == ''){
+        } else if (dataEntrada == '') {
             $("#dataPublicacao").focus();
             $("#spanDataPublicacao").html('Você deve selecionar a data de Publicação!');
         } else {
-           $("#altBanner").submit();
+            $("#altBanner").submit();
         }
     });
-    
-    $("#selLingua").change(function(){
+
+    $("#selLingua").change(function () {
         var lingua = $("#selLingua").val();
-        $("#listaBanners").load('listaBannersAjax.php?lingua='+lingua);
+        $("#listaBanners").load('listaBannersAjax.php?lingua=' + lingua);
     });
+
+
+    $("#numBanner").change(function () {
+        var limite = $("#numBanner").val();
+        var lingua = $("#selLingua").val();
+
+        $("#listaBanners").load('listaBannersAjax.php?count=' + limite + '&d=Proximo&lingua=' + lingua);
+    })
 });

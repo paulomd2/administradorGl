@@ -67,15 +67,31 @@ class BannersDAO extends Banco {
 
         $this->fechaConexao();
     }
+    
+    
+    public function numBanners($lingua){
+        $conexao = $this->abreConexao();
+        
+        $sql = "SELECT COUNT(*) AS quantidade FROM ".TBL_BANNER." WHERE lingua = '".$lingua."'";
+        
+        $banco = $conexao->query($sql);
+        
+        $linha = $banco->fetch_assoc();
+        
+        return $linha['quantidade'];
+        
+        $this->fechaConexao();
+    }
 
-    public function listaBanners($lingua) {
+    public function listaBanners($lingua, $paginacao = 10) {
         $conexao = $this->abreConexao();
 
         $sql = 'SELECT *
                     FROM' . TBL_BANNER . '
                         WHERE status != 0
                         AND lingua = "'.$lingua.'"
-                            ORDER BY ordem';
+                            ORDER BY ordem
+                            LIMIT '.$paginacao;
         $banco = $conexao->query($sql);
 
         $linhas = array();

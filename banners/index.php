@@ -54,20 +54,20 @@
                 <a href="cadBanner.php" class="proPage">Cadastrar banner</a>
                 Selecione o idioma:
                 <select id="selLingua">
-                    <option value="pt" <?php if ($_SESSION['idioma'] == 'pt') {
-            echo 'selected';
-        } ?>>Português</option>
-                    <option value="en" <?php if ($_SESSION['idioma'] == 'en') {
-            echo 'selected';
-        } ?>>Inglês</option>
-                    <option value="es" <?php if ($_SESSION['idioma'] == 'es') {
-                        echo 'selected';
-                    } ?>>Espanhol</option>
-                </select>
+                    <option value="pt" <?php if ($_SESSION['idioma'] == 'pt') { echo 'selected'; } ?>>Português</option>
+                    <option value="en" <?php if ($_SESSION['idioma'] == 'en') { echo 'selected'; } ?>>Inglês</option>
+                    <option value="es" <?php if ($_SESSION['idioma'] == 'es') { echo 'selected'; } ?>>Espanhol</option>
+                </select><br />
+                Exibir por página <select id="numBanner">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select><br /><br />
                 <div id="listaBanners">
-<?php
-require_once 'listaBannersAjax.php';
-?>
+                    <?php
+                    require_once 'listaBannersAjax.php';
+                    ?>
                 </div>
             </div>
         </div>
