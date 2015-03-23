@@ -97,7 +97,7 @@ class CategoriasDAO extends Banco {
     public function listaImagens($objImagem){
         $conexao = $this->abreConexao();
         
-        $sql = "SELECT * FROM ".TBL_IMAGEM_RODAPE." WHERE idCategoria = ".$objImagem->getIdCategoria()." AND status != 0";
+        $sql = "SELECT * FROM ".TBL_IMAGEM_RODAPE." WHERE idCategoria = ".$objImagem->getIdCategoria()." AND status != 0 ORDER BY ordem";
         
         
         

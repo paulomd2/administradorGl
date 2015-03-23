@@ -47,7 +47,7 @@
                             <td style="width: 20%;">Ver imagem</td>
                         </tr>
                     </thead>
-                    <tbody id="listaCategorias"></tbody>
+                    <tbody id="listaCategoriasIndex"></tbody>
                 </table>
                 <hr/>
                 <h1>Cadastrar Categoria</h1>

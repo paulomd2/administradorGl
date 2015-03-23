@@ -8,7 +8,7 @@
         if (isset($_GET['count'])) {
             $count = $_GET['count'];
         } else {
-            $count = 100;
+            $count = 10;
         }
 
         if (isset($_GET['lingua'])) {
@@ -26,13 +26,6 @@
                 $classe = 'desabilitado';
             }
 
-//    echo '<tr>
-//            <td '.$classe.'>' . utf8_encode($categorias[$i]["nome"]). '</td>
-//            <td><a href="altCategoria.php?id=' . $categorias[$i]["idCategoria"] . '">Alterar</a></td>
-//            <td><a href="javascript:delCategoria(' . $categorias[$i]["idCategoria"] . ')">Excluir</a></td>
-//            <td><a href="verImagens.php?id=' . $categorias[$i]["idCategoria"] . '">Ver imagens</a></td>
-//          </tr>';
-
             echo '<li id="recordsArray_' . $categorias[$i]["idCategoria"] . '">
                     <div class="lista_rodape ' . $classe . '" >
                         <span class="titMenu">' . utf8_encode($categorias[$i]["nome"]) . '</span>
@@ -43,7 +36,5 @@
                 </li>';
         }
         ?>
-
-
     </ul>
 </div>

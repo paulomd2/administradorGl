@@ -1,19 +1,12 @@
-var url = document.URL;
-var split = url.split('/');
-var pagina = split[split.length - 1];
+url = document.URL;
+split = url.split('/');
+pagina = split[split.length - 1];
 lingua = 'pt';
-
-count = '';
-if (pagina == 'verDestaques.php') {
-    count = 500;
-} else {
-    count = 5;
-}
 
 function delCategoria(id) {
     if (confirm("Você tem certeza que deseja excluir essa categoria?") == true) {
         $.post('control/controleRodape.php', {opcao: 'excluirCategoria', idCategoria: id});
-        $("#listaCategorias").load('listaCategoriasAjax.php?count=' + count+'&lingua='+lingua);
+        $("#listaCategorias").load('listaCategoriasAjax.php?lingua=' + lingua);
     }
 }
 
@@ -22,13 +15,17 @@ function delImagem(id) {
         $.post('control/controleRodape.php', {opcao: 'excluirImagem', idImagem: id});
 
         var idCategoria = $("#idCategoria").val();
-        $("#listaImagens").load('listaImagensAjax.php?count=' + count + '&id=' + idCategoria);
+        $("#listaImagens").load('listaImagensAjax.php?id=' + idCategoria);
     }
 }
 
 $(document).ready(function () {
-    $("#listaCategorias").load('listaCategoriasAjax.php?count=' + count);
-
+    if ($("#listaCategorias").length) {
+        $("#listaCategorias").load('listaCategoriasAjax.php');
+    }else{
+        $("#listaCategoriasIndex").load('listaCategoriasAjaxIndex.php');
+    }
+    
     $("#btnCadastrarCategoria").click(function () {
         var nome = $("#nome").val().trim();
         var identificador = $("#identificador").val();
@@ -62,11 +59,8 @@ $(document).ready(function () {
             $("#status").focus();
             $("#spanStatus").html('Você deve selecionsr um status!').css('display', 'inline-block');
         } else {
-            $.post('control/controleRodape.php', {opcao: 'alterarCategoria', idCategoria: idCategoria, nome: nome, status: status, lingua: lingua},
-            function (r) {
-                console.log(r);
-            });
-            //window.location = 'verCategorias.php';
+            $.post('control/controleRodape.php', {opcao: 'alterarCategoria', idCategoria: idCategoria, nome: nome, status: status, lingua: lingua});
+            window.location = 'verCategorias.php';
         }
     });
 
@@ -111,15 +105,7 @@ $(document).ready(function () {
 
     $("#selLingua").change(function () {
         lingua = $("#selLingua").val();
-        var pagina = split[split.length - 1];
 
-        count = '';
-        if (pagina == 'verDestaques.php') {
-            count = 500;
-        } else {
-            count = 5;
-        }
-
-        $("#listaCategorias").load('listaCategoriasAjax.php?count=' + count+'&lingua='+lingua);
+        $("#listaCategorias").load('listaCategoriasAjax.php?&lingua=' + lingua);
     });
 });
