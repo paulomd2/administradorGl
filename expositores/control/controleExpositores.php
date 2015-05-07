@@ -11,7 +11,7 @@ switch ($opcao) {
         $estande = $_POST['estande'];
         $link = $_POST['link'];
         $dataPublicacao = $_POST['dataPublicacao'];
-        $dataCadastro = date('Y-m-d H:is');
+        $dataCadastro = date('Y-m-d H:i:s');
         $imagem = uploadImagem();
         $status = $_POST['status'];
 
@@ -42,7 +42,7 @@ switch ($opcao) {
         $estande = $_POST['estande'];
         $link = $_POST['link'];
         $dataPublicacao = $_POST['dataPublicacao'];
-        $dataCadastro = date('Y-m-d H:is');
+        $dataCadastro = date('Y-m-d H:i:s');
         $idExpositor = $_POST['idExpositor'];
         $imagem = '';
         $status = $_POST['status'];
