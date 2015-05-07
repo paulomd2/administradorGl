@@ -23,18 +23,13 @@
         <div class="main-admin">
             <div class="guia-site">
                 <a href="../home/"><i class="icon icon-home"></i> Home</a>
-                <a href="./">Expositor</a>
-                <a href="#">Cadastrar expositor</a>
+                <a href="./">Palestrante</a>
+                <a href="#">Cadastrar Palestrante</a>
             </div>
             <div class="tenor" style="overflow: hidden!important;">
-                <h1>Cadastrar Expositor</h1>
-                <a href="verExpositores.php" class="proPage">Todos os expositores</a>
-                <?php
-                if(isset($_GET['errorId']) && $_GET['errorId'] == 50) {
-                    echo '<span class="erro" style="display:inline-block !important">a imagem não pode ser maior que 200Kb</span>';
-                }
-                ?>
-                <form name="cadExpositor" id="cadExpositor" action="control/controleExpositores.php" enctype="multipart/form-data" method="post" class="tableform">
+                <h1>Cadastrar Palestrante</h1>
+                <a href="verPalestrantes.php" class="proPage">Todos os palestrantes</a>
+                <form name="cadPalestrante" id="cadPalestrante" action="control/controlePalestrantes.php" enctype="multipart/form-data" method="post" class="tableform">
                     <input type="hidden" value="cadastrar" name="opcao" id="opcao" />
                     <table class="tableform">
                         <tr>
@@ -45,24 +40,24 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Link:</td>
+                            <td>Cargo:</td>
                             <td>
-                                <input type="text" name="link" id="link" /><br />
-                                <span id="spanLink" class="erro"></span>
+                                <input type="text" name="cargo" id="cargo" /><br />
+                                <span id="spanCargo" class="erro"></span>
                             </td>
                         </tr>
                         <tr>
-                            <td>Estande:</td>
+                            <td>Texto:</td>
                             <td>
-                                <input type="text" name="estande" id="estande" /><br />
+                                <textarea name="curriculo" id="curriculo"></textarea><br />
                                 <span id="spanEstande" class="erro"></span>
                             </td>
                         </tr>
                         <tr>
-                            <td>Data de Publicação:</td>
+                            <td>Imagem:</td>
                             <td>
-                                <input type="date" name="dataPublicacao" id="dataPublicacao" /><br />
-                                <span id="spanDataPublicacao" class="erro"></span>
+                                <input type="file" name="imagem" id="imagem" /><br />
+                                <span id="spanImagem" class="erro"></span>
                             </td>
                         </tr>
                         <tr>
@@ -74,13 +69,6 @@
                                     <option value="2">Desabilitado</option>
                                 </select><br />
                                 <span id="spanStatus" class="erro"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Imagem:</td>
-                            <td>
-                                <input type="file" name="imagem" id="imagem" /><br />
-                                <span id="spanImagem" class="erro"></span>
                             </td>
                         </tr>
                         <tr>

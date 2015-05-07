@@ -8,10 +8,9 @@ $opcao = $_POST['opcao'];
 switch ($opcao) {
     case 'cadastrar':
         $nome = $_POST['nome'];
-        $estande = $_POST['estande'];
-        $link = $_POST['link'];
-        $dataPublicacao = $_POST['dataPublicacao'];
-        $dataCadastro = date('Y-m-d H:is');
+        $texto = $_POST['estande'];
+        $cargo = $_POST['link'];
+        $data = date('Y-m-d H:is');
         $imagem = uploadImagem();
         $status = $_POST['status'];
 
@@ -21,16 +20,15 @@ switch ($opcao) {
                     window.history.back();
                 </script>";
         } else {
-            $objExpositor->setImagem($imagem);
-            $objExpositor->setNome($nome);
-            $objExpositor->setLink($link);
-            $objExpositor->setEstande($estande);
-            $objExpositor->setDataPublicacao($dataPublicacao);
-            $objExpositor->setDataCadastro($dataCadastro);
-            $objExpositor->setStatus($status);
+            $objPalestrante->setImagem($imagem);
+            $objPalestrante->setNome($nome);
+            $objPalestrante->setTexto($texto);
+            $objPalestrante->setCargo($cargo);
+            $objPalestrante->setData($data);
+            $objPalestrante->setStatus($status);
 
-            $objExpositorDao->cadExpositor($objExpositor);
-            $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'EXPOSITORES', 0, $dataCadastro);
+            $objPalestranteDao->cadExpositor($objPalestrante);
+            $objLogDao->cadLog($_SESSION['id'], 'CADASTROU', 'PALESTRANTES', 0, $dataCadastro);
             
             echo '<script>window.location = "../verExpositores.php";</script>';
         }
@@ -39,13 +37,11 @@ switch ($opcao) {
 
     case 'alterar':
         $nome = $_POST['nome'];
-        $estande = $_POST['estande'];
-        $link = $_POST['link'];
-        $dataPublicacao = $_POST['dataPublicacao'];
-        $dataCadastro = date('Y-m-d H:is');
-        $idExpositor = $_POST['idExpositor'];
+        $texto = $_POST['estande'];
+        $cargo = $_POST['link'];
         $imagem = '';
         $status = $_POST['status'];
+        $idPalestrante = $_POST['idPalestrante'];
         
         if($_FILES['imagem']['name'] == ''){
             $imagem = $_POST['imagemAntiga'];
@@ -59,42 +55,40 @@ switch ($opcao) {
                     window.history.back();
                 </script>";
         } else {
-            $objExpositor->setImagem($imagem);
-            $objExpositor->setNome($nome);
-            $objExpositor->setLink($link);
-            $objExpositor->setEstande($estande);
-            $objExpositor->setDataPublicacao($dataPublicacao);
-            $objExpositor->setDataCadastro($dataCadastro);
-            $objExpositor->setStatus($status);
-            $objExpositor->setIdExpositor($idExpositor);
+            $objPalestrante->setImagem($imagem);
+            $objPalestrante->setNome($nome);
+            $objPalestrante->setTexto($texto);
+            $objPalestrante->setCargo($cargo);
+            $objPalestrante->setStatus($status);
+            $objPalestrante->setIdPalestrante($idPalestrante);
 
-            $objExpositorDao->altExpositor($objExpositor);
-            $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'EXPOSITORES', $objExpositor->getIdExpositor($idExpositor), date('Y-m-d H:i:s'));
+            $objPalestranteDao->altExpositor($objPalestrante);
+            $objLogDao->cadLog($_SESSION['id'], 'ALTEROU', 'PALESTRANTES', $objPalestrante->getIdPalestrante($idExpositor), date('Y-m-d H:i:s'));
             
             echo '<script>window.location = "../verExpositores.php";</script>';
         }
         break;
 
     case 'excluir':
-        $idExpositor = $_POST['idExpositor'];
+        $idPalestrante = $_POST['idPalestrante'];
 
-        $objExpositor->setIdExpositor($idExpositor);
+        $objPalestrante->setIdExpositor($idExpositor);
 
-        $objExpositorDao->delExpositor($objExpositor);
-        $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'EXPOSITORES', $objExpositor->getIdExpositor($idExpositor), date('Y-m-d H:i:s'));
+        $objPalestranteDao->delExpositor($objPalestrante);
+        $objLogDao->cadLog($_SESSION['id'], 'EXCLUIU', 'PALESTRANTES', $objPalestrante->getIdPalestrante($idExpositor), date('Y-m-d H:i:s'));
         break;
 
-    case 'ordena':
-        $action = mysql_real_escape_string($_POST['action']);
-        $updateRecordsArray = $_POST['recordsArray'];
-
-        $listingCounter = 1;
-        foreach ($updateRecordsArray as $recordIDValue) {
-            $objExpositorDao->ordenaExpositor($listingCounter, $recordIDValue);
-            $listingCounter++;
-        }
-
-        break;
+//    case 'ordena':
+//        $action = mysql_real_escape_string($_POST['action']);
+//        $updateRecordsArray = $_POST['recordsArray'];
+//
+//        $listingCounter = 1;
+//        foreach ($updateRecordsArray as $recordIDValue) {
+//            $objPalestranteDao->ordenaExpositor($listingCounter, $recordIDValue);
+//            $listingCounter++;
+//        }
+//
+//        break;
 }
 
 function uploadImagem() {

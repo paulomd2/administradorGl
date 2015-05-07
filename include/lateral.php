@@ -170,6 +170,11 @@ if (array_search('eventos', $diretorio) || array_search('verEventos', $diretorio
                     echo 'class="ativo"';
                 }
                 ?>><i class="icon icon-image"></i> Expositores</a></li>
+            <li><a href="../palestrantes/" <?php
+                if (array_search('palestrantes', $diretorio) == true) {
+                    echo 'class="ativo"';
+                }
+                ?>><i class="icon icon-image"></i> Palestrantes</a></li>
             <li><a href="../caravanas/" <?php
                 if (array_search('caravanas', $diretorio) == true) {
                     echo 'class="ativo"';

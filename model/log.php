@@ -1,5 +1,4 @@
-<?php
-
+<?php 
 class Log extends Banco{
     public function cadLog($idUsuario, $acao, $modulo, $idModulo, $dataCadastro){
         $conexao = $this->abreConexao();
@@ -13,7 +12,9 @@ class Log extends Banco{
                 dataCadastro = '".$dataCadastro."'
                ";
         
-        $conexao->query($sql) or die("Erro nos logs ".$conexao->error);
+        $conexao->query($sql) or die("Erro nos logs ".$conexao->error. ' '.$sql);
+        
+        $this->fechaConexao();
     }
 }
 

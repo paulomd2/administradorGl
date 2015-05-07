@@ -1,22 +1,20 @@
 <?php
 
-class Expositor {
+class Palestrante {
 
-    private $idExpositor;
+    private $idPalestrante;
     private $nome;
     private $imagem;
-    private $dataPublicacao;
-    private $link;
-    private $estande;
-    private $dataCadastro;
-    private $ordem;
+    private $data;
+    private $curriculo;
+    private $cargo;
     private $status;
 
-    function getIdExpositor() {
-        return $this->idExpositor;
+    function getIdPalestrante() {
+        return $this->idPalestrante;
     }
-    function setIdExpositor($idExpositor) {
-        $this->idExpositor = seg($idExpositor);
+    function setIdPalestrante($idExpositor) {
+        $this->idPalestrante = seg($idExpositor);
     }
 
     
@@ -36,43 +34,11 @@ class Expositor {
     }
 
     
-    function getDataPublicacao() {
-        return $this->dataPublicacao;
+    function getData() {
+        return $this->data;
     }
-    function setDataPublicacao($dataPublicacao) {
-        $this->dataPublicacao = seg($dataPublicacao);
-    }
-    
-
-    function getLink() {
-        return $this->link;
-    }
-    function setLink($link) {
-        $this->link = seg($link);
-    }
-    
-
-    function getEstande() {
-        return $this->estande;
-    }
-    function setEstande($estande) {
-        $this->estande = seg($estande);
-    }
-    
-
-    function getDataCadastro() {
-        return $this->dataCadastro;
-    }
-    function setDataCadastro($dataCadastro) {
-        $this->dataCadastro = seg($dataCadastro);
-    }
-    
-
-    function getOrdem() {
-        return $this->ordem;
-    }
-    function setOrdem($ordem) {
-        $this->ordem = seg($ordem);
+    function setData($data) {
+        $this->data = seg($data);
     }
     
 
@@ -83,7 +49,23 @@ class Expositor {
         $this->status = seg($status);
     }
 
+    
+    
+    public function getCurriculo(){
+        return $this->curriculo;
+    }
+    public function setCurriculo($curriculo){
+        $this->curriculo = seg($curriculo);
+    }
+    
+    
+    public function getCargo(){
+        return $this->cargo;
+    }
+    public function setCargo($cargo){
+        $this->cargo = seg($cargo);
+    }
 }
 
-$objExpositor = new Expositor();
+$objPalestrante = new Palestrante();
 ?>

@@ -1,14 +1,14 @@
 <?php
 
-require_once 'expositor.php';
+require_once 'palestrante.php';
 
-class ExpositoresDAO extends Banco {
+class PalestrantesDAO extends Banco {
 
-    public function listaExpositores($count) {
+    public function listaPalestrante($count) {
         $conexao = $this->abreConexao();
 
        $sql = "SELECT *
-                FROM " . TBL_EXPOSITORES . "
+                FROM " . TBL_PALESTRANTES . "
                     WHERE status != 0
                     LIMIT " . $count . "
                 ";
@@ -24,12 +24,12 @@ class ExpositoresDAO extends Banco {
         $this->fechaConexao();
     }
 
-    public function listaExpositor1($objExpositor) {
+    public function listaPalestrante1(Palestrante $objPalestrante) {
         $conexao = $this->abreConexao();
 
         $sql = "SELECT *
-                FROM " . TBL_EXPOSITORES . "
-                    WHERE idExpositor = " . $objExpositor->getIdExpositor() . "
+                FROM " . TBL_PALESTRANTES . "
+                    WHERE idExpositor = " . $objPalestrante->getIdExpositor() . "
                 ";
 
         $banco = $conexao->query($sql);
@@ -42,17 +42,17 @@ class ExpositoresDAO extends Banco {
     }
     
     
-    public function cadExpositor($objExpositor) {
+    public function cadPalestrante(Palestrante $objPalestrante) {
         $conexao = $this->abreConexao();
 
-        $sql = "INSERT INTO " . TBL_EXPOSITORES . " SET
-                nome = '".$objExpositor->getNome()."',
-                link = '".$objExpositor->getLink()."',
-                estande = '".$objExpositor->getEstande()."',
-                dataCadastro = '".$objExpositor->getDataCadastro()."',
-                dataPublicacao = '".$objExpositor->getDataPublicacao()."',
-                imagem = '".$objExpositor->getImagem()."',
-                status = ".$objExpositor->getStatus()."
+        $sql = "INSERT INTO " . TBL_PALESTRANTES . " SET
+                nome = '".$objPalestrante->getNome()."',
+                link = '".$objPalestrante->getLink()."',
+                estande = '".$objPalestrante->getEstande()."',
+                dataCadastro = '".$objPalestrante->getDataCadastro()."',
+                dataPublicacao = '".$objPalestrante->getDataPublicacao()."',
+                imagem = '".$objPalestrante->getImagem()."',
+                status = ".$objPalestrante->getStatus()."
                 ";
 
         $conexao->query($sql);
@@ -61,18 +61,18 @@ class ExpositoresDAO extends Banco {
     }
     
     
-    public function altExpositor($objExpositor) {
+    public function altPalestrante(Palestrante $objPalestrante) {
         $conexao = $this->abreConexao();
 
-        $sql = "UPDATE " . TBL_EXPOSITORES . " SET
-                nome = '".$objExpositor->getNome()."',
-                link = '".$objExpositor->getLink()."',
-                estande = '".$objExpositor->getEstande()."',
-                dataCadastro = '".$objExpositor->getDataCadastro()."',
-                dataPublicacao = '".$objExpositor->getDataPublicacao()."',
-                imagem = '".$objExpositor->getImagem()."',
-                status = ".$objExpositor->getStatus()."
-                    WHERE idExpositor = ".$objExpositor->getIdExpositor()."
+        $sql = "UPDATE " . TBL_PALESTRANTES . " SET
+                nome = '".$objPalestrante->getNome()."',
+                link = '".$objPalestrante->getLink()."',
+                estande = '".$objPalestrante->getEstande()."',
+                dataCadastro = '".$objPalestrante->getDataCadastro()."',
+                dataPublicacao = '".$objPalestrante->getDataPublicacao()."',
+                imagem = '".$objPalestrante->getImagem()."',
+                status = ".$objPalestrante->getStatus()."
+                    WHERE idExpositor = ".$objPalestrante->getIdExpositor()."
                 ";
 
         $conexao->query($sql);
@@ -81,12 +81,12 @@ class ExpositoresDAO extends Banco {
     }
     
     
-    public function delExpositor($objExpositor) {
+    public function delPalestrante(Palestrante $objPalestrante) {
         $conexao = $this->abreConexao();
 
-        $sql = "UPDATE " . TBL_EXPOSITORES . " SET
+        $sql = "UPDATE " . TBL_PALESTRANTES . " SET
                 status = 0
-                    WHERE idExpositor = ".$objExpositor->getIdExpositor()."
+                    WHERE idExpositor = ".$objPalestrante->getIdExpositor()."
                 ";
 
         $conexao->query($sql);
@@ -95,40 +95,25 @@ class ExpositoresDAO extends Banco {
     }
     
     
-    public function ordenaExpositor($listingCounter, $recordIDValue){
-        $conexao = $this->abreConexao();
-        
-        $query = "
-                    UPDATE ".TBL_BANNER."
-                    SET ordem = " . $listingCounter . "
-                    WHERE idBanner = " . $recordIDValue;
-        
-        
-        $conexao->query($query);        
-        $this->fechaConexao();
-    }
-    
-    
-    public function busca($objExpositor) {
-        $conexao = $this->abreConexao();
-
-       $sql = "SELECT *
-                FROM " . TBL_EXPOSITORES . "
-                    WHERE status != 0
-                    AND nome LIKE '%".$objExpositor->getNome()."%'
-                ";
-
-        $banco = $conexao->query($sql);
-
-        $linhas = array();
-        while ($linha = $banco->fetch_assoc()) {
-            $linhas[] = $linha;
-        }
-
-        return $linhas;
-        $this->fechaConexao();
-    }
-
+    //    public function busca(Palestrante $objPalestrante) {
+    //        $conexao = $this->abreConexao();
+    //
+    //       $sql = "SELECT *
+    //                FROM " . TBL_PALESTRANTES . "
+    //                    WHERE status != 0
+    //                    AND nome LIKE '%".$objPalestrante->getNome()."%'
+    //                ";
+    //
+    //        $banco = $conexao->query($sql);
+    //
+    //        $linhas = array();
+    //        while ($linha = $banco->fetch_assoc()) {
+    //            $linhas[] = $linha;
+    //        }
+    //
+    //        return $linhas;
+    //        $this->fechaConexao();
+    //    }
 }
 
-$objExpositorDao = new ExpositoresDAO();
+$objPalestranteDao = new PalestrantesDAO();

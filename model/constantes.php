@@ -36,3 +36,4 @@ define("TBL_CARAVANA", DB_ADMIN . TBL_ADMIN . "caravanas ");
 define("TBL_BLOG_POSTAGEM", DB_ADMIN . TBL_ADMIN . "blogpostagens ");
 define("TBL_UPLOAD", DB_ADMIN . TBL_ADMIN . "uploads ");
 define("TBL_LOG", DB_ADMIN . TBL_ADMIN . "logs ");
+define("TBL_PALESTRANTES", DB_ADMIN . TBL_ADMIN . "palestrantes ");
